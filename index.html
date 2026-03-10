@@ -34,7 +34,7 @@
       display: none;
       flex-direction: column;
       align-items: center;
-      padding: 60px 24px 80px;
+      padding: 60px 24px 100px;
     }
     #home.active { display: flex; }
 
@@ -168,7 +168,7 @@
       max-width: 720px;
       width: 100%;
       margin: 0 auto;
-      padding: 48px 24px 80px;
+      padding: 48px 24px 100px;
     }
 
     .inner-header {
@@ -211,7 +211,7 @@
 
     .phrase-row {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
       gap: 0;
       background: var(--line);
       border-radius: 2px;
@@ -220,7 +220,7 @@
     }
     .phrase-row:hover { box-shadow: 0 2px 12px rgba(196,113,74,0.10); }
 
-    .phrase-fr, .phrase-en {
+    .phrase-fr, .phrase-en, .phrase-ph {
       padding: 14px 20px;
       font-size: 0.96rem;
       line-height: 1.5;
@@ -236,6 +236,18 @@
       color: var(--muted);
       font-weight: 300;
     }
+    .phrase-ph {
+      background: #f5f0fa;
+      color: #7a5fa0;
+      font-weight: 300;
+      font-size: 0.88rem;
+      letter-spacing: 0.02em;
+    }
+    .phrase-ph::before {
+      content: '🔊 ';
+      font-size: 0.75rem;
+      opacity: 0.7;
+    }
     .phrase-note {
       grid-column: 1 / -1;
       background: var(--accent-light);
@@ -245,9 +257,58 @@
       font-weight: 400;
     }
 
-    @media (max-width: 520px) {
+    /* column headers */
+    .phrase-header {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 1px;
+      margin-bottom: 4px;
+      background: transparent;
+    }
+    .phrase-header span {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      padding: 0 20px 6px;
+    }
+
+    /* footer */
+    .site-footer {
+      position: fixed;
+      bottom: 0; left: 0; right: 0;
+      background: var(--warm-white);
+      border-top: 1px solid var(--line);
+      padding: 12px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      z-index: 100;
+    }
+    .site-footer span {
+      font-size: 0.78rem;
+      color: var(--muted);
+      font-weight: 300;
+    }
+    .site-footer a {
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--accent);
+      text-decoration: none;
+      letter-spacing: 0.06em;
+      border-bottom: 1px solid var(--accent-light);
+      transition: border-color 0.15s;
+    }
+    .site-footer a:hover { border-color: var(--accent); }
+
+    @media (max-width: 620px) {
       .phrase-row { grid-template-columns: 1fr; }
+      .phrase-header { grid-template-columns: 1fr; }
+      .phrase-header span:not(:first-child) { display: none; }
       .phrase-note { grid-column: 1; }
+      .phrase-ph::before { content: '🔊 Sounds like: '; font-size: 0.8rem; opacity: 1; font-style: normal; }
     }
 
     /* fade-in */
@@ -291,8 +352,47 @@
   <div class="inner-body" id="inner-body"></div>
 </section>
 
+<footer class="site-footer">
+  <span>Need to look something up or hear how it sounds?</span>
+  <a href="https://translate.google.com/?sl=en&tl=fr&op=translate" target="_blank" rel="noopener">Open Google Translate ↗</a>
+</footer>
+
 <script>
 const topics = [
+  {
+    id: "common",
+    icon: "✨",
+    title: "Common Phrases",
+    sub: "The essentials",
+    desc: "The phrases that pop up in almost every conversation — start here if you're not sure where to begin.",
+    sections: [
+      {
+        label: "Everyday essentials",
+        phrases: [
+          { fr: "Oui.", en: "Yes.", ph: "WEE" },
+          { fr: "Non.", en: "No.", ph: "NOHN" },
+          { fr: "Peut-être.", en: "Maybe.", ph: "puh-TET-ruh" },
+          { fr: "Merci !", en: "Thank you!", ph: "mair-SEE" },
+          { fr: "Merci beaucoup !", en: "Thank you very much!", ph: "mair-see boh-KOO" },
+          { fr: "De rien.", en: "You're welcome.", ph: "duh ree-AN" },
+          { fr: "S'il te plaît.", en: "Please. (casual)", ph: "seel tuh PLEH" },
+          { fr: "Pardon / Excuse-moi.", en: "Sorry / Excuse me.", ph: "par-DOHN / ex-KOOZ mwah" },
+          { fr: "Ce n'est pas grave.", en: "It's no big deal / Don't worry.", ph: "suh neh pah GRAHV" },
+        ]
+      },
+      {
+        label: "When you're learning",
+        phrases: [
+          { fr: "Je ne comprends pas.", en: "I don't understand.", ph: "zhuh nuh kom-PRAHN pah" },
+          { fr: "Tu peux répéter ?", en: "Can you repeat that?", ph: "too puh ray-pay-TAY" },
+          { fr: "Tu peux parler plus lentement ?", en: "Can you speak more slowly?", ph: "too puh par-LAY ploo lahnt-MAHN" },
+          { fr: "Comment dit-on... en français ?", en: "How do you say... in French?", ph: "koh-MAHN dee-tohn... ahn frahn-SAY" },
+          { fr: "J'apprends le français.", en: "I'm learning French.", ph: "zhah-PRAHN luh frahn-SAY" },
+          { fr: "Mon français n'est pas parfait !", en: "My French isn't perfect!", ph: "mohn frahn-SAY neh pah par-FEH", note: "But it's getting better every day 💪" },
+        ]
+      }
+    ]
+  },
   {
     id: "greetings",
     icon: "👋",
@@ -303,24 +403,24 @@ const topics = [
       {
         label: "Saying hello",
         phrases: [
-          { fr: "Bonjour !", en: "Hello! / Good morning!" },
-          { fr: "Bonsoir !", en: "Good evening!" },
-          { fr: "Salut !", en: "Hi! (casual)", note: "Use with friends, not strangers" },
-          { fr: "Coucou !", en: "Hey there! (very casual)", note: "Sweet & playful — perfect between partners 💛" },
-          { fr: "Ça va ?", en: "How are you? / You okay?" },
-          { fr: "Ça va bien, merci !", en: "I'm doing well, thanks!" },
-          { fr: "Et toi ?", en: "And you?" },
+          { fr: "Bonjour !", en: "Hello! / Good morning!", ph: "bon-ZHOOR" },
+          { fr: "Bonsoir !", en: "Good evening!", ph: "bon-SWAHR" },
+          { fr: "Salut !", en: "Hi! (casual)", ph: "sah-LUE", note: "Use with friends, not strangers" },
+          { fr: "Coucou !", en: "Hey there! (very casual)", ph: "koo-KOO", note: "Sweet & playful — perfect between partners 💛" },
+          { fr: "Ça va ?", en: "How are you? / You okay?", ph: "sah VAH" },
+          { fr: "Ça va bien, merci !", en: "I'm doing well, thanks!", ph: "sah vah bee-AN, mair-SEE" },
+          { fr: "Et toi ?", en: "And you?", ph: "ay TWAH" },
         ]
       },
       {
         label: "Saying goodbye",
         phrases: [
-          { fr: "Au revoir !", en: "Goodbye!" },
-          { fr: "À bientôt !", en: "See you soon!" },
-          { fr: "À tout à l'heure !", en: "See you later (today)!" },
-          { fr: "À demain !", en: "See you tomorrow!" },
-          { fr: "Bonne nuit !", en: "Good night!" },
-          { fr: "Bisous !", en: "Kisses! (very affectionate)", note: "Great for texts and goodbyes with loved ones 💋" },
+          { fr: "Au revoir !", en: "Goodbye!", ph: "oh ruh-VWAHR" },
+          { fr: "À bientôt !", en: "See you soon!", ph: "ah bee-an-TOH" },
+          { fr: "À tout à l'heure !", en: "See you later (today)!", ph: "ah toot ah LUHR" },
+          { fr: "À demain !", en: "See you tomorrow!", ph: "ah duh-MAN" },
+          { fr: "Bonne nuit !", en: "Good night!", ph: "bun NWEE" },
+          { fr: "Bisous !", en: "Kisses! (very affectionate)", ph: "bee-ZOO", note: "Great for texts and goodbyes with loved ones 💋" },
         ]
       }
     ]
@@ -335,25 +435,25 @@ const topics = [
       {
         label: "Sharing your day",
         phrases: [
-          { fr: "J'ai eu une bonne journée.", en: "I had a good day." },
-          { fr: "J'ai eu une journée difficile.", en: "I had a hard day." },
-          { fr: "Je suis fatigué(e).", en: "I'm tired.", note: "Add an 'e' if you're feminine" },
-          { fr: "J'ai beaucoup travaillé aujourd'hui.", en: "I worked a lot today." },
-          { fr: "C'était bien !", en: "It was good!" },
-          { fr: "C'était nul.", en: "It was bad / rubbish." },
-          { fr: "C'était stressant.", en: "It was stressful." },
-          { fr: "Je suis content(e) d'être à la maison.", en: "I'm glad to be home." },
+          { fr: "J'ai eu une bonne journée.", en: "I had a good day.", ph: "zhay oo oon bun zhoor-NAY" },
+          { fr: "J'ai eu une journée difficile.", en: "I had a hard day.", ph: "zhay oo oon zhoor-nay dee-fee-SEEL" },
+          { fr: "Je suis fatigué(e).", en: "I'm tired.", ph: "zhuh swee fah-tee-GAY", note: "Add an 'e' if you're feminine" },
+          { fr: "J'ai beaucoup travaillé aujourd'hui.", en: "I worked a lot today.", ph: "zhay boh-KOO trav-eye-YAY oh-zhoor-DWEE" },
+          { fr: "C'était bien !", en: "It was good!", ph: "say-TAY bee-AN" },
+          { fr: "C'était nul.", en: "It was bad / rubbish.", ph: "say-TAY nool" },
+          { fr: "C'était stressant.", en: "It was stressful.", ph: "say-TAY stres-AHN" },
+          { fr: "Je suis content(e) d'être à la maison.", en: "I'm glad to be home.", ph: "zhuh swee kon-TAHN deh-truh ah lah may-ZOHN" },
         ]
       },
       {
         label: "Asking about their day",
         phrases: [
-          { fr: "Comment s'est passée ta journée ?", en: "How was your day?" },
-          { fr: "Tu as passé une bonne journée ?", en: "Did you have a good day?" },
-          { fr: "Qu'est-ce que tu as fait aujourd'hui ?", en: "What did you do today?" },
-          { fr: "Vraiment ? Raconte-moi.", en: "Really? Tell me more.", note: "Shows you're genuinely interested 🙂" },
-          { fr: "C'est bien !", en: "That's great!" },
-          { fr: "Oh non, je suis désolé(e).", en: "Oh no, I'm sorry." },
+          { fr: "Comment s'est passée ta journée ?", en: "How was your day?", ph: "koh-MAHN say pah-SAY tah zhoor-NAY" },
+          { fr: "Tu as passé une bonne journée ?", en: "Did you have a good day?", ph: "too ah pah-SAY oon bun zhoor-NAY" },
+          { fr: "Qu'est-ce que tu as fait aujourd'hui ?", en: "What did you do today?", ph: "kess-kuh too ah fay oh-zhoor-DWEE" },
+          { fr: "Vraiment ? Raconte-moi.", en: "Really? Tell me more.", ph: "vray-MAHN? rah-KOHNT mwah", note: "Shows you're genuinely interested 🙂" },
+          { fr: "C'est bien !", en: "That's great!", ph: "say bee-AN" },
+          { fr: "Oh non, je suis désolé(e).", en: "Oh no, I'm sorry.", ph: "oh nohn, zhuh swee day-zoh-LAY" },
         ]
       }
     ]
@@ -368,25 +468,25 @@ const topics = [
       {
         label: "Expressing opinions",
         phrases: [
-          { fr: "C'est délicieux !", en: "It's delicious!" },
-          { fr: "C'est très bon !", en: "It's very good!" },
-          { fr: "J'adore ça.", en: "I love this." },
-          { fr: "C'est pas terrible.", en: "It's not great." },
-          { fr: "J'ai faim.", en: "I'm hungry." },
-          { fr: "J'ai soif.", en: "I'm thirsty." },
-          { fr: "Je suis rassasié(e).", en: "I'm full." },
+          { fr: "C'est délicieux !", en: "It's delicious!", ph: "say day-lee-SYUH" },
+          { fr: "C'est très bon !", en: "It's very good!", ph: "say treh BON" },
+          { fr: "J'adore ça.", en: "I love this.", ph: "zhah-DOR sah" },
+          { fr: "C'est pas terrible.", en: "It's not great.", ph: "say pah teh-REEBL" },
+          { fr: "J'ai faim.", en: "I'm hungry.", ph: "zhay FAN" },
+          { fr: "J'ai soif.", en: "I'm thirsty.", ph: "zhay SWAHF" },
+          { fr: "Je suis rassasié(e).", en: "I'm full.", ph: "zhuh swee rah-sah-ZYAY" },
         ]
       },
       {
         label: "At the table",
         phrases: [
-          { fr: "Tu veux manger quoi ce soir ?", en: "What do you want to eat tonight?" },
-          { fr: "On commande une pizza ?", en: "Shall we order a pizza?" },
-          { fr: "Je vais cuisiner.", en: "I'm going to cook." },
-          { fr: "C'est prêt !", en: "It's ready!" },
-          { fr: "Bon appétit !", en: "Enjoy your meal!" },
-          { fr: "Tu veux encore ?", en: "Do you want more?" },
-          { fr: "Oui, s'il te plaît !", en: "Yes, please!", note: "'s'il te plaît' = please (casual/informal)" },
+          { fr: "Tu veux manger quoi ce soir ?", en: "What do you want to eat tonight?", ph: "too vuh mahn-ZHAY kwah suh swahr" },
+          { fr: "On commande une pizza ?", en: "Shall we order a pizza?", ph: "ohn koh-MAHND oon PEET-zah" },
+          { fr: "Je vais cuisiner.", en: "I'm going to cook.", ph: "zhuh vay kwee-zee-NAY" },
+          { fr: "C'est prêt !", en: "It's ready!", ph: "say PREH" },
+          { fr: "Bon appétit !", en: "Enjoy your meal!", ph: "bon ah-pay-TEE" },
+          { fr: "Tu veux encore ?", en: "Do you want more?", ph: "too vuh ahn-KOR" },
+          { fr: "Oui, s'il te plaît !", en: "Yes, please!", ph: "wee, seel tuh PLEH", note: "'s'il te plaît' = please (casual/informal)" },
         ]
       }
     ]
@@ -401,24 +501,24 @@ const topics = [
       {
         label: "Compliments",
         phrases: [
-          { fr: "Tu es belle / beau.", en: "You are beautiful / handsome." },
-          { fr: "Tu es magnifique.", en: "You are gorgeous." },
-          { fr: "Tu as de beaux yeux.", en: "You have beautiful eyes." },
-          { fr: "Tu me rends heureux / heureuse.", en: "You make me happy." },
-          { fr: "Tu sens bon.", en: "You smell nice." },
-          { fr: "Tu as l'air d'une star.", en: "You look like a star.", note: "A fun, playful compliment 😄" },
+          { fr: "Tu es belle / beau.", en: "You are beautiful / handsome.", ph: "too ay BEL / BOH" },
+          { fr: "Tu es magnifique.", en: "You are gorgeous.", ph: "too ay mah-nyee-FEEK" },
+          { fr: "Tu as de beaux yeux.", en: "You have beautiful eyes.", ph: "too ah duh boh ZYUH" },
+          { fr: "Tu me rends heureux / heureuse.", en: "You make me happy.", ph: "too muh rahn uh-RUH / uh-RUHZ" },
+          { fr: "Tu sens bon.", en: "You smell nice.", ph: "too sahn BON" },
+          { fr: "Tu as l'air d'une star.", en: "You look like a star.", ph: "too ah lair doon STAR", note: "A fun, playful compliment 😄" },
         ]
       },
       {
         label: "Affection",
         phrases: [
-          { fr: "Je t'aime.", en: "I love you.", note: "The big one — means deep love" },
-          { fr: "Je t'adore.", en: "I adore you.", note: "Slightly lighter than 'je t'aime'" },
-          { fr: "Tu me manques.", en: "I miss you.", note: "Literally: 'you are missing from me' — très romantique" },
-          { fr: "Je pense à toi.", en: "I'm thinking of you." },
-          { fr: "Tu es mon chéri / ma chérie.", en: "You are my darling.", note: "Chéri (m) / Chérie (f)" },
-          { fr: "Fais-moi un câlin.", en: "Give me a hug." },
-          { fr: "Je suis fou / folle de toi.", en: "I'm crazy about you." },
+          { fr: "Je t'aime.", en: "I love you.", ph: "zhuh TEM", note: "The big one — means deep love" },
+          { fr: "Je t'adore.", en: "I adore you.", ph: "zhuh tah-DOR", note: "Slightly lighter than 'je t'aime'" },
+          { fr: "Tu me manques.", en: "I miss you.", ph: "too muh MAHNK", note: "Literally: 'you are missing from me' — très romantique" },
+          { fr: "Je pense à toi.", en: "I'm thinking of you.", ph: "zhuh pahns ah TWAH" },
+          { fr: "Tu es mon chéri / ma chérie.", en: "You are my darling.", ph: "too ay mon shay-REE / mah shay-REE", note: "Chéri (m) / Chérie (f)" },
+          { fr: "Fais-moi un câlin.", en: "Give me a hug.", ph: "feh mwah un kah-LAN" },
+          { fr: "Je suis fou / folle de toi.", en: "I'm crazy about you.", ph: "zhuh swee FOO / FOL duh twah" },
         ]
       }
     ]
@@ -433,23 +533,23 @@ const topics = [
       {
         label: "Daily tasks",
         phrases: [
-          { fr: "Je fais la vaisselle.", en: "I'm doing the dishes." },
-          { fr: "Tu peux faire le ménage ?", en: "Can you do the cleaning?" },
-          { fr: "J'ai fait la lessive.", en: "I did the laundry." },
-          { fr: "C'est le bazar ici !", en: "It's a mess in here!" },
-          { fr: "Je range la maison.", en: "I'm tidying the house." },
-          { fr: "On fait les courses ?", en: "Shall we do the shopping?" },
+          { fr: "Je fais la vaisselle.", en: "I'm doing the dishes.", ph: "zhuh feh lah veh-SEL" },
+          { fr: "Tu peux faire le ménage ?", en: "Can you do the cleaning?", ph: "too puh fair luh may-NAZH" },
+          { fr: "J'ai fait la lessive.", en: "I did the laundry.", ph: "zhay feh lah leh-SEEV" },
+          { fr: "C'est le bazar ici !", en: "It's a mess in here!", ph: "say luh bah-ZAR ee-SEE" },
+          { fr: "Je range la maison.", en: "I'm tidying the house.", ph: "zhuh rahnzh lah may-ZOHN" },
+          { fr: "On fait les courses ?", en: "Shall we do the shopping?", ph: "ohn feh lay KOORS" },
         ]
       },
       {
         label: "Relaxing",
         phrases: [
-          { fr: "Je regarde la télé.", en: "I'm watching TV." },
-          { fr: "On regarde un film ce soir ?", en: "Shall we watch a film tonight?" },
-          { fr: "Je lis un livre.", en: "I'm reading a book." },
-          { fr: "J'ai besoin de me reposer.", en: "I need to rest." },
-          { fr: "Viens t'asseoir avec moi.", en: "Come sit with me." },
-          { fr: "On va au lit ?", en: "Shall we go to bed?" },
+          { fr: "Je regarde la télé.", en: "I'm watching TV.", ph: "zhuh ruh-GARD lah tay-LAY" },
+          { fr: "On regarde un film ce soir ?", en: "Shall we watch a film tonight?", ph: "ohn ruh-GARD un FEELM suh swahr" },
+          { fr: "Je lis un livre.", en: "I'm reading a book.", ph: "zhuh lee un LEEVR" },
+          { fr: "J'ai besoin de me reposer.", en: "I need to rest.", ph: "zhay buh-ZWAN duh muh ruh-poh-ZAY" },
+          { fr: "Viens t'asseoir avec moi.", en: "Come sit with me.", ph: "vyan tah-SWAHR ah-vek MWAH" },
+          { fr: "On va au lit ?", en: "Shall we go to bed?", ph: "ohn vah oh LEE" },
         ]
       }
     ]
@@ -464,57 +564,23 @@ const topics = [
       {
         label: "Positive feelings",
         phrases: [
-          { fr: "Je suis heureux / heureuse.", en: "I am happy.", note: "Heureux (m) / Heureuse (f)" },
-          { fr: "Je suis excité(e) !", en: "I'm excited!" },
-          { fr: "Je me sens bien.", en: "I feel good." },
-          { fr: "Je suis reconnaissant(e).", en: "I am grateful." },
-          { fr: "Ça me fait sourire.", en: "It makes me smile." },
+          { fr: "Je suis heureux / heureuse.", en: "I am happy.", ph: "zhuh swee uh-RUH / uh-RUHZ", note: "Heureux (m) / Heureuse (f)" },
+          { fr: "Je suis excité(e) !", en: "I'm excited!", ph: "zhuh swee ex-see-TAY" },
+          { fr: "Je me sens bien.", en: "I feel good.", ph: "zhuh muh sahn bee-AN" },
+          { fr: "Je suis reconnaissant(e).", en: "I am grateful.", ph: "zhuh swee ruh-koh-neh-SAHN" },
+          { fr: "Ça me fait sourire.", en: "It makes me smile.", ph: "sah muh feh soo-REER" },
         ]
       },
       {
         label: "Harder feelings",
         phrases: [
-          { fr: "Je suis triste.", en: "I am sad." },
-          { fr: "Je me sens seul(e).", en: "I feel lonely." },
-          { fr: "Je suis stressé(e).", en: "I'm stressed." },
-          { fr: "Je suis inquiet / inquiète.", en: "I'm worried." },
-          { fr: "J'ai besoin de toi.", en: "I need you." },
-          { fr: "Je ne sais pas quoi dire.", en: "I don't know what to say." },
-          { fr: "Ça va aller.", en: "It'll be okay.", note: "A gentle, reassuring phrase 🤍" },
-        ]
-      }
-    ]
-  },
-  {
-    id: "common",
-    icon: "✨",
-    title: "Common Phrases",
-    sub: "The essentials",
-    desc: "The phrases that pop up in almost every conversation — start here if you're not sure where to begin.",
-    sections: [
-      {
-        label: "Everyday essentials",
-        phrases: [
-          { fr: "Oui.", en: "Yes." },
-          { fr: "Non.", en: "No." },
-          { fr: "Peut-être.", en: "Maybe." },
-          { fr: "Merci !", en: "Thank you!" },
-          { fr: "Merci beaucoup !", en: "Thank you very much!" },
-          { fr: "De rien.", en: "You're welcome." },
-          { fr: "S'il te plaît.", en: "Please. (casual)" },
-          { fr: "Pardon / Excuse-moi.", en: "Sorry / Excuse me." },
-          { fr: "Ce n'est pas grave.", en: "It's no big deal / Don't worry." },
-        ]
-      },
-      {
-        label: "When you're learning",
-        phrases: [
-          { fr: "Je ne comprends pas.", en: "I don't understand." },
-          { fr: "Tu peux répéter ?", en: "Can you repeat that?" },
-          { fr: "Tu peux parler plus lentement ?", en: "Can you speak more slowly?" },
-          { fr: "Comment dit-on... en français ?", en: "How do you say... in French?" },
-          { fr: "J'apprends le français.", en: "I'm learning French." },
-          { fr: "Mon français n'est pas parfait !", en: "My French isn't perfect!", note: "But it's getting better every day 💪" },
+          { fr: "Je suis triste.", en: "I am sad.", ph: "zhuh swee TREEST" },
+          { fr: "Je me sens seul(e).", en: "I feel lonely.", ph: "zhuh muh sahn SUL" },
+          { fr: "Je suis stressé(e).", en: "I'm stressed.", ph: "zhuh swee streh-SAY" },
+          { fr: "Je suis inquiet / inquiète.", en: "I'm worried.", ph: "zhuh swee an-KYAY / an-KYET" },
+          { fr: "J'ai besoin de toi.", en: "I need you.", ph: "zhay buh-ZWAN duh TWAH" },
+          { fr: "Je ne sais pas quoi dire.", en: "I don't know what to say.", ph: "zhuh nuh say pah kwah DEER" },
+          { fr: "Ça va aller.", en: "It'll be okay.", ph: "sah vah ah-LAY", note: "A gentle, reassuring phrase 🤍" },
         ]
       }
     ]
@@ -529,23 +595,23 @@ const topics = [
       {
         label: "Suggestions",
         phrases: [
-          { fr: "On fait quoi aujourd'hui ?", en: "What shall we do today?" },
-          { fr: "On sort ce soir ?", en: "Shall we go out tonight?" },
-          { fr: "Tu veux aller au restaurant ?", en: "Do you want to go to a restaurant?" },
-          { fr: "On va se promener ?", en: "Shall we go for a walk?" },
-          { fr: "Bonne idée !", en: "Good idea!" },
-          { fr: "Je préfère rester à la maison.", en: "I prefer to stay home." },
+          { fr: "On fait quoi aujourd'hui ?", en: "What shall we do today?", ph: "ohn feh kwah oh-zhoor-DWEE" },
+          { fr: "On sort ce soir ?", en: "Shall we go out tonight?", ph: "ohn sor suh SWAHR" },
+          { fr: "Tu veux aller au restaurant ?", en: "Do you want to go to a restaurant?", ph: "too vuh ah-LAY oh res-toh-RAHN" },
+          { fr: "On va se promener ?", en: "Shall we go for a walk?", ph: "ohn vah suh prohm-NAY" },
+          { fr: "Bonne idée !", en: "Good idea!", ph: "bun ee-DAY" },
+          { fr: "Je préfère rester à la maison.", en: "I prefer to stay home.", ph: "zhuh pray-FAIR res-TAY ah lah may-ZOHN" },
         ]
       },
       {
         label: "Timing",
         phrases: [
-          { fr: "Maintenant ?", en: "Now?" },
-          { fr: "Plus tard.", en: "Later." },
-          { fr: "Ce soir.", en: "This evening." },
-          { fr: "Ce week-end.", en: "This weekend." },
-          { fr: "Quand tu veux.", en: "Whenever you like." },
-          { fr: "Je suis prêt(e) !", en: "I'm ready!" },
+          { fr: "Maintenant ?", en: "Now?", ph: "mant-NAHN" },
+          { fr: "Plus tard.", en: "Later.", ph: "ploo TAR" },
+          { fr: "Ce soir.", en: "This evening.", ph: "suh SWAHR" },
+          { fr: "Ce week-end.", en: "This weekend.", ph: "suh wee-KEND" },
+          { fr: "Quand tu veux.", en: "Whenever you like.", ph: "kahn too VUH" },
+          { fr: "Je suis prêt(e) !", en: "I'm ready!", ph: "zhuh swee PREH" },
         ]
       }
     ]
@@ -560,24 +626,24 @@ const topics = [
       {
         label: "Describing the weather",
         phrases: [
-          { fr: "Il fait beau aujourd'hui !", en: "The weather is nice today!" },
-          { fr: "Il fait chaud.", en: "It's hot." },
-          { fr: "Il fait froid.", en: "It's cold." },
-          { fr: "Il pleut.", en: "It's raining." },
-          { fr: "Il neige !", en: "It's snowing!" },
-          { fr: "Il y a du soleil.", en: "It's sunny." },
-          { fr: "Il y a des nuages.", en: "It's cloudy." },
-          { fr: "C'est venteux.", en: "It's windy." },
+          { fr: "Il fait beau aujourd'hui !", en: "The weather is nice today!", ph: "eel feh BOH oh-zhoor-DWEE" },
+          { fr: "Il fait chaud.", en: "It's hot.", ph: "eel feh SHOH" },
+          { fr: "Il fait froid.", en: "It's cold.", ph: "eel feh FWAH" },
+          { fr: "Il pleut.", en: "It's raining.", ph: "eel PLUH" },
+          { fr: "Il neige !", en: "It's snowing!", ph: "eel NEZH" },
+          { fr: "Il y a du soleil.", en: "It's sunny.", ph: "eel ee ah doo soh-LAY" },
+          { fr: "Il y a des nuages.", en: "It's cloudy.", ph: "eel ee ah day noo-AZH" },
+          { fr: "C'est venteux.", en: "It's windy.", ph: "say vahn-TUH" },
         ]
       },
       {
         label: "Reactions",
         phrases: [
-          { fr: "Quel beau temps !", en: "What lovely weather!" },
-          { fr: "Quel temps horrible !", en: "What horrible weather!" },
-          { fr: "J'adore la pluie.", en: "I love the rain." },
-          { fr: "Je déteste le froid.", en: "I hate the cold." },
-          { fr: "Prends ton manteau !", en: "Take your coat!" },
+          { fr: "Quel beau temps !", en: "What lovely weather!", ph: "kel boh TAHN" },
+          { fr: "Quel temps horrible !", en: "What horrible weather!", ph: "kel tahn oh-REEBL" },
+          { fr: "J'adore la pluie.", en: "I love the rain.", ph: "zhah-DOR lah PLWEE" },
+          { fr: "Je déteste le froid.", en: "I hate the cold.", ph: "zhuh day-TEST luh FWAH" },
+          { fr: "Prends ton manteau !", en: "Take your coat!", ph: "prahn tohn mahn-TOH" },
         ]
       }
     ]
@@ -592,21 +658,21 @@ const topics = [
       {
         label: "Appearance & style",
         phrases: [
-          { fr: "J'aime ta tenue !", en: "I love your outfit!" },
-          { fr: "Cette couleur te va très bien.", en: "That colour suits you very well." },
-          { fr: "Tu as une belle coiffure.", en: "You have a nice hairstyle." },
-          { fr: "Tu es élégant(e).", en: "You look elegant." },
+          { fr: "J'aime ta tenue !", en: "I love your outfit!", ph: "zhem tah tuh-NOO" },
+          { fr: "Cette couleur te va très bien.", en: "That colour suits you very well.", ph: "set koo-LUHR tuh vah treh bee-AN" },
+          { fr: "Tu as une belle coiffure.", en: "You have a nice hairstyle.", ph: "too ah oon bel kwah-FYOOR" },
+          { fr: "Tu es élégant(e).", en: "You look elegant.", ph: "too ay ay-lay-GAHN" },
         ]
       },
       {
         label: "Character & skills",
         phrases: [
-          { fr: "Tu es très intelligent(e).", en: "You are very intelligent." },
-          { fr: "Tu es si drôle !", en: "You are so funny!" },
-          { fr: "Tu es courageux / courageuse.", en: "You are brave." },
-          { fr: "Tu fais ça très bien !", en: "You do that very well!" },
-          { fr: "Je suis fier / fière de toi.", en: "I'm proud of you.", note: "Fier (m) / Fière (f) — a beautiful thing to say 🤍" },
-          { fr: "Tu progresses vraiment bien !", en: "You're really making progress!", note: "This one's for you 💪🇫🇷" },
+          { fr: "Tu es très intelligent(e).", en: "You are very intelligent.", ph: "too ay treh an-tel-ee-ZHAHN" },
+          { fr: "Tu es si drôle !", en: "You are so funny!", ph: "too ay see DROHL" },
+          { fr: "Tu es courageux / courageuse.", en: "You are brave.", ph: "too ay koo-rah-ZHUH / koo-rah-ZHOOZ" },
+          { fr: "Tu fais ça très bien !", en: "You do that very well!", ph: "too feh sah treh bee-AN" },
+          { fr: "Je suis fier / fière de toi.", en: "I'm proud of you.", ph: "zhuh swee fee-YAY / fee-YAIR duh twah", note: "Fier (m) / Fière (f) — a beautiful thing to say 🤍" },
+          { fr: "Tu progresses vraiment bien !", en: "You're really making progress!", ph: "too proh-GRESS vray-MAHN bee-AN", note: "This one's for you 💪🇫🇷" },
         ]
       }
     ]
@@ -640,12 +706,20 @@ function openTopic(topic) {
 
   topic.sections.forEach(section => {
     html += `<div class="section-label">${section.label}</div>`;
+    html += `
+      <div class="phrase-header">
+        <span>French</span>
+        <span>English</span>
+        <span>Sounds like</span>
+      </div>
+    `;
     html += `<div class="phrase-list">`;
     section.phrases.forEach(p => {
       html += `
         <div class="phrase-row">
           <div class="phrase-fr">${p.fr}</div>
           <div class="phrase-en">${p.en}</div>
+          <div class="phrase-ph">${p.ph}</div>
           ${p.note ? `<div class="phrase-note">💡 ${p.note}</div>` : ''}
         </div>
       `;
