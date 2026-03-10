@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mon Petit Français</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --cream: #faf7f2;
+      --warm-white: #fff9f2;
+      --ink: #1a1612;
+      --muted: #8a7f74;
+      --accent: #c4714a;
+      --accent-light: #f0ddd3;
+      --line: #e8e0d5;
+    }
+
+    body {
+      font-family: 'Lato', sans-serif;
+      background: var(--cream);
+      color: var(--ink);
+      min-height: 100vh;
+    }
+
+    /* ── PAGES ── */
+    .page { display: none; min-height: 100vh; }
+    .page.active { display: block; }
+
+    /* ── HOME ── */
+    #home {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      padding: 60px 24px 80px;
+    }
+    #home.active { display: flex; }
+
+    .home-header {
+      text-align: center;
+      margin-bottom: 56px;
+    }
+    .home-header .eyebrow {
+      font-family: 'Lato', sans-serif;
+      font-weight: 300;
+      font-size: 0.78rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 14px;
+    }
+    .home-header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.4rem, 6vw, 3.8rem);
+      font-weight: 400;
+      line-height: 1.15;
+      color: var(--ink);
+      margin-bottom: 16px;
+    }
+    .home-header h1 em {
+      font-style: italic;
+      color: var(--accent);
+    }
+    .home-header p {
+      font-size: 1rem;
+      color: var(--muted);
+      font-weight: 300;
+      max-width: 380px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+
+    .divider {
+      width: 48px;
+      height: 1px;
+      background: var(--accent);
+      margin: 0 auto 48px;
+      opacity: 0.5;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 16px;
+      width: 100%;
+      max-width: 860px;
+    }
+
+    .card {
+      background: var(--warm-white);
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      padding: 28px 24px;
+      cursor: pointer;
+      transition: all 0.22s ease;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .card::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 2px;
+      background: var(--accent);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.22s ease;
+    }
+    .card:hover {
+      border-color: var(--accent-light);
+      box-shadow: 0 4px 24px rgba(196,113,74,0.10);
+      transform: translateY(-2px);
+    }
+    .card:hover::after { transform: scaleX(1); }
+
+    .card-icon { font-size: 1.8rem; margin-bottom: 12px; display: block; }
+    .card-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 6px;
+    }
+    .card-sub {
+      font-size: 0.78rem;
+      color: var(--muted);
+      font-weight: 300;
+      letter-spacing: 0.04em;
+    }
+
+    /* ── INNER PAGE ── */
+    #inner {
+      display: none;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    #inner.active { display: flex; }
+
+    .inner-nav {
+      padding: 24px 32px;
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid var(--line);
+      background: var(--warm-white);
+    }
+    .back-btn {
+      font-family: 'Lato', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: none;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: gap 0.15s;
+    }
+    .back-btn:hover { gap: 12px; }
+    .back-btn::before { content: '←'; font-size: 1rem; }
+
+    .inner-body {
+      max-width: 720px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 48px 24px 80px;
+    }
+
+    .inner-header {
+      margin-bottom: 40px;
+    }
+    .inner-header .eyebrow {
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 10px;
+      font-weight: 300;
+    }
+    .inner-header h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      font-weight: 400;
+      line-height: 1.2;
+    }
+    .inner-header h2 em { font-style: italic; color: var(--accent); }
+    .inner-header p {
+      margin-top: 12px;
+      font-size: 0.95rem;
+      color: var(--muted);
+      font-weight: 300;
+      line-height: 1.7;
+    }
+
+    .section-label {
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 16px;
+      margin-top: 40px;
+      font-weight: 700;
+    }
+
+    .phrase-list { display: flex; flex-direction: column; gap: 1px; }
+
+    .phrase-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      background: var(--line);
+      border-radius: 2px;
+      overflow: hidden;
+      transition: box-shadow 0.15s;
+    }
+    .phrase-row:hover { box-shadow: 0 2px 12px rgba(196,113,74,0.10); }
+
+    .phrase-fr, .phrase-en {
+      padding: 14px 20px;
+      font-size: 0.96rem;
+      line-height: 1.5;
+    }
+    .phrase-fr {
+      background: var(--warm-white);
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      color: var(--ink);
+    }
+    .phrase-en {
+      background: var(--cream);
+      color: var(--muted);
+      font-weight: 300;
+    }
+    .phrase-note {
+      grid-column: 1 / -1;
+      background: var(--accent-light);
+      padding: 8px 20px;
+      font-size: 0.8rem;
+      color: var(--accent);
+      font-weight: 400;
+    }
+
+    @media (max-width: 520px) {
+      .phrase-row { grid-template-columns: 1fr; }
+      .phrase-note { grid-column: 1; }
+    }
+
+    /* fade-in */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .card { animation: fadeUp 0.4s ease both; }
+    .card:nth-child(1)  { animation-delay: 0.05s }
+    .card:nth-child(2)  { animation-delay: 0.10s }
+    .card:nth-child(3)  { animation-delay: 0.15s }
+    .card:nth-child(4)  { animation-delay: 0.20s }
+    .card:nth-child(5)  { animation-delay: 0.25s }
+    .card:nth-child(6)  { animation-delay: 0.30s }
+    .card:nth-child(7)  { animation-delay: 0.35s }
+    .card:nth-child(8)  { animation-delay: 0.40s }
+    .card:nth-child(9)  { animation-delay: 0.45s }
+    .card:nth-child(10) { animation-delay: 0.50s }
+
+    .inner-body { animation: fadeUp 0.35s ease both; }
+  </style>
+</head>
+<body>
+
+<!-- HOME PAGE -->
+<section id="home" class="page active">
+  <div class="home-header">
+    <div class="eyebrow">Pour toi ♡</div>
+    <h1>Mon Petit<br/><em>Français</em></h1>
+    <p>Choose a topic below to explore simple phrases and build your confidence one conversation at a time.</p>
+  </div>
+  <div class="divider"></div>
+  <div class="grid" id="card-grid"></div>
+</section>
+
+<!-- INNER PAGE -->
+<section id="inner" class="page">
+  <nav class="inner-nav">
+    <button class="back-btn" onclick="goHome()">All topics</button>
+  </nav>
+  <div class="inner-body" id="inner-body"></div>
+</section>
+
+<script>
+const topics = [
+  {
+    id: "greetings",
+    icon: "👋",
+    title: "Greetings",
+    sub: "Say hello & goodbye",
+    desc: "The building blocks of any conversation — how to greet someone warmly and leave gracefully.",
+    sections: [
+      {
+        label: "Saying hello",
+        phrases: [
+          { fr: "Bonjour !", en: "Hello! / Good morning!" },
+          { fr: "Bonsoir !", en: "Good evening!" },
+          { fr: "Salut !", en: "Hi! (casual)", note: "Use with friends, not strangers" },
+          { fr: "Coucou !", en: "Hey there! (very casual)", note: "Sweet & playful — perfect between partners 💛" },
+          { fr: "Ça va ?", en: "How are you? / You okay?" },
+          { fr: "Ça va bien, merci !", en: "I'm doing well, thanks!" },
+          { fr: "Et toi ?", en: "And you?" },
+        ]
+      },
+      {
+        label: "Saying goodbye",
+        phrases: [
+          { fr: "Au revoir !", en: "Goodbye!" },
+          { fr: "À bientôt !", en: "See you soon!" },
+          { fr: "À tout à l'heure !", en: "See you later (today)!" },
+          { fr: "À demain !", en: "See you tomorrow!" },
+          { fr: "Bonne nuit !", en: "Good night!" },
+          { fr: "Bisous !", en: "Kisses! (very affectionate)", note: "Great for texts and goodbyes with loved ones 💋" },
+        ]
+      }
+    ]
+  },
+  {
+    id: "day",
+    icon: "☀️",
+    title: "Talk About Your Day",
+    sub: "Share & listen",
+    desc: "Simple phrases to share how your day went and ask about theirs.",
+    sections: [
+      {
+        label: "Sharing your day",
+        phrases: [
+          { fr: "J'ai eu une bonne journée.", en: "I had a good day." },
+          { fr: "J'ai eu une journée difficile.", en: "I had a hard day." },
+          { fr: "Je suis fatigué(e).", en: "I'm tired.", note: "Add an 'e' if you're feminine" },
+          { fr: "J'ai beaucoup travaillé aujourd'hui.", en: "I worked a lot today." },
+          { fr: "C'était bien !", en: "It was good!" },
+          { fr: "C'était nul.", en: "It was bad / rubbish." },
+          { fr: "C'était stressant.", en: "It was stressful." },
+          { fr: "Je suis content(e) d'être à la maison.", en: "I'm glad to be home." },
+        ]
+      },
+      {
+        label: "Asking about their day",
+        phrases: [
+          { fr: "Comment s'est passée ta journée ?", en: "How was your day?" },
+          { fr: "Tu as passé une bonne journée ?", en: "Did you have a good day?" },
+          { fr: "Qu'est-ce que tu as fait aujourd'hui ?", en: "What did you do today?" },
+          { fr: "Vraiment ? Raconte-moi.", en: "Really? Tell me more.", note: "Shows you're genuinely interested 🙂" },
+          { fr: "C'est bien !", en: "That's great!" },
+          { fr: "Oh non, je suis désolé(e).", en: "Oh no, I'm sorry." },
+        ]
+      }
+    ]
+  },
+  {
+    id: "food",
+    icon: "🥐",
+    title: "Discuss Food",
+    sub: "Eat, enjoy, explore",
+    desc: "France is all about food. Learn to talk about what you love, want, and taste.",
+    sections: [
+      {
+        label: "Expressing opinions",
+        phrases: [
+          { fr: "C'est délicieux !", en: "It's delicious!" },
+          { fr: "C'est très bon !", en: "It's very good!" },
+          { fr: "J'adore ça.", en: "I love this." },
+          { fr: "C'est pas terrible.", en: "It's not great." },
+          { fr: "J'ai faim.", en: "I'm hungry." },
+          { fr: "J'ai soif.", en: "I'm thirsty." },
+          { fr: "Je suis rassasié(e).", en: "I'm full." },
+        ]
+      },
+      {
+        label: "At the table",
+        phrases: [
+          { fr: "Tu veux manger quoi ce soir ?", en: "What do you want to eat tonight?" },
+          { fr: "On commande une pizza ?", en: "Shall we order a pizza?" },
+          { fr: "Je vais cuisiner.", en: "I'm going to cook." },
+          { fr: "C'est prêt !", en: "It's ready!" },
+          { fr: "Bon appétit !", en: "Enjoy your meal!" },
+          { fr: "Tu veux encore ?", en: "Do you want more?" },
+          { fr: "Oui, s'il te plaît !", en: "Yes, please!", note: "'s'il te plaît' = please (casual/informal)" },
+        ]
+      }
+    ]
+  },
+  {
+    id: "flirt",
+    icon: "💕",
+    title: "Flirt",
+    sub: "Sweet nothings",
+    desc: "French is the language of love for a reason. These phrases will make your partner smile.",
+    sections: [
+      {
+        label: "Compliments",
+        phrases: [
+          { fr: "Tu es belle / beau.", en: "You are beautiful / handsome." },
+          { fr: "Tu es magnifique.", en: "You are gorgeous." },
+          { fr: "Tu as de beaux yeux.", en: "You have beautiful eyes." },
+          { fr: "Tu me rends heureux / heureuse.", en: "You make me happy." },
+          { fr: "Tu sens bon.", en: "You smell nice." },
+          { fr: "Tu as l'air d'une star.", en: "You look like a star.", note: "A fun, playful compliment 😄" },
+        ]
+      },
+      {
+        label: "Affection",
+        phrases: [
+          { fr: "Je t'aime.", en: "I love you.", note: "The big one — means deep love" },
+          { fr: "Je t'adore.", en: "I adore you.", note: "Slightly lighter than 'je t'aime'" },
+          { fr: "Tu me manques.", en: "I miss you.", note: "Literally: 'you are missing from me' — très romantique" },
+          { fr: "Je pense à toi.", en: "I'm thinking of you." },
+          { fr: "Tu es mon chéri / ma chérie.", en: "You are my darling.", note: "Chéri (m) / Chérie (f)" },
+          { fr: "Fais-moi un câlin.", en: "Give me a hug." },
+          { fr: "Je suis fou / folle de toi.", en: "I'm crazy about you." },
+        ]
+      }
+    ]
+  },
+  {
+    id: "home",
+    icon: "🏠",
+    title: "Around the House",
+    sub: "Daily life at home",
+    desc: "Practical phrases for everyday moments at home — chores, plans, and cosy evenings.",
+    sections: [
+      {
+        label: "Daily tasks",
+        phrases: [
+          { fr: "Je fais la vaisselle.", en: "I'm doing the dishes." },
+          { fr: "Tu peux faire le ménage ?", en: "Can you do the cleaning?" },
+          { fr: "J'ai fait la lessive.", en: "I did the laundry." },
+          { fr: "C'est le bazar ici !", en: "It's a mess in here!" },
+          { fr: "Je range la maison.", en: "I'm tidying the house." },
+          { fr: "On fait les courses ?", en: "Shall we do the shopping?" },
+        ]
+      },
+      {
+        label: "Relaxing",
+        phrases: [
+          { fr: "Je regarde la télé.", en: "I'm watching TV." },
+          { fr: "On regarde un film ce soir ?", en: "Shall we watch a film tonight?" },
+          { fr: "Je lis un livre.", en: "I'm reading a book." },
+          { fr: "J'ai besoin de me reposer.", en: "I need to rest." },
+          { fr: "Viens t'asseoir avec moi.", en: "Come sit with me." },
+          { fr: "On va au lit ?", en: "Shall we go to bed?" },
+        ]
+      }
+    ]
+  },
+  {
+    id: "feelings",
+    icon: "💬",
+    title: "Express Feelings",
+    sub: "Share what's inside",
+    desc: "Words for emotions — being able to say how you feel is one of the most important things.",
+    sections: [
+      {
+        label: "Positive feelings",
+        phrases: [
+          { fr: "Je suis heureux / heureuse.", en: "I am happy.", note: "Heureux (m) / Heureuse (f)" },
+          { fr: "Je suis excité(e) !", en: "I'm excited!" },
+          { fr: "Je me sens bien.", en: "I feel good." },
+          { fr: "Je suis reconnaissant(e).", en: "I am grateful." },
+          { fr: "Ça me fait sourire.", en: "It makes me smile." },
+        ]
+      },
+      {
+        label: "Harder feelings",
+        phrases: [
+          { fr: "Je suis triste.", en: "I am sad." },
+          { fr: "Je me sens seul(e).", en: "I feel lonely." },
+          { fr: "Je suis stressé(e).", en: "I'm stressed." },
+          { fr: "Je suis inquiet / inquiète.", en: "I'm worried." },
+          { fr: "J'ai besoin de toi.", en: "I need you." },
+          { fr: "Je ne sais pas quoi dire.", en: "I don't know what to say." },
+          { fr: "Ça va aller.", en: "It'll be okay.", note: "A gentle, reassuring phrase 🤍" },
+        ]
+      }
+    ]
+  },
+  {
+    id: "common",
+    icon: "✨",
+    title: "Common Phrases",
+    sub: "The essentials",
+    desc: "The phrases that pop up in almost every conversation — start here if you're not sure where to begin.",
+    sections: [
+      {
+        label: "Everyday essentials",
+        phrases: [
+          { fr: "Oui.", en: "Yes." },
+          { fr: "Non.", en: "No." },
+          { fr: "Peut-être.", en: "Maybe." },
+          { fr: "Merci !", en: "Thank you!" },
+          { fr: "Merci beaucoup !", en: "Thank you very much!" },
+          { fr: "De rien.", en: "You're welcome." },
+          { fr: "S'il te plaît.", en: "Please. (casual)" },
+          { fr: "Pardon / Excuse-moi.", en: "Sorry / Excuse me." },
+          { fr: "Ce n'est pas grave.", en: "It's no big deal / Don't worry." },
+        ]
+      },
+      {
+        label: "When you're learning",
+        phrases: [
+          { fr: "Je ne comprends pas.", en: "I don't understand." },
+          { fr: "Tu peux répéter ?", en: "Can you repeat that?" },
+          { fr: "Tu peux parler plus lentement ?", en: "Can you speak more slowly?" },
+          { fr: "Comment dit-on... en français ?", en: "How do you say... in French?" },
+          { fr: "J'apprends le français.", en: "I'm learning French." },
+          { fr: "Mon français n'est pas parfait !", en: "My French isn't perfect!", note: "But it's getting better every day 💪" },
+        ]
+      }
+    ]
+  },
+  {
+    id: "plans",
+    icon: "📅",
+    title: "Make Plans",
+    sub: "What shall we do?",
+    desc: "Phrases for suggesting, agreeing, and making plans together.",
+    sections: [
+      {
+        label: "Suggestions",
+        phrases: [
+          { fr: "On fait quoi aujourd'hui ?", en: "What shall we do today?" },
+          { fr: "On sort ce soir ?", en: "Shall we go out tonight?" },
+          { fr: "Tu veux aller au restaurant ?", en: "Do you want to go to a restaurant?" },
+          { fr: "On va se promener ?", en: "Shall we go for a walk?" },
+          { fr: "Bonne idée !", en: "Good idea!" },
+          { fr: "Je préfère rester à la maison.", en: "I prefer to stay home." },
+        ]
+      },
+      {
+        label: "Timing",
+        phrases: [
+          { fr: "Maintenant ?", en: "Now?" },
+          { fr: "Plus tard.", en: "Later." },
+          { fr: "Ce soir.", en: "This evening." },
+          { fr: "Ce week-end.", en: "This weekend." },
+          { fr: "Quand tu veux.", en: "Whenever you like." },
+          { fr: "Je suis prêt(e) !", en: "I'm ready!" },
+        ]
+      }
+    ]
+  },
+  {
+    id: "weather",
+    icon: "🌤️",
+    title: "Talk About Weather",
+    sub: "A classic opener",
+    desc: "A gentle topic to practice small talk — French people love discussing the weather too!",
+    sections: [
+      {
+        label: "Describing the weather",
+        phrases: [
+          { fr: "Il fait beau aujourd'hui !", en: "The weather is nice today!" },
+          { fr: "Il fait chaud.", en: "It's hot." },
+          { fr: "Il fait froid.", en: "It's cold." },
+          { fr: "Il pleut.", en: "It's raining." },
+          { fr: "Il neige !", en: "It's snowing!" },
+          { fr: "Il y a du soleil.", en: "It's sunny." },
+          { fr: "Il y a des nuages.", en: "It's cloudy." },
+          { fr: "C'est venteux.", en: "It's windy." },
+        ]
+      },
+      {
+        label: "Reactions",
+        phrases: [
+          { fr: "Quel beau temps !", en: "What lovely weather!" },
+          { fr: "Quel temps horrible !", en: "What horrible weather!" },
+          { fr: "J'adore la pluie.", en: "I love the rain." },
+          { fr: "Je déteste le froid.", en: "I hate the cold." },
+          { fr: "Prends ton manteau !", en: "Take your coat!" },
+        ]
+      }
+    ]
+  },
+  {
+    id: "compliments",
+    icon: "🌸",
+    title: "Give Compliments",
+    sub: "Make someone's day",
+    desc: "Sprinkle kindness freely — here's how to compliment and encourage.",
+    sections: [
+      {
+        label: "Appearance & style",
+        phrases: [
+          { fr: "J'aime ta tenue !", en: "I love your outfit!" },
+          { fr: "Cette couleur te va très bien.", en: "That colour suits you very well." },
+          { fr: "Tu as une belle coiffure.", en: "You have a nice hairstyle." },
+          { fr: "Tu es élégant(e).", en: "You look elegant." },
+        ]
+      },
+      {
+        label: "Character & skills",
+        phrases: [
+          { fr: "Tu es très intelligent(e).", en: "You are very intelligent." },
+          { fr: "Tu es si drôle !", en: "You are so funny!" },
+          { fr: "Tu es courageux / courageuse.", en: "You are brave." },
+          { fr: "Tu fais ça très bien !", en: "You do that very well!" },
+          { fr: "Je suis fier / fière de toi.", en: "I'm proud of you.", note: "Fier (m) / Fière (f) — a beautiful thing to say 🤍" },
+          { fr: "Tu progresses vraiment bien !", en: "You're really making progress!", note: "This one's for you 💪🇫🇷" },
+        ]
+      }
+    ]
+  }
+];
+
+// Build home grid
+const grid = document.getElementById('card-grid');
+topics.forEach(topic => {
+  const card = document.createElement('div');
+  card.className = 'card';
+  card.innerHTML = `
+    <span class="card-icon">${topic.icon}</span>
+    <div class="card-title">${topic.title}</div>
+    <div class="card-sub">${topic.sub}</div>
+  `;
+  card.addEventListener('click', () => openTopic(topic));
+  grid.appendChild(card);
+});
+
+function openTopic(topic) {
+  const body = document.getElementById('inner-body');
+
+  let html = `
+    <div class="inner-header">
+      <div class="eyebrow">${topic.icon} &nbsp; Phrases</div>
+      <h2>${topic.title.replace(/(\S+)\s*$/, '<em>$1</em>')}</h2>
+      <p>${topic.desc}</p>
+    </div>
+  `;
+
+  topic.sections.forEach(section => {
+    html += `<div class="section-label">${section.label}</div>`;
+    html += `<div class="phrase-list">`;
+    section.phrases.forEach(p => {
+      html += `
+        <div class="phrase-row">
+          <div class="phrase-fr">${p.fr}</div>
+          <div class="phrase-en">${p.en}</div>
+          ${p.note ? `<div class="phrase-note">💡 ${p.note}</div>` : ''}
+        </div>
+      `;
+    });
+    html += `</div>`;
+  });
+
+  body.innerHTML = html;
+
+  document.getElementById('home').classList.remove('active');
+  document.getElementById('inner').classList.add('active');
+  window.scrollTo(0, 0);
+}
+
+function goHome() {
+  document.getElementById('inner').classList.remove('active');
+  document.getElementById('home').classList.add('active');
+  window.scrollTo(0, 0);
+}
+</script>
+</body>
+</html>
