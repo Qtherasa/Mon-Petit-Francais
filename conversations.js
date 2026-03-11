@@ -585,6 +585,159 @@ const conversations = [
     ]
   },
   {
+    id: "au-restaurant",
+    icon: "🍽️",
+    title: "Au restaurant",
+    sub: "At the restaurant",
+    desc: "You've just been seated at a restaurant and the menus are open. Talk through the drinks, a possible starter, your main courses, and whether there's any room left for dessert.",
+    lines: [
+      {
+        speaker: 1,
+        fr: "Oh, c'est sympa ici ! J'adore l'ambiance.",
+        en: "Oh, it's nice here! I love the atmosphere.",
+        ph: "oh, say SAN-pah ee-SEE! zhah-DOR lahm-bee-AHNS"
+      },
+      {
+        speaker: 2,
+        fr: "Oui, c'est très joli. Regarde le menu — il a l'air bien.",
+        en: "Yes, it's very lovely. Look at the menu — it looks good.",
+        ph: "wee, say treh zhoh-LEE. ruh-GARD luh muh-NOO — eel ah lair bee-AN"
+      },
+      {
+        speaker: 1,
+        fr: "D'accord, je regarde. Mais d'abord, tu veux quelque chose à boire ?",
+        en: "Okay, I'm looking. But first, do you want something to drink?",
+        ph: "dah-KOR, zhuh ruh-GARD. meh dah-BOR, too vuh kel-kuh SHOHZ ah BWAHR"
+      },
+      {
+        speaker: 2,
+        fr: "Oui ! Je pense que je vais prendre un verre de vin blanc. Et toi ?",
+        en: "Yes! I think I'll have a glass of white wine. And you?",
+        ph: "wee! zhuh pahns kuh zhuh vay PRAHN-druh uhn VAIR duh van BLAHN. ay TWAH"
+      },
+      {
+        speaker: 1,
+        fr: "Je vais commencer avec de l'eau gazeuse, je crois. Peut-être un cocktail plus tard.",
+        en: "I'll start with some sparkling water, I think. Maybe a cocktail later.",
+        ph: "zhuh vay koh-mahn-SAY ah-vek duh LOH gah-ZUHZ, zhuh KWAH. puh-TET uhn kok-TEL ploo TAR"
+      },
+      {
+        speaker: 2,
+        fr: "Bonne idée. Alors, tu vois quelque chose qui te plaît comme entrée ?",
+        en: "Good idea. So, do you see anything you like as a starter?",
+        ph: "bun ee-DAY. ah-LOR, too vwah kel-kuh SHOHZ kee tuh PLEH kum ahn-TRAY"
+      },
+      {
+        speaker: 1,
+        fr: "Hmm... il y a une soupe à l'oignon et une salade de chèvre chaud. Les deux ont l'air délicieux.",
+        en: "Hmm... there's a French onion soup and a warm goat's cheese salad. Both look delicious.",
+        ph: "hm... eel ee ah oon SOOP ah lohn-YOHN ay oon sah-LAD duh SHEV-ruh SHOH. lay duh oh lair day-lee-SYUH"
+      },
+      {
+        speaker: 2,
+        fr: "Oh, j'adore la salade de chèvre chaud ! On pourrait partager une entrée ?",
+        en: "Oh, I love warm goat's cheese salad! Could we share a starter?",
+        ph: "oh, zhah-DOR lah sah-LAD duh SHEV-ruh SHOH! ohn poo-REH par-tah-ZHAY oon ahn-TRAY"
+      },
+      {
+        speaker: 1,
+        fr: "Oui, bonne idée — comme ça on a plus de place pour le plat principal !",
+        en: "Yes, good idea — that way we have more room for the main course!",
+        ph: "wee, bun ee-DAY — kum sah ohn ah ploo duh PLAS poor luh plah pran-see-PAL"
+      },
+      {
+        speaker: 2,
+        fr: "Exactement. Alors, qu'est-ce que tu penses prendre comme plat ?",
+        en: "Exactly. So, what do you think you'll have as a main?",
+        ph: "eg-zak-tuh-MAHN. ah-LOR, kess-kuh too pahns PRAHN-druh kum PLAH"
+      },
+      {
+        speaker: 1,
+        fr: "Je regarde le steak au poivre. Ça a l'air incroyable.",
+        en: "I'm looking at the pepper steak. It looks incredible.",
+        ph: "zhuh ruh-GARD luh STEK oh PWAH-vruh. sah ah lair an-krwah-YAB-luh"
+      },
+      {
+        speaker: 2,
+        fr: "Attends — regarde le prix. Trente-huit euros ! C'est assez cher, non ?",
+        en: "Wait — look at the price. Thirty-eight euros! That's pretty expensive, isn't it?",
+        ph: "ah-TAHN — ruh-GARD luh PREE. trahnt-WEET uh-ROH! say ah-SAY SHAIR, NOHN"
+      },
+      {
+        speaker: 1,
+        fr: "Tu as raison, c'est un peu cher. Mais c'est une occasion spéciale !",
+        en: "You're right, it is a bit pricey. But it's a special occasion!",
+        ph: "too ah ray-ZOHN, say uhn puh SHAIR. meh say oon oh-kah-ZYOHN spay-SYAL"
+      },
+      {
+        speaker: 2,
+        fr: "C'est vrai ! D'accord, profite-toi bien ! Moi, je pense prendre le saumon.",
+        en: "That's true! Okay, treat yourself! I think I'll have the salmon.",
+        ph: "say VREH! dah-KOR, proh-FEET twah bee-AN! mwah, zhuh pahns PRAHN-druh luh soh-MOHN"
+      },
+      {
+        speaker: 1,
+        fr: "Le saumon ! C'est combien ?",
+        en: "The salmon! How much is it?",
+        ph: "luh soh-MOHN! say kom-bee-AN"
+      },
+      {
+        speaker: 2,
+        fr: "Vingt-six euros. Raisonnable, je trouve.",
+        en: "Twenty-six euros. Reasonable, I think.",
+        ph: "van-SEE uh-ROH. ray-zohn-AB-luh, zhuh TROOV"
+      },
+      {
+        speaker: 1,
+        fr: "Oui, c'est bien. Est-ce que ça vient avec des légumes ou des frites ?",
+        en: "Yes, that's good. Does it come with vegetables or chips?",
+        ph: "wee, say bee-AN. ess-kuh sah vyan ah-VEK day lay-GOOM oo day FREET"
+      },
+      {
+        speaker: 2,
+        fr: "Je crois que oui — il y a écrit 'accompagné de légumes de saison'.",
+        en: "I think so — it says 'served with seasonal vegetables'.",
+        ph: "zhuh kwah kuh WEE — eel ee ah ay-KREE ah-kom-pahn-YAY duh lay-GOOM duh say-ZOHN"
+      },
+      {
+        speaker: 1,
+        fr: "Parfait. On est prêt(e)s à commander, je pense.",
+        en: "Perfect. I think we're ready to order.",
+        ph: "par-FEH. ohn ay PREH ah koh-mahn-DAY, zhuh PAHNS"
+      },
+      {
+        speaker: 2,
+        fr: "Oui. Oh — avant de commander, tu penses au dessert ?",
+        en: "Yes. Oh — before we order, are you thinking about dessert?",
+        ph: "wee. oh — ah-VAHN duh koh-mahn-DAY, too pahns oh deh-SAIR"
+      },
+      {
+        speaker: 1,
+        fr: "Peut-être ! Je vais voir comment je me sens après le plat principal.",
+        en: "Maybe! I'll see how I feel after the main course.",
+        ph: "puh-TET! zhuh vay VWAHR koh-MAHN zhuh muh SAHN ah-PREH luh plah pran-see-PAL"
+      },
+      {
+        speaker: 2,
+        fr: "Il y a une crème brûlée et un moelleux au chocolat. Je suis déjà tentée.",
+        en: "There's a crème brûlée and a chocolate fondant. I'm already tempted.",
+        ph: "eel ee ah oon KREM broo-LAY ay uhn mwel-YUH oh shoh-koh-LAH. zhuh swee day-ZHAH tahn-TAY"
+      },
+      {
+        speaker: 1,
+        fr: "Un moelleux au chocolat... oui, d'accord, on verra. Appelle le serveur !",
+        en: "A chocolate fondant... yes, okay, we'll see. Call the waiter!",
+        ph: "uhn mwel-YUH oh shoh-koh-LAH... wee, dah-KOR, ohn vair-AH. ah-PEL luh sair-VUHR"
+      },
+      {
+        speaker: 2,
+        fr: "Excusez-moi ! On est prêt(e)s à commander, s'il vous plaît.",
+        en: "Excuse me! We're ready to order, please.",
+        ph: "ex-koo-ZAY mwah! ohn ay PREH ah koh-mahn-DAY, seel voo PLEH"
+      }
+    ]
+  },
+  {
     id: "feeling-tired",
     icon: "😴",
     title: "Je suis épuisé(e)",
