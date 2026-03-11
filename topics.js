@@ -512,4 +512,227 @@ const topics = [
       }
     ]
   }
+ {
+  id: "time",
+  icon: "🕰️",
+  title: "Time & Dates",
+  sub: "Days, months & more",
+  desc: "Tell the time, name the day, talk about the seasons — the building blocks for making plans and sharing your life.",
+  sections: [
+    {
+      label: "Time of day",
+      phrases: [
+        { fr: "Quelle heure est-il ?", en: "What time is it?", ph: "kel uhr ay-TEEL" },
+        { fr: "Il est huit heures.", en: "It's eight o'clock.", ph: "eel ay weet UHR" },
+        { fr: "Il est midi.", en: "It's noon.", ph: "eel ay mee-DEE" },
+        { fr: "Il est minuit.", en: "It's midnight.", ph: "eel ay mee-NWEE" },
+        { fr: "Il est trois heures et demie.", en: "It's half past three.", ph: "eel ay twah zuhr ay duh-MEE" },
+        { fr: "Il est six heures et quart.", en: "It's quarter past six.", ph: "eel ay see zuhr ay KAR" },
+        { fr: "Il est dix heures moins le quart.", en: "It's quarter to ten.", ph: "eel ay dee zuhr mwan luh KAR" },
+        { fr: "Le matin / L'après-midi / Le soir", en: "Morning / Afternoon / Evening", ph: "luh mah-TAN / lah-preh-mee-DEE / luh SWAHR" },
+        { fr: "Tôt le matin.", en: "Early in the morning.", ph: "toh luh mah-TAN" },
+        { fr: "Tard le soir.", en: "Late at night.", ph: "tar luh SWAHR" },
+      ]
+    },
+    {
+      label: "Days of the week",
+      phrases: [
+        { fr: "lundi", en: "Monday", ph: "luhn-DEE" },
+        { fr: "mardi", en: "Tuesday", ph: "mar-DEE" },
+        { fr: "mercredi", en: "Wednesday", ph: "mair-kruh-DEE" },
+        { fr: "jeudi", en: "Thursday", ph: "zhuh-DEE" },
+        { fr: "vendredi", en: "Friday", ph: "vahn-druh-DEE" },
+        { fr: "samedi", en: "Saturday", ph: "sahm-DEE" },
+        { fr: "dimanche", en: "Sunday", ph: "dee-MAHNSH", note: "Days of the week are not capitalised in French 🇫🇷" },
+        { fr: "Aujourd'hui, c'est lundi.", en: "Today is Monday.", ph: "oh-zhoor-DWEE, say luhn-DEE" },
+        { fr: "On est quel jour ?", en: "What day is it?", ph: "ohn ay kel ZHOOR" },
+        { fr: "le week-end", en: "the weekend", ph: "luh wee-KEND" },
+        { fr: "en semaine", en: "on a weekday", ph: "ahn suh-MEN" },
+      ]
+    },
+    {
+      label: "Months of the year",
+      phrases: [
+        { fr: "janvier, février, mars", en: "January, February, March", ph: "zhahn-VYAY, fay-VRYAY, MARS" },
+        { fr: "avril, mai, juin", en: "April, May, June", ph: "ah-VREEL, MAY, ZHWAN" },
+        { fr: "juillet, août, septembre", en: "July, August, September", ph: "zhwee-YEH, OOT, sep-TAHMBR" },
+        { fr: "octobre, novembre, décembre", en: "October, November, December", ph: "ok-TOBR, noh-VAHMBR, day-SAHMBR", note: "Months are also lowercase in French — no capital letters needed 📅" },
+        { fr: "On est en novembre.", en: "It's November.", ph: "ohn ay ahn noh-VAHMBR" },
+        { fr: "Mon anniversaire est en juillet.", en: "My birthday is in July.", ph: "mohn ah-nee-vair-SAIR ay ahn zhwee-YEH" },
+      ]
+    },
+    {
+      label: "Seasons",
+      phrases: [
+        { fr: "le printemps", en: "spring", ph: "luh pran-TAHN" },
+        { fr: "l'été", en: "summer", ph: "lay-TAY" },
+        { fr: "l'automne", en: "autumn / fall", ph: "loh-TUN" },
+        { fr: "l'hiver", en: "winter", ph: "lee-VAIR" },
+        { fr: "J'adore l'été.", en: "I love summer.", ph: "zhah-DOR lay-TAY" },
+        { fr: "En hiver, il fait froid.", en: "In winter, it's cold.", ph: "ahn ee-VAIR, eel feh FWAH" },
+        { fr: "Le printemps est ma saison préférée.", en: "Spring is my favourite season.", ph: "luh pran-TAHN ay mah say-ZOHN pray-fay-RAY" },
+      ]
+    },
+    {
+      label: "Saying the year",
+      phrases: [
+        { fr: "mille neuf cent quatre-vingt-quatre (1984)", en: "nineteen eighty-four", ph: "meel nuhf sahn kat-ruh-van-KAT-ruh", note: "Years before 2000 use 'mille neuf cent' (one thousand nine hundred) + the rest" },
+        { fr: "mille neuf cent quatre-vingt-huit (1988)", en: "nineteen eighty-eight", ph: "meel nuhf sahn kat-ruh-van-WEET" },
+        { fr: "deux mille quatorze (2014)", en: "two thousand and fourteen", ph: "duh meel kah-TORZ", note: "Years from 2000 onwards start with 'deux mille' (two thousand) — much simpler!" },
+        { fr: "deux mille dix-sept (2017)", en: "two thousand and seventeen", ph: "duh meel dee-SET" },
+        { fr: "deux mille vingt (2020)", en: "two thousand and twenty", ph: "duh meel VAN" },
+        { fr: "En quelle année ?", en: "In what year?", ph: "ahn kel ah-NAY" },
+        { fr: "C'était en deux mille vingt.", en: "It was in 2020.", ph: "say-TAY ahn duh meel VAN" },
+      ]
+    }
+  ]
+},
+ {
+  id: "time",
+  icon: "🕰️",
+  title: "Time & Dates",
+  sub: "Days, months & more",
+  desc: "Tell the time, name the day, talk about the seasons — the building blocks for making plans and sharing your life.",
+  sections: [
+    {
+      label: "Time of day",
+      phrases: [
+        { fr: "Quelle heure est-il ?", en: "What time is it?", ph: "kel uhr ay-TEEL" },
+        { fr: "Il est huit heures.", en: "It's eight o'clock.", ph: "eel ay weet UHR" },
+        { fr: "Il est midi.", en: "It's noon.", ph: "eel ay mee-DEE" },
+        { fr: "Il est minuit.", en: "It's midnight.", ph: "eel ay mee-NWEE" },
+        { fr: "Il est trois heures et demie.", en: "It's half past three.", ph: "eel ay twah zuhr ay duh-MEE" },
+        { fr: "Il est six heures et quart.", en: "It's quarter past six.", ph: "eel ay see zuhr ay KAR" },
+        { fr: "Il est dix heures moins le quart.", en: "It's quarter to ten.", ph: "eel ay dee zuhr mwan luh KAR" },
+        { fr: "Le matin / L'après-midi / Le soir", en: "Morning / Afternoon / Evening", ph: "luh mah-TAN / lah-preh-mee-DEE / luh SWAHR" },
+        { fr: "Tôt le matin.", en: "Early in the morning.", ph: "toh luh mah-TAN" },
+        { fr: "Tard le soir.", en: "Late at night.", ph: "tar luh SWAHR" },
+      ]
+    },
+    {
+      label: "Days of the week",
+      phrases: [
+        { fr: "lundi", en: "Monday", ph: "luhn-DEE" },
+        { fr: "mardi", en: "Tuesday", ph: "mar-DEE" },
+        { fr: "mercredi", en: "Wednesday", ph: "mair-kruh-DEE" },
+        { fr: "jeudi", en: "Thursday", ph: "zhuh-DEE" },
+        { fr: "vendredi", en: "Friday", ph: "vahn-druh-DEE" },
+        { fr: "samedi", en: "Saturday", ph: "sahm-DEE" },
+        { fr: "dimanche", en: "Sunday", ph: "dee-MAHNSH", note: "Days of the week are not capitalised in French 🇫🇷" },
+        { fr: "Aujourd'hui, c'est lundi.", en: "Today is Monday.", ph: "oh-zhoor-DWEE, say luhn-DEE" },
+        { fr: "On est quel jour ?", en: "What day is it?", ph: "ohn ay kel ZHOOR" },
+        { fr: "le week-end", en: "the weekend", ph: "luh wee-KEND" },
+        { fr: "en semaine", en: "on a weekday", ph: "ahn suh-MEN" },
+      ]
+    },
+    {
+      label: "Months of the year",
+      phrases: [
+        { fr: "janvier, février, mars", en: "January, February, March", ph: "zhahn-VYAY, fay-VRYAY, MARS" },
+        { fr: "avril, mai, juin", en: "April, May, June", ph: "ah-VREEL, MAY, ZHWAN" },
+        { fr: "juillet, août, septembre", en: "July, August, September", ph: "zhwee-YEH, OOT, sep-TAHMBR" },
+        { fr: "octobre, novembre, décembre", en: "October, November, December", ph: "ok-TOBR, noh-VAHMBR, day-SAHMBR", note: "Months are also lowercase in French — no capital letters needed 📅" },
+        { fr: "On est en novembre.", en: "It's November.", ph: "ohn ay ahn noh-VAHMBR" },
+        { fr: "Mon anniversaire est en juillet.", en: "My birthday is in July.", ph: "mohn ah-nee-vair-SAIR ay ahn zhwee-YEH" },
+      ]
+    },
+    {
+      label: "Seasons",
+      phrases: [
+        { fr: "le printemps", en: "spring", ph: "luh pran-TAHN" },
+        { fr: "l'été", en: "summer", ph: "lay-TAY" },
+        { fr: "l'automne", en: "autumn / fall", ph: "loh-TUN" },
+        { fr: "l'hiver", en: "winter", ph: "lee-VAIR" },
+        { fr: "J'adore l'été.", en: "I love summer.", ph: "zhah-DOR lay-TAY" },
+        { fr: "En hiver, il fait froid.", en: "In winter, it's cold.", ph: "ahn ee-VAIR, eel feh FWAH" },
+        { fr: "Le printemps est ma saison préférée.", en: "Spring is my favourite season.", ph: "luh pran-TAHN ay mah say-ZOHN pray-fay-RAY" },
+      ]
+    },
+    {
+      label: "Saying the year",
+      phrases: [
+        { fr: "mille neuf cent quatre-vingt-quatre (1984)", en: "nineteen eighty-four", ph: "meel nuhf sahn kat-ruh-van-KAT-ruh", note: "Years before 2000 use 'mille neuf cent' (one thousand nine hundred) + the rest" },
+        { fr: "mille neuf cent quatre-vingt-huit (1988)", en: "nineteen eighty-eight", ph: "meel nuhf sahn kat-ruh-van-WEET" },
+        { fr: "deux mille quatorze (2014)", en: "two thousand and fourteen", ph: "duh meel kah-TORZ", note: "Years from 2000 onwards start with 'deux mille' (two thousand) — much simpler!" },
+        { fr: "deux mille dix-sept (2017)", en: "two thousand and seventeen", ph: "duh meel dee-SET" },
+        { fr: "deux mille vingt (2020)", en: "two thousand and twenty", ph: "duh meel VAN" },
+        { fr: "En quelle année ?", en: "In what year?", ph: "ahn kel ah-NAY" },
+        { fr: "C'était en deux mille vingt.", en: "It was in 2020.", ph: "say-TAY ahn duh meel VAN" },
+      ]
+    }
+  ]
+},
+  {
+  id: "slang",
+  icon: "🤌",
+  title: "Slang & Swearing",
+  sub: "The real stuff",
+  desc: "The words they don't teach in textbooks — everyday slang, expressions, and yes, the swear words. Quebec French included.",
+  sections: [
+    {
+      label: "Everyday French slang",
+      phrases: [
+        { fr: "C'est cool.", en: "That's cool.", ph: "say KOOL", note: "Yep, they just use 'cool' directly 😄" },
+        { fr: "C'est nul.", en: "That sucks / It's rubbish.", ph: "say NOOL" },
+        { fr: "C'est ouf !", en: "That's crazy / wild!", ph: "say OOF", note: "'Ouf' is 'fou' (crazy) said backwards — a type of French slang called verlan" },
+        { fr: "C'est relou.", en: "It's annoying / such a drag.", ph: "say ruh-LOO", note: "Verlan for 'lourd' (heavy/annoying)" },
+        { fr: "T'inquiète.", en: "Don't worry about it.", ph: "tan-KYET", note: "Short for 'ne t'inquiète pas' — very casual" },
+        { fr: "Laisse tomber.", en: "Forget it / drop it.", ph: "les tom-BAY" },
+        { fr: "Carrément !", en: "Absolutely! / Totally!", ph: "kah-ray-MAHN" },
+        { fr: "C'est chelou.", en: "That's sketchy / weird.", ph: "say shuh-LOO", note: "Verlan for 'louche' (shady)" },
+        { fr: "Je m'en fous.", en: "I don't care. / I don't give a damn.", ph: "zhuh mahn FOO", note: "Casual to mildly rude depending on tone — use carefully!" },
+        { fr: "Ça me saoule.", en: "It's driving me crazy / boring me to death.", ph: "sah muh SOOL" },
+        { fr: "Un truc", en: "A thing / a whatsit", ph: "uhn TROOK", note: "The French word for 'thingy' — you'll use this constantly" },
+        { fr: "Un mec / une meuf", en: "A guy / a girl (or partner)", ph: "uhn MEK / oon MUHF", note: "'Meuf' is verlan for 'femme' — both are very casual" },
+        { fr: "Bouffer", en: "To eat / to chow down", ph: "boo-FAY", note: "Casual version of 'manger' — as in 'on va bouffer ?' (shall we eat?)" },
+        { fr: "Kiffer", en: "To really like / to love something", ph: "kee-FAY", note: "Very popular in modern French slang — 'je kiffe trop ce film !' (I love this film!)" },
+        { fr: "Flemme", en: "Can't be bothered / laziness", ph: "FLEM", note: "'J'ai la flemme' = I can't be bothered. A deeply relatable phrase." },
+      ]
+    },
+    {
+      label: "French swear words",
+      phrases: [
+        { fr: "Merde !", en: "Shit!", ph: "MAIRD", note: "The all-purpose French swear — works in almost any situation 💩" },
+        { fr: "Putain !", en: "F*ck! / Damn! / Wow!", ph: "poo-TAN", note: "Extremely versatile — can express shock, frustration, or even delight. The Swiss Army knife of French swearing." },
+        { fr: "Putain, c'est beau.", en: "F*ck, that's beautiful.", ph: "poo-TAN say BOH", note: "Yes, this is a genuine compliment in French 😂" },
+        { fr: "La vache !", en: "Wow! / Holy cow!", ph: "lah VASH", note: "Literally 'the cow' — a milder exclamation of surprise" },
+        { fr: "Zut !", en: "Darn! / Shoot!", ph: "ZOOT", note: "The polite version — safe around the kids 😅" },
+        { fr: "Mince !", en: "Shoot! / Dang!", ph: "MANSS", note: "Another mild one — literally means 'thin'" },
+        { fr: "Bordel !", en: "What a mess! / For f*ck's sake!", ph: "bor-DEL", note: "Literally means 'brothel' — used to express chaos or frustration" },
+        { fr: "Va te faire foutre.", en: "Go f*ck yourself.", ph: "vah tuh fair FOO-truh", note: "Strong — use only when you really mean it 🔥" },
+        { fr: "Nom de Dieu !", en: "Good God! / Jesus Christ!", ph: "nohn duh DYUH", note: "Old-fashioned but dramatic — very satisfying to say" },
+      ]
+    },
+    {
+      label: "Quebec slang (sacres & expressions)",
+      phrases: [
+        { fr: "Câlice !", en: "F*ck! (strong Quebec expletive)", ph: "KAH-liss", note: "Quebec swearing (called 'sacres') comes from Catholic church objects — taboo in a very different way than French swearing. This is one of the strongest." },
+        { fr: "Tabarnac !", en: "F*cking hell! (very strong)", ph: "tah-bar-NAK", note: "From 'tabernacle' — probably the most iconic Quebec swear. Can be stretched out for emphasis: 'Tabarnaaaaac'" },
+        { fr: "Ostie !", en: "Holy sh*t! (very strong)", ph: "OS-tee", note: "From 'hostie' (communion wafer) — another powerful sacre" },
+        { fr: "Câline !", en: "Dang! (softer version)", ph: "KAH-leen", note: "A softened version of câlice — safe-ish around kids" },
+        { fr: "Crisse !", en: "Christ! (strong)", ph: "KREESE", note: "From 'Christ' — used the same way as the English equivalent" },
+        { fr: "C'est le boutte !", en: "It's the best! / That's awesome!", ph: "say luh BOOT", note: "Pure Quebec slang — if something is 'le boutte', it's fantastic" },
+        { fr: "Chu tanné(e).", en: "I'm fed up. / I'm sick of it.", ph: "shoo tah-NAY", note: "'Chu' is Quebec spoken shorthand for 'je suis' — you'll hear this constantly" },
+        { fr: "Pantoute !", en: "Not at all! / No way!", ph: "pahn-TOOT", note: "Quebec version of 'pas du tout' — very satisfying to say" },
+        { fr: "C'est de valeur.", en: "That's a shame / too bad.", ph: "say duh vah-LUHR", note: "A uniquely Quebec expression — you won't hear this in France" },
+        { fr: "Aweille !", en: "Come on! / Hurry up! / Let's go!", ph: "ah-WAY", note: "From the English 'away' — used to urge someone on" },
+        { fr: "Avoir du fun.", en: "To have fun.", ph: "ah-VWAHR doo FUN", note: "Quebec French borrows 'fun' directly from English — France would say 's'amuser'" },
+        { fr: "Maganer", en: "To beat up / to wear out / to damage", ph: "mah-gah-NAY", note: "Uniquely Quebec — 'je suis magané(e)' means 'I'm worn out / beat'" },
+        { fr: "Un dépanneur", en: "A convenience store", ph: "uhn day-pah-NUHR", note: "In France, they'd say 'épicerie' — in Quebec, the dep is a way of life 🏪" },
+      ]
+    },
+    {
+      label: "Playful insults & banter",
+      phrases: [
+        { fr: "Espèce d'idiot(e) !", en: "You idiot!", ph: "es-PES dee-YOH / dee-YOT", note: "The classic — 'espèce de' + any insult intensifies it" },
+        { fr: "T'es vraiment casse-pieds.", en: "You're such a pain.", ph: "tay vray-MAHN kas-PYAY", note: "Literally 'foot-breaker' — a satisfying mild insult" },
+        { fr: "Quelle tête de mule !", en: "What a mule-head! (stubborn)", ph: "kel tet duh MOOL" },
+        { fr: "T'es un boulet.", en: "You're a deadweight / a drag.", ph: "tay uhn boo-LEH", note: "Literally a cannonball — said with affection between friends" },
+        { fr: "Arrête de faire le clown !", en: "Stop clowning around!", ph: "ah-RET duh fair luh KLOON" },
+        { fr: "Mon petit monstre.", en: "My little monster.", ph: "mohn puh-TEE MON-struh", note: "An affectionate one for the kids 👾" },
+      ]
+    }
+  ]
+}
+ 
 ];
