@@ -429,7 +429,7 @@ const topics = [
           { fr: "Quel est ton personnage principal ?", en: "What's your main character?", ph: "kel ay tohn pair-soh-NAZH pran-see-PAL" },
           { fr: "Il joue un guerrier / une mage / un paladin.", en: "He plays a warrior / a mage / a paladin.", ph: "eel zhoo uhn geh-RYAY / oon MAZH / uhn pah-lah-DAN" },
           { fr: "Je joue tank.", en: "I play tank.", ph: "zhuh zhoo TAHNK", note: "'Tank' is used directly in French gaming — no translation needed 🛡️" },
-{ fr: "Je joue sur un serveur Hardcore Classic.", en: "I play on a hardcore classic server.", ph: "zhuh zhoo soor uhn sair-VUHR hard-KOR kla-SEEK", note: "Serveur (server) is the one French word here — the rest is pure gamer universal 🎮" },
+          { fr: "Je joue sur un serveur Hardcore Classic.", en: "I play on a hardcore classic server.", ph: "zhuh zhoo soor uhn sair-VUHR hard-KOR kla-SEEK", note: "Serveur (server) is the one French word here — the rest is pure gamer universal 🎮" },
           { fr: "Tu es Horde ou Alliance ?", en: "Are you Horde or Alliance?", ph: "too ay ORD oo ah-lee-AHNS", note: "The most important question in Azeroth ⚔️" },
           { fr: "Pour la Horde !", en: "For the Horde!", ph: "poor lah ORD" },
           { fr: "Pour l'Alliance !", en: "For the Alliance!", ph: "poor lah-lee-AHNS" },
