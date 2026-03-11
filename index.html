@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mon Petit Français</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --cream: #faf7f2;
+      --warm-white: #fff9f2;
+      --ink: #1a1612;
+      --muted: #8a7f74;
+      --accent: #c4714a;
+      --accent-light: #f0ddd3;
+      --line: #e8e0d5;
+      --p1: #3b5ea6;
+      --p1-light: #dde4f5;
+      --p2: #c4714a;
+      --p2-light: #f0ddd3;
+    }
+
+    body {
+      font-family: 'Lato', sans-serif;
+      background: var(--cream);
+      color: var(--ink);
+      min-height: 100vh;
+    }
+
+    /* ── PAGES ── */
+    .page { display: none; min-height: 100vh; }
+    .page.active { display: block; }
+
+    /* ── HAMBURGER MENU ── */
+    .hamburger-btn {
+      position: fixed;
+      top: 18px;
+      left: 20px;
+      z-index: 200;
+      background: var(--warm-white);
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 5px;
+      cursor: pointer;
+      transition: box-shadow 0.2s;
+    }
+    .hamburger-btn:hover { box-shadow: 0 2px 12px rgba(196,113,74,0.15); }
+    .hamburger-btn span {
+      display: block;
+      width: 18px;
+      height: 1.5px;
+      background: var(--ink);
+      transition: all 0.2s ease;
+      transform-origin: center;
+    }
+    .hamburger-btn.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+    .hamburger-btn.open span:nth-child(2) { opacity: 0; }
+    .hamburger-btn.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+    /* ── MENU DRAWER ── */
+    .menu-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(26,22,18,0.35);
+      z-index: 150;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s ease;
+    }
+    .menu-overlay.open { opacity: 1; pointer-events: all; }
+
+    .menu-drawer {
+      position: fixed;
+      top: 0; left: 0; bottom: 0;
+      width: 280px;
+      background: var(--warm-white);
+      z-index: 175;
+      transform: translateX(-100%);
+      transition: transform 0.28s ease;
+      display: flex;
+      flex-direction: column;
+      border-right: 1px solid var(--line);
+    }
+    .menu-drawer.open { transform: translateX(0); }
+
+    .menu-header {
+      padding: 28px 28px 20px;
+      border-bottom: 1px solid var(--line);
+    }
+    .menu-header .menu-eyebrow {
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-weight: 300;
+      margin-bottom: 6px;
+    }
+    .menu-header h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      font-weight: 400;
+    }
+
+    .menu-items { padding: 16px 0; flex: 1; }
+
+    .menu-item {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 14px 28px;
+      cursor: pointer;
+      transition: background 0.15s;
+      border-left: 3px solid transparent;
+    }
+    .menu-item:hover { background: var(--cream); }
+    .menu-item.active {
+      border-left-color: var(--accent);
+      background: var(--accent-light);
+    }
+    .menu-item-icon { font-size: 1.2rem; }
+    .menu-item-label {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      font-weight: 400;
+      color: var(--ink);
+      margin-bottom: 2px;
+    }
+    .menu-item-sub {
+      font-size: 0.75rem;
+      color: var(--muted);
+      font-weight: 300;
+    }
+
+    /* ── HOME (shared shell for both modes) ── */
+    #home {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      padding: 60px 24px 100px;
+    }
+    #home.active { display: flex; }
+
+    .home-header {
+      text-align: center;
+      margin-bottom: 56px;
+    }
+    .home-header .eyebrow {
+      font-family: 'Lato', sans-serif;
+      font-weight: 300;
+      font-size: 0.78rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 14px;
+    }
+    .home-header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.4rem, 6vw, 3.8rem);
+      font-weight: 400;
+      line-height: 1.15;
+      color: var(--ink);
+      margin-bottom: 16px;
+    }
+    .home-header h1 em { font-style: italic; color: var(--accent); }
+    .home-header p {
+      font-size: 1rem;
+      color: var(--muted);
+      font-weight: 300;
+      max-width: 380px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+
+    .divider {
+      width: 48px;
+      height: 1px;
+      background: var(--accent);
+      margin: 0 auto 48px;
+      opacity: 0.5;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 16px;
+      width: 100%;
+      max-width: 860px;
+    }
+
+    .card {
+      background: var(--warm-white);
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      padding: 28px 24px;
+      cursor: pointer;
+      transition: all 0.22s ease;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .card::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 2px;
+      background: var(--accent);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.22s ease;
+    }
+    .card:hover {
+      border-color: var(--accent-light);
+      box-shadow: 0 4px 24px rgba(196,113,74,0.10);
+      transform: translateY(-2px);
+    }
+    .card:hover::after { transform: scaleX(1); }
+
+    .card-icon { font-size: 1.8rem; margin-bottom: 12px; display: block; }
+    .card-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 6px;
+    }
+    .card-sub {
+      font-size: 0.78rem;
+      color: var(--muted);
+      font-weight: 300;
+      letter-spacing: 0.04em;
+    }
+
+    /* ── INNER PAGE (phrases) ── */
+    #inner {
+      display: none;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    #inner.active { display: flex; }
+
+    .inner-nav {
+      padding: 16px 32px 16px 72px;
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid var(--line);
+      background: var(--warm-white);
+      min-height: 64px;
+    }
+    .back-btn {
+      font-family: 'Lato', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: none;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: gap 0.15s;
+    }
+    .back-btn:hover { gap: 12px; }
+    .back-btn::before { content: '←'; font-size: 1rem; }
+
+    .inner-body {
+      max-width: 720px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 48px 24px 100px;
+    }
+
+    .inner-header { margin-bottom: 40px; }
+    .inner-header .eyebrow {
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 10px;
+      font-weight: 300;
+    }
+    .inner-header h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      font-weight: 400;
+      line-height: 1.2;
+    }
+    .inner-header h2 em { font-style: italic; color: var(--accent); }
+    .inner-header p {
+      margin-top: 12px;
+      font-size: 0.95rem;
+      color: var(--muted);
+      font-weight: 300;
+      line-height: 1.7;
+    }
+
+    .section-label {
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 16px;
+      margin-top: 40px;
+      font-weight: 700;
+    }
+
+    .phrase-list { display: flex; flex-direction: column; gap: 1px; }
+
+    .phrase-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 0;
+      background: var(--line);
+      border-radius: 2px;
+      overflow: hidden;
+      transition: box-shadow 0.15s;
+    }
+    .phrase-row:hover { box-shadow: 0 2px 12px rgba(196,113,74,0.10); }
+
+    .phrase-fr, .phrase-en, .phrase-ph {
+      padding: 14px 20px;
+      font-size: 0.96rem;
+      line-height: 1.5;
+    }
+    .phrase-fr {
+      background: var(--warm-white);
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      color: var(--ink);
+    }
+    .phrase-en {
+      background: var(--cream);
+      color: var(--muted);
+      font-weight: 300;
+    }
+    .phrase-ph {
+      background: #f5f0fa;
+      color: #7a5fa0;
+      font-weight: 300;
+      font-size: 0.88rem;
+      letter-spacing: 0.02em;
+    }
+    .phrase-ph::before { content: '🔊 '; font-size: 0.75rem; opacity: 0.7; }
+    .phrase-note {
+      grid-column: 1 / -1;
+      background: var(--accent-light);
+      padding: 8px 20px;
+      font-size: 0.8rem;
+      color: var(--accent);
+      font-weight: 400;
+    }
+
+    .phrase-header {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 1px;
+      margin-bottom: 4px;
+    }
+    .phrase-header span {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      padding: 0 20px 6px;
+    }
+
+    /* ── CONVERSATION SCRIPT PAGE ── */
+    #convo {
+      display: none;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    #convo.active { display: flex; }
+
+    .convo-body {
+      max-width: 680px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 48px 24px 100px;
+    }
+
+    .convo-intro {
+      margin-bottom: 40px;
+    }
+    .convo-intro .eyebrow {
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 10px;
+      font-weight: 300;
+    }
+    .convo-intro h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 4vw, 2.4rem);
+      font-weight: 400;
+      line-height: 1.2;
+      margin-bottom: 10px;
+    }
+    .convo-intro h2 em { font-style: italic; color: var(--accent); }
+    .convo-intro p {
+      font-size: 0.95rem;
+      color: var(--muted);
+      font-weight: 300;
+      line-height: 1.7;
+    }
+
+    /* speaker legend */
+    .speaker-legend {
+      display: flex;
+      gap: 20px;
+      margin-bottom: 32px;
+      flex-wrap: wrap;
+    }
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .legend-dot {
+      width: 10px; height: 10px;
+      border-radius: 50%;
+    }
+    .legend-dot.p1 { background: var(--p1); }
+    .legend-dot.p2 { background: var(--p2); }
+    .legend-item.p1 { color: var(--p1); }
+    .legend-item.p2 { color: var(--p2); }
+
+    /* script lines */
+    .script-lines { display: flex; flex-direction: column; gap: 12px; }
+
+    .script-line {
+      border-radius: 6px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+    }
+
+    .script-line-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 16px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+    .script-line.p1 .script-line-header { background: var(--p1-light); color: var(--p1); }
+    .script-line.p2 .script-line-header { background: var(--p2-light); color: var(--p2); }
+
+    .script-line-header .dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .script-line.p1 .dot { background: var(--p1); }
+    .script-line.p2 .dot { background: var(--p2); }
+
+    .script-cells {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      background: var(--line);
+      gap: 1px;
+    }
+    .script-fr, .script-en, .script-snd {
+      padding: 14px 18px;
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+    .script-fr {
+      background: var(--warm-white);
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      color: var(--ink);
+    }
+    .script-en {
+      background: var(--cream);
+      color: var(--muted);
+      font-weight: 300;
+    }
+    .script-snd {
+      background: #f5f0fa;
+      color: #7a5fa0;
+      font-weight: 300;
+      font-size: 0.86rem;
+    }
+    .script-snd::before { content: '🔊 '; font-size: 0.72rem; opacity: 0.7; }
+
+    .script-col-headers {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      margin-bottom: 6px;
+    }
+    .script-col-headers span {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      padding: 0 18px 6px;
+    }
+
+    @media (max-width: 620px) {
+      .phrase-row, .script-cells { grid-template-columns: 1fr; }
+      .phrase-header, .script-col-headers { display: none; }
+      .phrase-note { grid-column: 1; }
+      .phrase-ph::before, .script-snd::before { content: '🔊 Sounds like: '; font-size: 0.8rem; opacity: 1; }
+    }
+
+    /* footer */
+    .site-footer {
+      position: fixed;
+      bottom: 0; left: 0; right: 0;
+      background: var(--warm-white);
+      border-top: 1px solid var(--line);
+      padding: 12px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      z-index: 100;
+    }
+    .site-footer span { font-size: 0.78rem; color: var(--muted); font-weight: 300; }
+    .site-footer a {
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--accent);
+      text-decoration: none;
+      letter-spacing: 0.06em;
+      border-bottom: 1px solid var(--accent-light);
+      transition: border-color 0.15s;
+    }
+    .site-footer a:hover { border-color: var(--accent); }
+
+    /* animations */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .card { animation: fadeUp 0.4s ease both; }
+    .card:nth-child(1)  { animation-delay: 0.05s }
+    .card:nth-child(2)  { animation-delay: 0.10s }
+    .card:nth-child(3)  { animation-delay: 0.15s }
+    .card:nth-child(4)  { animation-delay: 0.20s }
+    .card:nth-child(5)  { animation-delay: 0.25s }
+    .card:nth-child(6)  { animation-delay: 0.30s }
+    .card:nth-child(7)  { animation-delay: 0.35s }
+    .card:nth-child(8)  { animation-delay: 0.40s }
+    .card:nth-child(9)  { animation-delay: 0.45s }
+    .card:nth-child(10) { animation-delay: 0.50s }
+    .inner-body, .convo-body { animation: fadeUp 0.35s ease both; }
+  </style>
+</head>
+<body>
+
+<!-- HAMBURGER BUTTON -->
+<button class="hamburger-btn" id="hamburger-btn" onclick="toggleMenu()" aria-label="Menu">
+  <span></span><span></span><span></span>
+</button>
+
+<!-- MENU OVERLAY -->
+<div class="menu-overlay" id="menu-overlay" onclick="closeMenu()"></div>
+
+<!-- MENU DRAWER -->
+<nav class="menu-drawer" id="menu-drawer">
+  <div class="menu-header">
+    <div class="menu-eyebrow">Navigation</div>
+    <h3>Mon Petit Français</h3>
+  </div>
+  <div class="menu-items">
+    <div class="menu-item active" id="menu-phrases" onclick="switchMode('phrases')">
+      <span class="menu-item-icon">📖</span>
+      <div>
+        <div class="menu-item-label">Parcourir les phrases</div>
+        <div class="menu-item-sub">Browse phrases by topic</div>
+      </div>
+    </div>
+    <div class="menu-item" id="menu-scripts" onclick="switchMode('scripts')">
+      <span class="menu-item-icon">💬</span>
+      <div>
+        <div class="menu-item-label">Scripts de conversation</div>
+        <div class="menu-item-sub">Practice full conversations</div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- HOME PAGE -->
+<section id="home" class="page active">
+  <div class="home-header" id="home-header">
+    <div class="eyebrow" id="home-eyebrow">Pour toi ♡</div>
+    <h1 id="home-title">Mon Petit<br/><em>Français</em></h1>
+    <p id="home-desc">Choose a topic below to explore simple phrases and build your confidence one conversation at a time.</p>
+  </div>
+  <div class="divider"></div>
+  <div class="grid" id="card-grid"></div>
+</section>
+
+<!-- PHRASE INNER PAGE -->
+<section id="inner" class="page">
+  <nav class="inner-nav">
+    <button class="back-btn" onclick="goHome()">All topics</button>
+  </nav>
+  <div class="inner-body" id="inner-body"></div>
+</section>
+
+<!-- CONVERSATION SCRIPT PAGE -->
+<section id="convo" class="page">
+  <nav class="inner-nav">
+    <button class="back-btn" onclick="goHome()">All scripts</button>
+  </nav>
+  <div class="convo-body" id="convo-body"></div>
+</section>
+
+<footer class="site-footer">
+  <span>Need to look something up?</span>
+  <a href="https://translate.google.com/?sl=en&tl=fr&op=translate" target="_blank" rel="noopener">Open Google Translate ↗</a>
+</footer>
+
+<script src="topics.js"></script>
+<script src="conversations.js"></script>
+<script>
+  let currentMode = 'phrases'; // 'phrases' or 'scripts'
+
+  // ── MENU ──
+  function toggleMenu() {
+    const btn = document.getElementById('hamburger-btn');
+    const overlay = document.getElementById('menu-overlay');
+    const drawer = document.getElementById('menu-drawer');
+    const isOpen = drawer.classList.contains('open');
+    if (isOpen) {
+      closeMenu();
+    } else {
+      btn.classList.add('open');
+      overlay.classList.add('open');
+      drawer.classList.add('open');
+    }
+  }
+
+  function closeMenu() {
+    document.getElementById('hamburger-btn').classList.remove('open');
+    document.getElementById('menu-overlay').classList.remove('open');
+    document.getElementById('menu-drawer').classList.remove('open');
+  }
+
+  function switchMode(mode) {
+    currentMode = mode;
+    closeMenu();
+
+    document.getElementById('menu-phrases').classList.toggle('active', mode === 'phrases');
+    document.getElementById('menu-scripts').classList.toggle('active', mode === 'scripts');
+
+    // Hide inner pages, return to home grid
+    document.getElementById('inner').classList.remove('active');
+    document.getElementById('convo').classList.remove('active');
+    document.getElementById('home').classList.add('active');
+
+    // Update home header & rebuild grid
+    updateHomeHeader();
+    buildGrid();
+    window.scrollTo(0, 0);
+  }
+
+  // ── HOME ──
+  function updateHomeHeader() {
+    if (currentMode === 'phrases') {
+      document.getElementById('home-eyebrow').textContent = 'Pour toi ♡';
+      document.getElementById('home-title').innerHTML = 'Mon Petit<br/><em>Français</em>';
+      document.getElementById('home-desc').textContent = 'Choose a topic below to explore simple phrases and build your confidence one conversation at a time.';
+    } else {
+      document.getElementById('home-eyebrow').textContent = 'Pratique ♡';
+      document.getElementById('home-title').innerHTML = 'Scripts de<br/><em>Conversation</em>';
+      document.getElementById('home-desc').textContent = 'Choose a script below to practice a full conversation from start to finish — no pressure, just follow along.';
+    }
+  }
+
+  function buildGrid() {
+    const grid = document.getElementById('card-grid');
+    grid.innerHTML = '';
+    const items = currentMode === 'phrases' ? topics : conversations;
+
+    items.forEach((item, i) => {
+      const card = document.createElement('div');
+      card.className = 'card';
+      card.style.animationDelay = `${0.05 + i * 0.05}s`;
+      card.innerHTML = `
+        <span class="card-icon">${item.icon}</span>
+        <div class="card-title">${item.title}</div>
+        <div class="card-sub">${item.sub}</div>
+      `;
+      card.addEventListener('click', () => {
+        currentMode === 'phrases' ? openTopic(item) : openConvo(item);
+      });
+      grid.appendChild(card);
+    });
+  }
+
+  // ── PHRASES ──
+  function openTopic(topic) {
+    const body = document.getElementById('inner-body');
+    let html = `
+      <div class="inner-header">
+        <div class="eyebrow">${topic.icon} &nbsp; Phrases</div>
+        <h2>${topic.title.replace(/(\S+)\s*$/, '<em>$1</em>')}</h2>
+        <p>${topic.desc}</p>
+      </div>
+    `;
+    topic.sections.forEach(section => {
+      html += `<div class="section-label">${section.label}</div>`;
+      html += `
+        <div class="phrase-header">
+          <span>French</span><span>English</span><span>Sounds like</span>
+        </div>
+      `;
+      html += `<div class="phrase-list">`;
+      section.phrases.forEach(p => {
+        html += `
+          <div class="phrase-row">
+            <div class="phrase-fr">${p.fr}</div>
+            <div class="phrase-en">${p.en}</div>
+            <div class="phrase-ph">${p.ph}</div>
+            ${p.note ? `<div class="phrase-note">💡 ${p.note}</div>` : ''}
+          </div>
+        `;
+      });
+      html += `</div>`;
+    });
+    body.innerHTML = html;
+    document.getElementById('home').classList.remove('active');
+    document.getElementById('inner').classList.add('active');
+    window.scrollTo(0, 0);
+  }
+
+  // ── CONVERSATIONS ──
+  function openConvo(convo) {
+    const body = document.getElementById('convo-body');
+    let html = `
+      <div class="convo-intro">
+        <div class="eyebrow">${convo.icon} &nbsp; Script de conversation</div>
+        <h2>${convo.title.replace(/(\S+)\s*$/, '<em>$1</em>')}</h2>
+        <p>${convo.desc}</p>
+      </div>
+      <div class="speaker-legend">
+        <div class="legend-item p1"><div class="legend-dot p1"></div>Personne un</div>
+        <div class="legend-item p2"><div class="legend-dot p2"></div>Personne deux</div>
+      </div>
+      <div class="script-col-headers">
+        <span>French</span><span>English</span><span>Sounds like</span>
+      </div>
+      <div class="script-lines">
+    `;
+    convo.lines.forEach(line => {
+      const cls = `p${line.speaker}`;
+      const label = line.speaker === 1 ? 'Personne un' : 'Personne deux';
+      html += `
+        <div class="script-line ${cls}">
+          <div class="script-line-header">
+            <div class="dot"></div>${label}
+          </div>
+          <div class="script-cells">
+            <div class="script-fr">${line.fr}</div>
+            <div class="script-en">${line.en}</div>
+            <div class="script-snd">${line.ph}</div>
+          </div>
+        </div>
+      `;
+    });
+    html += `</div>`;
+    body.innerHTML = html;
+    document.getElementById('home').classList.remove('active');
+    document.getElementById('convo').classList.add('active');
+    window.scrollTo(0, 0);
+  }
+
+  // ── BACK ──
+  function goHome() {
+    document.getElementById('inner').classList.remove('active');
+    document.getElementById('convo').classList.remove('active');
+    document.getElementById('home').classList.add('active');
+    window.scrollTo(0, 0);
+  }
+
+  // ── INIT ──
+  buildGrid();
+</script>
+</body>
+</html>
