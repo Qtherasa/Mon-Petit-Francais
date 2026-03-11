@@ -1,4 +1,38 @@
 const topics = [
+ {
+    id: "common",
+    icon: "✨",
+    title: "Common Phrases",
+    sub: "The essentials",
+    desc: "The phrases that pop up in almost every conversation — start here if you're not sure where to begin.",
+    sections: [
+      {
+        label: "Everyday essentials",
+        phrases: [
+          { fr: "Oui.", en: "Yes.", ph: "WEE" },
+          { fr: "Non.", en: "No.", ph: "NOHN" },
+          { fr: "Peut-être.", en: "Maybe.", ph: "puh-TET-ruh" },
+          { fr: "Merci !", en: "Thank you!", ph: "mair-SEE" },
+          { fr: "Merci beaucoup !", en: "Thank you very much!", ph: "mair-see boh-KOO" },
+          { fr: "De rien.", en: "You're welcome.", ph: "duh ree-AN" },
+          { fr: "S'il te plaît.", en: "Please. (casual)", ph: "seel tuh PLEH" },
+          { fr: "Pardon / Excuse-moi.", en: "Sorry / Excuse me.", ph: "par-DOHN / ex-KOOZ mwah" },
+          { fr: "Ce n'est pas grave.", en: "It's no big deal / Don't worry.", ph: "suh neh pah GRAHV" },
+        ]
+      },
+      {
+        label: "When you're learning",
+        phrases: [
+          { fr: "Je ne comprends pas.", en: "I don't understand.", ph: "zhuh nuh kom-PRAHN pah" },
+          { fr: "Tu peux répéter ?", en: "Can you repeat that?", ph: "too puh ray-pay-TAY" },
+          { fr: "Tu peux parler plus lentement ?", en: "Can you speak more slowly?", ph: "too puh par-LAY ploo lahnt-MAHN" },
+          { fr: "Comment dit-on... en français ?", en: "How do you say... in French?", ph: "koh-MAHN dee-tohn... ahn frahn-SAY" },
+          { fr: "J'apprends le français.", en: "I'm learning French.", ph: "zhah-PRAHN luh frahn-SAY" },
+          { fr: "Mon français n'est pas parfait !", en: "My French isn't perfect!", ph: "mohn frahn-SAY neh pah par-FEH", note: "But it's getting better every day 💪" },
+        ]
+      }
+    ]
+  },
   {
     id: "greetings",
     icon: "👋",
@@ -130,7 +164,7 @@ const topics = [
     ]
   },
   {
-    id: "home-life",
+    id: "home",
     icon: "🏠",
     title: "Around the House",
     sub: "Daily life at home",
@@ -192,40 +226,6 @@ const topics = [
     ]
   },
   {
-    id: "common",
-    icon: "✨",
-    title: "Common Phrases",
-    sub: "The essentials",
-    desc: "The phrases that pop up in almost every conversation — start here if you're not sure where to begin.",
-    sections: [
-      {
-        label: "Everyday essentials",
-        phrases: [
-          { fr: "Oui.", en: "Yes.", ph: "WEE" },
-          { fr: "Non.", en: "No.", ph: "NOHN" },
-          { fr: "Peut-être.", en: "Maybe.", ph: "puh-TET-ruh" },
-          { fr: "Merci !", en: "Thank you!", ph: "mair-SEE" },
-          { fr: "Merci beaucoup !", en: "Thank you very much!", ph: "mair-see boh-KOO" },
-          { fr: "De rien.", en: "You're welcome.", ph: "duh ree-AN" },
-          { fr: "S'il te plaît.", en: "Please. (casual)", ph: "seel tuh PLEH" },
-          { fr: "Pardon / Excuse-moi.", en: "Sorry / Excuse me.", ph: "par-DOHN / ex-KOOZ mwah" },
-          { fr: "Ce n'est pas grave.", en: "It's no big deal / Don't worry.", ph: "suh neh pah GRAHV" },
-        ]
-      },
-      {
-        label: "When you're learning",
-        phrases: [
-          { fr: "Je ne comprends pas.", en: "I don't understand.", ph: "zhuh nuh kom-PRAHN pah" },
-          { fr: "Tu peux répéter ?", en: "Can you repeat that?", ph: "too puh ray-pay-TAY" },
-          { fr: "Tu peux parler plus lentement ?", en: "Can you speak more slowly?", ph: "too puh par-LAY ploo lahnt-MAHN" },
-          { fr: "Comment dit-on... en français ?", en: "How do you say... in French?", ph: "koh-MAHN dee-tohn... ahn frahn-SAY" },
-          { fr: "J'apprends le français.", en: "I'm learning French.", ph: "zhah-PRAHN luh frahn-SAY" },
-          { fr: "Mon français n'est pas parfait !", en: "My French isn't perfect!", ph: "mohn frahn-SAY neh pah par-FEH", note: "But it's getting better every day 💪" },
-        ]
-      }
-    ]
-  },
-  {
     id: "plans",
     icon: "📅",
     title: "Make Plans",
@@ -241,6 +241,7 @@ const topics = [
           { fr: "On va se promener ?", en: "Shall we go for a walk?", ph: "ohn vah suh prohm-NAY" },
           { fr: "Bonne idée !", en: "Good idea!", ph: "bun ee-DAY" },
           { fr: "Je préfère rester à la maison.", en: "I prefer to stay home.", ph: "zhuh pray-FAIR res-TAY ah lah may-ZOHN" },
+          { fr: "Allons à la bibliothèque. N'oublie pas ton livre !", en: "Let's go to the library. Don't forget your book!", ph: "ah-LOHN ah lah beeb-lee-oh-TEK. noo-BLEE pah tohn LEEVR" },
         ]
       },
       {
@@ -313,6 +314,200 @@ const topics = [
           { fr: "Tu fais ça très bien !", en: "You do that very well!", ph: "too feh sah treh bee-AN" },
           { fr: "Je suis fier / fière de toi.", en: "I'm proud of you.", ph: "zhuh swee fee-YAY / fee-YAIR duh twah", note: "Fier (m) / Fière (f) — a beautiful thing to say 🤍" },
           { fr: "Tu progresses vraiment bien !", en: "You're really making progress!", ph: "too proh-GRESS vray-MAHN bee-AN", note: "This one's for you 💪🇫🇷" },
+        ]
+      }
+    ]
+  },
+   {
+    id: "kids-pets",
+    icon: "🐾",
+    title: "Kids & Pets",
+    sub: "Family chaos & cuddles",
+    desc: "Essential phrases for wrangling children, cats, and guinea pigs — the full household circus.",
+    sections: [
+      {
+        label: "Talking about the kids",
+        phrases: [
+          { fr: "Les enfants jouent dehors.", en: "The kids are playing outside.", ph: "lay zan-FAHN zhoo duh-OR" },
+          { fr: "C'est l'heure de faire les devoirs.", en: "It's time to do homework.", ph: "say luhr duh fair lay duh-VWAHR" },
+          { fr: "Tu as mangé ?", en: "Did you eat?", ph: "too ah mahn-ZHAY" },
+          { fr: "Va te coucher !", en: "Go to bed!", ph: "vah tuh koo-SHAY" },
+          { fr: "Je suis fier / fière de toi.", en: "I'm proud of you.", ph: "zhuh swee fee-YAY / fee-YAIR duh twah" },
+          { fr: "Arrête de te disputer avec ta sœur / ton frère !", en: "Stop arguing with your sister / brother!", ph: "ah-RET duh tuh dees-poo-TAY ah-vek tah SUHR / tohn frair" },
+          { fr: "C'est bien, mon grand / ma grande !", en: "Well done, big kid!", ph: "say bee-AN, mohn grahn / mah grahnd", note: "A warm, encouraging phrase for older kids 🌟" },
+          { fr: "Ils grandissent trop vite.", en: "They grow up too fast.", ph: "eel grahn-DEES troh VEET" },
+        ]
+      },
+      {
+        label: "Talking about the cats",
+        phrases: [
+          { fr: "Le chat est sur le canapé encore.", en: "The cat is on the sofa again.", ph: "luh shah ay soor luh kah-nah-PAY ahn-KOR" },
+          { fr: "Tu as nourri les chats ?", en: "Did you feed the cats?", ph: "too ah noo-REE lay SHAH" },
+          { fr: "Elle ronronne.", en: "She's purring.", ph: "el rohn-RON" },
+          { fr: "Elle m'a griffé(e) !", en: "She scratched me!", ph: "el mah gree-FAY" },
+          { fr: "Viens ici, mon minou.", en: "Come here, little kitty.", ph: "vyan ee-SEE, mohn mee-NOO", note: "Minou = affectionate word for a cat 🐱" },
+          { fr: "Elle dort toute la journée.", en: "She sleeps all day.", ph: "el dor toot lah zhoor-NAY" },
+          { fr: "Ce chat est tellement gros ! Il adore manger.", en: "This cat is so fat! He loves to eat.", ph: "suh shah ay tel-MAHN groh! eel ah-DOR mahn-ZHAY" },
+          { fr: "Elle est une jolie petite dame.", en: "She is a pretty little lady.", ph: "el ay oon zhoh-LEE puh-TEET DAM" },
+          { fr: "Ugh, tu es tellement puant(e) !", en: "Ugh, you are so stinky!", ph: "ugh, too ay tel-MAHN poo-AHN / poo-AHNT", note: "Puant (m) for the boy, puante (f) for the girls — equally insulting in both genders 😄" },
+        ]
+      },
+      {
+        label: "Talking about the guinea pigs",
+        phrases: [
+          { fr: "Les cochons d'Inde font du bruit.", en: "The guinea pigs are making noise.", ph: "lay koh-shohn DAND fohn doo BRWEE", note: "The word cochon d'Inde literally means 'pig of India'" },
+          { fr: "Tu as nettoyé leur cage ?", en: "Did you clean their cage?", ph: "too ah net-wah-YAY luhr KAZH" },
+          { fr: "Elle couine !", en: "She's squeaking!", ph: "el KWEEN" },
+          { fr: "Elles ont faim, je crois.", en: "I think they're hungry.", ph: "el zohn FAN, zhuh kwah" },
+          { fr: "Va chercher des légumes pour les cochons d'Inde.", en: "Go get some veggies for the guinea pigs.", ph: "vah shair-SHAY day lay-GOOM poor lay koh-shohn DAND" },
+          { fr: "C'est trop mignon !", en: "They're so cute!", ph: "say troh mee-NYOHN" },         
+        ]
+      }
+    ]
+  },
+  {
+    id: "numbers",
+    icon: "🔢",
+    title: "Numbers & Counting",
+    sub: "Count like a local",
+    desc: "Numbers are everywhere — prices, ages, time, scores. Start here and build fast.",
+    sections: [
+      {
+        label: "1 to 20",
+        phrases: [
+          { fr: "Un, deux, trois", en: "One, two, three", ph: "uhn, duh, twah" },
+          { fr: "Quatre, cinq, six", en: "Four, five, six", ph: "KAT-ruh, sank, sees" },
+          { fr: "Sept, huit, neuf, dix", en: "Seven, eight, nine, ten", ph: "set, weet, nuhf, dees" },
+          { fr: "Onze, douze, treize", en: "Eleven, twelve, thirteen", ph: "ohnz, dooz, trez" },
+          { fr: "Quatorze, quinze, seize", en: "Fourteen, fifteen, sixteen", ph: "kah-TORZ, kanz, sez" },
+          { fr: "Dix-sept, dix-huit, dix-neuf, vingt", en: "Seventeen, eighteen, nineteen, twenty", ph: "dee-SET, deez-WEET, deez-NUHF, van", note: "Vingt (20) is silent at the end — sounds like 'van'" },
+        ]
+      },
+      {
+        label: "Bigger numbers",
+        phrases: [
+          { fr: "Trente, quarante, cinquante", en: "Thirty, forty, fifty", ph: "trahnt, kah-RAHNT, san-KAHNT" },
+          { fr: "Soixante, soixante-dix", en: "Sixty, seventy", ph: "swah-SAHNT, swah-sahnt-DEES", note: "Soixante-dix literally means 'sixty-ten' — French numbers get creative!" },
+          { fr: "Quatre-vingts, quatre-vingt-dix", en: "Eighty, ninety", ph: "kat-ruh-VAN, kat-ruh-van-DEES", note: "Quatre-vingts = 'four twenties'. Oui, vraiment." },
+          { fr: "Cent, mille", en: "One hundred, one thousand", ph: "sahn, meel" },
+          { fr: "Dix mille", en: "Ten thousand", ph: "dee MEEL" },
+          { fr: "Cent mille", en: "One hundred thousand", ph: "sahn MEEL" },
+          { fr: "Un million", en: "One million", ph: "uhn meel-YOHN" },
+          { fr: "Deux cent cinquante-trois", en: "Two hundred and fifty-three (253)", ph: "duh sahn san-KAHNT twah", note: "Hundreds + tens + units — just stack them in order" },
+          { fr: "Sept mille cent vingt-neuf", en: "Seven thousand, one hundred and twenty-nine (7,129)", ph: "set meel sahn van-NUHF" },
+          { fr: "Vingt-trois mille quatre cent douze", en: "Twenty-three thousand, four hundred and twelve (23,412)", ph: "van-twah meel kat-ruh sahn DOOZ" },
+        ]
+      },
+      
+      {
+        label: "Using numbers in conversation",
+        phrases: [
+          { fr: "J'ai deux enfants.", en: "I have two children.", ph: "zhay duh zan-FAHN" },
+          { fr: "Nous avons trois chats.", en: "We have three cats.", ph: "noo zah-VOHN twah SHAH" },
+          { fr: "Il a quel âge ?", en: "How old is he?", ph: "eel ah kel AZH" },
+          { fr: "Elle a sept ans.", en: "She is seven years old.", ph: "el ah set AHN" },
+          { fr: "C'est combien ?", en: "How much does it cost?", ph: "say kom-bee-AN" },
+          { fr: "Le premier / la première", en: "The first (m/f)", ph: "luh pruh-MYAY / lah pruh-MYAIR" },
+          { fr: "Ça fait quarante-sept dollars et quatre-vingt-dix-neuf cents.", en: "That comes to forty-seven dollars and ninety-nine cents.", ph: "sah feh kah-RAHNT set doh-LAR ay kat-ruh-van-deez-NUHF sahn" },
+          { fr: "C'est douze euros et cinquante centimes.", en: "That's twelve euros and fifty cents.", ph: "say dooz UH-roh ay san-KAHNT sahn-TEEM", note: "In French, euro cents are called 'centimes' — same word as the old French franc coins 🪙" },
+        ]
+      }
+    ]
+  },
+  {
+    id: "wow",
+    icon: "⚔️",
+    title: "World of Warcraft",
+    sub: "Pour la Horde (ou l'Alliance)",
+    desc: "Talk about Azeroth in French — quests, raiding, and the eternal faction debate.",
+    sections: [
+      {
+        label: "Getting into the game",
+        phrases: [
+          { fr: "Tu joues à World of Warcraft ?", en: "Do you play World of Warcraft?", ph: "too zhoo ah world of warcraft" },
+          { fr: "Je joue depuis des années.", en: "I've been playing for years.", ph: "zhuh zhoo duh-PWEE day zah-NAY" },
+          { fr: "Quel est ton personnage principal ?", en: "What's your main character?", ph: "kel ay tohn pair-soh-NAZH pran-see-PAL" },
+          { fr: "Il joue un guerrier / une mage / un paladin.", en: "He plays a warrior / a mage / a paladin.", ph: "eel zhoo uhn geh-RYAY / oon MAZH / uhn pah-lah-DAN" },
+          { fr: "Je joue tank.", en: "I play tank.", ph: "zhuh zhoo TAHNK", note: "'Tank' is used directly in French gaming — no translation needed 🛡️" },
+{ fr: "Je joue sur un serveur Hardcore Classic.", en: "I play on a hardcore classic server.", ph: "zhuh zhoo soor uhn sair-VUHR hard-KOR kla-SEEK", note: "Serveur (server) is the one French word here — the rest is pure gamer universal 🎮" },
+          { fr: "Tu es Horde ou Alliance ?", en: "Are you Horde or Alliance?", ph: "too ay ORD oo ah-lee-AHNS", note: "The most important question in Azeroth ⚔️" },
+          { fr: "Pour la Horde !", en: "For the Horde!", ph: "poor lah ORD" },
+          { fr: "Pour l'Alliance !", en: "For the Alliance!", ph: "poor lah-lee-AHNS" },
+        ]
+      },
+      {
+        label: "Questing & gameplay",
+        phrases: [
+          { fr: "J'ai une nouvelle quête.", en: "I have a new quest.", ph: "zhay oon noo-VEL KET" },
+          { fr: "On fait un donjon ?", en: "Shall we do a dungeon?", ph: "ohn feh uhn don-ZHOHN" },
+          { fr: "Tu veux faire un raid ce soir ?", en: "Do you want to do a raid tonight?", ph: "too vuh fair uhn RAID suh swahr", note: "French gaming slang borrows heavily from English — words like nerf, loot, patch, raid, and boss are used directly, so those will feel very familiar!"},
+          { fr: "J'ai besoin de meilleur équipement.", en: "I need better gear.", ph: "zhay buh-ZWAN duh may-YUHR ay-keep-MAHN" },
+          { fr: "Je suis mort(e) encore.", en: "I died again.", ph: "zhuh swee MOR / MORT ahn-KOR" },
+          { fr: "C'est un boss difficile.", en: "It's a hard boss.", ph: "say uhn bos dee-fee-SEEL" },
+          { fr: "On recommence ?", en: "Shall we try again?", ph: "ohn ruh-koh-MAHNS" },
+        ]
+      },
+      {
+        label: "Talking about the game together",
+        phrases: [
+          { fr: "Tu as regardé le dernier patch ?", en: "Did you see the latest patch?", ph: "too ah ruh-gar-DAY luh dair-NYAY PATCH" },
+          { fr: "Ils ont nerfé ma classe.", en: "They nerfed my class.", ph: "eel zohn nair-FAY mah KLAS", note: "'Nerfed' is used directly in French gaming slang 🎮" },
+          { fr: "J'ai enfin eu le loot que je voulais.", en: "I finally got the loot I wanted.", ph: "zhay ahn-FAN oo luh LOOT kuh zhuh voo-LAY" },
+          { fr: "La prochaine extension a l'air incroyable.", en: "The next expansion looks incredible.", ph: "lah proh-SHEN ex-tahn-SYOHN ah lair an-krwah-YAHBL" },
+          { fr: "On joue ensemble ce week-end ?", en: "Shall we play together this weekend?", ph: "ohn zhoo ahn-SAHML suh wee-KEND", note: "The best sentence in any language 🎮💕" },
+        ]
+      }
+    ]
+  },
+  {
+    id: "chores",
+    icon: "🧹",
+    title: "Household Chores",
+    sub: "Keep the house running",
+    desc: "The phrases you need for the everyday tasks that keep the household going.",
+    sections: [
+      {
+        label: "Dishes",
+        phrases: [
+          { fr: "Je fais la vaisselle.", en: "I'm doing the dishes.", ph: "zhuh feh lah veh-SEL" },
+          { fr: "Tu peux faire la vaisselle ?", en: "Can you do the dishes?", ph: "too puh fair lah veh-SEL" },
+          { fr: "Je lave les assiettes à la main.", en: "I'm washing the plates by hand.", ph: "zhuh lahv lay ah-SYET ah lah MAN" },
+          { fr: "Tu peux mettre ça dans le lave-vaisselle ?", en: "Can you put that in the dishwasher?", ph: "too puh met-ruh sah dahn luh lahv-veh-SEL" },
+          { fr: "Le lave-vaisselle est plein.", en: "The dishwasher is full.", ph: "luh lahv-veh-SEL ay PLAN" },
+          { fr: "Le lave-vaisselle est fini.", en: "The dishwasher is done.", ph: "luh lahv-veh-SEL ay fee-NEE" },
+        ]
+      },
+      {
+        label: "Laundry",
+        phrases: [
+          { fr: "Je fais la lessive.", en: "I'm doing the laundry.", ph: "zhuh feh lah leh-SEEV" },
+          { fr: "La machine est en marche.", en: "The washing machine is running.", ph: "lah mah-SHEEN ay ahn MARSH" },
+          { fr: "Le linge est propre.", en: "The laundry is clean.", ph: "luh lanzh ay PROPR" },
+          { fr: "Tu peux plier le linge ?", en: "Can you fold the laundry?", ph: "too puh plee-YAY luh LANZH" },
+          { fr: "N'oublie pas de mettre le linge à sécher.", en: "Don't forget to put the laundry out to dry.", ph: "noo-BLEE pah duh met-ruh luh lanzh ah say-SHAY" },
+        ]
+      },
+      {
+        label: "Sweeping & tidying",
+        phrases: [
+          { fr: "Je balaye le sol.", en: "I'm sweeping the floor.", ph: "zhuh bah-LAY luh SOL" },
+          { fr: "Est-ce que tu peux balayer ?", en: "Can you sweep?", ph: "ess kuh too puh bah-lay-YAY" },
+          { fr: "C'est le bazar ici !", en: "It's a mess in here!", ph: "say luh bah-ZAR ee-SEE" },
+          { fr: "Je range le salon.", en: "I'm tidying the living room.", ph: "zhuh rahnzh luh sah-LOHN" },
+          { fr: "Tu peux ranger tes affaires ?", en: "Can you tidy up your things?", ph: "too puh rahn-ZHAY tay ah-FAIR" },
+          { fr: "La maison est propre maintenant !", en: "The house is clean now!", ph: "lah may-ZOHN ay PROPR mant-NAHN" },
+        ]
+      },
+      {
+        label: "Groceries",
+        phrases: [
+          { fr: "On doit faire les courses.", en: "We need to do the groceries.", ph: "ohn dwah fair lay KOORS" },
+          { fr: "Tu peux faire une liste ?", en: "Can you make a list?", ph: "too puh fair oon LEEST" },
+          { fr: "On n'a plus de lait.", en: "We're out of milk.", ph: "ohn nah ploo duh LEH" },
+          { fr: "On n'a plus de pain.", en: "We're out of bread.", ph: "ohn nah ploo duh PAN" },
+          { fr: "Je vais au supermarché.", en: "I'm going to the supermarket.", ph: "zhuh vay oh soo-pair-mar-SHAY" },
+          { fr: "Tu as besoin de quelque chose ?", en: "Do you need anything?", ph: "too ah buh-ZWAN duh kel-kuh SHOHZ" },
+          { fr: "J'ai tout acheté !", en: "I bought everything!", ph: "zhay too ash-TAY" },
         ]
       }
     ]
