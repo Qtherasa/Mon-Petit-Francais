@@ -658,6 +658,122 @@ const topics = [
       ]
     }
   ]
+},
+ {
+  id: "kids",
+  icon: "👧🧒",
+  title: "Les Enfants",
+  sub: "The kids",
+  desc: "Phrases for the chaos, the cuddles, the arguments, and the proud moments — elementary-aged kid life in French.",
+  sections: [
+    {
+      label: "Daily wrangling",
+      phrases: [
+        { fr: "C'est l'heure de faire les devoirs.", en: "It's time to do homework.", ph: "say luhr duh fair lay duh-VWAHR" },
+        { fr: "Tu as mangé ?", en: "Did you eat?", ph: "too ah mahn-ZHAY" },
+        { fr: "Va te coucher !", en: "Go to bed!", ph: "vah tuh koo-SHAY" },
+        { fr: "Va chercher ta tablette. Tu l'as chargée ?", en: "Go get your tablet. Did you charge it?", ph: "vah shair-SHAY tah tah-BLET. too lah shar-ZHAY", note: "The essential modern parenting question 📱" },
+        { fr: "Demande à ton autre maman.", en: "Ask your other mother.", ph: "duh-MAHND ah tohn oh-truh mah-MAHN", note: "A handy one for redirecting 😄" },
+        { fr: "Mamie et Papi appellent !", en: "Grandma and Grandpa are calling!", ph: "mah-MEE ay pah-PEE ah-PEL", note: "Mamie/Papi are the common warm terms for grandparents in French 🧡" },
+        { fr: "Ils grandissent trop vite.", en: "They grow up too fast.", ph: "eel grahn-DEES troh VEET" },
+        { fr: "C'est bien, mon grand / ma grande !", en: "Well done, big kid!", ph: "say bee-AN, mohn grahn / mah grahnd" },
+        { fr: "Tu es tellement gentil(le) et drôle !", en: "You are so kind and funny!", ph: "too ay tel-MAHN zhahn-TEE ay DROHL", note: "Gentil (m) for your son, gentille (f) for your daughter" },
+        { fr: "Tu es tellement intelligent.", en: "You are so intelligent.", ph: "too ay tel-MAHN an-tel-ee-ZHAHN" },
+        { fr: "Je suis fier / fière de toi.", en: "I'm proud of you.", ph: "zhuh swee fee-YAY / fee-YAIR duh twah" },
+        { fr: "Je t'aime jusqu'à la lune et retour.", en: "I love you to the moon and back.", ph: "zhuh TEM zhoos-KAH lah LOON ay ruh-TOOR", note: "The French version is almost identical in feeling — 'jusqu'à' means 'all the way to'" },
+      ]
+    },
+    {
+      label: "Sibling chaos",
+      phrases: [
+        { fr: "Arrête de te disputer avec ta sœur / ton frère !", en: "Stop arguing with your sister / brother!", ph: "ah-RET duh tuh dees-poo-TAY ah-vek tah SUHR / tohn frair" },
+        { fr: "Soyez gentils l'un envers l'autre.", en: "Be kind to each other.", ph: "swah-YAY zhahn-TEE luhn ahn-vair LOH-truh" },
+        { fr: "Vous vous aimez, tous les deux !", en: "You love each other, both of you!", ph: "voo voo zay-MAY, too lay DUH" },
+        { fr: "C'est à ton tour.", en: "It's your turn.", ph: "say ah tohn TOOR" },
+        { fr: "Partagez !", en: "Share!", ph: "par-tah-ZHAY" },
+        { fr: "Faites la paix.", en: "Make up / make peace.", ph: "fet lah PAY" },
+      ]
+    },
+    {
+      label: "For our son",
+      phrases: [
+        { fr: "Tu joues à Minecraft ?", en: "Are you playing Minecraft?", ph: "too zhoo ah MY-kraft" },
+        { fr: "Kirby est trop mignon !", en: "Kirby is so cute!", ph: "KIR-bee ay troh mee-NYOHN" },
+        { fr: "Tu aimes les maths ?", en: "Do you like maths?", ph: "too em lay MAT" },
+        { fr: "C'est quoi ta planète préférée ?", en: "What's your favourite planet?", ph: "say kwah tah plah-NET pray-fay-RAY" },
+        { fr: "L'espace, c'est incroyable.", en: "Space is incredible.", ph: "leh-SPAS, say ahn-krwah-YAHBL" },
+        { fr: "Explique-moi comment ça marche !", en: "Explain to me how it works!", ph: "ex-PLEEK mwah koh-MAHN sah MARSH", note: "Kids love being the expert — this one will make him beam 🚀" },
+      ]
+    },
+    {
+      label: "For our daughter",
+      phrases: [
+        { fr: "Tu dessines quoi ?", en: "What are you drawing?", ph: "too deh-SEEN kwah" },
+        { fr: "C'est magnifique ! Tu es une vraie artiste.", en: "It's magnificent! You're a real artist.", ph: "say mah-nyee-FEEK! too ay oon vray ar-TEEST" },
+        { fr: "Tu fais semblant d'être un chat encore ?", en: "Are you pretending to be a cat again?", ph: "too feh sahm-BLAHN deh-truh uhn shah ahn-KOR", note: "The answer will almost certainly be oui 🐱" },
+        { fr: "Doucement !", en: "Gently! / Calm down!", ph: "doos-MAHN", note: "One of the most useful parenting words in any language" },
+        { fr: "Tu as beaucoup d'énergie aujourd'hui !", en: "You have a lot of energy today!", ph: "too ah boh-KOO day-nair-ZHEE oh-zhoor-DWEE" },
+        { fr: "Rentre tes griffes !", en: "Put your claws away!", ph: "rahnt tay GREEF", note: "Literally — and also perfect if she's being a cat at the time 😄" },
+      ]
+    }
+  ]
+},
+ {
+  id: "pets",
+  icon: "🐾",
+  title: "Les Animaux",
+  sub: "Cats & guinea pigs",
+  desc: "For talking about the furriest members of the family — three cats and two guinea pigs, each with their own personality.",
+  sections: [
+    {
+      label: "The cats in general",
+      phrases: [
+        { fr: "Tu as nourri les chats ?", en: "Did you feed the cats?", ph: "too ah noo-REE lay SHAH" },
+        { fr: "Le chat est sur le canapé encore.", en: "The cat is on the sofa again.", ph: "luh shah ay soor luh kah-nah-PAY ahn-KOR" },
+        { fr: "Elle ronronne.", en: "She's purring.", ph: "el rohn-RON" },
+        { fr: "Elle m'a griffé(e) !", en: "She scratched me!", ph: "el mah gree-FAY" },
+        { fr: "Viens ici, mon minou.", en: "Come here, little kitty.", ph: "vyan ee-SEE, mohn mee-NOO", note: "Minou is a sweet, affectionate word for a cat 🐱" },
+        { fr: "Tu as nettoyé la litière ?", en: "Did you clean the litter box?", ph: "too ah net-wah-YAY lah lee-TYAIR" },
+        { fr: "Le chat est sur le comptoir encore !", en: "The cat is on the counter again!", ph: "luh shah ay soor luh kohm-TWAHR ahn-KOR" },
+        { fr: "Le chat est sur la table encore !", en: "The cat is on the table again!", ph: "luh shah ay soor lah TAH-bluh ahn-KOR" },
+      ]
+    },
+    {
+      label: "The cats",
+      phrases: [
+        { fr: "Ce chat est tellement gros !", en: "This cat is so fat!", ph: "suh shah ay tel-MAHN GROH" },
+        { fr: "Il adore manger et dormir.", en: "He loves eating and sleeping.", ph: "eel ah-DOR mahn-ZHAY ay dor-MEER" },
+        { fr: "Il est tellement paresseux.", en: "He is so lazy.", ph: "eel ay tel-MAHN pah-reh-SUH" },
+        { fr: "Il prend toute la place.", en: "He takes up the whole space.", ph: "eel prahn toot lah PLAS" },
+        { fr: "Mon gros bébé.", en: "My big baby.", ph: "mohn groh bay-BAY", note: "Affectionate — because we love him despite (because of?) it all 🧡" },
+        { fr: "Il dort toute la journée.", en: "He sleeps all day.", ph: "eel dor toot lah zhoor-NAY" }
+        { fr: "Elle est si délicate.", en: "She is so delicate.", ph: "el ay see day-lee-KAT" },
+        { fr: "Elle adore ma femme.", en: "She loves my wife.", ph: "el ah-DOR mah FAM" },
+        { fr: "Elle te suit partout.", en: "She follows you everywhere.", ph: "el tuh swee par-TOO" },
+        { fr: "Elle est une jolie petite dame.", en: "She is a pretty little lady.", ph: "el ay oon zhoh-LEE puh-TEET DAM" },
+        { fr: "Doucement avec elle — elle est fragile.", en: "Gently with her — she's fragile.", ph: "doos-MAHN ah-vek el — el ay frah-ZHEEL" },
+        { fr: "Elle veut des câlins.", en: "She wants cuddles.", ph: "el vuh day kah-LAN" },
+        { fr: "Elle est si maigre.", en: "She is so skinny.", ph: "el ay see MEH-gruh" },
+        { fr: "Elle sent mauvais.", en: "She smells bad.", ph: "el sahn moh-VAY" },
+        { fr: "Ugh, tu es tellement puante !", en: "Ugh, you are so stinky!", ph: "ugh, too ay tel-MAHN poo-AHNT" },
+        { fr: "Elle a un pelage unique.", en: "She has a unique coat.", ph: "el ah uhn puh-LAZH oo-NEEK", note: "Tabico = tabby + calico — truly one of a kind 🐈" },
+        { fr: "Elle est bizarre mais on l'adore.", en: "She's weird but we love her.", ph: "el ay bee-ZAR meh ohn lah-DOR" },
+      ]
+    },
+    {
+      label: "The guinea pigs",
+      phrases: [
+        { fr: "Les cochons d'Inde font du bruit.", en: "The guinea pigs are making noise.", ph: "lay koh-shohn DAND fohn doo BRWEE", note: "'Cochon d'Inde' literally means 'pig of India' 🐾" },
+        { fr: "Tu as nettoyé leur cage ?", en: "Did you clean their cage?", ph: "too ah net-wah-YAY luhr KAZH" },
+        { fr: "Elle couine !", en: "She's squeaking!", ph: "el KWEEN" },
+        { fr: "Elles ont faim, je crois.", en: "I think they're hungry.", ph: "el zohn FAN, zhuh kwah" },
+        { fr: "Va chercher des légumes pour les cochons d'Inde.", en: "Go get some veggies for the guinea pigs.", ph: "vah shair-SHAY day lay-GOOM poor lay koh-shohn DAND" },
+        { fr: "C'est trop mignon !", en: "They're so cute!", ph: "say troh mee-NYOHN" },
+        { fr: "Elles sont contentes.", en: "They're happy.", ph: "el sohn kon-TAHNT" },
+        { fr: "Elle fait le popcorn !", en: "She's popcorning!", ph: "el feh luh pop-KORN", note: "The French just say 'faire le popcorn' for that joyful guinea pig jumping — delightful 🍿" },
+      ]
+    }
+  ]
 }
  
 ];
