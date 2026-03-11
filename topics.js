@@ -746,7 +746,7 @@ const topics = [
         { fr: "Il est tellement paresseux.", en: "He is so lazy.", ph: "eel ay tel-MAHN pah-reh-SUH" },
         { fr: "Il prend toute la place.", en: "He takes up the whole space.", ph: "eel prahn toot lah PLAS" },
         { fr: "Mon gros bébé.", en: "My big baby.", ph: "mohn groh bay-BAY", note: "Affectionate — because we love him despite (because of?) it all 🧡" },
-        { fr: "Il dort toute la journée.", en: "He sleeps all day.", ph: "eel dor toot lah zhoor-NAY" }
+        { fr: "Il dort toute la journée.", en: "He sleeps all day.", ph: "eel dor toot lah zhoor-NAY" },
         { fr: "Elle est si délicate.", en: "She is so delicate.", ph: "el ay see day-lee-KAT" },
         { fr: "Elle adore ma femme.", en: "She loves my wife.", ph: "el ah-DOR mah FAM" },
         { fr: "Elle te suit partout.", en: "She follows you everywhere.", ph: "el tuh swee par-TOO" },
