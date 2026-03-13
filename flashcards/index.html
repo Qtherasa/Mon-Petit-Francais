@@ -619,7 +619,7 @@
     <div class="flip-hint"><span>Flip the card, then mark yourself honestly</span></div>
 
     <div class="check-btns" id="check-btns">
-      <button class="check-btn got-it" onclick="markCard(true)">✓ &nbsp;Got it !</button>
+      <button class="check-btn got-it" onclick="markCard(true)">✓ &nbsp;J\'ai bon !</button>
       <button class="check-btn practice" onclick="markCard(false)">✗ &nbsp;Encore un peu…</button>
     </div>
   </div>
@@ -796,12 +796,19 @@
 
     updateProgress();
 
+    // Hide check buttons immediately so user can't double-tap
+    document.getElementById('check-btns').classList.remove('visible');
+
     if (cardIndex + 1 >= deck.length) {
-      setTimeout(showEndScreen, 350);
+      setTimeout(showEndScreen, 600);
     } else {
       cardIndex++;
-      // Small delay so the flip-back is satisfying before next card appears
-      setTimeout(renderCard, 200);
+      // First flip the card back to front face-down
+      const scene = document.getElementById('card-scene');
+      scene.classList.remove('flipped');
+      isFlipped = false;
+      // Wait for the full flip animation (550ms) to complete before swapping content
+      setTimeout(renderCard, 560);
     }
   }
 
@@ -829,7 +836,7 @@
 
     let msg;
     if (pct === 100)      msg = 'Absolument parfait ! You got every single one. 🌟';
-    else if (pct >= 80)   msg = 'Très bien ! Almost there — keep going !';
+    else if (pct >= 80)   msg = 'Très bien ! Wow! You're doing great — keep going !';
     else if (pct >= 60)   msg = 'Pas mal du tout ! You\'re making great progress.';
     else if (pct >= 40)   msg = 'C\'est un bon début ! A good start — try again ?';
     else                  msg = 'On continue ! Every card is a step forward. 💪';
