@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
+  <meta name="theme-color" content="#fff9f2"/>
+  <title>Browse Phrases — Mon Petit Français</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="../shared/style.css"/>
+  <style>
+    /* ── GRID PAGE ───────────────────────────── */
+    #page-grid {
+      padding: 60px 20px 100px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .page-header {
+      text-align: center;
+      margin-bottom: 44px;
+    }
+    .page-header .eyebrow {
+      font-size: 0.78rem; letter-spacing: 0.22em;
+      text-transform: uppercase; color: var(--accent);
+      font-weight: 300; margin-bottom: 14px;
+    }
+    .page-header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.2rem, 6vw, 3.2rem);
+      font-weight: 400; line-height: 1.15;
+      color: var(--ink); margin-bottom: 14px;
+    }
+    .page-header h1 em { font-style: italic; color: var(--accent); }
+    .page-header p {
+      font-size: 0.97rem; color: var(--muted); font-weight: 300;
+      max-width: 420px; margin: 0 auto; line-height: 1.75;
+    }
+
+    /* Topic card grid */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 14px;
+    }
+    .card {
+      background: var(--warm-white);
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      padding: 24px 16px 20px;
+      cursor: pointer;
+      transition: all 0.22s ease;
+      text-align: center;
+      position: relative; overflow: hidden;
+      -webkit-tap-highlight-color: transparent;
+      animation: fadeUp 0.4s ease both;
+    }
+    .card::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0; height: 2px;
+      background: var(--accent);
+      transform: scaleX(0); transform-origin: left;
+      transition: transform 0.22s ease;
+    }
+    .card:hover { border-color: var(--accent-light); box-shadow: 0 4px 24px rgba(196,113,74,0.10); transform: translateY(-2px); }
+    .card:hover::after { transform: scaleX(1); }
+    .card:active { transform: translateY(0); }
+    .card-icon  { font-size: 1.7rem; margin-bottom: 10px; display: block; }
+    .card-title { font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 600; color: var(--ink); margin-bottom: 5px; }
+    .card-sub   { font-size: 0.76rem; color: var(--muted); font-weight: 300; }
+
+    /* ── INNER (TOPIC DETAIL) PAGE ───────────── */
+    #page-inner { display: none; }
+    #page-inner.active { display: block; }
+
+    .inner-body {
+      max-width: 740px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 36px 16px 100px;
+      animation: fadeUp 0.35s ease both;
+    }
+
+    /* ── MOBILE ───────────────────────────────── */
+    @media (max-width: 480px) {
+      .grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+      .card { padding: 18px 10px 14px; }
+    }
+
+    /* Staggered card animation */
+    .card:nth-child(1)  { animation-delay: 0.04s }
+    .card:nth-child(2)  { animation-delay: 0.08s }
+    .card:nth-child(3)  { animation-delay: 0.12s }
+    .card:nth-child(4)  { animation-delay: 0.16s }
+    .card:nth-child(5)  { animation-delay: 0.20s }
+    .card:nth-child(6)  { animation-delay: 0.24s }
+    .card:nth-child(7)  { animation-delay: 0.28s }
+    .card:nth-child(8)  { animation-delay: 0.32s }
+    .card:nth-child(9)  { animation-delay: 0.36s }
+    .card:nth-child(10) { animation-delay: 0.40s }
+    .card:nth-child(11) { animation-delay: 0.44s }
+    .card:nth-child(12) { animation-delay: 0.48s }
+  </style>
+</head>
+<body>
+
+<!-- HAMBURGER -->
+<button class="hamburger-btn" id="hamburger-btn" onclick="toggleMenu()" aria-label="Open menu">
+  <span></span><span></span><span></span>
+</button>
+
+<div class="menu-overlay" id="menu-overlay" onclick="closeMenu()"></div>
+<nav class="menu-drawer" id="menu-drawer">
+  <div class="menu-header">
+    <div class="menu-eyebrow">Navigation</div>
+    <h3>Mon Petit Français</h3>
+  </div>
+  <div class="menu-items">
+    <a class="menu-item" href="../index.html">
+      <span class="menu-item-icon">🏠</span>
+      <div>
+        <div class="menu-item-label">Accueil</div>
+        <div class="menu-item-sub">Home — all modules</div>
+      </div>
+    </a>
+    <a class="menu-item active" href="index.html">
+      <span class="menu-item-icon">📖</span>
+      <div>
+        <div class="menu-item-label">Parcourir les phrases</div>
+        <div class="menu-item-sub">Browse phrases by topic</div>
+      </div>
+    </a>
+    <a class="menu-item" href="../conversations/index.html">
+      <span class="menu-item-icon">💬</span>
+      <div>
+        <div class="menu-item-label">Scripts de conversation</div>
+        <div class="menu-item-sub">Practice full conversations</div>
+      </div>
+    </a>
+    <a class="menu-item" href="../sounds/index.html">
+      <span class="menu-item-icon">🔤</span>
+      <div>
+        <div class="menu-item-label">Les sons du français</div>
+        <div class="menu-item-sub">How French sounds work</div>
+      </div>
+    </a>
+  </div>
+</nav>
+
+<!-- GRID PAGE -->
+<div id="page-grid">
+  <div class="page-header">
+    <div class="eyebrow">Pour ma chère ♡</div>
+    <h1>Parcourir les<br/><em>Phrases</em></h1>
+    <p>Choose a topic to explore simple phrases and build your confidence one conversation at a time.</p>
+  </div>
+  <div class="divider"></div>
+  <div class="grid" id="card-grid"></div>
+</div>
+
+<!-- INNER TOPIC PAGE -->
+<div id="page-inner">
+  <nav class="inner-nav">
+    <button class="back-btn" id="back-btn" onclick="goBack()">All topics</button>
+  </nav>
+  <!-- speed bar injected here by JS -->
+  <div class="inner-body" id="inner-body"></div>
+</div>
+
+<footer class="site-footer">
+  <span>Need a word?</span>
+  <a href="https://translate.google.com/?sl=en&tl=fr&op=translate" target="_blank" rel="noopener">Open Google Translate ↗</a>
+</footer>
+
+<script src="../shared/nav.js"></script>
+<script src="../shared/audio.js"></script>
+<script src="topics.js"></script>
+<script>
+  // ── GRID ─────────────────────────────────────
+  function buildGrid() {
+    const grid = document.getElementById('card-grid');
+    grid.innerHTML = '';
+    topics.forEach((topic, i) => {
+      const card = document.createElement('div');
+      card.className = 'card';
+      card.innerHTML = `
+        <span class="card-icon">${topic.icon}</span>
+        <div class="card-title">${topic.title}</div>
+        <div class="card-sub">${topic.sub}</div>
+      `;
+      card.addEventListener('click', () => openTopic(topic));
+      grid.appendChild(card);
+    });
+  }
+
+  // ── OPEN TOPIC ────────────────────────────────
+  function openTopic(topic) {
+    const pageInner = document.getElementById('page-inner');
+    const body      = document.getElementById('inner-body');
+
+    // Build speed bar (remove old if present)
+    const oldBar = pageInner.querySelector('.speed-bar');
+    if (oldBar) oldBar.remove();
+    // Insert speed bar after inner-nav
+    const nav = pageInner.querySelector('.inner-nav');
+    Audio.buildSpeedBar(nav.parentNode, 'Playback speed');
+    // Move it to right after nav
+    const bar = pageInner.querySelector('.speed-bar');
+    nav.insertAdjacentElement('afterend', bar);
+
+    // Build content
+    let html = `
+      <div class="inner-header">
+        <div class="eyebrow">${topic.icon} &nbsp; Phrases</div>
+        <h2>${topic.title.replace(/(\S+)\s*$/, '<em>$1</em>')}</h2>
+        <p>${topic.desc}</p>
+      </div>
+    `;
+    topic.sections.forEach(section => {
+      html += `<div class="section-label">${section.label}</div>`;
+      html += `
+        <div class="phrase-header">
+          <span>French</span><span>English</span><span>Sounds like</span>
+        </div>
+        <div class="phrase-list" data-section>
+      `;
+      section.phrases.forEach(p => {
+        // Use data attributes so JS can attach buttons after render
+        html += `
+          <div class="phrase-row" data-fr="${encodeURIComponent(p.fr)}">
+            <div class="phrase-fr">${p.fr}</div>
+            <div class="phrase-en">${p.en}</div>
+            <div class="phrase-ph">${p.ph}</div>
+            ${p.note ? `<div class="phrase-note">💡 ${p.note}</div>` : ''}
+          </div>
+        `;
+      });
+      html += `</div>`;
+    });
+
+    body.innerHTML = html;
+
+    // Attach play buttons to every phrase row
+    body.querySelectorAll('.phrase-row').forEach(row => {
+      const text = decodeURIComponent(row.dataset.fr);
+      const btn  = Audio.buildPlayBtn(text);
+      // Insert before first cell
+      row.insertBefore(btn, row.querySelector('.phrase-fr'));
+      // On desktop, btn is absolutely positioned — works fine
+      // On mobile (@hover:none) btn is in flow after phrase-fr per CSS
+    });
+
+    document.getElementById('page-grid').style.display = 'none';
+    pageInner.classList.add('active');
+    window.scrollTo(0, 0);
+  }
+
+  // ── BACK ──────────────────────────────────────
+  function goBack() {
+    window.speechSynthesis && window.speechSynthesis.cancel();
+    document.getElementById('page-inner').classList.remove('active');
+    document.getElementById('page-grid').style.display = 'block';
+    window.scrollTo(0, 0);
+  }
+
+  buildGrid();
+</script>
+</body>
+</html>
