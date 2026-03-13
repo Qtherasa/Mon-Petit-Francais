@@ -746,7 +746,7 @@
 
     // Back — parse article from fr string (e.g. "un chat" → article="un", word="chat")
     const parts = card.fr.split(' ');
-    const hasArticle = parts[0] === 'un' || parts[0] === 'une';
+    const hasArticle = (parts[0] === 'un' || parts[0] === 'une') && parts.length > 1;
     if (hasArticle) {
       document.getElementById('card-back-article').textContent = parts[0]; // un / une
       document.getElementById('card-back-fr').textContent = parts.slice(1).join(' ');
