@@ -24,80 +24,7 @@
       color: var(--ink);
       min-height: 100vh;
     }
-
-    /* ── HAMBURGER ── */
-    .hamburger-btn {
-      position: fixed;
-      top: 18px; left: 20px;
-      z-index: 200;
-      background: var(--warm-white);
-      border: 1px solid var(--line);
-      border-radius: 4px;
-      width: 40px; height: 40px;
-      display: flex; flex-direction: column;
-      justify-content: center; align-items: center;
-      gap: 5px; cursor: pointer;
-      transition: box-shadow 0.2s;
-    }
-    .hamburger-btn:hover { box-shadow: 0 2px 12px rgba(196,113,74,0.15); }
-    .hamburger-btn span {
-      display: block; width: 18px; height: 1.5px;
-      background: var(--ink);
-      transition: all 0.2s ease;
-      transform-origin: center;
-    }
-    .hamburger-btn.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
-    .hamburger-btn.open span:nth-child(2) { opacity: 0; }
-    .hamburger-btn.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
-
-    /* ── MENU DRAWER ── */
-    .menu-overlay {
-      position: fixed; inset: 0;
-      background: rgba(26,22,18,0.35);
-      z-index: 150; opacity: 0; pointer-events: none;
-      transition: opacity 0.25s ease;
-    }
-    .menu-overlay.open { opacity: 1; pointer-events: all; }
-    .menu-drawer {
-      position: fixed; top: 0; left: 0; bottom: 0;
-      width: 280px; background: var(--warm-white);
-      z-index: 175; transform: translateX(-100%);
-      transition: transform 0.28s ease;
-      display: flex; flex-direction: column;
-      border-right: 1px solid var(--line);
-    }
-    .menu-drawer.open { transform: translateX(0); }
-    .menu-header {
-      padding: 28px 28px 20px;
-      border-bottom: 1px solid var(--line);
-    }
-    .menu-header .menu-eyebrow {
-      font-size: 0.7rem; letter-spacing: 0.2em;
-      text-transform: uppercase; color: var(--accent);
-      font-weight: 300; margin-bottom: 6px;
-    }
-    .menu-header h3 {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.2rem; font-weight: 400;
-    }
-    .menu-items { padding: 16px 0; flex: 1; }
-    .menu-item {
-      display: flex; align-items: center; gap: 14px;
-      padding: 14px 28px; cursor: pointer;
-      transition: background 0.15s;
-      border-left: 3px solid transparent;
-      text-decoration: none;
-    }
-    .menu-item:hover { background: var(--cream); }
-    .menu-item.active { border-left-color: var(--accent); background: var(--accent-light); }
-    .menu-item-icon { font-size: 1.2rem; }
-    .menu-item-label {
-      font-family: 'Playfair Display', serif;
-      font-size: 1rem; font-weight: 400;
-      color: var(--ink); margin-bottom: 2px;
-    }
-    .menu-item-sub { font-size: 0.75rem; color: var(--muted); font-weight: 300; }
-
+    
     /* ── PAGE LAYOUT ── */
     .page-wrap {
       max-width: 720px;
@@ -481,57 +408,6 @@
 </head>
 <body>
 
-<!-- HAMBURGER -->
-<button class="hamburger-btn" id="hamburger-btn" onclick="toggleMenu()" aria-label="Menu">
-  <span></span><span></span><span></span>
-</button>
-
-<!-- OVERLAY + DRAWER -->
-<div class="menu-overlay" id="menu-overlay" onclick="closeMenu()"></div>
-<nav class="menu-drawer" id="menu-drawer">
-  <div class="menu-header">
-    <div class="menu-eyebrow">Navigation</div>
-    <h3>Mon Petit Français</h3>
-  </div>
-  <div class="menu-items">
-    <a class="menu-item" href="../index.html" onclick="closeMenu()">
-      <span class="menu-item-icon">🏠</span>
-      <div>
-        <div class="menu-item-label">Accueil</div>
-        <div class="menu-item-sub">Home — all modules</div>
-      </div>
-    </a>
-    <a class="menu-item" href="../phrases/index.html" onclick="closeMenu()">
-      <span class="menu-item-icon">📖</span>
-      <div>
-        <div class="menu-item-label">Parcourir les phrases</div>
-        <div class="menu-item-sub">Browse phrases by topic</div>
-      </div>
-    </a>
-    <a class="menu-item" href="../conversations/index.html" onclick="closeMenu()">
-      <span class="menu-item-icon">💬</span>
-      <div>
-        <div class="menu-item-label">Scripts de conversation</div>
-        <div class="menu-item-sub">Practice full conversations</div>
-      </div>
-    </a>
-    <a class="menu-item" href="../sounds/index.html" onclick="closeMenu()">
-      <span class="menu-item-icon">🔤</span>
-      <div>
-        <div class="menu-item-label">Les sons du français</div>
-        <div class="menu-item-sub">How French sounds work</div>
-      </div>
-    </a>
-    <a class="menu-item active" href="index.html" onclick="closeMenu()">
-      <span class="menu-item-icon">🃏</span>
-      <div>
-        <div class="menu-item-label">Flashcards</div>
-        <div class="menu-item-sub">Practice vocabulary</div>
-      </div>
-    </a>
-  </div>
-</nav>
-
 <!-- CELEBRATION TOAST -->
 <div id="celebration"></div>
 
@@ -646,6 +522,7 @@
 
 <script src="cards.js"></script>
 <script>
+  
   // ── STATE ──
   let currentMode = 'english';
   let currentCat  = 'All';
@@ -844,5 +721,6 @@
     document.getElementById('end-message').textContent = msg;
   }
 </script>
+  <script src="../shared/nav.js"></script>
 </body>
 </html>
