@@ -42,6 +42,18 @@ const conversations = [
         en: "I'm ready! Shall we go?",
         ph: "zhuh swee PRET! ohn ee VAH"
       }
+    ],
+    vocab: [
+      { fr: "le temps",       en: "the weather",      ph: "luh TAHN" },
+      { fr: "aujourd'hui",    en: "today",             ph: "oh-zhoor-DWEE" },
+      { fr: "il fait beau",   en: "it's nice / sunny", ph: "eel feh BOH" },
+      { fr: "venteux",        en: "windy",             ph: "vahn-TUH" },
+      { fr: "dehors",         en: "outside",           ph: "duh-OR" },
+      { fr: "se promener",    en: "to go for a walk",  ph: "suh prohm-NAY" },
+      { fr: "un pull",        en: "a sweater",         ph: "uhn POOL" },
+      { fr: "j'attends",      en: "I'm waiting",       ph: "zhuh tah-TAHN" },
+      { fr: "prête",          en: "ready (f.)",        ph: "PRET" },
+      { fr: "on y va",        en: "shall we go / let's go", ph: "ohn ee VAH" }
     ]
   },
   {
@@ -99,6 +111,18 @@ const conversations = [
         en: "I'm working this morning, but I'm free this afternoon.",
         ph: "zhuh trah-VY suh mah-TAN, meh zhuh swee LEEBR set ah-preh mee-DEE"
       }
+    ],
+    vocab: [
+      { fr: "bonjour",        en: "good morning / hello", ph: "bon-ZHOOR" },
+      { fr: "dormir",         en: "to sleep",          ph: "dor-MEER" },
+      { fr: "le café",        en: "coffee",             ph: "luh kah-FAY" },
+      { fr: "le lait",        en: "milk",               ph: "luh LEH" },
+      { fr: "avoir faim",     en: "to be hungry",       ph: "ah-VWAHR FAN" },
+      { fr: "voilà",          en: "here you go / there it is", ph: "vwah-LAH" },
+      { fr: "ce matin",       en: "this morning",       ph: "suh mah-TAN" },
+      { fr: "après-midi",     en: "afternoon",          ph: "ah-preh mee-DEE" },
+      { fr: "libre",          en: "free / available",   ph: "LEEBR" },
+      { fr: "travailler",     en: "to work",            ph: "trah-VY-yay" }
     ]
   },
   {
@@ -156,6 +180,18 @@ const conversations = [
         en: "Great! Thank you, my love.",
         ph: "soo-PAIR! mair-SEE, mohn ah-MOOR"
       }
+    ],
+    vocab: [
+      { fr: "manger",         en: "to eat",             ph: "mahn-ZHAY" },
+      { fr: "commander",      en: "to order",           ph: "koh-mahn-DAY" },
+      { fr: "ce soir",        en: "tonight / this evening", ph: "suh SWAHR" },
+      { fr: "préférer",       en: "to prefer",          ph: "pray-fay-RAY" },
+      { fr: "délicieux",      en: "delicious",          ph: "day-lee-SYUH" },
+      { fr: "quelque chose",  en: "something",          ph: "kel-kuh SHOHZ" },
+      { fr: "à boire",        en: "to drink / something to drink", ph: "ah BWAHR" },
+      { fr: "un verre de vin", en: "a glass of wine",   ph: "uhn VAIR duh VAN" },
+      { fr: "maintenant",     en: "now",                ph: "mant-NAHN" },
+      { fr: "mon amour",      en: "my love",            ph: "mohn ah-MOOR" }
     ]
   },
   {
@@ -213,6 +249,18 @@ const conversations = [
         en: "It'll be okay. I love you.",
         ph: "sah vah ah-LAY. zhuh TEM"
       }
+    ],
+    vocab: [
+      { fr: "la journée",     en: "the day",            ph: "lah zhoor-NAY" },
+      { fr: "le travail",     en: "work",               ph: "luh trah-VY" },
+      { fr: "difficile",      en: "difficult / hard",   ph: "dee-fee-SEEL" },
+      { fr: "désolé(e)",      en: "sorry",              ph: "day-zoh-LAY" },
+      { fr: "stressant",      en: "stressful",          ph: "streh-SAHN" },
+      { fr: "ça va mieux",    en: "I feel better",      ph: "sah vah MYUH" },
+      { fr: "la maison",      en: "the house / home",   ph: "lah may-ZOHN" },
+      { fr: "content(e)",     en: "happy / glad",       ph: "kon-TAHN" },
+      { fr: "rien de spécial", en: "nothing special",   ph: "ree-AN duh spay-SYAL" },
+      { fr: "je t'aime",      en: "I love you",         ph: "zhuh TEM" }
     ]
   },
   {
@@ -270,6 +318,18 @@ const conversations = [
         en: "I know. Come on, let's start!",
         ph: "zhuh SAY. ah-LAY, ohn koh-MAHNS"
       }
+    ],
+    vocab: [
+      { fr: "un film",        en: "a film / movie",     ph: "uhn FEELM" },
+      { fr: "regarder",       en: "to watch",           ph: "ruh-gar-DAY" },
+      { fr: "une comédie",    en: "a comedy",           ph: "oon koh-may-DEE" },
+      { fr: "fatigué(e)",     en: "tired",              ph: "fah-tee-GAY" },
+      { fr: "s'asseoir",      en: "to sit down",        ph: "sah-SWAHR" },
+      { fr: "une seconde",    en: "one second",         ph: "oon suh-GOND" },
+      { fr: "parfait(e)",     en: "perfect",            ph: "par-FEH" },
+      { fr: "commencer",      en: "to start / begin",   ph: "koh-mahn-SAY" },
+      { fr: "allez",          en: "come on / let's go", ph: "ah-LAY" },
+      { fr: "je sais",        en: "I know",             ph: "zhuh SAY" }
     ]
   },
   {
@@ -321,6 +381,18 @@ const conversations = [
         en: "Me too. I'm glad we're together.",
         ph: "mwah OH-see. zhuh swee kon-TAHN kohn swah ahn-SAHML"
       }
+    ],
+    vocab: [
+      { fr: "le week-end",    en: "the weekend",        ph: "luh wee-KEND" },
+      { fr: "le marché",      en: "the market",         ph: "luh mar-SHAY" },
+      { fr: "samedi",         en: "Saturday",           ph: "sahm-DEE" },
+      { fr: "dimanche",       en: "Sunday",             ph: "dee-MAHNSH" },
+      { fr: "déjeuner",       en: "to have lunch",      ph: "day-zhuh-NAY" },
+      { fr: "ensuite",        en: "then / next",        ph: "ahn-SWEET" },
+      { fr: "rester",         en: "to stay",            ph: "res-TAY" },
+      { fr: "se reposer",     en: "to rest",            ph: "suh ruh-poh-ZAY" },
+      { fr: "tranquille",     en: "quiet / calm",       ph: "trahn-KEEL" },
+      { fr: "ensemble",       en: "together",           ph: "ahn-SAHML" }
     ]
   },
   {
@@ -378,6 +450,18 @@ const conversations = [
         en: "Always. Come here.",
         ph: "too-ZHOOR. vyan LAH"
       }
+    ],
+    vocab: [
+      { fr: "belle / beau",   en: "beautiful / handsome", ph: "BEL / BOH" },
+      { fr: "vraiment",       en: "really / truly",     ph: "vray-MAHN" },
+      { fr: "la tenue",       en: "the outfit",         ph: "lah tuh-NOO" },
+      { fr: "heureux / heureuse", en: "happy",          ph: "uh-RUH / uh-RUHZ" },
+      { fr: "rendre heureux", en: "to make happy",      ph: "rahn-druh uh-RUH" },
+      { fr: "je t'adore",     en: "I adore you",        ph: "zhuh tah-DOR" },
+      { fr: "plus que tout",  en: "more than anything", ph: "ploo kuh TOO" },
+      { fr: "un câlin",       en: "a hug",              ph: "uhn kah-LAN" },
+      { fr: "toujours",       en: "always",             ph: "too-ZHOOR" },
+      { fr: "viens là",       en: "come here",          ph: "vyan LAH" }
     ]
   },
   {
@@ -429,6 +513,18 @@ const conversations = [
         en: "Perfect. Thank you, you're the best!",
         ph: "par-FEH. mair-SEE, too ay luh meh-YUHR / lah meh-YUHR"
       }
+    ],
+    vocab: [
+      { fr: "les courses",    en: "the shopping / groceries", ph: "lay KOORS" },
+      { fr: "le supermarché", en: "the supermarket",    ph: "luh soo-pair-mar-SHAY" },
+      { fr: "avoir besoin",   en: "to need",            ph: "ah-VWAHR buh-ZWAN" },
+      { fr: "le lait",        en: "milk",               ph: "luh LEH" },
+      { fr: "le pain",        en: "bread",              ph: "luh PAN" },
+      { fr: "des œufs",       en: "eggs",               ph: "day ZUH" },
+      { fr: "des pâtes",      en: "pasta",              ph: "day PAT" },
+      { fr: "des légumes",    en: "vegetables",         ph: "day lay-GOOM" },
+      { fr: "la salade",      en: "salad",              ph: "lah sah-LAD" },
+      { fr: "le meilleur / la meilleure", en: "the best", ph: "luh meh-YUHR" }
     ]
   },
   {
@@ -480,6 +576,18 @@ const conversations = [
         en: "That's true. Come here, little kitty. I love you anyway.",
         ph: "say VREH. vyan ee-SEE, mohn mee-NOO. zhuh TEM kahn MEM"
       }
+    ],
+    vocab: [
+      { fr: "le chat",        en: "the cat",            ph: "luh SHAH" },
+      { fr: "nourrir",        en: "to feed",            ph: "noo-REER" },
+      { fr: "réclamer",       en: "to demand / beg for", ph: "ray-klah-MAY" },
+      { fr: "le canapé",      en: "the sofa",           ph: "luh kah-nah-PAY" },
+      { fr: "encore",         en: "again / still",      ph: "ahn-KOR" },
+      { fr: "évidemment",     en: "obviously",          ph: "ay-vee-dah-MAHN" },
+      { fr: "griffer",        en: "to scratch",         ph: "gree-FAY" },
+      { fr: "mignon(ne)",     en: "cute",               ph: "mee-NYOHN" },
+      { fr: "quand même",     en: "even so / all the same", ph: "kahn MEM" },
+      { fr: "mon minou",      en: "my little kitty",    ph: "mohn mee-NOO" }
     ]
   },
   {
@@ -525,6 +633,18 @@ const conversations = [
         en: "I love you too. See you tonight!",
         ph: "zhuh TEM oh-SEE. ah suh SWAHR"
       }
+    ],
+    vocab: [
+      { fr: "manquer",        en: "to miss (someone)",  ph: "mahn-KAY" },
+      { fr: "tu me manques",  en: "I miss you (lit. you are missing to me)", ph: "too muh MAHNK" },
+      { fr: "rentrer",        en: "to come back / return home", ph: "rahn-TRAY" },
+      { fr: "vers",           en: "around / towards",   ph: "VAIR" },
+      { fr: "je serai là",    en: "I'll be here",       ph: "zhuh suh-REH LAH" },
+      { fr: "penser à",       en: "to think about",     ph: "pahn-SAY ah" },
+      { fr: "à ce soir",      en: "see you tonight",    ph: "ah suh SWAHR" },
+      { fr: "moi aussi",      en: "me too",             ph: "mwah OH-see" },
+      { fr: "tu sais",        en: "you know",           ph: "too SAY" },
+      { fr: "je t'aime",      en: "I love you",         ph: "zhuh TEM" }
     ]
   },
   {
@@ -582,6 +702,18 @@ const conversations = [
         en: "For the Horde! Let's go!",
         ph: "poor lah ORD! ohn ee VAH"
       }
+    ],
+    vocab: [
+      { fr: "jouer",          en: "to play",            ph: "ZHOO-ay" },
+      { fr: "se connecter",   en: "to log on",          ph: "suh koh-nek-TAY" },
+      { fr: "un donjon",      en: "a dungeon",          ph: "uhn don-ZHOHN" },
+      { fr: "avec plaisir",   en: "with pleasure",      ph: "ah-vek play-ZEER" },
+      { fr: "un personnage",  en: "a character",        ph: "uhn pair-soh-NAZH" },
+      { fr: "un guerrier",    en: "a warrior",          ph: "uhn geh-RYAY" },
+      { fr: "une mage",       en: "a mage",             ph: "oon MAZH" },
+      { fr: "prêt(e)",        en: "ready",              ph: "PREH" },
+      { fr: "c'est nul",      en: "that's rubbish",     ph: "say NOOL" },
+      { fr: "pour la Horde",  en: "for the Horde",      ph: "poor lah ORD" }
     ]
   },
   {
@@ -735,6 +867,18 @@ const conversations = [
         en: "Excuse me! We're ready to order, please.",
         ph: "ex-koo-ZAY mwah! ohn ay PREH ah koh-mahn-DAY, seel voo PLEH"
       }
+    ],
+    vocab: [
+      { fr: "le menu",        en: "the menu",           ph: "luh muh-NOO" },
+      { fr: "une entrée",     en: "a starter",          ph: "oon ahn-TRAY" },
+      { fr: "le plat principal", en: "the main course", ph: "luh plah pran-see-PAL" },
+      { fr: "le dessert",     en: "dessert",            ph: "luh deh-SAIR" },
+      { fr: "partager",       en: "to share",           ph: "par-tah-ZHAY" },
+      { fr: "cher / chère",   en: "expensive",          ph: "SHAIR" },
+      { fr: "le prix",        en: "the price",          ph: "luh PREE" },
+      { fr: "c'est combien",  en: "how much is it",     ph: "say kom-bee-AN" },
+      { fr: "le serveur",     en: "the waiter",         ph: "luh sair-VUHR" },
+      { fr: "excusez-moi",    en: "excuse me (formal)", ph: "ex-koo-ZAY MWAH" }
     ]
   },
   {
@@ -786,6 +930,18 @@ const conversations = [
         en: "It'll be okay. We're together — that's what matters.",
         ph: "sah vah ah-LAY. ohn ay ahn-SAHML, say less-ahn-SYEL"
       }
+    ],
+    vocab: [
+      { fr: "fatigué(e)",     en: "tired",              ph: "fah-tee-GAY" },
+      { fr: "épuisé(e)",      en: "exhausted",          ph: "ay-pwee-ZAY" },
+      { fr: "une semaine",    en: "a week",             ph: "oon suh-MEN" },
+      { fr: "se reposer",     en: "to rest",            ph: "suh ruh-poh-ZAY" },
+      { fr: "aller au lit",   en: "to go to bed",       ph: "ah-LAY oh LEE" },
+      { fr: "tôt",            en: "early",              ph: "TOH" },
+      { fr: "d'abord",        en: "first / firstly",    ph: "dah-BOR" },
+      { fr: "une tasse de thé", en: "a cup of tea",     ph: "oon TASS duh TAY" },
+      { fr: "adorable",       en: "adorable",           ph: "ah-dor-AHB-luh" },
+      { fr: "l'essentiel",    en: "what matters / the essential thing", ph: "less-ahn-SYEL" }
     ]
   }
 ];
