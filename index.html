@@ -2,840 +2,206 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Flashcards — Mon Petit Français</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
+  <meta name="theme-color" content="#fff9f2"/>
+  <title>Mon Petit Français</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="shared/style.css"/>
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    :root {
-      --cream: #faf7f2;
-      --warm-white: #fff9f2;
-      --ink: #1a1612;
-      --muted: #8a7f74;
-      --accent: #c4714a;
-      --accent-light: #f0ddd3;
-      --line: #e8e0d5;
-    }
-
-    body {
-      font-family: 'Lato', sans-serif;
-      background: var(--cream);
-      color: var(--ink);
+    /* ── HOME LAYOUT ─────────────────────────── */
+    #home {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 64px 20px 100px;
       min-height: 100vh;
     }
 
-    /* ── HAMBURGER ── */
-    .hamburger-btn {
-      position: fixed;
-      top: 18px; left: 20px;
-      z-index: 200;
-      background: var(--warm-white);
-      border: 1px solid var(--line);
-      border-radius: 4px;
-      width: 40px; height: 40px;
-      display: flex; flex-direction: column;
-      justify-content: center; align-items: center;
-      gap: 5px; cursor: pointer;
-      transition: box-shadow 0.2s;
-    }
-    .hamburger-btn:hover { box-shadow: 0 2px 12px rgba(196,113,74,0.15); }
-    .hamburger-btn span {
-      display: block; width: 18px; height: 1.5px;
-      background: var(--ink);
-      transition: all 0.2s ease;
-      transform-origin: center;
-    }
-    .hamburger-btn.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
-    .hamburger-btn.open span:nth-child(2) { opacity: 0; }
-    .hamburger-btn.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
-
-    /* ── MENU DRAWER ── */
-    .menu-overlay {
-      position: fixed; inset: 0;
-      background: rgba(26,22,18,0.35);
-      z-index: 150; opacity: 0; pointer-events: none;
-      transition: opacity 0.25s ease;
-    }
-    .menu-overlay.open { opacity: 1; pointer-events: all; }
-    .menu-drawer {
-      position: fixed; top: 0; left: 0; bottom: 0;
-      width: 280px; background: var(--warm-white);
-      z-index: 175; transform: translateX(-100%);
-      transition: transform 0.28s ease;
-      display: flex; flex-direction: column;
-      border-right: 1px solid var(--line);
-    }
-    .menu-drawer.open { transform: translateX(0); }
-    .menu-header {
-      padding: 28px 28px 20px;
-      border-bottom: 1px solid var(--line);
-    }
-    .menu-header .menu-eyebrow {
-      font-size: 0.7rem; letter-spacing: 0.2em;
-      text-transform: uppercase; color: var(--accent);
-      font-weight: 300; margin-bottom: 6px;
-    }
-    .menu-header h3 {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.2rem; font-weight: 400;
-    }
-    .menu-items { padding: 16px 0; flex: 1; }
-    .menu-item {
-      display: flex; align-items: center; gap: 14px;
-      padding: 14px 28px; cursor: pointer;
-      transition: background 0.15s;
-      border-left: 3px solid transparent;
-      text-decoration: none;
-    }
-    .menu-item:hover { background: var(--cream); }
-    .menu-item.active { border-left-color: var(--accent); background: var(--accent-light); }
-    .menu-item-icon { font-size: 1.2rem; }
-    .menu-item-label {
-      font-family: 'Playfair Display', serif;
-      font-size: 1rem; font-weight: 400;
-      color: var(--ink); margin-bottom: 2px;
-    }
-    .menu-item-sub { font-size: 0.75rem; color: var(--muted); font-weight: 300; }
-
-    /* ── PAGE LAYOUT ── */
-    .page-wrap {
-      max-width: 720px;
-      margin: 0 auto;
-      padding: 64px 24px 120px;
-    }
-
-    .page-header {
+    .home-header {
       text-align: center;
-      margin-bottom: 40px;
+      margin-bottom: 48px;
     }
-    .page-header .eyebrow {
-      font-size: 0.78rem; letter-spacing: 0.22em;
-      text-transform: uppercase; color: var(--accent);
-      font-weight: 300; margin-bottom: 14px;
-    }
-    .page-header h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(2rem, 5vw, 3rem);
-      font-weight: 400; line-height: 1.15;
-      margin-bottom: 12px;
-    }
-    .page-header h1 em { font-style: italic; color: var(--accent); }
-    .page-header p {
-      font-size: 0.95rem; color: var(--muted);
-      font-weight: 300; line-height: 1.7;
-    }
-    .divider {
-      width: 48px; height: 1px;
-      background: var(--accent);
-      margin: 0 auto 36px; opacity: 0.5;
-    }
-
-    /* ── CONTROLS ── */
-    .controls {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-      margin-bottom: 32px;
-    }
-
-    .control-row {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      flex-wrap: wrap;
-    }
-    .control-label {
-      font-size: 0.7rem; font-weight: 700;
-      letter-spacing: 0.18em; text-transform: uppercase;
-      color: var(--muted); min-width: 60px;
-    }
-
-    .pill-group {
-      display: flex;
-      gap: 6px;
-      flex-wrap: wrap;
-    }
-    .pill {
-      padding: 7px 16px;
-      border-radius: 20px;
-      border: 1px solid var(--line);
-      background: var(--warm-white);
-      font-size: 0.82rem; font-weight: 400;
-      color: var(--muted);
-      cursor: pointer;
-      transition: all 0.15s;
+    .home-header .eyebrow {
       font-family: 'Lato', sans-serif;
-      line-height: 1;
+      font-weight: 300;
+      font-size: 0.78rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 14px;
     }
-    .pill:hover { border-color: var(--accent); color: var(--accent); }
-    .pill.active {
-      background: var(--accent);
-      border-color: var(--accent);
-      color: #fff;
-      font-weight: 700;
-    }
-
-    /* ── START BUTTON ── */
-    .start-btn {
-      display: block;
-      width: 100%;
-      padding: 16px;
-      background: var(--accent);
-      color: #fff;
-      border: none;
-      border-radius: 6px;
+    .home-header h1 {
       font-family: 'Playfair Display', serif;
-      font-size: 1.1rem;
+      font-size: clamp(2.6rem, 7vw, 4rem);
       font-weight: 400;
-      cursor: pointer;
-      transition: opacity 0.15s, transform 0.15s;
-      margin-top: 8px;
-      letter-spacing: 0.02em;
-    }
-    .start-btn:hover { opacity: 0.88; transform: translateY(-1px); }
-    .start-btn:active { transform: translateY(0); }
-
-    /* ── SESSION UI ── */
-    #session { display: none; }
-
-    /* Progress bar */
-    .progress-bar-wrap {
-      margin-bottom: 24px;
-    }
-    .progress-meta {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      margin-bottom: 8px;
-    }
-    .progress-meta-left {
-      font-size: 0.78rem; color: var(--muted); font-weight: 300;
-    }
-    .progress-score {
-      font-family: 'Playfair Display', serif;
-      font-size: 1rem;
-    }
-    .score-correct { color: #3a7a4a; }
-    .score-sep { color: var(--muted); margin: 0 3px; }
-    .score-total { color: var(--muted); font-size: 0.85rem; }
-    .progress-track {
-      height: 4px;
-      background: var(--line);
-      border-radius: 2px;
-      overflow: hidden;
-    }
-    .progress-fill {
-      height: 100%;
-      background: var(--accent);
-      border-radius: 2px;
-      transition: width 0.35s ease;
-    }
-
-    /* ── CARD ── */
-    .card-scene {
-      perspective: 900px;
-      margin-bottom: 20px;
-      cursor: pointer;
-    }
-    .card-inner {
-      position: relative;
-      width: 100%;
-      padding-bottom: 56%;
-      transform-style: preserve-3d;
-      transition: transform 0.55s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-    .card-scene.flipped .card-inner {
-      transform: rotateY(180deg);
-    }
-    .card-face {
-      position: absolute;
-      inset: 0;
-      border-radius: 10px;
-      border: 1px solid var(--line);
-      background: var(--warm-white);
-      backface-visibility: hidden;
-      -webkit-backface-visibility: hidden;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 32px;
-      overflow: hidden;
-    }
-    .card-face.back {
-      transform: rotateY(180deg);
-      background: var(--warm-white);
-    }
-
-    /* decorative corner accent */
-    .card-face::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0;
-      width: 80px; height: 80px;
-      background: var(--accent-light);
-      border-radius: 0 0 80px 0;
-      opacity: 0.5;
-    }
-
-    .card-hint {
-      position: absolute;
-      top: 14px; right: 16px;
-      font-size: 0.68rem; font-weight: 700;
-      letter-spacing: 0.15em; text-transform: uppercase;
-      color: var(--muted); opacity: 0.6;
-    }
-
-    .card-emoji {
-      font-size: clamp(3rem, 10vw, 5rem);
-      line-height: 1;
+      line-height: 1.12;
+      color: var(--ink);
       margin-bottom: 16px;
     }
-    .card-front-text {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(1.3rem, 4vw, 1.9rem);
-      font-weight: 400;
-      text-align: center;
-      color: var(--ink);
-    }
-    .card-front-text em {
-      font-style: italic;
-      color: var(--accent);
+    .home-header h1 em { font-style: italic; color: var(--accent); }
+    .home-header p {
+      font-size: 1rem;
+      color: var(--muted);
+      font-weight: 300;
+      max-width: 360px;
+      margin: 0 auto;
+      line-height: 1.75;
     }
 
-    /* back face */
-    .card-back-fr {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(1.6rem, 5vw, 2.4rem);
-      font-weight: 600;
-      font-style: italic;
-      color: var(--ink);
-      margin-bottom: 10px;
-      text-align: center;
-    }
-    .card-back-article {
-      font-size: 0.78rem; font-weight: 700;
-      letter-spacing: 0.15em; text-transform: uppercase;
-      color: var(--accent); margin-bottom: 6px;
+    /* ── MODULE GRID ────────────────────────── */
+    .module-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 16px;
+      width: 100%;
+      max-width: 860px;
     }
 
-    /* tap to flip hint */
-    .flip-hint {
-      text-align: center;
-      font-size: 0.75rem; color: var(--muted);
-      font-weight: 300; margin-bottom: 16px;
-      opacity: 0.8;
-    }
-    .flip-hint span { border-bottom: 1px dashed var(--muted); padding-bottom: 1px; }
-
-    /* ── CHECK BUTTONS ── */
-    .check-btns {
-      display: flex;
-      gap: 10px;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.25s ease;
-    }
-    .check-btns.visible {
-      opacity: 1;
-      pointer-events: all;
-    }
-    .check-btn {
-      flex: 1;
-      padding: 14px 20px;
-      border-radius: 6px;
-      border: 1.5px solid var(--line);
-      background: var(--warm-white);
-      font-family: 'Lato', sans-serif;
-      font-size: 0.88rem; font-weight: 700;
-      letter-spacing: 0.06em;
-      cursor: pointer;
-      transition: all 0.18s;
-      display: flex; align-items: center;
-      justify-content: center; gap: 8px;
-    }
-    .check-btn.got-it {
-      color: #3a7a4a;
-      border-color: rgba(58,122,74,0.3);
-    }
-    .check-btn.got-it:hover {
-      background: #e8f5eb;
-      border-color: #3a7a4a;
-    }
-    .check-btn.practice {
-      color: #b03535;
-      border-color: rgba(176,53,53,0.3);
-    }
-    .check-btn.practice:hover {
-      background: #fceaea;
-      border-color: #b03535;
-    }
-
-    /* ── END SCREEN ── */
-    #end-screen { display: none; }
-    .end-inner {
-      text-align: center;
-      padding: 40px 24px;
+    .module-card {
       background: var(--warm-white);
       border: 1px solid var(--line);
-      border-radius: 10px;
+      border-radius: 8px;
+      padding: 28px 20px 24px;
+      cursor: pointer;
+      transition: all 0.22s ease;
+      text-align: center;
+      text-decoration: none;
+      display: block;
+      position: relative;
+      overflow: hidden;
+      -webkit-tap-highlight-color: transparent;
     }
-    .end-score-big {
+    .module-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--accent);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.22s ease;
+    }
+    .module-card:hover {
+      border-color: var(--accent-light);
+      box-shadow: 0 6px 28px rgba(196,113,74,0.12);
+      transform: translateY(-3px);
+    }
+    .module-card:hover::after { transform: scaleX(1); }
+    .module-card:active { transform: translateY(0); }
+
+    .card-icon  { font-size: 2rem; margin-bottom: 12px; display: block; }
+    .card-title {
       font-family: 'Playfair Display', serif;
-      font-size: clamp(3rem, 10vw, 5rem);
-      font-weight: 600;
-      color: var(--accent);
-      line-height: 1;
-      margin-bottom: 4px;
+      font-size: 1.05rem; font-weight: 600;
+      color: var(--ink); margin-bottom: 6px;
     }
-    .end-score-label {
-      font-size: 0.8rem; font-weight: 300;
-      color: var(--muted); margin-bottom: 24px;
-      letter-spacing: 0.08em; text-transform: uppercase;
-    }
-    .end-message {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.2rem; font-style: italic;
-      color: var(--ink); margin-bottom: 32px;
-      line-height: 1.5;
-    }
-    .end-actions {
-      display: flex; gap: 10px; flex-wrap: wrap;
-      justify-content: center;
-    }
-    .end-btn {
-      padding: 13px 28px;
-      border-radius: 6px;
-      font-family: 'Lato', sans-serif;
-      font-size: 0.88rem; font-weight: 700;
-      letter-spacing: 0.08em; text-transform: uppercase;
-      cursor: pointer; border: 1.5px solid;
-      transition: all 0.15s;
-    }
-    .end-btn.primary {
-      background: var(--accent); color: #fff;
-      border-color: var(--accent);
-    }
-    .end-btn.primary:hover { opacity: 0.88; transform: translateY(-1px); }
-    .end-btn.secondary {
-      background: transparent; color: var(--muted);
-      border-color: var(--line);
-    }
-    .end-btn.secondary:hover { border-color: var(--accent); color: var(--accent); }
-
-    /* ── CELEBRATION TOAST ── */
-    #celebration {
-      position: fixed;
-      top: 28px;
-      left: 50%;
-      transform: translateX(-50%) translateY(-20px);
-      background: var(--ink);
-      color: #fff;
-      padding: 12px 28px;
-      border-radius: 40px;
-      font-family: 'Playfair Display', serif;
-      font-size: 1.1rem;
-      font-style: italic;
-      white-space: nowrap;
-      z-index: 300;
-      pointer-events: none;
-      opacity: 0;
-      transition: opacity 0.3s ease, transform 0.3s ease;
-    }
-    #celebration.show {
-      opacity: 1;
-      transform: translateX(-50%) translateY(0);
+    .card-sub {
+      font-size: 0.78rem; color: var(--muted);
+      font-weight: 300; letter-spacing: 0.03em;
     }
 
-    /* ── FOOTER ── */
-    .site-footer {
-      position: fixed; bottom: 0; left: 0; right: 0;
-      background: var(--warm-white);
-      border-top: 1px solid var(--line);
-      padding: 12px 24px;
-      display: flex; align-items: center;
-      justify-content: center; gap: 10px;
-      z-index: 100;
-    }
-    .site-footer span { font-size: 0.78rem; color: var(--muted); font-weight: 300; }
-    .site-footer a {
-      font-size: 0.78rem; font-weight: 700;
-      color: var(--accent); text-decoration: none;
-      letter-spacing: 0.06em;
-      border-bottom: 1px solid var(--accent-light);
-      transition: border-color 0.15s;
-    }
-    .site-footer a:hover { border-color: var(--accent); }
+    /* ── ANIMATIONS ──────────────────────────── */
+    .module-card { animation: fadeUp 0.4s ease both; }
+    .module-card:nth-child(1) { animation-delay: 0.05s }
+    .module-card:nth-child(2) { animation-delay: 0.10s }
+    .module-card:nth-child(3) { animation-delay: 0.15s }
+    .module-card:nth-child(4) { animation-delay: 0.20s }
 
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(14px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-    .page-wrap { animation: fadeUp 0.35s ease both; }
-
+    /* ── MOBILE ──────────────────────────────── */
     @media (max-width: 480px) {
-      .check-btn { padding: 12px 10px; font-size: 0.8rem; }
+      .module-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+      }
+      .module-card { padding: 22px 14px 18px; }
+      .card-icon { font-size: 1.7rem; }
     }
   </style>
 </head>
 <body>
 
 <!-- HAMBURGER -->
-<button class="hamburger-btn" id="hamburger-btn" onclick="toggleMenu()" aria-label="Menu">
+<button class="hamburger-btn" id="hamburger-btn" onclick="toggleMenu()" aria-label="Open menu">
   <span></span><span></span><span></span>
 </button>
 
-<!-- OVERLAY + DRAWER -->
+<!-- OVERLAY -->
 <div class="menu-overlay" id="menu-overlay" onclick="closeMenu()"></div>
+
+<!-- DRAWER -->
 <nav class="menu-drawer" id="menu-drawer">
   <div class="menu-header">
     <div class="menu-eyebrow">Navigation</div>
     <h3>Mon Petit Français</h3>
   </div>
   <div class="menu-items">
-    <a class="menu-item" href="../index.html" onclick="closeMenu()">
+    <a class="menu-item active" href="index.html">
       <span class="menu-item-icon">🏠</span>
       <div>
         <div class="menu-item-label">Accueil</div>
         <div class="menu-item-sub">Home — all modules</div>
       </div>
     </a>
-    <a class="menu-item" href="../phrases/index.html" onclick="closeMenu()">
+    <a class="menu-item" href="phrases/index.html">
       <span class="menu-item-icon">📖</span>
       <div>
         <div class="menu-item-label">Parcourir les phrases</div>
         <div class="menu-item-sub">Browse phrases by topic</div>
       </div>
     </a>
-    <a class="menu-item" href="../conversations/index.html" onclick="closeMenu()">
+    <a class="menu-item" href="conversations/index.html">
       <span class="menu-item-icon">💬</span>
       <div>
         <div class="menu-item-label">Scripts de conversation</div>
         <div class="menu-item-sub">Practice full conversations</div>
       </div>
     </a>
-    <a class="menu-item" href="../sounds/index.html" onclick="closeMenu()">
+    <a class="menu-item" href="sounds/index.html">
       <span class="menu-item-icon">🔤</span>
       <div>
         <div class="menu-item-label">Les sons du français</div>
         <div class="menu-item-sub">How French sounds work</div>
       </div>
     </a>
-    <a class="menu-item active" href="index.html" onclick="closeMenu()">
-      <span class="menu-item-icon">🃏</span>
-      <div>
-        <div class="menu-item-label">Flashcards</div>
-        <div class="menu-item-sub">Practice vocabulary</div>
-      </div>
-    </a>
   </div>
 </nav>
 
-<!-- CELEBRATION TOAST -->
-<div id="celebration"></div>
-
-<!-- MAIN -->
-<div class="page-wrap">
-
-  <!-- Setup screen -->
-  <div id="setup">
-    <div class="page-header">
-      <div class="eyebrow">Vocabulaire ♡</div>
-      <h1>Les<br/><em>Flashcards</em></h1>
-      <p>Flip each card to reveal the French word. Mark what you know — and what needs a little more love.</p>
-    </div>
-    <div class="divider"></div>
-
-    <div class="controls">
-      <!-- Mode -->
-      <div class="control-row">
-        <span class="control-label">Mode</span>
-        <div class="pill-group" id="mode-pills">
-          <button class="pill active" data-mode="english" onclick="setMode('english', this)">🇬🇧 English</button>
-          <button class="pill" data-mode="emoji" onclick="setMode('emoji', this)">😀 Emoji</button>
-        </div>
-      </div>
-
-      <!-- Category -->
-      <div class="control-row">
-        <span class="control-label">Topic</span>
-        <div class="pill-group" id="cat-pills">
-          <button class="pill active" data-cat="All" onclick="setCat('All', this)">All</button>
-          <button class="pill" data-cat="Animals" onclick="setCat('Animals', this)">🐾 Animals</button>
-          <button class="pill" data-cat="Colors" onclick="setCat('Colors', this)">🎨 Colors</button>
-          <button class="pill" data-cat="Numbers" onclick="setCat('Numbers', this)">🔢 Numbers</button>
-        </div>
-      </div>
-
-      <!-- Session size -->
-      <div class="control-row">
-        <span class="control-label">Cards</span>
-        <div class="pill-group" id="size-pills">
-          <button class="pill active" data-size="10" onclick="setSize(10, this)">10</button>
-          <button class="pill" data-size="25" onclick="setSize(25, this)">25</button>
-          <button class="pill" data-size="0" onclick="setSize(0, this)">All</button>
-        </div>
-      </div>
-    </div>
-
-    <button class="start-btn" onclick="startSession()">Commençons — Let's go ✨</button>
+<!-- HOME -->
+<main id="home">
+  <div class="home-header">
+    <div class="eyebrow">Pour ma chère ♡</div>
+    <h1>Mon Petit<br/><em>Français</em></h1>
+    <p>Choose a module below and build your confidence, one phrase at a time.</p>
   </div>
+  <div class="divider"></div>
+  <div class="module-grid">
 
-  <!-- Session -->
-  <div id="session">
-    <div class="progress-bar-wrap">
-      <div class="progress-meta">
-        <span class="progress-meta-left" id="progress-label">Card 1 of 10</span>
-        <span class="progress-score">
-          <span class="score-correct" id="score-correct">0</span>
-          <span class="score-sep">/</span>
-          <span class="score-total" id="score-total">0</span>
-          <span class="score-sep" style="margin-left:4px">✓</span>
-        </span>
-      </div>
-      <div class="progress-track">
-        <div class="progress-fill" id="progress-fill" style="width:0%"></div>
-      </div>
-    </div>
+    <a class="module-card" href="phrases/index.html">
+      <span class="card-icon">📖</span>
+      <div class="card-title">Browse Phrases</div>
+      <div class="card-sub">By topic — greetings, food, feelings & more</div>
+    </a>
 
-    <div class="card-scene" id="card-scene" onclick="flipCard()">
-      <div class="card-inner" id="card-inner">
-        <!-- Front -->
-        <div class="card-face front">
-          <span class="card-hint">tap to flip</span>
-          <div class="card-emoji" id="card-front-emoji"></div>
-          <div class="card-front-text" id="card-front-text"></div>
-        </div>
-        <!-- Back -->
-        <div class="card-face back">
-          <span class="card-hint">tap to flip back</span>
-          <div class="card-back-article" id="card-back-article"></div>
-          <div class="card-back-fr" id="card-back-fr"></div>
-        </div>
-      </div>
-    </div>
+    <a class="module-card" href="conversations/index.html">
+      <span class="card-icon">💬</span>
+      <div class="card-title">Conversations</div>
+      <div class="card-sub">Full back-and-forth scripts to practise</div>
+    </a>
 
-    <div class="flip-hint"><span>Flip the card, then mark yourself honestly</span></div>
+    <a class="module-card" href="sounds/index.html">
+      <span class="card-icon">🔤</span>
+      <div class="card-title">Les Sons</div>
+      <div class="card-sub">How French pronunciation actually works</div>
+    </a>
 
-    <div class="check-btns" id="check-btns">
-      <button class="check-btn got-it" onclick="markCard(true)">✓ &nbsp;Got it !</button>
-      <button class="check-btn practice" onclick="markCard(false)">✗ &nbsp;Encore un peu…</button>
-    </div>
   </div>
-
-  <!-- End screen -->
-  <div id="end-screen">
-    <div class="end-inner">
-      <div class="end-score-big" id="end-score-big">—</div>
-      <div class="end-score-label" id="end-score-label">correct</div>
-      <div class="end-message" id="end-message"></div>
-      <div class="end-actions">
-        <button class="end-btn primary" onclick="startSession()">Try again ↺</button>
-        <button class="end-btn secondary" onclick="showSetup()">Change settings</button>
-      </div>
-    </div>
-  </div>
-
-</div>
+</main>
 
 <footer class="site-footer">
-  <span>Need to look something up?</span>
+  <span>Need a word?</span>
   <a href="https://translate.google.com/?sl=en&tl=fr&op=translate" target="_blank" rel="noopener">Open Google Translate ↗</a>
 </footer>
 
-<script src="cards.js"></script>
-<script>
-  // ── STATE ──
-  let currentMode = 'english';
-  let currentCat  = 'All';
-  let currentSize = 10;
-  let deck        = [];
-  let cardIndex   = 0;
-  let correctCount = 0;
-  let answeredCount = 0;
-  let isFlipped   = false;
-  let celebrationTimer = null;
-  let correctSinceLastCelebration = 0;
-
-  // ── MENU ──
-  function toggleMenu() {
-    const btn = document.getElementById('hamburger-btn');
-    const overlay = document.getElementById('menu-overlay');
-    const drawer  = document.getElementById('menu-drawer');
-    if (drawer.classList.contains('open')) { closeMenu(); return; }
-    btn.classList.add('open');
-    overlay.classList.add('open');
-    drawer.classList.add('open');
-  }
-  function closeMenu() {
-    document.getElementById('hamburger-btn').classList.remove('open');
-    document.getElementById('menu-overlay').classList.remove('open');
-    document.getElementById('menu-drawer').classList.remove('open');
-  }
-
-  // ── CONTROLS ──
-  function setMode(mode, el) {
-    currentMode = mode;
-    document.querySelectorAll('#mode-pills .pill').forEach(p => p.classList.remove('active'));
-    el.classList.add('active');
-  }
-  function setCat(cat, el) {
-    currentCat = cat;
-    document.querySelectorAll('#cat-pills .pill').forEach(p => p.classList.remove('active'));
-    el.classList.add('active');
-  }
-  function setSize(size, el) {
-    currentSize = size;
-    document.querySelectorAll('#size-pills .pill').forEach(p => p.classList.remove('active'));
-    el.classList.add('active');
-  }
-
-  // ── SESSION ──
-  function startSession() {
-    // Filter by category
-    let pool = currentCat === 'All'
-      ? [...flashcards]
-      : flashcards.filter(c => c.category === currentCat);
-
-    // Shuffle
-    for (let i = pool.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [pool[i], pool[j]] = [pool[j], pool[i]];
-    }
-
-    // Slice (0 = all)
-    deck = currentSize > 0 ? pool.slice(0, Math.min(currentSize, pool.length)) : pool;
-
-    if (deck.length === 0) { alert('No cards in this category!'); return; }
-
-    cardIndex   = 0;
-    correctCount = 0;
-    answeredCount = 0;
-    correctSinceLastCelebration = 0;
-
-    document.getElementById('setup').style.display      = 'none';
-    document.getElementById('end-screen').style.display = 'none';
-    document.getElementById('session').style.display    = 'block';
-
-    renderCard();
-    updateProgress();
-  }
-
-  function showSetup() {
-    document.getElementById('session').style.display    = 'none';
-    document.getElementById('end-screen').style.display = 'none';
-    document.getElementById('setup').style.display      = 'block';
-  }
-
-  // ── RENDER ──
-  function renderCard() {
-    const card = deck[cardIndex];
-    isFlipped = false;
-    document.getElementById('card-scene').classList.remove('flipped');
-    document.getElementById('check-btns').classList.remove('visible');
-
-    // Front
-    document.getElementById('card-front-emoji').textContent = card.emoji;
-    if (currentMode === 'english') {
-      document.getElementById('card-front-text').innerHTML =
-        `<em>${card.en.charAt(0).toUpperCase() + card.en.slice(1)}</em>`;
-    } else {
-      document.getElementById('card-front-text').innerHTML = '';
-    }
-
-    // Back — parse article from fr string (e.g. "un chat" → article="un", word="chat")
-    const parts = card.fr.split(' ');
-    const hasArticle = parts[0] === 'un' || parts[0] === 'une';
-    if (hasArticle) {
-      document.getElementById('card-back-article').textContent = parts[0]; // un / une
-      document.getElementById('card-back-fr').textContent = parts.slice(1).join(' ');
-    } else {
-      document.getElementById('card-back-article').textContent = '';
-      document.getElementById('card-back-fr').textContent = card.fr;
-    }
-  }
-
-  function updateProgress() {
-    const total = deck.length;
-    const done  = answeredCount;
-    const pct   = total > 0 ? (done / total) * 100 : 0;
-
-    document.getElementById('progress-label').textContent =
-      `Card ${Math.min(cardIndex + 1, total)} of ${total}`;
-    document.getElementById('score-correct').textContent = correctCount;
-    document.getElementById('score-total').textContent   = answeredCount;
-    document.getElementById('progress-fill').style.width = pct + '%';
-  }
-
-  // ── FLIP ──
-  function flipCard() {
-    const scene = document.getElementById('card-scene');
-    if (!isFlipped) {
-      scene.classList.add('flipped');
-      isFlipped = true;
-      document.getElementById('check-btns').classList.add('visible');
-    } else {
-      scene.classList.remove('flipped');
-      isFlipped = false;
-      document.getElementById('check-btns').classList.remove('visible');
-    }
-  }
-
-  // ── MARK ──
-  function markCard(correct) {
-    answeredCount++;
-    if (correct) {
-      correctCount++;
-      correctSinceLastCelebration++;
-      if (correctSinceLastCelebration >= 5) {
-        correctSinceLastCelebration = 0;
-        showCelebration();
-      }
-    }
-
-    updateProgress();
-
-    if (cardIndex + 1 >= deck.length) {
-      setTimeout(showEndScreen, 350);
-    } else {
-      cardIndex++;
-      // Small delay so the flip-back is satisfying before next card appears
-      setTimeout(renderCard, 200);
-    }
-  }
-
-  // ── CELEBRATION ──
-  function showCelebration() {
-    const toast = document.getElementById('celebration');
-    const msg = celebrations[Math.floor(Math.random() * celebrations.length)];
-    toast.textContent = msg;
-    toast.classList.add('show');
-    if (celebrationTimer) clearTimeout(celebrationTimer);
-    celebrationTimer = setTimeout(() => {
-      toast.classList.remove('show');
-    }, 2000);
-  }
-
-  // ── END SCREEN ──
-  function showEndScreen() {
-    document.getElementById('session').style.display    = 'none';
-    document.getElementById('end-screen').style.display = 'block';
-
-    const pct = deck.length > 0 ? Math.round((correctCount / deck.length) * 100) : 0;
-
-    document.getElementById('end-score-big').textContent   = `${correctCount}/${deck.length}`;
-    document.getElementById('end-score-label').textContent = `correct — ${pct}%`;
-
-    let msg;
-    if (pct === 100)      msg = 'Absolument parfait ! You got every single one. 🌟';
-    else if (pct >= 80)   msg = 'Très bien ! Almost there — keep going !';
-    else if (pct >= 60)   msg = 'Pas mal du tout ! You\'re making great progress.';
-    else if (pct >= 40)   msg = 'C\'est un bon début ! A good start — try again ?';
-    else                  msg = 'On continue ! Every card is a step forward. 💪';
-
-    document.getElementById('end-message').textContent = msg;
-  }
-</script>
+<script src="shared/nav.js"></script>
 </body>
 </html>
