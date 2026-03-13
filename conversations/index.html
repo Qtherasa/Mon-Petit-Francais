@@ -145,15 +145,37 @@
     .script-line.p1 .script-line-header { background: var(--p1-light); color: var(--p1); }
     .script-line.p2 .script-line-header { background: var(--p2-light); color: var(--p2); }
     .script-line-header .dot {
-      width: 8px; height: 8px; border-radius: 50; flex-shrink: 0;
+      width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0;
     }
     .script-line.p1 .dot { background: var(--p1); border-radius: 50%; }
     .script-line.p2 .dot { background: var(--p2); border-radius: 50%; }
 
+    /* ── SCRIPT CELLS — always 3 columns + play button ── */
     .script-cells {
       display: grid;
       grid-template-columns: 32px 1fr 1fr 1fr;
-      background: var(--line); gap: 1px;
+      background: var(--line);
+      gap: 1px;
+    }
+
+    /* On small screens: stack into rows instead of hiding */
+    @media (max-width: 600px) {
+      .script-col-headers { display: none; }
+
+      .script-cells {
+        grid-template-columns: 32px 1fr;
+        grid-template-rows: auto auto auto;
+      }
+
+      .script-play-col {
+        grid-row: 1 / 4; /* span all three rows */
+        align-items: flex-start;
+        padding-top: 14px;
+      }
+
+      .script-fr  { grid-column: 2; }
+      .script-en  { grid-column: 2; background: var(--cream); }
+      .script-snd { grid-column: 2; }
     }
 
     .script-play-col {
@@ -178,6 +200,13 @@
     }
     .script-snd::before { content: '🔊 '; font-size: 0.72rem; opacity: 0.7; }
 
+    @media (max-width: 600px) {
+      .script-fr  { padding: 10px 14px 4px; }
+      .script-en  { padding: 4px 14px; }
+      .script-snd { padding: 4px 14px 10px; }
+      .script-snd::before { content: '🔊 Sounds like: '; opacity: 1; }
+    }
+
     /* Play-all button */
     .play-all-btn {
       display: inline-flex; align-items: center; gap: 8px;
@@ -194,15 +223,82 @@
     .play-all-btn:hover  { background: var(--p1); color: #fff; }
     .play-all-btn.active { background: var(--p1); color: #fff; }
 
-    /* Mobile responsive */
-    @media (max-width: 600px) {
-      .script-cells {
-        grid-template-columns: 32px 1fr !important;
-      }
-      .script-col-headers { display: none; }
-      .script-en, .script-snd { display: none; }
-      .script-snd::before { content: '🔊 Sounds like: '; opacity: 1; }
+    /* ── VOCAB SECTION ───────────────────────── */
+    .vocab-section {
+      margin-top: 48px;
+      padding-top: 32px;
+      border-top: 1px solid var(--line);
     }
+    .vocab-section-label {
+      font-size: 0.7rem; font-weight: 700;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+    .vocab-section-sub {
+      font-size: 0.88rem; color: var(--muted); font-weight: 300;
+      margin-bottom: 18px; line-height: 1.5;
+    }
+
+    .vocab-col-headers {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      margin-bottom: 4px;
+    }
+    .vocab-col-headers span {
+      font-size: 0.68rem; font-weight: 700;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--muted); padding: 0 16px 6px;
+    }
+
+    .vocab-list {
+      display: flex; flex-direction: column; gap: 2px;
+    }
+    .vocab-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      background: var(--line);
+      border-radius: 3px;
+      overflow: hidden;
+      gap: 1px;
+    }
+    .vocab-fr {
+      background: var(--warm-white);
+      padding: 11px 16px;
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 1rem;
+      color: var(--ink);
+    }
+    .vocab-en {
+      background: var(--cream);
+      padding: 11px 16px;
+      font-size: 0.88rem;
+      color: var(--muted);
+      font-weight: 300;
+    }
+    .vocab-ph {
+      background: #f5f0fa;
+      padding: 11px 16px;
+      font-size: 0.82rem;
+      color: #7a5fa0;
+      font-weight: 300;
+    }
+    .vocab-ph::before { content: '🔊 '; font-size: 0.72rem; opacity: 0.7; }
+
+    /* On mobile: stack vocab rows too */
+    @media (max-width: 600px) {
+      .vocab-col-headers { display: none; }
+      .vocab-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
+      .vocab-fr  { padding: 10px 14px 4px; border-radius: 3px 3px 0 0; }
+      .vocab-en  { padding: 4px 14px; }
+      .vocab-ph  { padding: 4px 14px 10px; border-radius: 0 0 3px 3px; }
+      .vocab-ph::before { content: '🔊 Sounds like: '; opacity: 1; }
+    }
+
     @media (max-width: 480px) {
       .grid { grid-template-columns: 1fr 1fr; gap: 10px; }
     }
@@ -394,6 +490,35 @@
 
     body.appendChild(linesContainer);
 
+    // ── VOCAB SECTION ──────────────────────────
+    if (convo.vocab && convo.vocab.length > 0) {
+      const vocabSection = document.createElement('div');
+      vocabSection.className = 'vocab-section';
+
+      const colHeaders = `
+        <div class="vocab-col-headers">
+          <span>French</span><span>English</span><span>Sounds like</span>
+        </div>
+      `;
+
+      const rows = convo.vocab.map(word => `
+        <div class="vocab-row">
+          <div class="vocab-fr">${word.fr}</div>
+          <div class="vocab-en">${word.en}</div>
+          <div class="vocab-ph">${word.ph}</div>
+        </div>
+      `).join('');
+
+      vocabSection.innerHTML = `
+        <div class="vocab-section-label">Vocabulaire clé</div>
+        <div class="vocab-section-sub">Key words from this conversation to practise on their own.</div>
+        ${colHeaders}
+        <div class="vocab-list">${rows}</div>
+      `;
+
+      body.appendChild(vocabSection);
+    }
+
     document.getElementById('page-grid').style.display = 'none';
     pageConvo.classList.add('active');
     window.scrollTo(0, 0);
@@ -402,7 +527,6 @@
   // ── PLAY ALL ──────────────────────────────────
   function togglePlayAll(lines, btn) {
     if (_playAllActive) {
-      // Stop
       _playAllActive = false;
       if (_playAllTimeout) clearTimeout(_playAllTimeout);
       window.speechSynthesis && window.speechSynthesis.cancel();
@@ -423,20 +547,17 @@
       return;
     }
     const lineEl = document.querySelector(`.script-line[data-idx="${idx}"]`);
-    // Highlight current line
     document.querySelectorAll('.script-line').forEach(el => el.style.opacity = '0.4');
     if (lineEl) { lineEl.style.opacity = '1'; lineEl.scrollIntoView({ behavior: 'smooth', block: 'center' }); }
 
     const utt = new SpeechSynthesisUtterance(lines[idx].fr);
     utt.lang  = 'fr-FR';
-    // Get current rate from active speed-btn
     const activeSpeed = document.querySelector('.speed-btn.active');
     utt.rate  = activeSpeed ? parseFloat(activeSpeed.dataset.rate) : 0.75;
     utt.pitch = 1.05;
 
     utt.onend = utt.onerror = () => {
       if (!_playAllActive) return;
-      // Pause between lines (longer = easier for learners)
       _playAllTimeout = setTimeout(() => {
         playLineSequence(lines, idx + 1, btn);
       }, 900);
