@@ -1,1 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
+  <meta name="theme-color" content="#fff9f2"/>
+  <title>Mon Petit Français</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="shared/style.css"/>
+  <style>
+    /* ── HOME LAYOUT ─────────────────────────── */
+    #home {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 64px 20px 100px;
+      min-height: 100vh;
+    }
 
+    .home-header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+    .home-header .eyebrow {
+      font-family: 'Lato', sans-serif;
+      font-weight: 300;
+      font-size: 0.78rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 14px;
+    }
+    .home-header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.6rem, 7vw, 4rem);
+      font-weight: 400;
+      line-height: 1.12;
+      color: var(--ink);
+      margin-bottom: 16px;
+    }
+    .home-header h1 em { font-style: italic; color: var(--accent); }
+    .home-header p {
+      font-size: 1rem;
+      color: var(--muted);
+      font-weight: 300;
+      max-width: 360px;
+      margin: 0 auto;
+      line-height: 1.75;
+    }
+
+    /* ── MODULE GRID ────────────────────────── */
+    .module-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 16px;
+      width: 100%;
+      max-width: 860px;
+    }
+
+    .module-card {
+      background: var(--warm-white);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 28px 20px 24px;
+      cursor: pointer;
+      transition: all 0.22s ease;
+      text-align: center;
+      text-decoration: none;
+      display: block;
+      position: relative;
+      overflow: hidden;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .module-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--accent);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.22s ease;
+    }
+    .module-card:hover {
+      border-color: var(--accent-light);
+      box-shadow: 0 6px 28px rgba(196,113,74,0.12);
+      transform: translateY(-3px);
+    }
+    .module-card:hover::after { transform: scaleX(1); }
+    .module-card:active { transform: translateY(0); }
+
+    .card-icon  { font-size: 2rem; margin-bottom: 12px; display: block; }
+    .card-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem; font-weight: 600;
+      color: var(--ink); margin-bottom: 6px;
+    }
+    .card-sub {
+      font-size: 0.78rem; color: var(--muted);
+      font-weight: 300; letter-spacing: 0.03em;
+    }
+
+    /* ── ANIMATIONS ──────────────────────────── */
+    .module-card { animation: fadeUp 0.4s ease both; }
+    .module-card:nth-child(1) { animation-delay: 0.05s }
+    .module-card:nth-child(2) { animation-delay: 0.10s }
+    .module-card:nth-child(3) { animation-delay: 0.15s }
+    .module-card:nth-child(4) { animation-delay: 0.20s }
+
+    /* ── MOBILE ──────────────────────────────── */
+    @media (max-width: 480px) {
+      .module-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+      }
+      .module-card { padding: 22px 14px 18px; }
+      .card-icon { font-size: 1.7rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HAMBURGER -->
+<button class="hamburger-btn" id="hamburger-btn" onclick="toggleMenu()" aria-label="Open menu">
+  <span></span><span></span><span></span>
+</button>
+
+<!-- OVERLAY -->
+<div class="menu-overlay" id="menu-overlay" onclick="closeMenu()"></div>
+
+<!-- DRAWER -->
+<nav class="menu-drawer" id="menu-drawer">
+  <div class="menu-header">
+    <div class="menu-eyebrow">Navigation</div>
+    <h3>Mon Petit Français</h3>
+  </div>
+  <div class="menu-items">
+    <a class="menu-item active" href="index.html">
+      <span class="menu-item-icon">🏠</span>
+      <div>
+        <div class="menu-item-label">Accueil</div>
+        <div class="menu-item-sub">Home — all modules</div>
+      </div>
+    </a>
+    <a class="menu-item" href="phrases/index.html">
+      <span class="menu-item-icon">📖</span>
+      <div>
+        <div class="menu-item-label">Parcourir les phrases</div>
+        <div class="menu-item-sub">Browse phrases by topic</div>
+      </div>
+    </a>
+    <a class="menu-item" href="conversations/index.html">
+      <span class="menu-item-icon">💬</span>
+      <div>
+        <div class="menu-item-label">Scripts de conversation</div>
+        <div class="menu-item-sub">Practice full conversations</div>
+      </div>
+    </a>
+    <a class="menu-item" href="sounds/index.html">
+      <span class="menu-item-icon">🔤</span>
+      <div>
+        <div class="menu-item-label">Les sons du français</div>
+        <div class="menu-item-sub">How French sounds work</div>
+      </div>
+    </a>
+  </div>
+</nav>
+
+<!-- HOME -->
+<main id="home">
+  <div class="home-header">
+    <div class="eyebrow">Pour ma chère ♡</div>
+    <h1>Mon Petit<br/><em>Français</em></h1>
+    <p>Choose a module below and build your confidence, one phrase at a time.</p>
+  </div>
+  <div class="divider"></div>
+  <div class="module-grid">
+
+    <a class="module-card" href="phrases/index.html">
+      <span class="card-icon">📖</span>
+      <div class="card-title">Browse Phrases</div>
+      <div class="card-sub">By topic — greetings, food, feelings & more</div>
+    </a>
+
+    <a class="module-card" href="conversations/index.html">
+      <span class="card-icon">💬</span>
+      <div class="card-title">Conversations</div>
+      <div class="card-sub">Full back-and-forth scripts to practise</div>
+    </a>
+
+    <a class="module-card" href="sounds/index.html">
+      <span class="card-icon">🔤</span>
+      <div class="card-title">Les Sons</div>
+      <div class="card-sub">How French pronunciation actually works</div>
+    </a>
+
+  </div>
+</main>
+
+<footer class="site-footer">
+  <span>Need a word?</span>
+  <a href="https://translate.google.com/?sl=en&tl=fr&op=translate" target="_blank" rel="noopener">Open Google Translate ↗</a>
+</footer>
+
+<script src="shared/nav.js"></script>
+</body>
+</html>
