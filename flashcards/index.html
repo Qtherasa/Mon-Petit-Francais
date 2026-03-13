@@ -835,11 +835,11 @@
     document.getElementById('end-score-label').textContent = `correct — ${pct}%`;
 
     let msg;
-    if (pct === 100)      msg = 'Absolument parfait ! You got every single one. 🌟';
-    else if (pct >= 80)   msg = 'Très bien ! Wow! You're doing great — keep going !';
-    else if (pct >= 60)   msg = 'Pas mal du tout ! You\'re making great progress.';
-    else if (pct >= 40)   msg = 'C\'est un bon début ! A good start — try again ?';
-    else                  msg = 'On continue ! Every card is a step forward. 💪';
+    if (pct === 100)      msg = "Absolument parfait ! You got every single one. 🌟";
+    else if (pct >= 80)   msg = "Très bien ! Wow! You're doing great — keep going !";
+    else if (pct >= 60)   msg = "Pas mal du tout ! You're making great progress.";
+    else if (pct >= 40)   msg = "C'est un bon début ! A good start — try again ?";
+    else                  msg = "On continue ! Every card is a step forward. 💪";
 
     document.getElementById('end-message').textContent = msg;
   }
