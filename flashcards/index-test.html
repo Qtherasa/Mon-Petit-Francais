@@ -538,19 +538,18 @@
           <span class="card-hint">tap to flip back</span>
           <div class="card-back-article" id="card-back-article"></div>
           <div class="card-back-fr"      id="card-back-fr"></div>
-          <div class="card-audio-wrap"   id="card-audio-wrap">
-            <!-- play button injected by renderCard() -->
-          </div>
         </div>
       </div>
     </div>
 
     <div class="flip-hint"><span>Flip the card, then mark yourself honestly</span></div>
 
-    <div class="check-btns" id="check-btns">
-      <button class="check-btn got-it"  onclick="markCard(true)">✓ &nbsp;J'ai bon !</button>
+   <div class="check-btns" id="check-btns">
+      <button class="check-btn got-it"   onclick="markCard(true)">✓ &nbsp;J'ai bon !</button>
       <button class="check-btn practice" onclick="markCard(false)">✗ &nbsp;Encore un peu…</button>
     </div>
+<div class="card-audio-row" id="card-audio-row" style="display:none; text-align:center; margin-top:10px;">
+</div>
   </div>
 
   <!-- ── END SCREEN ── -->
@@ -797,10 +796,10 @@
 
     // Audio button — the full spoken string is article + fr (e.g. "un homme")
     const spokenText = card.article ? `${card.article} ${card.fr}` : card.fr;
-    const audioWrap  = document.getElementById('card-audio-wrap');
-    audioWrap.innerHTML = ''; // clear previous
-    const playBtn = Audio.buildPlayBtn(spokenText);
-    audioWrap.appendChild(playBtn);
+    const audioRow = document.getElementById('card-audio-row');
+    audioRow.innerHTML = '';
+    audioRow.appendChild(Audio.buildPlayBtn(spokenText));
+    audioRow.style.display = 'none'; // hidden until flipped
   }
 
   function updateProgress() {
@@ -813,18 +812,22 @@
   }
 
   // ── FLIP ──
-  function flipCard() {
-    const scene = document.getElementById('card-scene');
-    if (!isFlipped) {
-      scene.classList.add('flipped');
-      isFlipped = true;
-      document.getElementById('check-btns').classList.add('visible');
-    } else {
-      scene.classList.remove('flipped');
-      isFlipped = false;
-      document.getElementById('check-btns').classList.remove('visible');
-    }
+ function flipCard() {
+  const scene = document.getElementById('card-scene');
+  const audioRow = document.getElementById('card-audio-row');
+  if (!isFlipped) {
+    scene.classList.add('flipped');
+    isFlipped = true;
+    document.getElementById('check-btns').classList.add('visible');
+    audioRow.style.display = 'block';
+  } else {
+    scene.classList.remove('flipped');
+    isFlipped = false;
+    document.getElementById('check-btns').classList.remove('visible');
+    audioRow.style.display = 'none';
+    window.speechSynthesis && window.speechSynthesis.cancel();
   }
+}
 
   // ── MARK ──
   function markCard(correct) {
