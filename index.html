@@ -106,6 +106,7 @@
     .module-card:nth-child(2) { animation-delay: 0.10s }
     .module-card:nth-child(3) { animation-delay: 0.15s }
     .module-card:nth-child(4) { animation-delay: 0.20s }
+    .module-card:nth-child(5) { animation-delay: 0.25s }
 
     /* ── MOBILE ──────────────────────────────── */
     @media (max-width: 480px) {
@@ -163,6 +164,13 @@
         <div class="menu-item-sub">How French sounds work</div>
       </div>
     </a>
+    <a class="menu-item" href="flashcards/index.html" onclick="closeMenu()">
+      <span class="menu-item-icon">🃏</span>
+      <div>
+        <div class="menu-item-label">Flashcards</div>
+        <div class="menu-item-sub">Practice vocabulary</div>
+      </div>
+    </a>
   </div>
 </nav>
 
@@ -193,7 +201,11 @@
       <div class="card-title">Les Sons</div>
       <div class="card-sub">How French pronunciation actually works</div>
     </a>
-
+    <a class="module-card" href="flashcards/index.html">
+      <span class="card-icon">🃏</span>
+      <div class="card-title">Flashcards</div>
+      <div class="card-sub">Flip cards to practise vocabulary</div>
+    </a>
   </div>
 </main>
 
