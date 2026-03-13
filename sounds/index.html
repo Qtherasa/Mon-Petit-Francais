@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
+  <meta name="theme-color" content="#fff9f2"/>
+  <title>Les Sons du Français — Mon Petit Français</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="../shared/style.css"/>
+  <style>
+    .grid-page { padding: 60px 20px 100px; max-width: 900px; margin: 0 auto; }
+    .page-header { text-align: center; margin-bottom: 44px; }
+    .page-header .eyebrow { font-size: 0.78rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--accent); font-weight: 300; margin-bottom: 14px; }
+    .page-header h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.2rem, 6vw, 3.2rem); font-weight: 400; line-height: 1.15; margin-bottom: 14px; }
+    .page-header h1 em { font-style: italic; color: var(--accent); }
+    .page-header p { font-size: 0.97rem; color: var(--muted); font-weight: 300; max-width: 440px; margin: 0 auto; line-height: 1.75; }
+
+    .category-section { margin-bottom: 36px; }
+    .category-label { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); margin-bottom: 12px; padding-bottom: 8px; border-bottom: 1px solid var(--line); }
+    .sounds-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 10px; }
+
+    .sound-card { border-radius: 6px; border: 1px solid var(--line); padding: 18px 14px; cursor: pointer; transition: all 0.2s ease; text-align: center; background: var(--warm-white); position: relative; overflow: hidden; -webkit-tap-highlight-color: transparent; animation: fadeUp 0.35s ease both; }
+    .sound-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; opacity: 0; transition: opacity 0.2s; }
+    .sound-card:hover { transform: translateY(-2px); box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
+    .sound-card:hover::before { opacity: 1; }
+    .sound-card:active { transform: translateY(0); }
+
+    .sound-card.rose::before{background:var(--rose)}.sound-card.rose:hover{border-color:var(--rose)}
+    .sound-card.amber::before{background:var(--amber)}.sound-card.amber:hover{border-color:var(--amber)}
+    .sound-card.sky::before{background:var(--sky)}.sound-card.sky:hover{border-color:var(--sky)}
+    .sound-card.violet::before{background:var(--violet)}.sound-card.violet:hover{border-color:var(--violet)}
+    .sound-card.teal::before{background:var(--teal)}.sound-card.teal:hover{border-color:var(--teal)}
+    .sound-card.green::before{background:var(--green)}.sound-card.green:hover{border-color:var(--green)}
+    .sound-card.red::before{background:var(--red)}.sound-card.red:hover{border-color:var(--red)}
+    .sound-card.yellow::before{background:var(--yellow)}.sound-card.yellow:hover{border-color:var(--yellow)}
+    .sound-card.pink::before{background:var(--pink)}.sound-card.pink:hover{border-color:var(--pink)}
+    .sound-card.orange::before{background:var(--orange)}.sound-card.orange:hover{border-color:var(--orange)}
+    .sound-card.indigo::before{background:var(--indigo)}.sound-card.indigo:hover{border-color:var(--indigo)}
+    .sound-card.slate::before{background:var(--slate)}.sound-card.slate:hover{border-color:var(--slate)}
+
+    .sound-card-letter { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 600; margin-bottom: 4px; line-height: 1; }
+    .sound-card-ph { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 4px; }
+    .sound-card-sub { font-size: 0.7rem; color: var(--muted); font-weight: 300; line-height: 1.3; }
+
+    .sound-card.rose .sound-card-letter,.sound-card.rose .sound-card-ph{color:var(--rose)}
+    .sound-card.amber .sound-card-letter,.sound-card.amber .sound-card-ph{color:var(--amber)}
+    .sound-card.sky .sound-card-letter,.sound-card.sky .sound-card-ph{color:var(--sky)}
+    .sound-card.violet .sound-card-letter,.sound-card.violet .sound-card-ph{color:var(--violet)}
+    .sound-card.teal .sound-card-letter,.sound-card.teal .sound-card-ph{color:var(--teal)}
+    .sound-card.green .sound-card-letter,.sound-card.green .sound-card-ph{color:var(--green)}
+    .sound-card.red .sound-card-letter,.sound-card.red .sound-card-ph{color:var(--red)}
+    .sound-card.yellow .sound-card-letter,.sound-card.yellow .sound-card-ph{color:var(--yellow)}
+    .sound-card.pink .sound-card-letter,.sound-card.pink .sound-card-ph{color:var(--pink)}
+    .sound-card.orange .sound-card-letter,.sound-card.orange .sound-card-ph{color:var(--orange)}
+    .sound-card.indigo .sound-card-letter,.sound-card.indigo .sound-card-ph{color:var(--indigo)}
+    .sound-card.slate .sound-card-letter,.sound-card.slate .sound-card-ph{color:var(--slate)}
+
+    /* Detail page */
+    #page-detail { display: none; }
+    .detail-body { max-width: 700px; width: 100%; margin: 0 auto; padding: 36px 16px 100px; animation: fadeUp 0.3s ease both; }
+    .detail-banner { border-radius: 8px; padding: 28px 32px; margin-bottom: 36px; position: relative; overflow: hidden; }
+    .detail-banner::after { content: attr(data-letter); position: absolute; right: -10px; top: 50%; transform: translateY(-50%); font-family: 'Playfair Display', serif; font-size: 7rem; font-weight: 600; opacity: 0.08; line-height: 1; pointer-events: none; }
+    .detail-banner.rose{background:var(--rose-light)}.detail-banner.amber{background:var(--amber-light)}.detail-banner.sky{background:var(--sky-light)}.detail-banner.violet{background:var(--violet-light)}.detail-banner.teal{background:var(--teal-light)}.detail-banner.green{background:var(--green-light)}.detail-banner.red{background:var(--red-light)}.detail-banner.yellow{background:var(--yellow-light)}.detail-banner.pink{background:var(--pink-light)}.detail-banner.orange{background:var(--orange-light)}.detail-banner.indigo{background:var(--indigo-light)}.detail-banner.slate{background:var(--slate-light)}
+    .detail-eyebrow { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 8px; opacity: 0.7; }
+    .detail-letter { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 5vw, 2.8rem); font-weight: 600; margin-bottom: 6px; line-height: 1.1; }
+    .detail-phonetic { font-size: 1.05rem; font-weight: 700; letter-spacing: 0.08em; }
+    .detail-ipa { font-size: 0.85rem; opacity: 0.6; font-weight: 300; margin-top: 2px; }
+    .detail-banner.rose .detail-eyebrow,.detail-banner.rose .detail-letter,.detail-banner.rose .detail-phonetic{color:var(--rose)}
+    .detail-banner.amber .detail-eyebrow,.detail-banner.amber .detail-letter,.detail-banner.amber .detail-phonetic{color:var(--amber)}
+    .detail-banner.sky .detail-eyebrow,.detail-banner.sky .detail-letter,.detail-banner.sky .detail-phonetic{color:var(--sky)}
+    .detail-banner.violet .detail-eyebrow,.detail-banner.violet .detail-letter,.detail-banner.violet .detail-phonetic{color:var(--violet)}
+    .detail-banner.teal .detail-eyebrow,.detail-banner.teal .detail-letter,.detail-banner.teal .detail-phonetic{color:var(--teal)}
+    .detail-banner.green .detail-eyebrow,.detail-banner.green .detail-letter,.detail-banner.green .detail-phonetic{color:var(--green)}
+    .detail-banner.red .detail-eyebrow,.detail-banner.red .detail-letter,.detail-banner.red .detail-phonetic{color:var(--red)}
+    .detail-banner.yellow .detail-eyebrow,.detail-banner.yellow .detail-letter,.detail-banner.yellow .detail-phonetic{color:var(--yellow)}
+    .detail-banner.pink .detail-eyebrow,.detail-banner.pink .detail-letter,.detail-banner.pink .detail-phonetic{color:var(--pink)}
+    .detail-banner.orange .detail-eyebrow,.detail-banner.orange .detail-letter,.detail-banner.orange .detail-phonetic{color:var(--orange)}
+    .detail-banner.indigo .detail-eyebrow,.detail-banner.indigo .detail-letter,.detail-banner.indigo .detail-phonetic{color:var(--indigo)}
+    .detail-banner.slate .detail-eyebrow,.detail-banner.slate .detail-letter,.detail-banner.slate .detail-phonetic{color:var(--slate)}
+    .detail-section { margin-bottom: 32px; }
+    .detail-section-label { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); padding-bottom: 10px; border-bottom: 1px solid var(--line); margin-bottom: 14px; }
+    .description-box { background: var(--warm-white); border: 1px solid var(--line); border-radius: 6px; padding: 18px 22px; font-size: 0.95rem; line-height: 1.75; color: var(--ink); }
+    .examples-list { display: flex; flex-wrap: wrap; gap: 8px; }
+    .example-chip { background: var(--cream); border: 1px solid var(--line); border-radius: 20px; padding: 5px 14px; font-size: 0.86rem; font-style: italic; color: var(--muted); }
+    .french-words { display: flex; flex-direction: column; gap: 2px; }
+    .french-word-row { display: grid; grid-template-columns: 32px 1fr 1fr 1fr; background: var(--line); border-radius: 3px; overflow: hidden; gap: 1px; }
+    .word-play { background: var(--warm-white); display: flex; align-items: center; justify-content: center; padding: 2px 4px; }
+    .word-fr { background: var(--warm-white); padding: 11px 14px; font-family: 'Playfair Display', serif; font-style: italic; font-size: 1rem; color: var(--ink); }
+    .word-en { background: var(--cream); padding: 11px 14px; font-size: 0.86rem; color: var(--muted); font-weight: 300; }
+    .word-ph { background: #f5f0fa; padding: 11px 14px; font-size: 0.82rem; color: #7a5fa0; font-weight: 300; }
+    .word-ph::before { content: '🔊 '; font-size: 0.72rem; opacity: 0.7; }
+    .words-header { display: grid; grid-template-columns: 32px 1fr 1fr 1fr; margin-bottom: 4px; }
+    .words-header span { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); padding: 0 14px 6px; }
+    .note-box { border-radius: 6px; padding: 14px 18px; font-size: 0.88rem; line-height: 1.65; display: flex; gap: 12px; align-items: flex-start; margin-top: 8px; }
+    .note-box.rose{background:var(--rose-light);color:var(--rose);border:1px solid rgba(181,67,90,.15)}.note-box.amber{background:var(--amber-light);color:var(--amber);border:1px solid rgba(176,125,46,.15)}.note-box.sky{background:var(--sky-light);color:var(--sky);border:1px solid rgba(46,110,166,.15)}.note-box.violet{background:var(--violet-light);color:var(--violet);border:1px solid rgba(107,79,160,.15)}.note-box.teal{background:var(--teal-light);color:var(--teal);border:1px solid rgba(42,132,122,.15)}.note-box.green{background:var(--green-light);color:var(--green);border:1px solid rgba(58,122,74,.15)}.note-box.red{background:var(--red-light);color:var(--red);border:1px solid rgba(176,53,53,.15)}.note-box.yellow{background:var(--yellow-light);color:var(--yellow);border:1px solid rgba(154,122,0,.15)}.note-box.pink{background:var(--pink-light);color:var(--pink);border:1px solid rgba(168,64,112,.15)}.note-box.orange{background:var(--orange-light);color:var(--orange);border:1px solid rgba(184,94,32,.15)}.note-box.indigo{background:var(--indigo-light);color:var(--indigo);border:1px solid rgba(74,74,170,.15)}.note-box.slate{background:var(--slate-light);color:var(--slate);border:1px solid rgba(90,100,117,.15)}
+    .note-icon { font-size: 1.1rem; flex-shrink: 0; margin-top: 1px; }
+    .related-section { margin-top: 28px; }
+    .related-label { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); margin-bottom: 10px; }
+    .related-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+    .related-chip { display: inline-flex; align-items: center; gap: 6px; padding: 7px 14px; border-radius: 4px; border: 1px solid var(--line); background: var(--warm-white); cursor: pointer; transition: all 0.15s; font-size: 0.86rem; -webkit-tap-highlight-color: transparent; min-height: 40px; }
+    .related-chip:hover { border-color: var(--accent); background: var(--accent-light); color: var(--accent); }
+    .related-chip-letter { font-family: 'Playfair Display', serif; font-weight: 600; font-size: 0.98rem; }
+    .related-chip-arrow { opacity: 0.4; font-size: 0.75rem; }
+
+    @media (max-width: 560px) {
+      .french-word-row { grid-template-columns: 32px 1fr; }
+      .words-header { display: none; }
+      .word-en,.word-ph { display: none; }
+      .sounds-grid { grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); }
+    }
+  </style>
+</head>
+<body>
+
+<button class="hamburger-btn" id="hamburger-btn" onclick="toggleMenu()" aria-label="Open menu">
+  <span></span><span></span><span></span>
+</button>
+<div class="menu-overlay" id="menu-overlay" onclick="closeMenu()"></div>
+<nav class="menu-drawer" id="menu-drawer">
+  <div class="menu-header">
+    <div class="menu-eyebrow">Navigation</div>
+    <h3>Mon Petit Français</h3>
+  </div>
+  <div class="menu-items">
+    <a class="menu-item" href="../index.html"><span class="menu-item-icon">🏠</span><div><div class="menu-item-label">Accueil</div><div class="menu-item-sub">Home — all modules</div></div></a>
+    <a class="menu-item" href="../phrases/index.html"><span class="menu-item-icon">📖</span><div><div class="menu-item-label">Parcourir les phrases</div><div class="menu-item-sub">Browse phrases by topic</div></div></a>
+    <a class="menu-item" href="../conversations/index.html"><span class="menu-item-icon">💬</span><div><div class="menu-item-label">Scripts de conversation</div><div class="menu-item-sub">Practice full conversations</div></div></a>
+    <a class="menu-item active" href="index.html"><span class="menu-item-icon">🔤</span><div><div class="menu-item-label">Les sons du français</div><div class="menu-item-sub">How French sounds work</div></div></a>
+  </div>
+</nav>
+
+<div id="page-grid">
+  <div class="grid-page">
+    <div class="page-header">
+      <div class="eyebrow">Pour commencer ♡</div>
+      <h1>Les Sons du<br/><em>Français</em></h1>
+      <p>French isn't as scary as it looks — once you know how the sounds work, everything starts to click. Tap any sound to explore and listen.</p>
+    </div>
+    <div class="divider"></div>
+    <div id="sound-sections"></div>
+  </div>
+</div>
+
+<div id="page-detail">
+  <nav class="inner-nav">
+    <button class="back-btn" onclick="goBack()">All sounds</button>
+  </nav>
+  <div class="detail-body" id="detail-body"></div>
+</div>
+
+<footer class="site-footer">
+  <span>Need a word?</span>
+  <a href="https://translate.google.com/?sl=en&tl=fr&op=translate" target="_blank" rel="noopener">Open Google Translate ↗</a>
+</footer>
+
+<script src="../shared/nav.js"></script>
+<script src="../shared/audio.js"></script>
+<script src="sounds.js"></script>
+<script>
+  const categories = [
+    { label: "The five vowels",       ids: ["a","e","i","o","u"] },
+    { label: "Accented vowels",       ids: ["a-circumflex","e-acute","e-grave","i-circumflex","o-circumflex","u-circumflex"] },
+    { label: "Vowel combinations",    ids: ["ou","eu","oi","ai","au"] },
+    { label: "Nasal sounds",          ids: ["an","in","on"] },
+    { label: "Special consonants",    ids: ["r","ch","gn","j","g","c","cedilla","h"] },
+    { label: "How French flows",      ids: ["silent","liaison"] }
+  ];
+
+  function buildGrid() {
+    const container = document.getElementById('sound-sections');
+    container.innerHTML = '';
+    categories.forEach(cat => {
+      const sec = document.createElement('div');
+      sec.className = 'category-section';
+      sec.innerHTML = `<div class="category-label">${cat.label}</div>`;
+      const grid = document.createElement('div');
+      grid.className = 'sounds-grid';
+      cat.ids.forEach((id, idx) => {
+        const sound = sounds.find(s => s.id === id);
+        if (!sound) return;
+        const card = document.createElement('div');
+        card.className = `sound-card ${sound.color}`;
+        card.style.animationDelay = `${idx * 0.04}s`;
+        card.innerHTML = `<div class="sound-card-letter">${sound.label}</div><div class="sound-card-ph">${sound.phonetic}</div><div class="sound-card-sub">${sound.sub}</div>`;
+        card.addEventListener('click', () => openSound(sound.id));
+        grid.appendChild(card);
+      });
+      sec.appendChild(grid);
+      container.appendChild(sec);
+    });
+  }
+
+  function openSound(id) {
+    const sound = sounds.find(s => s.id === id);
+    if (!sound) return;
+
+    const pageDetail = document.getElementById('page-detail');
+    const body = document.getElementById('detail-body');
+
+    // Speed bar
+    const oldBar = pageDetail.querySelector('.speed-bar');
+    if (oldBar) oldBar.remove();
+    const nav = pageDetail.querySelector('.inner-nav');
+    Audio.buildSpeedBar(nav.parentNode, 'Playback speed');
+    nav.insertAdjacentElement('afterend', pageDetail.querySelector('.speed-bar'));
+
+    const chips = sound.englishExamples.map(ex => `<div class="example-chip">${ex}</div>`).join('');
+    const wordRows = sound.frenchWords.map(w =>
+      `<div class="french-word-row" data-fr="${encodeURIComponent(w.fr)}"><div class="word-play"></div><div class="word-fr">${w.fr}</div><div class="word-en">${w.en}</div><div class="word-ph">${w.ph}</div></div>`
+    ).join('');
+
+    let variationsHtml = '';
+    if (sound.variations && sound.variations.length) {
+      const c = sound.variations.map(v => `<div class="related-chip" onclick="openSound('${v.id}')"><span class="related-chip-letter">${v.letter}</span><span class="related-chip-arrow">→</span></div>`).join('');
+      variationsHtml = `<div class="related-section"><div class="related-label">Variations of this sound</div><div class="related-chips">${c}</div></div>`;
+    }
+    let relatedHtml = '';
+    if (sound.relatedTo && sound.relatedTo.length) {
+      const c = sound.relatedTo.map(v => `<div class="related-chip" onclick="openSound('${v.id}')"><span class="related-chip-letter">${v.letter}</span><span class="related-chip-arrow">→</span></div>`).join('');
+      relatedHtml = `<div class="related-section"><div class="related-label">Related sounds</div><div class="related-chips">${c}</div></div>`;
+    }
+
+    body.innerHTML = `
+      <div class="detail-banner ${sound.color}" data-letter="${sound.label}">
+        <div class="detail-eyebrow">Les sons du français</div>
+        <div class="detail-letter">${sound.letter}</div>
+        <div class="detail-phonetic">Sounds like: "${sound.phonetic}"</div>
+        <div class="detail-ipa">IPA: ${sound.ipa}</div>
+      </div>
+      <div class="detail-section">
+        <div class="detail-section-label">How to make this sound</div>
+        <div class="description-box">${sound.description}</div>
+      </div>
+      <div class="detail-section">
+        <div class="detail-section-label">English words with a similar sound</div>
+        <div class="examples-list">${chips}</div>
+      </div>
+      <div class="detail-section">
+        <div class="detail-section-label">Simple French words with this sound</div>
+        <div class="words-header"><span></span><span>French</span><span>English</span><span>Sounds like</span></div>
+        <div class="french-words">${wordRows}</div>
+      </div>
+      ${sound.note ? `<div class="detail-section"><div class="note-box ${sound.color}"><div class="note-icon">💡</div><div>${sound.note}</div></div></div>` : ''}
+      ${variationsHtml}${relatedHtml}
+    `;
+
+    body.querySelectorAll('.french-word-row').forEach(row => {
+      const text = decodeURIComponent(row.dataset.fr);
+      const btn  = Audio.buildPlayBtn(text);
+      btn.style.cssText = 'position:static;transform:none;opacity:1;width:28px;height:28px;font-size:0.75rem;';
+      row.querySelector('.word-play').appendChild(btn);
+    });
+
+    document.getElementById('page-grid').style.display = 'none';
+    pageDetail.style.display = 'block';
+    window.scrollTo(0, 0);
+  }
+
+  function goBack() {
+    window.speechSynthesis && window.speechSynthesis.cancel();
+    document.getElementById('page-detail').style.display = 'none';
+    document.getElementById('page-grid').style.display = 'block';
+    window.scrollTo(0, 0);
+  }
+
+  buildGrid();
+</script>
+</body>
+</html>
