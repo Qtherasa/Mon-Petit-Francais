@@ -495,7 +495,7 @@
     <div class="flip-hint"><span>Flip the card, then mark yourself honestly</span></div>
 
     <div class="check-btns" id="check-btns">
-      <button class="check-btn got-it" onclick="markCard(true)">✓ &nbsp;J\'ai bon !</button>
+      <button class="check-btn got-it" onclick="markCard(true)">✓ &nbsp;J'ai bon !</button>
       <button class="check-btn practice" onclick="markCard(false)">✗ &nbsp;Encore un peu…</button>
     </div>
   </div>
@@ -623,7 +623,7 @@
 
     // Back — parse article from fr string (e.g. "un chat" → article="un", word="chat")
     const parts = card.fr.split(' ');
-    const hasArticle = parts[0] === 'un' || parts[0] === 'une';
+    const hasArticle = (parts[0] === 'un' || parts[0] === 'une') && parts.length > 1;
     if (hasArticle) {
       document.getElementById('card-back-article').textContent = parts[0]; // un / une
       document.getElementById('card-back-fr').textContent = parts.slice(1).join(' ');
@@ -712,11 +712,11 @@
     document.getElementById('end-score-label').textContent = `correct — ${pct}%`;
 
     let msg;
-    if (pct === 100)      msg = 'Absolument parfait ! You got every single one. 🌟';
-    else if (pct >= 80)   msg = 'Très bien ! Wow! You're doing great — keep going !';
-    else if (pct >= 60)   msg = 'Pas mal du tout ! You\'re making great progress.';
-    else if (pct >= 40)   msg = 'C\'est un bon début ! A good start — try again ?';
-    else                  msg = 'On continue ! Every card is a step forward. 💪';
+    if (pct === 100)      msg = "Absolument parfait ! You got every single one. 🌟";
+    else if (pct >= 80)   msg = "Très bien ! Wow! You're doing great — keep going !";
+    else if (pct >= 60)   msg = "Pas mal du tout ! You're making great progress.";
+    else if (pct >= 40)   msg = "C'est un bon début ! A good start — try again ?";
+    else                  msg = "On continue ! Every card is a step forward. 💪";
 
     document.getElementById('end-message').textContent = msg;
   }
