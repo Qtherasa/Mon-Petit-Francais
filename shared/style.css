@@ -50,6 +50,14 @@ body {
 
 /* ── TYPOGRAPHY ─────────────────────────────── */
 a { color: inherit; }
+.vocab-article {
+  color: var(--accent);
+  font-size: 0.85em;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: lowercase;
+  margin-right: 2px;
+}
 
 /* ── HAMBURGER BUTTON ───────────────────────── */
 .hamburger-btn {
