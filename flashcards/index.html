@@ -597,6 +597,16 @@
   let celebrationTimer = null;
   let correctSinceLastCelebration = 0;
 
+   // ── MENU ──
+  function toggleMenu() {
+    const btn = document.getElementById('hamburger-btn');
+    const overlay = document.getElementById('menu-overlay');
+    const drawer  = document.getElementById('menu-drawer');
+    if (drawer.classList.contains('open')) { closeMenu(); return; }
+    btn.classList.add('open');
+    overlay.classList.add('open');
+    drawer.classList.add('open');
+    
   const celebrations = [
     "Magnifique ! ✨", "Bravo, mon cœur ! 🌸",
     "Tu es brillante ! 💫", "Parfait ! 🎉",
@@ -702,7 +712,11 @@
       btn.disabled = false;
     }
   }
-
+  function closeMenu() {
+    document.getElementById('hamburger-btn').classList.remove('open');
+    document.getElementById('menu-overlay').classList.remove('open');
+    document.getElementById('menu-drawer').classList.remove('open');
+  }
   function getFilteredPool() {
     if (!window.vocabData) return [];
     if (selectedCats.has('__all__')) return [...window.vocabData];
