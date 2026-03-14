@@ -370,6 +370,18 @@
     }
     .check-btn.got-it { color: #3a7a4a; border-color: rgba(58,122,74,0.3); }
     .check-btn.got-it:hover { background: #e8f5eb; border-color: #3a7a4a; }
+    .check-btn.listen {
+      color: #8a6a00;
+      border-color: rgba(138, 106, 0, 0.3);
+    }
+    .check-btn.listen:hover {
+      background: #fdf8e1;
+      border-color: #8a6a00;
+    }
+    .check-btn.listen.playing {
+      background: #fdf8e1;
+      border-color: #8a6a00;
+    }
     .check-btn.practice { color: #b03535; border-color: rgba(176,53,53,0.3); }
     .check-btn.practice:hover { background: #fceaea; border-color: #b03535; }
 
@@ -798,7 +810,30 @@
     const spokenText = card.article ? `${card.article} ${card.fr}` : card.fr;
     const audioRow = document.getElementById('card-audio-row');
     audioRow.innerHTML = '';
-    audioRow.appendChild(Audio.buildPlayBtn(spokenText));
+    const audioRow = document.getElementById('card-audio-row');
+    audioRow.innerHTML = '';
+    const playBtn = document.createElement('button');
+    playBtn.className = 'check-btn listen';
+    playBtn.innerHTML = `🔊 &nbsp;${card.ph}`;
+    playBtn.title = 'Listen in French';
+    playBtn.setAttribute('aria-label', 'Play French pronunciation');
+    playBtn.addEventListener('click', e => {
+      e.stopPropagation();
+      if (playBtn.classList.contains('playing')) {
+        window.speechSynthesis.cancel();
+        playBtn.classList.remove('playing');
+        return;
+      }
+      window.speechSynthesis.cancel();
+      const utt = new SpeechSynthesisUtterance(spokenText);
+      utt.lang = 'fr-FR';
+      utt.rate = 0.75;
+      utt.pitch = 1.05;
+      utt.onend = utt.onerror = () => playBtn.classList.remove('playing');
+      playBtn.classList.add('playing');
+      setTimeout(() => window.speechSynthesis.speak(utt), 50);
+    });
+    audioRow.appendChild(playBtn);
     audioRow.style.display = 'none'; // hidden until flipped
   }
 
