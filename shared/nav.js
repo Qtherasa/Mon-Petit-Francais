@@ -15,6 +15,27 @@ const NAV_ITEMS = [
     sub:   'Home — all modules',
   },
   {
+    path: '/sounds/',
+    href: `${BASE}/sounds/index.html`,
+    icon: '🔤',
+    label: 'Les sons du français',
+    sub:   'How French sounds work',
+  }, 
+  {
+    path: '/vovab/',
+    href: `${BASE}/vocab/index.html`,
+    icon: '🗂️',
+    label: 'Le vocabulaire',
+    sub:   'Words to know',
+  },
+  {
+    path: '/flashcards/',
+    href: `${BASE}/flashcards/index.html`,
+    icon: '🃏',
+    label: 'Flashcards',
+    sub:   'Practice vocabulary',
+  },
+  {
     path: '/phrases/',
     href: `${BASE}/phrases/index.html`,
     icon: '📖',
@@ -27,20 +48,6 @@ const NAV_ITEMS = [
     icon: '💬',
     label: 'Scripts de conversation',
     sub:   'Practice full conversations',
-  },
-  {
-    path: '/sounds/',
-    href: `${BASE}/sounds/index.html`,
-    icon: '🔤',
-    label: 'Les sons du français',
-    sub:   'How French sounds work',
-  },
-  {
-    path: '/flashcards/',
-    href: `${BASE}/flashcards/index.html`,
-    icon: '🃏',
-    label: 'Flashcards',
-    sub:   'Practice vocabulary',
   },
 ];
 
