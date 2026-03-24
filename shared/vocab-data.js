@@ -681,7 +681,19 @@ const vocabData = [
   { fr: "dépêche-toi",          article: null, en: "hurry up",               ph: "day-pesh TWAH",            category: "phrases", type: "phrase", emoji: "⏩" },
   { fr: "attention",            article: null, en: "watch out / careful",    ph: "ah-tahn-SYOHN",            category: "phrases", type: "phrase", emoji: "⚠️" },
   { fr: "d'accord",             article: null, en: "okay / agreed",          ph: "dah-KOR",                  category: "phrases", type: "phrase", emoji: "👍" },
-  { fr: "n'est-ce pas",         article: null, en: "isn't it / right?",      ph: "nes pah",                  category: "phrases", type: "phrase", emoji: "❓" },
+  
+   // ── CONVERSATIONAL FILLER  ───────────────────────────────────────────────────────────────
+  { fr: "n'est-ce pas",         article: null, en: "isn't it / right?",      ph: "nes pah",                  category: "conversational", type: "phrase", emoji: "❓" },
+  { fr: "du coup",              article: null, en: "so / as a result",       ph: "dyoo koo",                 category: "conversational", type: "phrase", emoji: "💁" },
+  { fr: "en fait",              article: null, en: "actually (buffering)",   ph: "on-fett",                  category: "conversational", type: "phrase", emoji: "🤔" },
+  { fr: "bref",                 article: null, en: "anyway / long story short",   ph: "bref",                category: "conversational", type: "phrase", emoji: "💁" },
+  { fr: "ah bon",               article: null, en: "really? / is that so?",   ph: "ah bohn",                  category: "converational", type: "phrase", emoji: "😃" },
+  { fr: "n'importe quoi",       article: null, en: "nonsense / whatever / that's ridiculous",   ph: "nahn-port-kwah",   category: "conversational", type: "phrase", emoji: "🙄" },
+  { fr: "c'est pas grave",      article: null, en: "it's no big deal",   ph: "say pah grahv",                  category: "conversational", type: "phrase", emoji: "😎" },
+  { fr: "quand même",              article: null, en: "anyway / still",   ph: "kahn mem",                  category: "conversational", type: "phrase", emoji: "💁" },
+  { fr: "ça dépend",              article: null, en: "it depends",   ph: "sah-day-pahn",                  category: "conversational", type: "phrase", emoji: "🤔" },
+  { fr: " tant pis",              article: null, en: "oh well / too bad",   ph: "tahn-pee",                  category: "conversational", type: "phrase", emoji: "🤷" },
+  { fr: "tu vois ",              article: null, en: "you know / you see",   ph: "too vwah",                  category: "conversational", type: "phrase", emoji: "💁" },
 
   // ── PREPOSITIONS ──────────────────────────────────────────────────────────
   { fr: "dans",         article: null,   en: "in / inside",        ph: "dahn",                   category: "prepositions", type: "preposition", emoji: null },
