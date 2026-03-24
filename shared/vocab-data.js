@@ -1,6 +1,8 @@
 const vocabData = [
 
   // ── PEOPLE ────────────────────────────────────────────────────────────────
+  { fr: "gens",         article: "des",  en: "people",             ph: "zhahn",                  category: "people",       type: "noun",       emoji: "👥" },
+  { fr: "homme",        article: "un",   en: "man",               ph: "uhm",                    category: "people",       type: "noun",       emoji: "👨" },
   { fr: "homme",        article: "un",   en: "man",               ph: "uhm",                    category: "people",       type: "noun",       emoji: "👨" },
   { fr: "femme",        article: "une",  en: "woman / wife",       ph: "fahm",                   category: "people",       type: "noun",       emoji: "👩" },
   { fr: "enfant",       article: "un",   en: "child",              ph: "ahn-FAHN",               category: "people",       type: "noun",       emoji: "🧒" },
@@ -16,7 +18,6 @@ const vocabData = [
   { fr: "bébé",         article: "un",   en: "baby",               ph: "bay-BAY",                category: "people",       type: "noun",       emoji: "👶" },
   { fr: "adulte",       article: "un",   en: "adult",              ph: "ah-DYULT",               category: "people",       type: "noun",       emoji: "🧑" },
   { fr: "personne",     article: "une",  en: "person",             ph: "pair-SUN",               category: "people",       type: "noun",       emoji: "🙍" },
-  { fr: "gens",         article: "des",  en: "people",             ph: "zhahn",                  category: "people",       type: "noun",       emoji: "👥" },
   { fr: "nom",          article: "un",   en: "name",               ph: "nohm",                   category: "people",       type: "noun",       emoji: "🏷️" },
   { fr: "monsieur",     article: null,   en: "mister / sir",       ph: "muh-SYUH",               category: "people",       type: "noun",       emoji: "🎩" },
   { fr: "madame",       article: null,   en: "ma'am / Mrs.",       ph: "mah-DAHM",               category: "people",       type: "noun",       emoji: "👒" },
@@ -37,6 +38,7 @@ const vocabData = [
  
 
   // ── BODY ──────────────────────────────────────────────────────────────────
+  { fr: "corp",         article: "un",  en: "body",               ph: "kor",                    category: "body",         type: "noun",       emoji: "🧍" },
   { fr: "tête",         article: "une",  en: "head",               ph: "tet",                    category: "body",         type: "noun",       emoji: "🗣️" },
   { fr: "main",         article: "une",  en: "hand",               ph: "man",                    category: "body",         type: "noun",       emoji: "✋" },
   { fr: "pied",         article: "un",   en: "foot",               ph: "pyay",                   category: "body",         type: "noun",       emoji: "🦶" },
@@ -185,6 +187,7 @@ const vocabData = [
   { fr: "Je suis à la maison.",         article: null, en: "I'm home.",   ph: "zhuh swee ah lah meh-ZOHN",    category: "home", type: "phrase", emoji: "🏠" },
 
   // ── PLACES ────────────────────────────────────────────────────────────────
+  { fr: "lieux",        article: "les",  en: "city / town",        ph: "lyuh",                   category: "places",       type: "noun",       emoji: "🏙️" },
   { fr: "ville",        article: "une",  en: "city / town",        ph: "veel",                   category: "places",       type: "noun",       emoji: "🏙️" },
   { fr: "rue",          article: "une",  en: "street",             ph: "ryoo",                   category: "places",       type: "noun",       emoji: "🛣️" },
   { fr: "pays",         article: "un",   en: "country",            ph: "pay-EE",                 category: "places",       type: "noun",       emoji: "🌍" },
@@ -218,6 +221,7 @@ const vocabData = [
 
  // ── FOOD ──────────────────────────────────────────────────────────────────
   // Nouns — staples
+  { fr: "nourriture",        article: "une",   en: "food",                  ph: "noo-ree-tyr",            category: "food", type: "noun",      emoji: "🍴" },
   { fr: "pain",              article: "un",   en: "bread",                  ph: "pan",                    category: "food", type: "noun",      emoji: "🥖" },
   { fr: "eau",               article: "une",  en: "water",                  ph: "oh",                     category: "food", type: "noun",      emoji: "💧" },
   { fr: "lait",              article: "un",   en: "milk",                   ph: "lay",                    category: "food", type: "noun",      emoji: "🥛" },
@@ -330,6 +334,7 @@ const vocabData = [
   { fr: "C'est pas terrible.",    article: null, en: "It's not great.",           ph: "say pah teh-REEBL",      category: "food", type: "phrase", emoji: "😬" },
 
   // ── ANIMALS ───────────────────────────────────────────────────────────────
+  { fr: "animaux",      article: "les",  en: "animals",             ph: "shah",                   category: "animals",      type: "noun",      emoji: "🦒" },
   { fr: "chat",         article: "un",   en: "cat",                ph: "shah",                   category: "animals",      type: "noun",       emoji: "🐱" },
   { fr: "chien",        article: "un",   en: "dog",                ph: "shyan",                  category: "animals",      type: "noun",       emoji: "🐶" },
   { fr: "oiseau",       article: "un",   en: "bird",               ph: "wah-ZOH",                category: "animals",      type: "noun",       emoji: "🐦" },
