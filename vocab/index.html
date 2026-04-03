@@ -28,10 +28,30 @@
     .card.card-all { border-style: dashed; border-color: var(--accent-light); }
 
     /* ── OPTIONS DRAWER ──────────────────────── */
-    .options-container { background: var(--warm-white); border-bottom: 1px solid var(--line); position: sticky; top: 0; z-index: 100; transition: all 0.3s ease; }
+    .options-container { 
+        background: var(--warm-white); 
+        border-bottom: 1px solid var(--line); 
+        position: sticky; 
+        top: 0; 
+        z-index: 100; 
+        transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
+        transform-origin: top;
+      }
     .options-content { max-width: 740px; margin: 0 auto; padding: 0 20px; display: flex; flex-direction: column; gap: 15px; overflow: hidden; max-height: 500px; transition: max-height 0.3s ease, opacity 0.3s ease; }
-    .options-container.collapsed .options-content { max-height: 0; opacity: 0; pointer-events: none; }
-    .options-toggle { display: block; margin: 0 auto; background: none; border: none; color: var(--accent); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.15em; cursor: pointer; padding: 8px 20px; font-family: 'Lato', sans-serif; }
+     .options-container.collapsed {
+        transform: scaleY(0); /* Shrink upward instead of just snapping height */
+        opacity: 0;
+        pointer-events: none;
+        position: absolute; /* Take it out of flow so it doesn't leave a gap */
+      }
+      .options-toggle {
+        position: sticky;
+        top: 0;
+        z-index: 101;
+        background: var(--warm-white);
+        width: 100%;
+        border-bottom: 1px solid var(--line);
+      }
     
     .slider-group { padding: 20px 0 10px; display: flex; flex-direction: column; gap: 12px; }
     .slider-header { display: flex; justify-content: space-between; align-items: baseline; }
@@ -82,10 +102,19 @@
         </label>
       </div>
       <div class="slider-group">
-        <label style="font-family:'Playfair Display', serif; font-size:1.1rem;">Jump to Topic</label>
-        <select id="category-jump" onchange="handleJump(this.value)" style="width:100%; padding:8px; border-radius:4px; border:1px solid var(--line); background:var(--warm-white); color:var(--ink);">
-          </select>
+        <div class="slider-header">
+          <label>Navigation</label>
+          <button onclick="toggleJumpGrid()" class="back-btn" style="font-size: 0.7rem; padding: 4px 8px;">Jump to Category ▾</button>
+        </div>
+        <div id="jump-grid-overlay" style="display:none; grid-template-columns: repeat(3, 1fr); gap: 8px; padding-top: 10px;">
+          </div>
       </div>
+      
+      <div class="slider-group" id="subcategory-jump-zone" style="display:none;">
+        <label style="font-family:'Playfair Display', serif; font-size:0.9rem; color: var(--muted);">Jump to Sub-Topic</label>
+        <div id="sub-jump-links" style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 5px;"></div>
+      </div>
+      
       <div id="speed-bar-mount"></div>
     </div>
     <button class="options-toggle" id="toggle-btn" onclick="toggleOptions()">▴ Hide Options ▴</button>
@@ -241,6 +270,41 @@
     });
     select.innerHTML = html;
   }
+
+  function toggleJumpGrid() {
+    const grid = document.getElementById('jump-grid-overlay');
+    grid.style.display = grid.style.display === 'none' ? 'grid' : 'none';
+  }
+  
+  function populateJumpMenu() {
+    const grid = document.getElementById('jump-grid-overlay');
+    const cats = [...new Set(window.vocabData.map(v => v.category))].sort();
+    
+    // 1. Categories Grid
+    let html = `<button onclick="goBack()" style="font-size:0.7rem; padding:5px; border:1px solid var(--line); border-radius:4px; background:white;">← Grid</button>`;
+    html += `<button onclick="openAll()" style="font-size:0.7rem; padding:5px; border:1px solid var(--line); border-radius:4px; background:white;">Full List</button>`;
+    
+    cats.forEach(cat => {
+      html += `<button onclick="openCategory('${cat}')" style="font-size:0.7rem; padding:5px; border:1px solid var(--line); border-radius:4px; background:white;">${capitalize(cat)}</button>`;
+    });
+    grid.innerHTML = html;
+  
+    // 2. Subcategory (Topic) Jump - Only shows if in a category
+    const subZone = document.getElementById('subcategory-jump-zone');
+    const subContainer = document.getElementById('sub-jump-links');
+    
+    if (currentContext.type === 'cat') {
+      subZone.style.display = 'block';
+      const items = window.vocabData.filter(v => v.category === currentContext.category);
+      const subcats = [...new Set(items.map(v => v.subcategory || 'General'))];
+      
+      subContainer.innerHTML = subcats.map(s => 
+        `<a href="#section-${s.replace(/\s+/g, '-')}" style="text-decoration:none; color:var(--accent); font-size:0.75rem; border-bottom: 1px dashed var(--accent);"># ${capitalize(s)}</a>`
+      ).join('');
+    } else {
+      subZone.style.display = 'none';
+    }
+  }
   
   function openAll() {
     currentContext = { type: 'all', category: null };
@@ -267,7 +331,10 @@
 
   function buildVocabSection(label, items, subLabel) {
     if (items.length === 0) return '';
-    let html = `<div class="section-label">${label}${subLabel ? ' <span style="font-size:0.75em;opacity:0.65;">— ' + subLabel + '</span>' : ''}</div>`;
+    // Create a URL-friendly ID from the label
+    const sectionId = `section-${label.toLowerCase().replace(/\s+/g, '-')}`;
+    
+    let html = `<div class="section-label" id="${sectionId}">${label}${subLabel ? ' <span style="font-size:0.75em;opacity:0.65;">— ' + subLabel + '</span>' : ''}</div>`;
     html += `<div class="phrase-header"><span>French</span><span>English</span><span>Sounds like</span></div><div class="phrase-list">`;
     items.forEach(v => {
       const spoken = v.article ? `${v.article} ${v.fr}` : v.fr;
