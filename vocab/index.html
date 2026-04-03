@@ -112,6 +112,89 @@
     .card:nth-child(13) { animation-delay: 0.52s }
     .card:nth-child(14) { animation-delay: 0.56s }
     .card:nth-child(15) { animation-delay: 0.60s }
+    /* -- OPTIONS DRAWER & SLIDER -- */
+    .options-container {
+      background: var(--warm-white);
+      border-bottom: 1px solid var(--line);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      transition: all 0.3s ease;
+    }
+    
+    .options-content {
+      max-width: 740px;
+      margin: 0 auto;
+      padding: 0 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      overflow: hidden;
+      max-height: 500px; 
+      transition: max-height 0.3s ease, opacity 0.3s ease;
+    }
+    
+    .options-container.collapsed .options-content {
+      max-height: 0;
+      opacity: 0;
+      pointer-events: none;
+    }
+    
+    .options-toggle {
+      display: block;
+      margin: 0 auto;
+      background: none;
+      border: none;
+      color: var(--accent);
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      cursor: pointer;
+      padding: 8px 20px;
+      font-family: 'Lato', sans-serif;
+    }
+    
+    .slider-group {
+      padding: 20px 0 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    
+    .slider-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+    
+    .slider-header label {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      color: var(--ink);
+    }
+    
+    .current-lvl-tag {
+      color: var(--accent);
+      font-weight: 700;
+      font-size: 0.85rem;
+      letter-spacing: 0.05em;
+    }
+    
+    input[type="range"] {
+      width: 100%;
+      accent-color: var(--accent);
+      cursor: pointer;
+    }
+    
+    .strict-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.8rem;
+      color: var(--muted);
+      cursor: pointer;
+      user-select: none;
+    }
   </style>
 </head>
 <body>
@@ -132,6 +215,25 @@
   <nav class="inner-nav">
     <button class="back-btn" id="back-btn" onclick="goBack()">All categories</button>
   </nav>
+
+  <div class="options-container" id="options-container">
+    <div class="options-content">
+      <div class="slider-group">
+        <div class="slider-header">
+          <label>Experience Level</label>
+          <span id="lvl-display" class="current-lvl-tag">Legend</span>
+        </div>
+        <input type="range" id="lvl-slider" min="0" max="5" value="5" step="1">
+        <label class="strict-wrapper">
+          <input type="checkbox" id="strict-mode"> <span>Show only this level</span>
+        </label>
+      </div>
+      
+      <div id="speed-bar-mount"></div>
+    </div>
+    <button class="options-toggle" id="toggle-btn" onclick="toggleOptions()">▴ Hide Options ▴</button>
+  </div>
+
   <div class="inner-body" id="inner-body"></div>
 </div>
 
@@ -314,7 +416,9 @@
     const nav = pageInner.querySelector('.inner-nav');
     Audio.buildSpeedBar(nav.parentNode, 'Playback speed');
     const bar = pageInner.querySelector('.speed-bar');
-    nav.insertAdjacentElement('afterend', bar);
+    const mount = document.getElementById('speed-bar-mount');
+    mount.innerHTML = ''; // Clear previous
+    Audio.buildSpeedBar(mount, 'Playback speed');
 
     body.innerHTML = html;
 
@@ -338,6 +442,60 @@
     document.getElementById('page-grid').style.display = 'block';
     window.scrollTo(0, 0);
   }
+
+  // -- CONFIG --
+const lvlLabels = ["New Recruit", "Wayfinder", "Explorer", "Pathfinder", "Vanguard", "Legend"];
+const lvlValues = ["A0", "A1", "A2", "B1", "B2", "C1+"];
+let currentContext = { type: 'all', category: null };
+
+// -- UI TOGGLES --
+function toggleOptions() {
+  const container = document.getElementById('options-container');
+  const btn = document.getElementById('toggle-btn');
+  const isCollapsed = container.classList.toggle('collapsed');
+  btn.innerText = isCollapsed ? '▾ Show Options ▾' : '▴ Hide Options ▴';
+}
+
+// -- FILTERING CORE --
+function getFilteredData(data) {
+  const selectedIdx = parseInt(document.getElementById('lvl-slider').value);
+  const isStrict = document.getElementById('strict-mode').checked;
+
+  return data.filter(item => {
+    const itemIdx = lvlValues.indexOf(item.lvl || "A0");
+    return isStrict ? itemIdx === selectedIdx : itemIdx <= selectedIdx;
+  });
+}
+
+// -- RE-RENDER TRIGGER --
+function refreshView() {
+  if (currentContext.type === 'all') {
+    openAll(true); 
+  } else {
+    openCategory(currentContext.category, true);
+  }
+}
+
+// Update existing openCategory to set context
+const originalOpenCategory = window.openCategory;
+window.openCategory = function(cat, isRefresh = false) {
+  currentContext = { type: 'cat', category: cat };
+  
+  // Filter data before passing to original logic
+  const rawItems = window.vocabData.filter(v => v.category === cat);
+  const filteredItems = getFilteredData(rawItems);
+  
+  // ... (Follow your existing openCategory logic using filteredItems)
+  // Ensure your renderInner() is called at the end
+};
+
+// Update listeners
+document.getElementById('lvl-slider').addEventListener('input', (e) => {
+  document.getElementById('lvl-display').innerText = lvlLabels[e.target.value];
+  refreshView();
+});
+
+document.getElementById('strict-mode').addEventListener('change', refreshView);
 </script>
 </body>
 </html>
