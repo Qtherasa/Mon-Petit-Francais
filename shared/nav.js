@@ -77,34 +77,43 @@ function injectNav() {
     </a>
   `).join('');
 
-  // Check if we are on the vocab page to show the options button
   const isVocabPage = window.location.pathname.includes('/vocab/');
 
   const navHTML = `
-    <div class="nav-controls">
-      <button class="hamburger-btn" id="hamburger-btn" onclick="toggleMenu()" aria-label="Open menu">
-        <span></span><span></span><span></span>
+    <div class="nav-container">
+      <button class="nav-btn menu-trigger" id="hamburger-btn" onclick="toggleMenu()" aria-label="Menu">
+        <div class="hamburger-icon"><span></span><span></span><span></span></div>
+        <span class="btn-text">Menu</span>
       </button>
-
-      ${isVocabPage ? `<button class="options-btn" onclick="toggleOptionsModal()" id="opts-btn">Options ⚙️</button>` : ''}
+      
+      ${isVocabPage ? `
+      <button class="nav-btn options-trigger" onclick="toggleOptionsModal()" id="opts-btn">
+        <span class="btn-icon">⚙️</span>
+        <span class="btn-text">Options</span>
+      </button>` : ''}
     </div>
 
     <div class="menu-overlay" id="menu-overlay" onclick="closeMenu()"></div>
-
     <nav class="menu-drawer" id="menu-drawer">
       <div class="menu-header">
         <div class="menu-eyebrow">Navigation</div>
         <h3>Mon Petit Français</h3>
       </div>
-      <div class="menu-items">
-        ${itemsHTML}
-      </div>
+      <div class="menu-items">${itemsHTML}</div>
     </nav>
   `;
 
   document.body.insertAdjacentHTML('afterbegin', navHTML);
 }
 
+// Bridging function to the vocab page
+function toggleOptionsModal() {
+  if (typeof window.toggleVocabOptions === 'function') {
+    window.toggleVocabOptions();
+  } else {
+    console.error("Options modal function not found on this page.");
+  }
+}
 /* ── Toggle functions (called by injected HTML) ─────────── */
 function toggleMenu() {
   const drawer  = document.getElementById('menu-drawer');
