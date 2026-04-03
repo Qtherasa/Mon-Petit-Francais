@@ -2627,7 +2627,7 @@ const vocabData = [
 { fr: "l'Action de grâce", article: "l'", en: "Thanksgiving", ph: "lak-syohn duh grahs", category: "time", subcategory: "dates", type: "noun", emoji: "🍂", lvl: "B1", note: "Celebrated in October in Canada, unlike the US November date." },
 { fr: "aujourd'hui, c'est samedi le vingt-neuf juin",   article: null,   en: "today is Saturday June 29th",   ph: "oh-zhoor-DWEE say sam-DEE luh vant-NUF zhwan",  category: "time",   subcategory: "dates",   type: "phrase",   emoji: "📅",   lvl: "A2",   note: "In Quebec, it is very common to add 'le' before the number even when the day of the week is included." }, 
 
-  // ── VERBS (core / universal) ───────────────────────────────────────────────
+// ── VERBS (core / universal) ───────────────────────────────────────────────
 
 // Subcategory: action - universal
 { fr: "donner", article: null, en: "to give", ph: "doh-NAY", category: "verbs", subcategory: "actions", type: "verb", emoji: "🎁", lvl: "A1" },
@@ -2668,7 +2668,52 @@ const vocabData = [
 { fr: "être", article: null, en: "to be", ph: "et-ruh", category: "verbs", subcategory: "grammar", type: "verb", emoji: null, lvl: "A0" },
 { fr: "avoir", article: null, en: "to have", ph: "ah-VWAR", category: "verbs", subcategory: "grammar", type: "verb", emoji: null, lvl: "A0" },
 { fr: "aller", article: null, en: "to go", ph: "ah-LAY", category: "verbs", subcategory: "grammar", type: "verb", emoji: null, lvl: "A1" },
-{ fr: "faire", article: null, en: "to do / to make", ph: "fair", category: "verbs", subcategory: "grammar", type: "verb", emoji: null, lvl: "A1", note: "Essential in
+{ fr: "faire", article: null, en: "to do / to make", ph: "fair", category: "verbs", subcategory: "grammar", type: "verb", emoji: null, lvl: "A1", note: "Essential in dozens of expressions" },
+{ fr: "pouvoir", article: null, en: "can / to be able to", ph: "poo-VWAR", category: "verbs", subcategory: "grammar", type: "verb", emoji: null, lvl: "A1" },
+{ fr: "vouloir", article: null, en: "to want", ph: "voo-LWAR", category: "verbs", subcategory: "grammar", type: "verb", emoji: null, lvl: "A1" },
+{ fr: "devoir", article: null, en: "to have to / must", ph: "duh-VWAR", category: "verbs", subcategory: "grammar", type: "verb", emoji: null, lvl: "A2" },
+{ fr: "venir", article: null, en: "to come", ph: "vuh-NEER", category: "verbs", subcategory: "grammar", type: "verb", emoji: null, lvl: "A2" },
+{ fr: "savoir", article: null, en: "to know (facts/skills)", ph: "sah-VWAR", category: "verbs", subcategory: "grammar", type: "verb", emoji: null, lvl: "A2" },
+{ fr: "connaître", article: null, en: "to know (people/places)", ph: "koh-NET-ruh", category: "verbs", subcategory: "grammar", type: "verb", emoji: null, lvl: "A2" },
+
+// Subcategory: movement
+{ fr: "marcher", article: null, en: "to walk", ph: "mar-SHAY", category: "verbs", subcategory: "movement", type: "verb", emoji: "🚶", lvl: "A1" },
+{ fr: "partir", article: null, en: "to leave / to depart", ph: "par-TEER", category: "verbs", subcategory: "movement", type: "verb", emoji: "🚪", lvl: "A2" },
+{ fr: "entrer", article: null, en: "to enter", ph: "ahn-TRAY", category: "verbs", subcategory: "movement", type: "verb", emoji: "🚪", lvl: "A2" },
+{ fr: "sortir", article: null, en: "to go out", ph: "sor-TEER", category: "verbs", subcategory: "movement", type: "verb", emoji: "🚶", lvl: "A2" },
+{ fr: "attendre", article: null, en: "to wait", ph: "ah-TAHN-druh", category: "verbs", subcategory: "movement", type: "verb", emoji: "⏳", lvl: "A2" },
+{ fr: "rester", article: null, en: "to stay", ph: "res-TAY", category: "verbs", subcategory: "movement", type: "verb", emoji: null, lvl: "A2" },
+{ fr: "courir", article: null, en: "to run", ph: "koo-REER", category: "verbs", subcategory: "movement", type: "verb", emoji: "🏃", lvl: "A2" },
+{ fr: "monter", article: null, en: "to go up / to climb", ph: "mohn-TAY", category: "verbs", subcategory: "movement", type: "verb", emoji: "⬆️", lvl: "A2" },
+{ fr: "descendre", article: null, en: "to go down", ph: "day-SAHN-druh", category: "verbs", subcategory: "movement", type: "verb", emoji: "⬇️", lvl: "A2" },
+{ fr: "tomber", article: null, en: "to fall", ph: "tohm-BAY", category: "verbs", subcategory: "movement", type: "verb", emoji: "⬇️", lvl: "A2" },
+
+// Subcategory: perception
+{ fr: "regarder", article: null, en: "to look at / to watch", ph: "ruh-gar-DAY", category: "verbs", subcategory: "perception", type: "verb", emoji: "👀", lvl: "A1" },
+{ fr: "voir", article: null, en: "to see", ph: "vwar", category: "verbs", subcategory: "perception", type: "verb", emoji: "👁️", lvl: "A1" },
+{ fr: "lire", article: null, en: "to read", ph: "leer", category: "verbs", subcategory: "perception", type: "verb", emoji: "📖", lvl: "A1" },
+{ fr: "écrire", article: null, en: "to write", ph: "ay-KREER", category: "verbs", subcategory: "perception", type: "verb", emoji: "✏️", lvl: "A1" },
+
+// Subcategory: social
+{ fr: "aimer", article: null, en: "to love / to like", ph: "ay-MAY", category: "verbs", subcategory: "social", type: "verb", emoji: "❤️", lvl: "A1" },
+{ fr: "aider", article: null, en: "to help", ph: "ay-DAY", category: "verbs", subcategory: "social", type: "verb", emoji: "🤝", lvl: "A1" },
+{ fr: "détester", article: null, en: "to hate", ph: "day-tes-TAY", category: "verbs", subcategory: "social", type: "verb", emoji: "😤", lvl: "A2" },
+{ fr: "préférer", article: null, en: "to prefer", ph: "pray-fay-RAY", category: "verbs", subcategory: "social", type: "verb", emoji: null, lvl: "A2" },
+{ fr: "accepter", article: null, en: "to accept", ph: "ak-sep-TAY", category: "verbs", subcategory: "social", type: "verb", emoji: "✅", lvl: "B1" },
+{ fr: "décider", article: null, en: "to decide", ph: "day-see-DAY", category: "verbs", subcategory: "social", type: "verb", emoji: null, lvl: "B1" },
+{ fr: "refuser", article: null, en: "to refuse", ph: "ruh-fyoo-ZAY", category: "verbs", subcategory: "social", type: "verb", emoji: "🚫", lvl: "B1" },
+{ fr: "permettre", article: null, en: "to allow / to permit", ph: "pair-MET-ruh", category: "verbs", subcategory: "social", type: "verb", emoji: null, lvl: "B2" },
+
+// Subcategory: transactions
+{ fr: "acheter", article: null, en: "to buy", ph: "ash-TAY", category: "verbs", subcategory: "transactions", type: "verb", emoji: "🛒", lvl: "A1" },
+{ fr: "payer", article: null, en: "to pay", ph: "pay-YAY", category: "verbs", subcategory: "transactions", type: "verb", emoji: "💳", lvl: "A2" },
+{ fr: "appeler", article: null, en: "to call", ph: "ah-play-AY", category: "verbs", subcategory: "transactions", type: "verb", emoji: "📞", lvl: "A2" },
+{ fr: "inviter", article: null, en: "to invite", ph: "an-vee-TAY", category: "verbs", subcategory: "transactions", type: "verb", emoji: "📩", lvl: "A2" },
+{ fr: "rencontrer", article: null, en: "to meet", ph: "rahn-kohn-TRAY", category: "verbs", subcategory: "transactions", type: "verb", emoji: "🤝", lvl: "A2" },
+{ fr: "envoyer", article: null, en: "to send", ph: "ahn-vwah-YAY", category: "verbs", subcategory: "transactions", type: "verb", emoji: "📨", lvl: "B1" },
+{ fr: "recevoir", article: null, en: "to receive", ph: "ruh-suh-VWAR", category: "verbs", subcategory: "transactions", type: "verb", emoji: "📥", lvl: "B1" },
+{ fr: "vendre", article: null, en: "to sell", ph: "vahn-druh", category: "verbs", subcategory: "transactions", type: "verb", emoji: null, lvl: "B1" },
+  
   
 // ── WEATHER ────────────────────────────────────────────────────────────────
 
