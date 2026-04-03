@@ -381,29 +381,32 @@
   // Returns HTML string for one section label + phrase-style rows.
   // subLabel is optional (used for mixed-type categories).
 
-  function buildVocabSection(label, items, subLabel) {
-    let html = `<div class="section-label">${label}${subLabel ? ' <span style="font-size:0.75em;opacity:0.65;font-family:\'Lato\',sans-serif;font-weight:300;">— ${subLabel}</span>' : ''}</div>`;
+ function buildVocabSection(label, items, subLabel) {
+  let html = `<div class="section-label">${label}${subLabel ? ' <span style="font-size:0.75em;opacity:0.65;font-family:\'Lato\',sans-serif;font-weight:300;">— ${subLabel}</span>' : ''}</div>`;
+  html += `
+    <div class="phrase-header">
+      <span>French</span><span>English</span><span>Sounds like</span>
+    </div>
+    <div class="phrase-list" data-section>
+  `;
+  
+  items.forEach(v => {
+    const frDisplay = v.article ? `<span class="vocab-article">${v.article}</span> ${v.fr}` : v.fr;
+    const spokenText = v.article ? `${v.article} ${v.fr}` : v.fr;
+    
     html += `
-      <div class="phrase-header">
-        <span>French</span><span>English</span><span>Sounds like</span>
+      <div class="phrase-row" data-spoken="${encodeURIComponent(spokenText)}">
+        <div class="phrase-fr">${frDisplay}</div>
+        <div class="phrase-en">${v.en}</div>
+        <div class="phrase-ph">${v.ph}</div>
+        ${v.note ? `<div class="phrase-note">💡 ${v.note}</div>` : ''}
       </div>
-      <div class="phrase-list" data-section>
     `;
-    items.forEach(v => {
-      const frDisplay = v.article ? `<span class="vocab-article">${v.article}</span> ${v.fr}` : v.fr;
-      const spokenText = v.article ? `${v.article} ${v.fr}` : v.fr;
-      html += `
-        <div class="phrase-row" data-spoken="${encodeURIComponent(spokenText)}">
-          <div class="phrase-fr">${frDisplay}</div>
-          <div class="phrase-en">${v.en}</div>
-          <div class="phrase-ph">${v.ph}</div>
-        </div>
-      `;
-    });
-    html += `</div>`;
-    return html;
-  }
-
+  });
+  
+  html += `</div>`;
+  return html;
+}
   // ── RENDER INNER VIEW ─────────────────────────
 
   function renderInner(html) {
