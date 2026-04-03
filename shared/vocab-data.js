@@ -234,163 +234,158 @@ const vocabData = [
 { fr: "depuis", article: null, en: "since / for", ph: "duh-PWEE", category: "adverbs", subcategory: "time", type: "adverb", emoji: null, lvl: "A2" },
 { fr: "rarement", article: null, en: "rarely", ph: "rar-MAHN", category: "adverbs", subcategory: "time", type: "adverb", emoji: null, lvl: "B1" },
 
-  // ── ANIMALS ───────────────────────────────────────────────────────────────
-  // Common animals
-  { fr: "animaux",      article: "les",  en: "animals",             ph: "shah",                   category: "animals",      type: "noun",      emoji: "🦒" },
-  { fr: "chat",         article: "un",   en: "cat",                ph: "shah",                   category: "animals",      type: "noun",       emoji: "🐱" },
-  { fr: "chien",        article: "un",   en: "dog",                ph: "shyan",                  category: "animals",      type: "noun",       emoji: "🐶" },
-  { fr: "oiseau",       article: "un",   en: "bird",               ph: "wah-ZOH",                category: "animals",      type: "noun",       emoji: "🐦" },
-  { fr: "cochon",       article: "un",   en: "pig",                ph: "koh-SHOHN",              category: "animals",      type: "noun",       emoji: "🐷" },
-  { fr: "cheval",       article: "un",   en: "horse",              ph: "shuh-VAL",               category: "animals",      type: "noun",       emoji: "🐴" },
-  { fr: "vache",        article: "une",  en: "cow",                ph: "vash",                   category: "animals",      type: "noun",       emoji: "🐄" },
-  { fr: "lapin",        article: "un",   en: "rabbit",             ph: "lah-PAN",                category: "animals",      type: "noun",       emoji: "🐰" },
-  { fr: "souris",       article: "une",  en: "mouse",              ph: "soo-REE",                category: "animals",      type: "noun",       emoji: "🐭" },
-  { fr: "cochon d'Inde",article: "un",   en: "guinea pig",         ph: "koh-shohn DAND",         category: "animals",      type: "noun",       emoji: "🐹" },
-  { fr: "tigre",        article: "un",   en: "tiger",              ph: "tee-gruh",               category: "animals",      type: "noun",       emoji: "🐯" },
-  { fr: "lion",         article: "un",   en: "lion",               ph: "lyohn",                  category: "animals",      type: "noun",       emoji: "🦁" },
-  { fr: "éléphant",     article: "un",   en: "elephant",           ph: "ay-lay-FAHN",            category: "animals",      type: "noun",       emoji: "🐘" },
-  { fr: "serpent",      article: "un",   en: "snake",              ph: "sair-PAHN",              category: "animals",      type: "noun",       emoji: "🐍" },
-  { fr: "araignée",     article: "une",  en: "spider",             ph: "ah-ray-NYAY",            category: "animals",      type: "noun",       emoji: "🕷️" },
-  { fr: "poisson",      article: "un",   en: "fish",               ph: "pwah-SOHN",              category: "animals",      type: "noun",       emoji: "🐟" },
-  { fr: "grenouille",   article: "une",  en: "frog",               ph: "gruh-NOO-yuh",           category: "animals",      type: "noun",       emoji: "🐸" },
-  { fr: "canard",       article: "un",   en: "duck",               ph: "kah-NAR",                category: "animals",      type: "noun",       emoji: "🦆" },
-  { fr: "singe",        article: "un",   en: "monkey",             ph: "sanzh",                  category: "animals",      type: "noun",       emoji: "🐒" },
-  { fr: "ours",         article: "un",   en: "bear",               ph: "oors",                   category: "animals",      type: "noun",       emoji: "🐻" },
-  // Additional animal nouns — pets
-  { fr: "perroquet",     article: "un",   en: "parrot",              ph: "peh-roh-KAY",            category: "animals",      type: "noun",       emoji: "🦜" },
-  { fr: "hamster",       article: "un",   en: "hamster",             ph: "ahm-STAIR",              category: "animals",      type: "noun",       emoji: "🐹" },
-  { fr: "tortue",        article: "une",  en: "turtle / tortoise",   ph: "tor-TOO",                category: "animals",      type: "noun",       emoji: "🐢" },
-  { fr: "serpent",       article: "un",   en: "snake",               ph: "sair-PAHN",              category: "animals",      type: "noun",       emoji: "🐍" },
-  { fr: "lézard",        article: "un",   en: "lizard",              ph: "lay-ZAR",                category: "animals",      type: "noun",       emoji: "🦎" },
-  { fr: "aquarium",      article: "un",   en: "fish tank / aquarium",ph: "ah-kwah-RYOM",           category: "animals",      type: "noun",       emoji: "🐠" },
-  { fr: "cage",          article: "une",  en: "cage",                ph: "KAHZH",                  category: "animals",      type: "noun",       emoji: "🪤" },
-  { fr: "litière",       article: "une",  en: "litter box / bedding",ph: "lee-TYAIR",              category: "animals",      type: "noun",       emoji: "🐱", note: "Used for cat litter boxes and small animal bedding alike" },
-  { fr: "laisse",        article: "une",  en: "leash",               ph: "less",                   category: "animals",      type: "noun",       emoji: "🐕" },
-  { fr: "collier",       article: "un",   en: "collar",              ph: "koh-LYAY",               category: "animals",      type: "noun",       emoji: "🐕" },
-  { fr: "croquettes",    article: "des",  en: "dry pet food / kibble",ph: "kroh-KET",              category: "animals",      type: "noun",       emoji: "🍖", note: "The standard French word for dry pet food — used for cats and dogs" },
-  { fr: "pâtée",         article: "une",  en: "wet pet food",        ph: "pah-TAY",                category: "animals",      type: "noun",       emoji: "🥫" },
-  { fr: "vétérinaire",   article: "un",   en: "vet",                 ph: "vay-tay-ree-NAIR",       category: "animals",      type: "noun",       emoji: "👨‍⚕️" },
-  { fr: "toiletteur",    article: "un",   en: "groomer (masc.)",     ph: "twah-leh-TUR",           category: "animals",      type: "noun",       emoji: "✂️" },
-  { fr: "toiletteuse",   article: "une",  en: "groomer (fem.)",      ph: "twah-leh-TUHZ",          category: "animals",      type: "noun",       emoji: "✂️" },
+// ── ANIMALS ───────────────────────────────────────────────────────────────
 
-  // Farm animals
-  { fr: "mouton",        article: "un",   en: "sheep",               ph: "moo-TOHN",               category: "animals",      type: "noun",       emoji: "🐑" },
-  { fr: "agneau",        article: "un",   en: "lamb",                ph: "ah-NYOH",                category: "animals",      type: "noun",       emoji: "🐑" },
-  { fr: "chèvre",        article: "une",  en: "goat",                ph: "SHEV-ruh",               category: "animals",      type: "noun",       emoji: "🐐" },
-  { fr: "âne",           article: "un",   en: "donkey",              ph: "AHN",                    category: "animals",      type: "noun",       emoji: "🫏" },
-  { fr: "poule",         article: "une",  en: "hen / chicken",       ph: "pool",                   category: "animals",      type: "noun",       emoji: "🐔" },
-  { fr: "coq",           article: "un",   en: "rooster",             ph: "kok",                    category: "animals",      type: "noun",       emoji: "🐓" },
-  { fr: "poussin",       article: "un",   en: "chick",               ph: "poo-SAN",                category: "animals",      type: "noun",       emoji: "🐣" },
-  { fr: "dinde",         article: "une",  en: "turkey",              ph: "dand",                   category: "animals",      type: "noun",       emoji: "🦃" },
-  { fr: "taureau",       article: "un",   en: "bull",                ph: "toh-ROH",                category: "animals",      type: "noun",       emoji: "🐂" },
-  { fr: "veau",          article: "un",   en: "calf",                ph: "voh",                    category: "animals",      type: "noun",       emoji: "🐄" },
-  { fr: "truie",         article: "une",  en: "sow / female pig",    ph: "trwee",                  category: "animals",      type: "noun",       emoji: "🐷" },
-  { fr: "jument",        article: "une",  en: "mare",                ph: "zhoo-MAHN",              category: "animals",      type: "noun",       emoji: "🐴" },
-  { fr: "poulain",       article: "un",   en: "foal",                ph: "poo-LAN",                category: "animals",      type: "noun",       emoji: "🐴" },
+// Subcategory: fauna
+{ fr: "animaux", article: "les", en: "animals", ph: "shah", category: "animals", subcategory: "fauna", type: "noun", emoji: "🦒", lvl: "A1" },
+{ fr: "ours", article: "un", en: "bear", ph: "oors", category: "animals", subcategory: "fauna", type: "noun", emoji: "🐻", lvl: "A1" },
+{ fr: "éléphant", article: "un", en: "elephant", ph: "ay-lay-FAHN", category: "animals", subcategory: "fauna", type: "noun", emoji: "🐘", lvl: "A1" },
+{ fr: "lion", article: "un", en: "lion", ph: "lyohn", category: "animals", subcategory: "fauna", type: "noun", emoji: "🦁", lvl: "A1" },
+{ fr: "singe", article: "un", en: "monkey", ph: "sanzh", category: "animals", subcategory: "fauna", type: "noun", emoji: "🐒", lvl: "A1" },
+{ fr: "tigre", article: "un", en: "tiger", ph: "tee-gruh", category: "animals", subcategory: "fauna", type: "noun", emoji: "🐯", lvl: "A1" },
+{ fr: "cerf", article: "un", en: "deer / stag", ph: "sair", category: "animals", subcategory: "fauna", type: "noun", emoji: "🦌", lvl: "A2" },
+{ fr: "loup", article: "un", en: "wolf", ph: "loo", category: "animals", subcategory: "fauna", type: "noun", emoji: "🐺", lvl: "A2" },
+{ fr: "renard", article: "un", en: "fox", ph: "ruh-NAR", category: "animals", subcategory: "fauna", type: "noun", emoji: "🦊", lvl: "A2" },
+{ fr: "aigle", article: "un", en: "eagle", ph: "EH-gluh", category: "animals", subcategory: "fauna", type: "noun", emoji: "🦅", lvl: "B1" },
+{ fr: "biche", article: "une", en: "doe / female deer", ph: "beesh", category: "animals", subcategory: "fauna", type: "noun", emoji: "🦌", lvl: "B1" },
+{ fr: "castor", article: "un", en: "beaver", ph: "kas-TOR", category: "animals", subcategory: "fauna", type: "noun", emoji: "🦫", lvl: "B1" },
+{ fr: "chauve-souris", article: "une", en: "bat", ph: "shohv-soo-REE", category: "animals", subcategory: "fauna", type: "noun", emoji: "🦇", lvl: "B1" },
+{ fr: "corbeau", article: "un", en: "crow / raven", ph: "kor-BOH", category: "animals", subcategory: "fauna", type: "noun", emoji: "🐦‍⬛", lvl: "B1" },
+{ fr: "écureuil", article: "un", en: "squirrel", ph: "ay-kyoo-RUH-yuh", category: "animals", subcategory: "fauna", type: "noun", emoji: "🐿️", lvl: "B1" },
+{ fr: "geai bleu", article: "un", en: "blue jay", ph: "zhay BLUH", category: "animals", subcategory: "fauna", type: "noun", emoji: "🐦", lvl: "B1" },
+{ fr: "hibou", article: "un", en: "owl", ph: "ee-BOO", category: "animals", subcategory: "fauna", type: "noun", emoji: "🦉", lvl: "B1" },
+{ fr: "lièvre", article: "un", en: "hare", ph: "LYEV-ruh", category: "animals", subcategory: "fauna", type: "noun", emoji: "🐇", lvl: "B1" },
+{ fr: "marmotte", article: "une", en: "groundhog / marmot", ph: "mar-MOT", category: "animals", subcategory: "fauna", type: "noun", emoji: "🐾", lvl: "B1" },
+{ fr: "mouffette", article: "une", en: "skunk", ph: "moo-FET", category: "animals", subcategory: "fauna", type: "noun", emoji: "🦨", lvl: "B1", note: "The Quebec French word — France uses 'moufette'" },
+{ fr: "orignal", article: "un", en: "moose", ph: "oh-ree-NYAL", category: "animals", subcategory: "fauna", type: "noun", emoji: "🫎", lvl: "B1", note: "The Quebec French word — France uses 'élan'" },
+{ fr: "raton laveur", article: "un", en: "raccoon", ph: "rah-TOHN lah-VUR", category: "animals", subcategory: "fauna", type: "noun", emoji: "🦝", lvl: "B1" },
+{ fr: "coyote", article: "un", en: "coyote", ph: "koh-YOT", category: "animals", subcategory: "fauna", type: "noun", emoji: "🐺", lvl: "B2" },
+{ fr: "lynx", article: "un", en: "lynx", ph: "LANKS", category: "animals", subcategory: "fauna", type: "noun", emoji: "🐱", lvl: "B2" },
+{ fr: "sauvage", article: null, en: "wild", ph: "soh-VAHZH", category: "animals", subcategory: "fauna", type: "adjective", emoji: "🌿", lvl: "A2" },
 
-  // Wild animals
-  { fr: "loup",          article: "un",   en: "wolf",                ph: "loo",                    category: "animals",      type: "noun",       emoji: "🐺" },
-  { fr: "renard",        article: "un",   en: "fox",                 ph: "ruh-NAR",                category: "animals",      type: "noun",       emoji: "🦊" },
-  { fr: "cerf",          article: "un",   en: "deer / stag",         ph: "sair",                   category: "animals",      type: "noun",       emoji: "🦌" },
-  { fr: "biche",         article: "une",  en: "doe / female deer",   ph: "beesh",                  category: "animals",      type: "noun",       emoji: "🦌" },
-  { fr: "orignal",       article: "un",   en: "moose",               ph: "oh-ree-NYAL",            category: "animals",      type: "noun",       emoji: "🫎", note: "The Quebec French word — France uses 'élan'" },
-  { fr: "castor",        article: "un",   en: "beaver",              ph: "kas-TOR",                category: "animals",      type: "noun",       emoji: "🦫" },
-  { fr: "raton laveur",  article: "un",   en: "raccoon",             ph: "rah-TOHN lah-VUR",       category: "animals",      type: "noun",       emoji: "🦝" },
-  { fr: "mouffette",     article: "une",  en: "skunk",               ph: "moo-FET",                category: "animals",      type: "noun",       emoji: "🦨", note: "The Quebec French word — France uses 'moufette'" },
-  { fr: "écureuil",      article: "un",   en: "squirrel",            ph: "ay-kyoo-RUH-yuh",        category: "animals",      type: "noun",       emoji: "🐿️" },
-  { fr: "lapin sauvage", article: "un",   en: "wild rabbit / hare",  ph: "lah-PAN soh-VAHZH",      category: "animals",      type: "noun",       emoji: "🐇" },
-  { fr: "lièvre",        article: "un",   en: "hare",                ph: "LYEV-ruh",               category: "animals",      type: "noun",       emoji: "🐇" },
-  { fr: "chauve-souris", article: "une",  en: "bat",                 ph: "shohv-soo-REE",          category: "animals",      type: "noun",       emoji: "🦇" },
-  { fr: "hibou",         article: "un",   en: "owl",                 ph: "ee-BOO",                 category: "animals",      type: "noun",       emoji: "🦉" },
-  { fr: "corbeau",       article: "un",   en: "crow / raven",        ph: "kor-BOH",                category: "animals",      type: "noun",       emoji: "🐦‍⬛" },
-  { fr: "aigle",         article: "un",   en: "eagle",               ph: "EH-gluh",                category: "animals",      type: "noun",       emoji: "🦅" },
-  { fr: "geai bleu",     article: "un",   en: "blue jay",            ph: "zhay BLUH",              category: "animals",      type: "noun",       emoji: "🐦" },
-  { fr: "marmotte",      article: "une",  en: "groundhog / marmot",  ph: "mar-MOT",                category: "animals",      type: "noun",       emoji: "🐾" },
-  { fr: "lynx",          article: "un",   en: "lynx",                ph: "LANKS",                  category: "animals",      type: "noun",       emoji: "🐱" },
-  { fr: "coyote",        article: "un",   en: "coyote",              ph: "koh-YOT",                category: "animals",      type: "noun",       emoji: "🐺" },
+// Subcategory: pets
+{ fr: "chat", article: "un", en: "cat", ph: "shah", category: "animals", subcategory: "pets", type: "noun", emoji: "🐱", lvl: "A1" },
+{ fr: "chien", article: "un", en: "dog", ph: "shyan", category: "animals", subcategory: "pets", type: "noun", emoji: "🐶", lvl: "A1" },
+{ fr: "oiseau", article: "un", en: "bird", ph: "wah-ZOH", category: "animals", subcategory: "pets", type: "noun", emoji: "🐦", lvl: "A1" },
+{ fr: "poisson", article: "un", en: "fish", ph: "pwah-SOHN", category: "animals", subcategory: "pets", type: "noun", emoji: "🐟", lvl: "A1" },
+{ fr: "lapin", article: "un", en: "rabbit", ph: "lah-PAN", category: "animals", subcategory: "pets", type: "noun", emoji: "🐰", lvl: "A2" },
+{ fr: "souris", article: "une", en: "mouse", ph: "soo-REE", category: "animals", subcategory: "pets", type: "noun", emoji: "🐭", lvl: "A2" },
+{ fr: "cochon d'Inde", article: "un", en: "guinea pig", ph: "koh-shohn DAND", category: "animals", subcategory: "pets", type: "noun", emoji: "🐹", lvl: "A2" },
+{ fr: "hamster", article: "un", en: "hamster", ph: "ahm-STAIR", category: "animals", subcategory: "pets", type: "noun", emoji: "🐹", lvl: "A2" },
+{ fr: "perroquet", article: "un", en: "parrot", ph: "peh-roh-KAY", category: "animals", subcategory: "pets", type: "noun", emoji: "🦜", lvl: "B1" },
+{ fr: "tortue", article: "une", en: "turtle / tortoise", ph: "tor-TOO", category: "animals", subcategory: "pets", type: "noun", emoji: "🐢", lvl: "B1" },
+{ fr: "lézard", article: "un", en: "lizard", ph: "lay-ZAR", category: "animals", subcategory: "pets", type: "noun", emoji: "🦎", lvl: "B2" },
+{ fr: "serpent", article: "un", en: "snake", ph: "sair-PAHN", category: "animals", subcategory: "pets", type: "noun", emoji: "🐍", lvl: "B2" },
+{ fr: "domestique", article: null, en: "domestic / pet", ph: "doh-mes-TEEK", category: "animals", subcategory: "pets", type: "adjective", emoji: "🏠", lvl: "A2" },
+{ fr: "errant", article: null, en: "stray (masc.)", ph: "eh-RAHN", category: "animals", subcategory: "pets", type: "adjective", emoji: "🐕", lvl: "B1" },
+{ fr: "errante", article: null, en: "stray (fem.)", ph: "eh-RAHNT", category: "animals", subcategory: "pets", type: "adjective", emoji: "🐕", lvl: "B1" },
 
-  // Aquatic & insects
-  { fr: "baleine",       article: "une",  en: "whale",               ph: "bah-LEN",                category: "animals",      type: "noun",       emoji: "🐋" },
-  { fr: "dauphin",       article: "un",   en: "dolphin",             ph: "doh-FAN",                category: "animals",      type: "noun",       emoji: "🐬" },
-  { fr: "requin",        article: "un",   en: "shark",               ph: "ruh-KAN",                category: "animals",      type: "noun",       emoji: "🦈" },
-  { fr: "pieuvre",       article: "une",  en: "octopus",             ph: "pyuh-EEVR",              category: "animals",      type: "noun",       emoji: "🐙" },
-  { fr: "crabe",         article: "un",   en: "crab",                ph: "krab",                   category: "animals",      type: "noun",       emoji: "🦀" },
-  { fr: "homard",        article: "un",   en: "lobster",             ph: "oh-MAR",                 category: "animals",      type: "noun",       emoji: "🦞" },
-  { fr: "abeille",       article: "une",  en: "bee",                 ph: "ah-BAY",                 category: "animals",      type: "noun",       emoji: "🐝" },
-  { fr: "papillon",      article: "un",   en: "butterfly",           ph: "pah-pee-YOHN",           category: "animals",      type: "noun",       emoji: "🦋" },
-  { fr: "fourmi",        article: "une",  en: "ant",                 ph: "foor-MEE",               category: "animals",      type: "noun",       emoji: "🐜" },
-  { fr: "moustique",     article: "un",   en: "mosquito",            ph: "moos-TEEK",              category: "animals",      type: "noun",       emoji: "🦟" },
-  { fr: "mouche",        article: "une",  en: "fly",                 ph: "moosh",                  category: "animals",      type: "noun",       emoji: "🪰" },
-  { fr: "ver de terre",  article: "un",   en: "earthworm",           ph: "vair duh tair",          category: "animals",      type: "noun",       emoji: "🪱" },
+// Subcategory: farm
+{ fr: "cheval", article: "un", en: "horse", ph: "shuh-VAL", category: "animals", subcategory: "farm", type: "noun", emoji: "🐴", lvl: "A1" },
+{ fr: "cochon", article: "un", en: "pig", ph: "koh-SHOHN", category: "animals", subcategory: "farm", type: "noun", emoji: "🐷", lvl: "A1" },
+{ fr: "vache", article: "une", en: "cow", ph: "vash", category: "animals", subcategory: "farm", type: "noun", emoji: "🐄", lvl: "A1" },
+{ fr: "mouton", article: "un", en: "sheep", ph: "moo-TOHN", category: "animals", subcategory: "farm", type: "noun", emoji: "🐑", lvl: "A2" },
+{ fr: "poule", article: "une", en: "hen / chicken", ph: "pool", category: "animals", subcategory: "farm", type: "noun", emoji: "🐔", lvl: "A2" },
+{ fr: "agneau", article: "un", en: "lamb", ph: "ah-NYOH", category: "animals", subcategory: "farm", type: "noun", emoji: "🐑", lvl: "B1" },
+{ fr: "âne", article: "un", en: "donkey", ph: "AHN", category: "animals", subcategory: "farm", type: "noun", emoji: "🫏", lvl: "B1" },
+{ fr: "chèvre", article: "une", en: "goat", ph: "SHEV-ruh", category: "animals", subcategory: "farm", type: "noun", emoji: "🐐", lvl: "B1" },
+{ fr: "coq", article: "un", en: "rooster", ph: "kok", category: "animals", subcategory: "farm", type: "noun", emoji: "🐓", lvl: "B1" },
+{ fr: "dinde", article: "une", en: "turkey", ph: "dand", category: "animals", subcategory: "farm", type: "noun", emoji: "🦃", lvl: "B1" },
+{ fr: "jument", article: "une", en: "mare", ph: "zhoo-MAHN", category: "animals", subcategory: "farm", type: "noun", emoji: "🐴", lvl: "B1" },
+{ fr: "poulain", article: "un", en: "foal", ph: "poo-LAN", category: "animals", subcategory: "farm", type: "noun", emoji: "🐴", lvl: "B1" },
+{ fr: "poussin", article: "un", en: "chick", ph: "poo-SAN", category: "animals", subcategory: "farm", type: "noun", emoji: "🐣", lvl: "B1" },
+{ fr: "taureau", article: "un", en: "bull", ph: "toh-ROH", category: "animals", subcategory: "farm", type: "noun", emoji: "🐂", lvl: "B1" },
+{ fr: "veau", article: "un", en: "calf", ph: "voh", category: "animals", subcategory: "farm", type: "noun", emoji: "🐄", lvl: "B1" },
+{ fr: "truie", article: "une", en: "sow / female pig", ph: "trwee", category: "animals", subcategory: "farm", type: "noun", emoji: "🐷", lvl: "B2" },
 
-  // Body parts & anatomy
-  { fr: "patte",         article: "une",  en: "paw / leg (animal)",  ph: "pat",                    category: "animals",      type: "noun",       emoji: "🐾" },
-  { fr: "griffe",        article: "une",  en: "claw",                ph: "greef",                  category: "animals",      type: "noun",       emoji: "🐾" },
-  { fr: "queue",         article: "une",  en: "tail",                ph: "kuh",                    category: "animals",      type: "noun",       emoji: "🐾" },
-  { fr: "museau",        article: "un",   en: "snout / muzzle",      ph: "myoo-ZOH",               category: "animals",      type: "noun",       emoji: "🐽" },
-  { fr: "pelage",        article: "un",   en: "coat / fur",          ph: "puh-LAHZH",              category: "animals",      type: "noun",       emoji: "🐱" },
-  { fr: "plume",         article: "une",  en: "feather",             ph: "ploom",                  category: "animals",      type: "noun",       emoji: "🪶" },
-  { fr: "écaille",       article: "une",  en: "scale (fish/reptile)",ph: "ay-KYE",                 category: "animals",      type: "noun",       emoji: "🐟" },
-  { fr: "sabot",         article: "un",   en: "hoof",                ph: "sah-BOH",                category: "animals",      type: "noun",       emoji: "🐴" },
-  { fr: "corne",         article: "une",  en: "horn",                ph: "korn",                   category: "animals",      type: "noun",       emoji: "🐂" },
+// Subcategory: aquatic & insects
+{ fr: "canard", article: "un", en: "duck", ph: "kah-NAR", category: "animals", subcategory: "aquatic", type: "noun", emoji: "🦆", lvl: "A2" },
+{ fr: "grenouille", article: "une", en: "frog", ph: "gruh-NOO-yuh", category: "animals", subcategory: "aquatic", type: "noun", emoji: "🐸", lvl: "A2" },
+{ fr: "araignée", article: "une", en: "spider", ph: "ah-ray-NYAY", category: "animals", subcategory: "aquatic", type: "noun", emoji: "🕷️", lvl: "A2" },
+{ fr: "baleine", article: "une", en: "whale", ph: "bah-LEN", category: "animals", subcategory: "aquatic", type: "noun", emoji: "🐋", lvl: "B1" },
+{ fr: "crabe", article: "un", en: "crab", ph: "krab", category: "animals", subcategory: "aquatic", type: "noun", emoji: "🦀", lvl: "B1" },
+{ fr: "dauphin", article: "un", en: "dolphin", ph: "doh-FAN", category: "animals", subcategory: "aquatic", type: "noun", emoji: "🐬", lvl: "B1" },
+{ fr: "homard", article: "un", en: "lobster", ph: "oh-MAR", category: "animals", subcategory: "aquatic", type: "noun", emoji: "🦞", lvl: "B1" },
+{ fr: "requin", article: "un", en: "shark", ph: "ruh-KAN", category: "animals", subcategory: "aquatic", type: "noun", emoji: "🦈", lvl: "B1" },
+{ fr: "pieuvre", article: "une", en: "octopus", ph: "pyuh-EEVR", category: "animals", subcategory: "aquatic", type: "noun", emoji: "🐙", lvl: "B2" },
+{ fr: "abeille", article: "une", en: "bee", ph: "ah-BAY", category: "animals", subcategory: "aquatic", type: "noun", emoji: "🐝", lvl: "A2" },
+{ fr: "fourmi", article: "une", en: "ant", ph: "foor-MEE", category: "animals", subcategory: "aquatic", type: "noun", emoji: "🐜", lvl: "A2" },
+{ fr: "mouche", article: "une", en: "fly", ph: "moosh", category: "animals", subcategory: "aquatic", type: "noun", emoji: "🪰", lvl: "A2" },
+{ fr: "moustique", article: "un", en: "mosquito", ph: "moos-TEEK", category: "animals", subcategory: "aquatic", type: "noun", emoji: "🦟", lvl: "A2" },
+{ fr: "papillon", article: "un", en: "butterfly", ph: "pah-pee-YOHN", category: "animals", subcategory: "aquatic", type: "noun", emoji: "🦋", lvl: "A2" },
+{ fr: "ver de terre", article: "un", en: "earthworm", ph: "vair duh tair", category: "animals", subcategory: "aquatic", type: "noun", emoji: "🪱", lvl: "B1" },
 
-  // Adjectives
-  { fr: "sauvage",       article: null,   en: "wild",                ph: "soh-VAHZH",              category: "animals",      type: "adjective",  emoji: "🌿" },
-  { fr: "domestique",    article: null,   en: "domestic / pet",      ph: "doh-mes-TEEK",           category: "animals",      type: "adjective",  emoji: "🏠" },
-  { fr: "errant",        article: null,   en: "stray (masc.)",       ph: "eh-RAHN",                category: "animals",      type: "adjective",  emoji: "🐕" },
-  { fr: "errante",       article: null,   en: "stray (fem.)",        ph: "eh-RAHNT",               category: "animals",      type: "adjective",  emoji: "🐕" },
-  { fr: "dressé",        article: null,   en: "trained (masc.)",     ph: "dreh-SAY",               category: "animals",      type: "adjective",  emoji: "🎓" },
-  { fr: "dressée",       article: null,   en: "trained (fem.)",      ph: "dreh-SAY",               category: "animals",      type: "adjective",  emoji: "🎓" },
-  { fr: "en bonne santé",article: null,   en: "healthy",             ph: "ahn bun sahn-TAY",       category: "animals",      type: "adjective",  emoji: "💚" },
-  { fr: "blessé",        article: null,   en: "injured (masc.)",     ph: "bleh-SAY",               category: "animals",      type: "adjective",  emoji: "🩹" },
-  { fr: "blessée",       article: null,   en: "injured (fem.)",      ph: "bleh-SAY",               category: "animals",      type: "adjective",  emoji: "🩹" },
-  { fr: "stérilisé",     article: null,   en: "neutered / spayed (masc.)", ph: "stay-ree-lee-ZAY", category: "animals",      type: "adjective",  emoji: null },
-  { fr: "stérilisée",    article: null,   en: "neutered / spayed (fem.)",  ph: "stay-ree-lee-ZAY", category: "animals",      type: "adjective",  emoji: null },
+// Subcategory: anatomy
+{ fr: "museau", article: "un", en: "snout / muzzle", ph: "myoo-ZOH", category: "animals", subcategory: "anatomy", type: "noun", emoji: "🐽", lvl: "B1" },
+{ fr: "patte", article: "une", en: "paw / leg (animal)", ph: "pat", category: "animals", subcategory: "anatomy", type: "noun", emoji: "🐾", lvl: "A2" },
+{ fr: "pelage", article: "un", en: "coat / fur", ph: "puh-LAHZH", category: "animals", subcategory: "anatomy", type: "noun", emoji: "🐱", lvl: "B1" },
+{ fr: "plume", article: "une", en: "feather", ph: "ploom", category: "animals", subcategory: "anatomy", type: "noun", emoji: "🪶", lvl: "B1" },
+{ fr: "queue", article: "une", en: "tail", ph: "kuh", category: "animals", subcategory: "anatomy", type: "noun", emoji: "🐾", lvl: "A2" },
+{ fr: "corne", article: "une", en: "horn", ph: "korn", category: "animals", subcategory: "anatomy", type: "noun", emoji: "🐂", lvl: "B2" },
+{ fr: "écaille", article: "une", en: "scale (fish/reptile)", ph: "ay-KYE", category: "animals", subcategory: "anatomy", type: "noun", emoji: "🐟", lvl: "B2" },
+{ fr: "griffe", article: "une", en: "claw", ph: "greef", category: "animals", subcategory: "anatomy", type: "noun", emoji: "🐾", lvl: "B1" },
+{ fr: "sabot", article: "un", en: "hoof", ph: "sah-BOH", category: "animals", subcategory: "anatomy", type: "noun", emoji: "🐴", lvl: "B2" },
 
-  // Care & behaviour verbs
-  { fr: "aboyer",        article: null,   en: "to bark",             ph: "ah-bwah-YAY",            category: "animals",      type: "verb",       emoji: "🐕" },
-  { fr: "miauler",       article: null,   en: "to meow",             ph: "myoh-LAY",               category: "animals",      type: "verb",       emoji: "🐱" },
-  { fr: "ronronner",     article: null,   en: "to purr",             ph: "rohn-roh-NAY",           category: "animals",      type: "verb",       emoji: "😺" },
-  { fr: "couiner",       article: null,   en: "to squeak / to squeal",ph: "kwee-NAY",              category: "animals",      type: "verb",       emoji: "🐹" },
-  { fr: "mordre",        article: null,   en: "to bite",             ph: "mor-druh",               category: "animals",      type: "verb",       emoji: "😬" },
-  { fr: "griffer",       article: null,   en: "to scratch / to claw",ph: "gree-FAY",               category: "animals",      type: "verb",       emoji: "🐾" },
-  { fr: "gratter",       article: null,   en: "to scratch (self)",   ph: "grah-TAY",               category: "animals",      type: "verb",       emoji: "🐾" },
-  { fr: "nourrir",       article: null,   en: "to feed",             ph: "noo-REER",               category: "animals",      type: "verb",       emoji: "🍖" },
-  { fr: "promener",      article: null,   en: "to walk (a dog)",     ph: "prohm-NAY",              category: "animals",      type: "verb",       emoji: "🐕" },
-  { fr: "toiletter",     article: null,   en: "to groom",            ph: "twah-leh-TAY",           category: "animals",      type: "verb",       emoji: "✂️" },
-  { fr: "brosser",       article: null,   en: "to brush",            ph: "broh-SAY",               category: "animals",      type: "verb",       emoji: "🪮" },
-  { fr: "stériliser",    article: null,   en: "to neuter / to spay", ph: "stay-ree-lee-ZAY",       category: "animals",      type: "verb",       emoji: null },
-  { fr: "vacciner",      article: null,   en: "to vaccinate",        ph: "vak-see-NAY",            category: "animals",      type: "verb",       emoji: "💉" },
-  { fr: "adopter",       article: null,   en: "to adopt",            ph: "ah-dop-TAY",             category: "animals",      type: "verb",       emoji: "🏠" },
-  { fr: "dresser",       article: null,   en: "to train (an animal)",ph: "dreh-SAY",               category: "animals",      type: "verb",       emoji: "🎓" },
-  { fr: "câliner",       article: null,   en: "to cuddle / to pet",  ph: "kah-lee-NAY",            category: "animals",      type: "verb",       emoji: "🤗" },
-  { fr: "caresser",      article: null,   en: "to stroke / to pet",  ph: "kah-reh-SAY",            category: "animals",      type: "verb",       emoji: "🤗" },
-  { fr: "nettoyer la cage", article: null, en: "to clean the cage",  ph: "neh-twah-YAY lah KAHZH", category: "animals",      type: "verb",       emoji: "🧹" },
-  { fr: "changer la litière", article: null, en: "to change the litter", ph: "shahn-ZHAY lah lee-TYAIR", category: "animals", type: "verb",      emoji: "🐱" },
-  { fr: "aller chez le vétérinaire", article: null, en: "to go to the vet", ph: "ah-LAY shay luh vay-tay-ree-NAIR", category: "animals", type: "verb", emoji: "👨‍⚕️" },
-  { fr: "faire popcorn", article: null,   en: "to popcorn (guinea pig joy jump)", ph: "fair pop-KORN", category: "animals",   type: "verb",       emoji: "🍿", note: "The French just say 'faire le popcorn' for that joyful guinea pig jump — delightful" },
-  { fr: "hennir",        article: null,   en: "to neigh",            ph: "eh-NEER",                category: "animals",      type: "verb",       emoji: "🐴" },
-  { fr: "meugler",       article: null,   en: "to moo",              ph: "muh-GLAY",               category: "animals",      type: "verb",       emoji: "🐄" },
-  { fr: "bêler",         article: null,   en: "to bleat (sheep/goat)",ph: "beh-LAY",               category: "animals",      type: "verb",       emoji: "🐑" },
-  { fr: "grogne",        article: null,   en: "to grunt (pig)",      ph: "grohn-YAY",              category: "animals",      type: "verb",       emoji: "🐷" },
-  { fr: "voler",         article: null,   en: "to fly",              ph: "voh-LAY",                category: "animals",      type: "verb",       emoji: "🦅" },
-  { fr: "nager",         article: null,   en: "to swim",             ph: "nah-ZHAY",               category: "animals",      type: "verb",       emoji: "🐟" },
-  { fr: "hiberner",      article: null,   en: "to hibernate",        ph: "ee-bair-NAY",            category: "animals",      type: "verb",       emoji: "😴" },
-  { fr: "se reproduire", article: null,   en: "to reproduce / to breed", ph: "suh ruh-proh-DWEER", category: "animals",      type: "verb",       emoji: null },
+// Subcategory: care
+{ fr: "vétérinaire", article: "un", en: "vet", ph: "vay-tay-ree-NAIR", category: "animals", subcategory: "care", type: "noun", emoji: "👨‍⚕️", lvl: "A2" },
+{ fr: "toiletteur", article: "un", en: "groomer (masc.)", ph: "twah-leh-TUR", category: "animals", subcategory: "care", type: "noun", emoji: "✂️", lvl: "B1" },
+{ fr: "toiletteuse", article: "une", en: "groomer (fem.)", ph: "twah-leh-TUHZ", category: "animals", subcategory: "care", type: "noun", emoji: "✂️", lvl: "B1" },
+{ fr: "cage", article: "une", en: "cage", ph: "KAHZH", category: "animals", subcategory: "care", type: "noun", emoji: "🪤", lvl: "A2" },
+{ fr: "collier", article: "un", en: "collar", ph: "koh-LYAY", category: "animals", subcategory: "care", type: "noun", emoji: "🐕", lvl: "A2" },
+{ fr: "laisse", article: "une", en: "leash", ph: "less", category: "animals", subcategory: "care", type: "noun", emoji: "🐕", lvl: "A2" },
+{ fr: "aquarium", article: "un", en: "fish tank / aquarium", ph: "ah-kwah-RYOM", category: "animals", subcategory: "care", type: "noun", emoji: "🐠", lvl: "A2" },
+{ fr: "croquettes", article: "des", en: "dry pet food / kibble", ph: "kroh-KET", category: "animals", subcategory: "care", type: "noun", emoji: "🍖", lvl: "A2", note: "The standard French word for dry pet food — used for cats and dogs" },
+{ fr: "pâtée", article: "une", en: "wet pet food", ph: "pah-TAY", category: "animals", subcategory: "care", type: "noun", emoji: "🥫", lvl: "B1" },
+{ fr: "litière", article: "une", en: "litter box / bedding", ph: "lee-TYAIR", category: "animals", subcategory: "care", type: "noun", emoji: "🐱", lvl: "A2", note: "Used for cat litter boxes and small animal bedding alike" },
+{ fr: "adopter", article: null, en: "to adopt", ph: "ah-dop-TAY", category: "animals", subcategory: "care", type: "verb", emoji: "🏠", lvl: "B1" },
+{ fr: "brosser", article: null, en: "to brush", ph: "broh-SAY", category: "animals", subcategory: "care", type: "verb", emoji: "🪮", lvl: "A2" },
+{ fr: "dresser", article: null, en: "to train (an animal)", ph: "dreh-SAY", category: "animals", subcategory: "care", type: "verb", emoji: "🎓", lvl: "B1" },
+{ fr: "nourrir", article: null, en: "to feed", ph: "noo-REER", category: "animals", subcategory: "care", type: "verb", emoji: "🍖", lvl: "A1" },
+{ fr: "promener", article: null, en: "to walk (a dog)", ph: "prohm-NAY", category: "animals", subcategory: "care", type: "verb", emoji: "🐕", lvl: "A1" },
+{ fr: "stériliser", article: null, en: "to neuter / to spay", ph: "stay-ree-lee-ZAY", category: "animals", subcategory: "care", type: "verb", emoji: null, lvl: "B2" },
+{ fr: "vacciner", article: null, en: "to vaccinate", ph: "vak-see-NAY", category: "animals", subcategory: "care", type: "verb", emoji: "💉", lvl: "B1" },
+{ fr: "toiletter", article: null, en: "to groom", ph: "twah-leh-TAY", category: "animals", subcategory: "care", type: "verb", emoji: "✂️", lvl: "B1" },
+{ fr: "dressé", article: null, en: "trained (masc.)", ph: "dreh-SAY", category: "animals", subcategory: "care", type: "adjective", emoji: "🎓", lvl: "B1" },
+{ fr: "dressée", article: null, en: "trained (fem.)", ph: "dreh-SAY", category: "animals", subcategory: "care", type: "adjective", emoji: "🎓", lvl: "B1" },
+{ fr: "stérilisé", article: null, en: "neutered / spayed (masc.)", ph: "stay-ree-lee-ZAY", category: "animals", subcategory: "care", type: "adjective", emoji: null, lvl: "B1" },
+{ fr: "stérilisée", article: null, en: "neutered / spayed (fem.)", ph: "stay-ree-lee-ZAY", category: "animals", subcategory: "care", type: "adjective", emoji: null, lvl: "B1" },
+{ fr: "en bonne santé", article: null, en: "healthy", ph: "ahn bun sahn-TAY", category: "animals", subcategory: "care", type: "adjective", emoji: "💚", lvl: "A2" },
+{ fr: "blessé", article: null, en: "injured (masc.)", ph: "bleh-SAY", category: "animals", subcategory: "care", type: "adjective", emoji: "🩹", lvl: "B1" },
+{ fr: "blessée", article: null, en: "injured (fem.)", ph: "bleh-SAY", category: "animals", subcategory: "care", type: "adjective", emoji: "🩹", lvl: "B1" },
 
-  // Phrases
-  { fr: "Tu as nourri les animaux ?",       article: null, en: "Did you feed the animals?",        ph: "too ah noo-REE lay zah-nee-MOH",        category: "animals", type: "phrase", emoji: "🍖" },
-  { fr: "Il faut aller chez le vétérinaire.", article: null, en: "We need to go to the vet.",      ph: "eel foh ah-LAY shay luh vay-tay-ree-NAIR", category: "animals", type: "phrase", emoji: "👨‍⚕️" },
-  { fr: "Elle a mordu quelqu'un.",          article: null, en: "She bit someone.",                  ph: "el ah mor-DOO kel-KAN",                 category: "animals", type: "phrase", emoji: "😬" },
-  { fr: "Il est perdu.",                    article: null, en: "He is lost.",                       ph: "eel ay pair-DOO",                        category: "animals", type: "phrase", emoji: "😟" },
-  { fr: "C'est un animal de compagnie.",    article: null, en: "It's a pet.",                       ph: "say tun ah-nee-MAL duh kohm-pahn-YEE",  category: "animals", type: "phrase", emoji: "🏠" },
-  { fr: "Il/Elle est vacciné(e).",          article: null, en: "He/She is vaccinated.",             ph: "eel / el ay vak-see-NAY",               category: "animals", type: "phrase", emoji: "💉" },
-  { fr: "On a adopté un chien.",            article: null, en: "We adopted a dog.",                 ph: "ohn ah ah-dop-TAY un SHYAN",            category: "animals", type: "phrase", emoji: "🐕" },
-  { fr: "Attention, il mord !",             article: null, en: "Watch out, he bites!",              ph: "ah-tahn-SYOHN, eel MOR",                category: "animals", type: "phrase", emoji: "⚠️" },
-  { fr: "Elle fait le popcorn !",           article: null, en: "She's popcorning!",                 ph: "el feh luh pop-KORN",                   category: "animals", type: "phrase", emoji: "🍿" },
-  { fr: "Le chien a besoin d'une promenade.", article: null, en: "The dog needs a walk.",           ph: "luh SHYAN ah buh-ZWAN dyoon prohm-NAD", category: "animals", type: "phrase", emoji: "🐕" },
+// Subcategory: behavior
+{ fr: "aboyer", article: null, en: "to bark", ph: "ah-bwah-YAY", category: "animals", subcategory: "behavior", type: "verb", emoji: "🐕", lvl: "A2" },
+{ fr: "miauler", article: null, en: "to meow", ph: "myoh-LAY", category: "animals", subcategory: "behavior", type: "verb", emoji: "🐱", lvl: "A2" },
+{ fr: "câliner", article: null, en: "to cuddle / to pet", ph: "kah-lee-NAY", category: "animals", subcategory: "behavior", type: "verb", emoji: "🤗", lvl: "A2" },
+{ fr: "caresser", article: null, en: "to stroke / to pet", ph: "kah-reh-SAY", category: "animals", subcategory: "behavior", type: "verb", emoji: "🤗", lvl: "A2" },
+{ fr: "nager", article: null, en: "to swim", ph: "nah-ZHAY", category: "animals", subcategory: "behavior", type: "verb", emoji: "🐟", lvl: "A1" },
+{ fr: "ronronner", article: null, en: "to purr", ph: "rohn-roh-NAY", category: "animals", subcategory: "behavior", type: "verb", emoji: "😺", lvl: "B1" },
+{ fr: "voler", article: null, en: "to fly", ph: "voh-LAY", category: "animals", subcategory: "behavior", type: "verb", emoji: "🦅", lvl: "A1" },
+{ fr: "bêler", article: null, en: "to bleat (sheep/goat)", ph: "beh-LAY", category: "animals", subcategory: "behavior", type: "verb", emoji: "🐑", lvl: "B1" },
+{ fr: "couiner", article: null, en: "to squeak / to squeal", ph: "kwee-NAY", category: "animals", subcategory: "behavior", type: "verb", emoji: "🐹", lvl: "B1" },
+{ fr: "gratter", article: null, en: "to scratch (self)", ph: "grah-TAY", category: "animals", subcategory: "behavior", type: "verb", emoji: "🐾", lvl: "A2" },
+{ fr: "griffer", article: null, en: "to scratch / to claw", ph: "gree-FAY", category: "animals", subcategory: "behavior", type: "verb", emoji: "🐾", lvl: "B1" },
+{ fr: "grogne", article: null, en: "to grunt (pig)", ph: "grohn-YAY", category: "animals", subcategory: "behavior", type: "verb", emoji: "🐷", lvl: "B1" },
+{ fr: "hennir", article: null, en: "to neigh", ph: "eh-NEER", category: "animals", subcategory: "behavior", type: "verb", emoji: "🐴", lvl: "B1" },
+{ fr: "hiberner", article: null, en: "to hibernate", ph: "ee-bair-NAY", category: "animals", subcategory: "behavior", type: "verb", emoji: "😴", lvl: "B2" },
+{ fr: "meugler", article: null, en: "to moo", ph: "muh-GLAY", category: "animals", subcategory: "behavior", type: "verb", emoji: "🐄", lvl: "B1" },
+{ fr: "mordre", article: null, en: "to bite", ph: "mor-druh", category: "animals", subcategory: "behavior", type: "verb", emoji: "😬", lvl: "B1" },
+{ fr: "se reproduire", article: null, en: "to reproduce / to breed", ph: "suh ruh-proh-DWEER", category: "animals", subcategory: "behavior", type: "verb", emoji: null, lvl: "B2" },
+{ fr: "faire popcorn", article: null, en: "to popcorn (guinea pig joy jump)", ph: "fair pop-KORN", category: "animals", subcategory: "behavior", type: "verb", emoji: "🍿", lvl: "B2", note: "The French just say 'faire le popcorn' for that joyful guinea pig jump — delightful" },
 
-// ── ARTS ──────────────────────────────────────────────────────────────────
+// Subcategory: phrases
+{ fr: "Tu as nourri les animaux ?", article: null, en: "Did you feed the animals?", ph: "too ah noo-REE lay zah-nee-MOH", category: "animals", subcategory: "phrases", type: "phrase", emoji: "🍖", lvl: "A1" },
+{ fr: "C'est un animal de compagnie.", article: null, en: "It's a pet.", ph: "say tun ah-nee-MAL duh kohm-pahn-YEE", category: "animals", subcategory: "phrases", type: "phrase", emoji: "🏠", lvl: "A1" },
+{ fr: "Il est perdu.", article: null, en: "He is lost.", ph: "eel ay pair-DOO", category: "animals", subcategory: "phrases", type: "phrase", emoji: "😟", lvl: "A1" },
+{ fr: "Attention, il mord !", article: null, en: "Watch out, he bites!", ph: "ah-tahn-SYOHN, eel MOR", category: "animals", subcategory: "phrases", type: "phrase", emoji: "⚠️", lvl: "A2" },
+{ fr: "Le chien a besoin d'une promenade.", article: null, en: "The dog needs a walk.", ph: "luh SHYAN ah buh-ZWAN dyoon prohm-NAD", category: "animals", subcategory: "phrases", type: "phrase", emoji: "🐕", lvl: "A2" },
+{ fr: "On a adopté un chien.", article: null, en: "We adopted a dog.", ph: "ohn ah ah-dop-TAY un SHYAN", category: "animals", subcategory: "phrases", type: "phrase", emoji: "🐕", lvl: "A2" },
+{ fr: "Il faut aller chez le vétérinaire.", article: null, en: "We need to go to the vet.", ph: "eel foh ah-LAY shay luh vay-tay-ree-NAIR", category: "animals", subcategory: "phrases", type: "phrase", emoji: "👨‍⚕️", lvl: "B1" },
+{ fr: "Il/Elle est vacciné(e).", article: null, en: "He/She is vaccinated.", ph: "eel / el ay vak-see-NAY", category: "animals", subcategory: "phrases", type: "phrase", emoji: "💉", lvl: "B1" },
+{ fr: "Elle a mordu quelqu'un.", article: null, en: "She bit someone.", ph: "el ah mor-DOO kel-KAN", category: "animals", subcategory: "phrases", type: "phrase", emoji: "😬", lvl: "B1" },
+{ fr: "Elle fait le popcorn !", article: null, en: "She's popcorning!", ph: "el feh luh pop-KORN", category: "animals", subcategory: "phrases", type: "phrase", emoji: "🍿", lvl: "B2" },
+
+  // ── ARTS ──────────────────────────────────────────────────────────────────
 
 // Subcategory: appreciation
 { fr: "dessin", article: "un", en: "drawing", ph: "deh-SAN", category: "arts", subcategory: "appreciation", type: "noun", emoji: "✏️", lvl: "A1" },
@@ -439,19 +434,6 @@ const vocabData = [
 { fr: "fond", article: "un", en: "background", ph: "fohn", category: "arts", subcategory: "elements", type: "noun", emoji: null, lvl: "B2" },
 { fr: "texture", article: "une", en: "texture", ph: "tex-TYOOR", category: "arts", subcategory: "elements", type: "noun", emoji: null, lvl: "B2" },
 
-// Subcategory: phrases
-{ fr: "Tu dessines quoi ?", article: null, en: "What are you drawing?", ph: "too deh-SEEN kwah", category: "arts", subcategory: "phrases", type: "phrase", emoji: "✏️", lvl: "A1" },
-{ fr: "J'adore les couleurs.", article: null, en: "I love the colours.", ph: "zhah-DOR lay koo-LUHR", category: "arts", subcategory: "phrases", type: "phrase", emoji: "🌈", lvl: "A2" },
-{ fr: "J'aime cette couleur.", article: null, en: "I love this colour.", ph: "zhem set koo-LUHR", category: "arts", subcategory: "phrases", type: "phrase", emoji: "💕", lvl: "A2" },
-{ fr: "C'est magnifique !", article: null, en: "It's magnificent!", ph: "say mah-nyee-FEEK", category: "arts", subcategory: "phrases", type: "phrase", emoji: "🤩", lvl: "B1" },
-{ fr: "De quelle couleur est... ?", article: null, en: "What colour is... ?", ph: "duh kel koo-LUHR ay", category: "arts", subcategory: "phrases", type: "phrase", emoji: "🎨", lvl: "B1" },
-{ fr: "Je prends une photo.", article: null, en: "I'm taking a photo.", ph: "zhuh prahn tyoon FOH-toh", category: "arts", subcategory: "phrases", type: "phrase", emoji: "📷", lvl: "B1" },
-{ fr: "On va à l'exposition ?", article: null, en: "Shall we go to the exhibition?", ph: "ohn vah ah lex-poh-zee-SYOHN", category: "arts", subcategory: "phrases", type: "phrase", emoji: "🏛️", lvl: "B1" },
-{ fr: "Tu es une vraie artiste.", article: null, en: "You are a real artist.", ph: "too ay tyoon vray ar-TEEST", category: "arts", subcategory: "phrases", type: "phrase", emoji: "🎨", lvl: "B1" },
-{ fr: "C'est fait avec quoi ?", article: null, en: "What is it made with?", ph: "say feh ah-VEK kwah", category: "arts", subcategory: "phrases", type: "phrase", emoji: "🤔", lvl: "B2" },
-{ fr: "C'est peint à l'huile.", article: null, en: "It's painted in oil.", ph: "say pan ah LWEEL", category: "arts", subcategory: "phrases", type: "phrase", emoji: "🖼️", lvl: "B2" },
-{ fr: "C'est une aquarelle.", article: null, en: "It's a watercolour.", ph: "say tyoon ah-kwah-REL", category: "arts", subcategory: "phrases", type: "phrase", emoji: "🎨", lvl: "B2" },
-
 // Subcategory: shapes
 { fr: "carré", article: "un", en: "square", ph: "kah-RAY", category: "arts", subcategory: "shapes", type: "noun", emoji: "🟥", lvl: "A1" },
 { fr: "cercle", article: "un", en: "circle", ph: "sair-kluh", category: "arts", subcategory: "shapes", type: "noun", emoji: "⭕", lvl: "A1" },
@@ -489,6 +471,19 @@ const vocabData = [
 { fr: "encadrer", article: null, en: "to frame", ph: "ahn-kah-DRAY", category: "arts", subcategory: "verbs", type: "verb", emoji: "🖼️", lvl: "B2" },
 { fr: "esquisser", article: null, en: "to sketch", ph: "es-kee-SAY", category: "arts", subcategory: "verbs", type: "verb", emoji: "✏️", lvl: "B2" },
 { fr: "exposer", article: null, en: "to exhibit / to display", ph: "ex-poh-ZAY", category: "arts", subcategory: "verbs", type: "verb", emoji: "🏛️", lvl: "B2" },
+
+  // Subcategory: phrases
+{ fr: "Tu dessines quoi ?", article: null, en: "What are you drawing?", ph: "too deh-SEEN kwah", category: "arts", subcategory: "phrases", type: "phrase", emoji: "✏️", lvl: "A1" },
+{ fr: "J'adore les couleurs.", article: null, en: "I love the colours.", ph: "zhah-DOR lay koo-LUHR", category: "arts", subcategory: "phrases", type: "phrase", emoji: "🌈", lvl: "A2" },
+{ fr: "J'aime cette couleur.", article: null, en: "I love this colour.", ph: "zhem set koo-LUHR", category: "arts", subcategory: "phrases", type: "phrase", emoji: "💕", lvl: "A2" },
+{ fr: "C'est magnifique !", article: null, en: "It's magnificent!", ph: "say mah-nyee-FEEK", category: "arts", subcategory: "phrases", type: "phrase", emoji: "🤩", lvl: "B1" },
+{ fr: "De quelle couleur est... ?", article: null, en: "What colour is... ?", ph: "duh kel koo-LUHR ay", category: "arts", subcategory: "phrases", type: "phrase", emoji: "🎨", lvl: "B1" },
+{ fr: "Je prends une photo.", article: null, en: "I'm taking a photo.", ph: "zhuh prahn tyoon FOH-toh", category: "arts", subcategory: "phrases", type: "phrase", emoji: "📷", lvl: "B1" },
+{ fr: "On va à l'exposition ?", article: null, en: "Shall we go to the exhibition?", ph: "ohn vah ah lex-poh-zee-SYOHN", category: "arts", subcategory: "phrases", type: "phrase", emoji: "🏛️", lvl: "B1" },
+{ fr: "Tu es une vraie artiste.", article: null, en: "You are a real artist.", ph: "too ay tyoon vray ar-TEEST", category: "arts", subcategory: "phrases", type: "phrase", emoji: "🎨", lvl: "B1" },
+{ fr: "C'est fait avec quoi ?", article: null, en: "What is it made with?", ph: "say feh ah-VEK kwah", category: "arts", subcategory: "phrases", type: "phrase", emoji: "🤔", lvl: "B2" },
+{ fr: "C'est peint à l'huile.", article: null, en: "It's painted in oil.", ph: "say pan ah LWEEL", category: "arts", subcategory: "phrases", type: "phrase", emoji: "🖼️", lvl: "B2" },
+{ fr: "C'est une aquarelle.", article: null, en: "It's a watercolour.", ph: "say tyoon ah-kwah-REL", category: "arts", subcategory: "phrases", type: "phrase", emoji: "🎨", lvl: "B2" },
 
   // ── BODY ───────────────────────────────────────────────────────────────
 
@@ -716,39 +711,6 @@ const vocabData = [
 { fr: "jouet sensoriel", article: "un", en: "sensory toy / fidget toy", ph: "zhoo-AY sahn-sor-YEL", category: "emotions", subcategory: "neurodivergence", type: "noun", emoji: "🌀", lvl: "B1", note: "Quebec French context" },
 { fr: "fidget", article: "un", en: "fidget toy", ph: "FEE-dzhet", category: "emotions", subcategory: "neurodivergence", type: "noun", emoji: "🌀", lvl: "B1", note: "Borrowed directly from English" },
 
-// Subcategory: phrases - expressing feelings
-{ fr: "Je me sens bien.", article: null, en: "I feel good.", ph: "zhuh muh sahn BYAN", category: "emotions", subcategory: "phrases", type: "phrase", emoji: "😊", lvl: "A1" },
-{ fr: "Je ne me sens pas bien.", article: null, en: "I'm not feeling well.", ph: "zhuh nuh muh sahn pah BYAN", category: "emotions", subcategory: "phrases", type: "phrase", emoji: "😞", lvl: "A1" },
-{ fr: "Je suis épuisé(e).", article: null, en: "I'm exhausted.", ph: "zhuh swee ay-pwee-ZAY", category: "emotions", subcategory: "phrases", type: "phrase", emoji: "😮‍💨", lvl: "A2" },
-{ fr: "Je me sens seul(e).", article: null, en: "I feel lonely.", ph: "zhuh muh sahn SUL", category: "emotions", subcategory: "phrases", type: "phrase", emoji: "🥺", lvl: "B1" },
-{ fr: "Je me sens dépassé(e).", article: null, en: "I feel overwhelmed.", ph: "zhuh muh sahn day-pah-SAY", category: "emotions", subcategory: "phrases", type: "phrase", emoji: "🌀", lvl: "B1" },
-{ fr: "Je me sens déconnecté(e).", article: null, en: "I feel disconnected.", ph: "zhuh muh sahn day-koh-nek-TAY", category: "emotions", subcategory: "phrases", type: "phrase", emoji: "🔌", lvl: "C1" },
-{ fr: "C'est trop pour moi.", article: null, en: "It's too much for me.", ph: "say troh poor MWAH", category: "emotions", subcategory: "phrases", type: "phrase", emoji: "🌊", lvl: "B1" },
-{ fr: "J'ai du mal à...", article: null, en: "I'm struggling to...", ph: "zhay dyoo mahl ah", category: "emotions", subcategory: "phrases", type: "phrase", emoji: "😤", lvl: "B1" },
-{ fr: "J'ai besoin d'espace.", article: null, en: "I need space.", ph: "zhay buh-ZWAN des-PASS", category: "emotions", subcategory: "phrases", type: "phrase", emoji: "🌬️", lvl: "B2" },
-{ fr: "J'ai besoin d'une pause.", article: null, en: "I need a break.", ph: "zhay buh-ZWAN dyoon POHZ", category: "emotions", subcategory: "phrases", type: "phrase", emoji: "⏸️", lvl: "A2" },
-{ fr: "Ça va aller.", article: null, en: "It's going to be okay.", ph: "sah vah ah-LAY", category: "emotions", subcategory: "phrases", type: "phrase", emoji: "🌟", lvl: "A1" },
-
-// Subcategory: phrases - support
-{ fr: "J'ai besoin de ton aide.", article: null, en: "I need your help.", ph: "zhay buh-ZWAN duh tohn ED", category: "emotions", subcategory: "phrases", type: "phrase", emoji: "🤝", lvl: "A2" },
-{ fr: "Tu peux m'aider ?", article: null, en: "Can you help me?", ph: "too puh meh-DAY", category: "emotions", subcategory: "phrases", type: "phrase", emoji: "🤝", lvl: "A2" },
-{ fr: "Tu peux rester avec moi ?", article: null, en: "Can you stay with me?", ph: "too puh res-TAY ah-vek MWAH", category: "emotions", subcategory: "phrases", type: "phrase", emoji: "🤗", lvl: "B1" },
-{ fr: "J'ai besoin d'un câlin.", article: null, en: "I need a hug.", ph: "zhay buh-ZWAN dun kah-LAN", category: "emotions", subcategory: "phrases", type: "phrase", emoji: "🤗", lvl: "B1" },
-{ fr: "Je ne sais pas comment expliquer, mais je ne me sens pas bien.", article: null, en: "I don't know how to explain it, but I'm not feeling well.", ph: "zhuh nuh say pah koh-MAHN ex-plee-KAY, meh zhuh nuh muh sahn pah BYAN", category: "emotions", subcategory: "phrases", type: "phrase", emoji: "💬", lvl: "B2" },
-
-// Subcategory: phrases - encouragement
-{ fr: "Je fais de mon mieux.", article: null, en: "I'm doing my best.", ph: "zhuh feh duh mohn MYUH", category: "emotions", subcategory: "phrases", type: "phrase", emoji: "⭐", lvl: "A2" },
-{ fr: "Je suis capable.", article: null, en: "I am capable.", ph: "zhuh swee kah-PAH-bluh", category: "emotions", subcategory: "phrases", type: "phrase", emoji: "💪", lvl: "B1" },
-{ fr: "Un pas à la fois.", article: null, en: "One step at a time.", ph: "un pah ah lah FWAH", category: "emotions", subcategory: "phrases", type: "phrase", emoji: "👣", lvl: "B1" },
-{ fr: "Je suis fier/fière de moi.", article: null, en: "I'm proud of myself.", ph: "zhuh swee fyay / fyair duh MWAH", category: "emotions", subcategory: "phrases", type: "phrase", emoji: "🦁", lvl: "B1" },
-{ fr: "J'ai déjà réussi avant.", article: null, en: "I've done it before.", ph: "zhay day-ZHAH ray-yoo-SEE ah-VAHN", category: "emotions", subcategory: "phrases", type: "phrase", emoji: "✅", lvl: "B1" },
-{ fr: "C'est difficile mais je peux le faire.", article: null, en: "It's hard but I can do this.", ph: "say dee-fee-SEEL meh zhuh puh luh FAIR", category: "emotions", subcategory: "phrases", type: "phrase", emoji: "💪", lvl: "B2" },
-{ fr: "Tu es plus fort(e) que tu penses.", article: null, en: "You are stronger than you think.", ph: "too ay ploo for / fort kuh too PAHNS", category: "emotions", subcategory: "phrases", type: "phrase", emoji: "💪", lvl: "B2" },
-{ fr: "Je crois en toi.", article: null, en: "I believe in you.", ph: "zhuh krwah ahn TWAH", category: "emotions", subcategory: "phrases", type: "phrase", emoji: "🌟", lvl: "A2" },
-{ fr: "On est ensemble.", article: null, en: "We're in this together.", ph: "ohn ay ahn-SAHM-bluh", category: "emotions", subcategory: "phrases", type: "phrase", emoji: "🤝", lvl: "B1" },
-{ fr: "Tu fais vraiment bien.", article: null, en: "You're doing really well.", ph: "too feh vray-MAHN BYAN", category: "emotions", subcategory: "phrases", type: "phrase", emoji: "⭐", lvl: "B1" },
-{ fr: "Je suis fier/fière de toi.", article: null, en: "I'm proud of you.", ph: "zhuh swee fyay / fyair duh TWAH", category: "emotions", subcategory: "phrases", type: "phrase", emoji: "🦁", lvl: "B1" },
-
 // Subcategory: regulation
 { fr: "se sentir", article: null, en: "to feel", ph: "suh sahn-TEER", category: "emotions", subcategory: "regulation", type: "verb", emoji: "💭", lvl: "A1" },
 { fr: "respirer", article: null, en: "to breathe", ph: "res-pee-RAY", category: "emotions", subcategory: "regulation", type: "verb", emoji: "💨", lvl: "A2" },
@@ -790,6 +752,41 @@ const vocabData = [
 { fr: "féliciter", article: null, en: "to congratulate", ph: "fay-lee-see-TAY", category: "emotions", subcategory: "verbs", type: "verb", emoji: "🎉", lvl: "B1" },
 { fr: "se plaindre", article: null, en: "to complain", ph: "suh plan-druh", category: "emotions", subcategory: "verbs", type: "verb", emoji: "😒", lvl: "B1" },
 { fr: "soupirer", article: null, en: "to sigh", ph: "soo-pee-RAY", category: "emotions", subcategory: "verbs", type: "verb", emoji: "😮‍💨", lvl: "B2" },
+  
+// Subcategory: phrases - expressing feelings
+{ fr: "Je me sens bien.", article: null, en: "I feel good.", ph: "zhuh muh sahn BYAN", category: "emotions", subcategory: "phrases", type: "phrase", emoji: "😊", lvl: "A1" },
+{ fr: "Je ne me sens pas bien.", article: null, en: "I'm not feeling well.", ph: "zhuh nuh muh sahn pah BYAN", category: "emotions", subcategory: "phrases", type: "phrase", emoji: "😞", lvl: "A1" },
+{ fr: "Je suis épuisé(e).", article: null, en: "I'm exhausted.", ph: "zhuh swee ay-pwee-ZAY", category: "emotions", subcategory: "phrases", type: "phrase", emoji: "😮‍💨", lvl: "A2" },
+{ fr: "Je me sens seul(e).", article: null, en: "I feel lonely.", ph: "zhuh muh sahn SUL", category: "emotions", subcategory: "phrases", type: "phrase", emoji: "🥺", lvl: "B1" },
+{ fr: "Je me sens dépassé(e).", article: null, en: "I feel overwhelmed.", ph: "zhuh muh sahn day-pah-SAY", category: "emotions", subcategory: "phrases", type: "phrase", emoji: "🌀", lvl: "B1" },
+{ fr: "Je me sens déconnecté(e).", article: null, en: "I feel disconnected.", ph: "zhuh muh sahn day-koh-nek-TAY", category: "emotions", subcategory: "phrases", type: "phrase", emoji: "🔌", lvl: "C1" },
+{ fr: "C'est trop pour moi.", article: null, en: "It's too much for me.", ph: "say troh poor MWAH", category: "emotions", subcategory: "phrases", type: "phrase", emoji: "🌊", lvl: "B1" },
+{ fr: "J'ai du mal à...", article: null, en: "I'm struggling to...", ph: "zhay dyoo mahl ah", category: "emotions", subcategory: "phrases", type: "phrase", emoji: "😤", lvl: "B1" },
+{ fr: "J'ai besoin d'espace.", article: null, en: "I need space.", ph: "zhay buh-ZWAN des-PASS", category: "emotions", subcategory: "phrases", type: "phrase", emoji: "🌬️", lvl: "B2" },
+{ fr: "J'ai besoin d'une pause.", article: null, en: "I need a break.", ph: "zhay buh-ZWAN dyoon POHZ", category: "emotions", subcategory: "phrases", type: "phrase", emoji: "⏸️", lvl: "A2" },
+{ fr: "Ça va aller.", article: null, en: "It's going to be okay.", ph: "sah vah ah-LAY", category: "emotions", subcategory: "phrases", type: "phrase", emoji: "🌟", lvl: "A1" },
+
+// Subcategory: phrases - support
+{ fr: "J'ai besoin de ton aide.", article: null, en: "I need your help.", ph: "zhay buh-ZWAN duh tohn ED", category: "emotions", subcategory: "phrases", type: "phrase", emoji: "🤝", lvl: "A2" },
+{ fr: "Tu peux m'aider ?", article: null, en: "Can you help me?", ph: "too puh meh-DAY", category: "emotions", subcategory: "phrases", type: "phrase", emoji: "🤝", lvl: "A2" },
+{ fr: "Tu peux rester avec moi ?", article: null, en: "Can you stay with me?", ph: "too puh res-TAY ah-vek MWAH", category: "emotions", subcategory: "phrases", type: "phrase", emoji: "🤗", lvl: "B1" },
+{ fr: "J'ai besoin d'un câlin.", article: null, en: "I need a hug.", ph: "zhay buh-ZWAN dun kah-LAN", category: "emotions", subcategory: "phrases", type: "phrase", emoji: "🤗", lvl: "B1" },
+{ fr: "Je ne sais pas comment expliquer, mais je ne me sens pas bien.", article: null, en: "I don't know how to explain it, but I'm not feeling well.", ph: "zhuh nuh say pah koh-MAHN ex-plee-KAY, meh zhuh nuh muh sahn pah BYAN", category: "emotions", subcategory: "phrases", type: "phrase", emoji: "💬", lvl: "B2" },
+
+// Subcategory: phrases - encouragement
+{ fr: "Je fais de mon mieux.", article: null, en: "I'm doing my best.", ph: "zhuh feh duh mohn MYUH", category: "emotions", subcategory: "phrases", type: "phrase", emoji: "⭐", lvl: "A2" },
+{ fr: "Je suis capable.", article: null, en: "I am capable.", ph: "zhuh swee kah-PAH-bluh", category: "emotions", subcategory: "phrases", type: "phrase", emoji: "💪", lvl: "B1" },
+{ fr: "Un pas à la fois.", article: null, en: "One step at a time.", ph: "un pah ah lah FWAH", category: "emotions", subcategory: "phrases", type: "phrase", emoji: "👣", lvl: "B1" },
+{ fr: "Je suis fier/fière de moi.", article: null, en: "I'm proud of myself.", ph: "zhuh swee fyay / fyair duh MWAH", category: "emotions", subcategory: "phrases", type: "phrase", emoji: "🦁", lvl: "B1" },
+{ fr: "J'ai déjà réussi avant.", article: null, en: "I've done it before.", ph: "zhay day-ZHAH ray-yoo-SEE ah-VAHN", category: "emotions", subcategory: "phrases", type: "phrase", emoji: "✅", lvl: "B1" },
+{ fr: "C'est difficile mais je peux le faire.", article: null, en: "It's hard but I can do this.", ph: "say dee-fee-SEEL meh zhuh puh luh FAIR", category: "emotions", subcategory: "phrases", type: "phrase", emoji: "💪", lvl: "B2" },
+{ fr: "Tu es plus fort(e) que tu penses.", article: null, en: "You are stronger than you think.", ph: "too ay ploo for / fort kuh too PAHNS", category: "emotions", subcategory: "phrases", type: "phrase", emoji: "💪", lvl: "B2" },
+{ fr: "Je crois en toi.", article: null, en: "I believe in you.", ph: "zhuh krwah ahn TWAH", category: "emotions", subcategory: "phrases", type: "phrase", emoji: "🌟", lvl: "A2" },
+{ fr: "On est ensemble.", article: null, en: "We're in this together.", ph: "ohn ay ahn-SAHM-bluh", category: "emotions", subcategory: "phrases", type: "phrase", emoji: "🤝", lvl: "B1" },
+{ fr: "Tu fais vraiment bien.", article: null, en: "You're doing really well.", ph: "too feh vray-MAHN BYAN", category: "emotions", subcategory: "phrases", type: "phrase", emoji: "⭐", lvl: "B1" },
+{ fr: "Je suis fier/fière de toi.", article: null, en: "I'm proud of you.", ph: "zhuh swee fyay / fyair duh TWAH", category: "emotions", subcategory: "phrases", type: "phrase", emoji: "🦁", lvl: "B1" },
+
+
 
   // ── FOOD ──────────────────────────────────────────────────────────────────
 
@@ -848,19 +845,6 @@ const vocabData = [
 { fr: "dessert", article: "un", en: "dessert", ph: "deh-ZAIR", category: "food", subcategory: "meals", type: "noun", emoji: "🍮", lvl: "B1" },
 { fr: "gâteau", article: "un", en: "cake", ph: "gah-TOH", category: "food", subcategory: "meals", type: "noun", emoji: "🎂", lvl: "B1" },
 
-// Subcategory: phrases
-{ fr: "Bon appétit !", article: null, en: "Enjoy your meal!", ph: "bon ah-pay-TEE", category: "food", subcategory: "phrases", type: "phrase", emoji: "🍽️", lvl: "A1" },
-{ fr: "J'ai faim.", article: null, en: "I'm hungry.", ph: "zhay FAN", category: "food", subcategory: "phrases", type: "phrase", emoji: "🍽️", lvl: "A1" },
-{ fr: "J'ai soif.", article: null, en: "I'm thirsty.", ph: "zhay SWAHF", category: "food", subcategory: "phrases", type: "phrase", emoji: "💧", lvl: "A1" },
-{ fr: "C'est prêt !", article: null, en: "It's ready!", ph: "say PRAY", category: "food", subcategory: "phrases", type: "phrase", emoji: "✅", lvl: "A2" },
-{ fr: "Tu veux manger quoi ?", article: null, en: "What do you want to eat?", ph: "too vuh mahn-ZHAY kwah", category: "food", subcategory: "phrases", type: "phrase", emoji: null, lvl: "A2" },
-{ fr: "C'est délicieux !", article: null, en: "It's delicious!", ph: "say day-lee-SYUH", category: "food", subcategory: "phrases", type: "phrase", emoji: "😋", lvl: "B1" },
-{ fr: "Je vais cuisiner.", article: null, en: "I'm going to cook.", ph: "zhuh vay kwee-zee-NAY", category: "food", subcategory: "phrases", type: "phrase", emoji: "🍳", lvl: "B1" },
-{ fr: "Tu veux encore ?", article: null, en: "Do you want more?", ph: "too vuh ahn-KOR", category: "food", subcategory: "phrases", type: "phrase", emoji: null, lvl: "B1" },
-{ fr: "C'est pas terrible.", article: null, en: "It's not great.", ph: "say pah teh-REEBL", category: "food", subcategory: "phrases", type: "phrase", emoji: "😬", lvl: "B2" },
-{ fr: "Je suis rassasié(e).", article: null, en: "I'm full.", ph: "zhuh swee rah-sah-ZYAY", category: "food", subcategory: "phrases", type: "phrase", emoji: "😌", lvl: "B2" },
-{ fr: "On commande ce soir ?", article: null, en: "Shall we order tonight?", ph: "ohn koh-MAHND suh SWAHR", category: "food", subcategory: "phrases", type: "phrase", emoji: "📱", lvl: "B2" },
-
 // Subcategory: produce
 { fr: "fruit", article: "un", en: "fruit", ph: "frwee", category: "food", subcategory: "produce", type: "noun", emoji: "🍎", lvl: "A1" },
 { fr: "pomme", article: "une", en: "apple", ph: "pum", category: "food", subcategory: "produce", type: "noun", emoji: "🍎", lvl: "A1" },
@@ -906,6 +890,19 @@ const vocabData = [
 { fr: "commander", article: null, en: "to order", ph: "koh-mahn-DAY", category: "food", subcategory: "verbs", type: "verb", emoji: null, lvl: "B2" },
 { fr: "servir", article: null, en: "to serve", ph: "sair-VEER", category: "food", subcategory: "verbs", type: "verb", emoji: null, lvl: "B2" },
 
+// Subcategory: phrases
+{ fr: "Bon appétit !", article: null, en: "Enjoy your meal!", ph: "bon ah-pay-TEE", category: "food", subcategory: "phrases", type: "phrase", emoji: "🍽️", lvl: "A1" },
+{ fr: "J'ai faim.", article: null, en: "I'm hungry.", ph: "zhay FAN", category: "food", subcategory: "phrases", type: "phrase", emoji: "🍽️", lvl: "A1" },
+{ fr: "J'ai soif.", article: null, en: "I'm thirsty.", ph: "zhay SWAHF", category: "food", subcategory: "phrases", type: "phrase", emoji: "💧", lvl: "A1" },
+{ fr: "C'est prêt !", article: null, en: "It's ready!", ph: "say PRAY", category: "food", subcategory: "phrases", type: "phrase", emoji: "✅", lvl: "A2" },
+{ fr: "Tu veux manger quoi ?", article: null, en: "What do you want to eat?", ph: "too vuh mahn-ZHAY kwah", category: "food", subcategory: "phrases", type: "phrase", emoji: null, lvl: "A2" },
+{ fr: "C'est délicieux !", article: null, en: "It's delicious!", ph: "say day-lee-SYUH", category: "food", subcategory: "phrases", type: "phrase", emoji: "😋", lvl: "B1" },
+{ fr: "Je vais cuisiner.", article: null, en: "I'm going to cook.", ph: "zhuh vay kwee-zee-NAY", category: "food", subcategory: "phrases", type: "phrase", emoji: "🍳", lvl: "B1" },
+{ fr: "Tu veux encore ?", article: null, en: "Do you want more?", ph: "too vuh ahn-KOR", category: "food", subcategory: "phrases", type: "phrase", emoji: null, lvl: "B1" },
+{ fr: "C'est pas terrible.", article: null, en: "It's not great.", ph: "say pah teh-REEBL", category: "food", subcategory: "phrases", type: "phrase", emoji: "😬", lvl: "B2" },
+{ fr: "Je suis rassasié(e).", article: null, en: "I'm full.", ph: "zhuh swee rah-sah-ZYAY", category: "food", subcategory: "phrases", type: "phrase", emoji: "😌", lvl: "B2" },
+{ fr: "On commande ce soir ?", article: null, en: "Shall we order tonight?", ph: "ohn koh-MAHND suh SWAHR", category: "food", subcategory: "phrases", type: "phrase", emoji: "📱", lvl: "B2" },
+  
   // ── GAMING ────────────────────────────────────────────────────────────────
 
 // Subcategory: mmo & wow
@@ -947,21 +944,6 @@ const vocabData = [
 { fr: "peindre", article: null, en: "to paint", ph: "PAN-druh", category: "gaming", subcategory: "painting", type: "verb", emoji: "🖌️", lvl: "B1" },
 { fr: "poncer", article: null, en: "to sand", ph: "pohn-SAY", category: "gaming", subcategory: "painting", type: "verb", emoji: "🪵", lvl: "B2" },
 { fr: "sculpter", article: null, en: "to sculpt / to convert", ph: "skyulp-TAY", category: "gaming", subcategory: "painting", type: "verb", emoji: "🗿", lvl: "B2" },
-
-// Subcategory: phrases
-{ fr: "C'est à ton tour.", article: null, en: "It's your turn.", ph: "say ah tohn TOOR", category: "gaming", subcategory: "phrases", type: "phrase", emoji: "🔄", lvl: "A1" },
-{ fr: "J'ai gagné !", article: null, en: "I won!", ph: "zhay gahn-YAY", category: "gaming", subcategory: "phrases", type: "phrase", emoji: "🏆", lvl: "A1" },
-{ fr: "On fait une partie ?", article: null, en: "Shall we play a game?", ph: "ohn feh tyoon par-TEE", category: "gaming", subcategory: "phrases", type: "phrase", emoji: "🎲", lvl: "A1" },
-{ fr: "Tu veux jouer ?", article: null, en: "Do you want to play?", ph: "too vuh zhoo-AY", category: "gaming", subcategory: "phrases", type: "phrase", emoji: "🎮", lvl: "A1" },
-{ fr: "Je me connecte maintenant.", article: null, en: "I'm logging on now.", ph: "zhuh muh koh-nek-TAY mant-NAHN", category: "gaming", subcategory: "phrases", type: "phrase", emoji: "🌐", lvl: "A2" },
-{ fr: "On fait un donjon ?", article: null, en: "Shall we do a dungeon?", ph: "ohn feh un dohn-ZHOHN", category: "gaming", subcategory: "phrases", type: "phrase", emoji: "🏰", lvl: "B1" },
-{ fr: "Pour l'Alliance !", article: null, en: "For the Alliance!", ph: "poor lah-lee-AHNS", category: "gaming", subcategory: "phrases", type: "phrase", emoji: "🔵", lvl: "B1" },
-{ fr: "Pour la Horde !", article: null, en: "For the Horde!", ph: "poor lah ORD", category: "gaming", subcategory: "phrases", type: "phrase", emoji: "🔴", lvl: "B1" },
-{ fr: "Ils ont nerfé ma classe.", article: null, en: "They nerfed my class.", ph: "eel zohn nair-FAY mah KLASS", category: "gaming", subcategory: "phrases", type: "phrase", emoji: "📉", lvl: "B2" },
-{ fr: "J'ai besoin d'aide pour les règles.", article: null, en: "I need help with the rules.", ph: "zhay buh-ZWAN ded poor lay REG-luh", category: "gaming", subcategory: "phrases", type: "phrase", emoji: "📋", lvl: "B2" },
-{ fr: "J'ai besoin de meilleur équipement.", article: null, en: "I need better gear.", ph: "zhay buh-ZWAN duh meh-YUR ay-keep-MAHN", category: "gaming", subcategory: "phrases", type: "phrase", emoji: "⚔️", lvl: "B2" },
-{ fr: "J'ai fini de monter le modèle.", article: null, en: "I finished assembling the model.", ph: "zhay fee-NEE duh mohn-TAY luh moh-DEL", category: "gaming", subcategory: "phrases", type: "phrase", emoji: "🔧", lvl: "B2" },
-{ fr: "Je peins des figurines.", article: null, en: "I'm painting miniatures.", ph: "zhuh pan day fee-gyoo-REEN", category: "gaming", subcategory: "phrases", type: "phrase", emoji: "🖌️", lvl: "B2" },
 
 // Subcategory: pokemon
 { fr: "combat", article: "un", en: "battle", ph: "kohm-BAH", category: "gaming", subcategory: "pokemon", type: "noun", emoji: "⚔️", lvl: "A2" },
@@ -1106,6 +1088,22 @@ const vocabData = [
 { fr: "mesurer", article: null, en: "to measure", ph: "muh-zyoo-RAY", category: "gaming", subcategory: "wargame", type: "verb", emoji: "📏", lvl: "B1" },
 { fr: "flanquer", article: null, en: "to flank", ph: "flahn-KAY", category: "gaming", subcategory: "wargame", type: "verb", emoji: "↩️", lvl: "B2" },
 
+  // Subcategory: phrases
+{ fr: "C'est à ton tour.", article: null, en: "It's your turn.", ph: "say ah tohn TOOR", category: "gaming", subcategory: "phrases", type: "phrase", emoji: "🔄", lvl: "A1" },
+{ fr: "J'ai gagné !", article: null, en: "I won!", ph: "zhay gahn-YAY", category: "gaming", subcategory: "phrases", type: "phrase", emoji: "🏆", lvl: "A1" },
+{ fr: "On fait une partie ?", article: null, en: "Shall we play a game?", ph: "ohn feh tyoon par-TEE", category: "gaming", subcategory: "phrases", type: "phrase", emoji: "🎲", lvl: "A1" },
+{ fr: "Tu veux jouer ?", article: null, en: "Do you want to play?", ph: "too vuh zhoo-AY", category: "gaming", subcategory: "phrases", type: "phrase", emoji: "🎮", lvl: "A1" },
+{ fr: "Je me connecte maintenant.", article: null, en: "I'm logging on now.", ph: "zhuh muh koh-nek-TAY mant-NAHN", category: "gaming", subcategory: "phrases", type: "phrase", emoji: "🌐", lvl: "A2" },
+{ fr: "On fait un donjon ?", article: null, en: "Shall we do a dungeon?", ph: "ohn feh un dohn-ZHOHN", category: "gaming", subcategory: "phrases", type: "phrase", emoji: "🏰", lvl: "B1" },
+{ fr: "Pour l'Alliance !", article: null, en: "For the Alliance!", ph: "poor lah-lee-AHNS", category: "gaming", subcategory: "phrases", type: "phrase", emoji: "🔵", lvl: "B1" },
+{ fr: "Pour la Horde !", article: null, en: "For the Horde!", ph: "poor lah ORD", category: "gaming", subcategory: "phrases", type: "phrase", emoji: "🔴", lvl: "B1" },
+{ fr: "Ils ont nerfé ma classe.", article: null, en: "They nerfed my class.", ph: "eel zohn nair-FAY mah KLASS", category: "gaming", subcategory: "phrases", type: "phrase", emoji: "📉", lvl: "B2" },
+{ fr: "J'ai besoin d'aide pour les règles.", article: null, en: "I need help with the rules.", ph: "zhay buh-ZWAN ded poor lay REG-luh", category: "gaming", subcategory: "phrases", type: "phrase", emoji: "📋", lvl: "B2" },
+{ fr: "J'ai besoin de meilleur équipement.", article: null, en: "I need better gear.", ph: "zhay buh-ZWAN duh meh-YUR ay-keep-MAHN", category: "gaming", subcategory: "phrases", type: "phrase", emoji: "⚔️", lvl: "B2" },
+{ fr: "J'ai fini de monter le modèle.", article: null, en: "I finished assembling the model.", ph: "zhay fee-NEE duh mohn-TAY luh moh-DEL", category: "gaming", subcategory: "phrases", type: "phrase", emoji: "🔧", lvl: "B2" },
+{ fr: "Je peins des figurines.", article: null, en: "I'm painting miniatures.", ph: "zhuh pan day fee-gyoo-REEN", category: "gaming", subcategory: "phrases", type: "phrase", emoji: "🖌️", lvl: "B2" },
+
+  
 // ── HEALTH ─────────────────────────────────────────────────────────────────
 
 // Subcategory: adjectives
@@ -1137,7 +1135,35 @@ const vocabData = [
 { fr: "ordonnance", article: "une", en: "prescription", ph: "or-doh-NAHNS", category: "health", subcategory: "medical", type: "noun", emoji: "📋", lvl: "B2" },
 { fr: "gomme de mélatonine", article: "une", en: "melatonin gummy", ph: "gom duh may-lah-toh-NEEN", category: "health", subcategory: "medical", type: "noun", emoji: "😴", lvl: "B2" },
 
-// Subcategory: phrases
+// Subcategory: symptoms
+{ fr: "douleur", article: "une", en: "pain / ache", ph: "doo-LUHR", category: "health", subcategory: "symptoms", type: "noun", emoji: "😣", lvl: "A2" },
+{ fr: "fatigue", article: "une", en: "fatigue / tiredness", ph: "fah-TEEG", category: "health", subcategory: "symptoms", type: "noun", emoji: "😮‍💨", lvl: "A2" },
+{ fr: "fièvre", article: "une", en: "fever", ph: "fyev-ruh", category: "health", subcategory: "symptoms", type: "noun", emoji: "🌡️", lvl: "A2" },
+{ fr: "mal au ventre", article: "un", en: "stomachache", ph: "mal oh VAHN-truh", category: "health", subcategory: "symptoms", type: "noun", emoji: "🤢", lvl: "A2" },
+{ fr: "mal de tête", article: "un", en: "headache", ph: "mal duh TET", category: "health", subcategory: "symptoms", type: "noun", emoji: "🤕", lvl: "A2" },
+{ fr: "toux", article: "une", en: "cough", ph: "too", category: "health", subcategory: "symptoms", type: "noun", emoji: "😷", lvl: "A2" },
+{ fr: "démangeaison", article: "une", en: "itch / itching", ph: "day-mahn-zhay-ZOHN", category: "health", subcategory: "symptoms", type: "noun", emoji: "😣", lvl: "B1" },
+{ fr: "éternuement", article: "un", en: "sneeze", ph: "ay-tair-nyoo-MAHN", category: "health", subcategory: "symptoms", type: "noun", emoji: "🤧", lvl: "B1" },
+{ fr: "frisson", article: "un", en: "chill / shiver", ph: "free-SOHN", category: "health", subcategory: "symptoms", type: "noun", emoji: "🥶", lvl: "B1" },
+{ fr: "insomnie", article: "une", en: "insomnia", ph: "an-som-NEE", category: "health", subcategory: "symptoms", type: "noun", emoji: "😴", lvl: "B1" },
+{ fr: "migraine", article: "une", en: "migraine", ph: "mee-GREN", category: "health", subcategory: "symptoms", type: "noun", emoji: "🤕", lvl: "B1" },
+{ fr: "nausée", article: "une", en: "nausea", ph: "noh-ZAY", category: "health", subcategory: "symptoms", type: "noun", emoji: "🤢", lvl: "B1" },
+{ fr: "rougeur", article: "une", en: "redness / rash", ph: "roo-ZHUHR", category: "health", subcategory: "symptoms", type: "noun", emoji: "🔴", lvl: "B1" },
+{ fr: "éruption cutanée", article: "une", en: "rash", ph: "ay-ryoop-SYOHN kyoo-tah-NAY", category: "health", subcategory: "symptoms", type: "noun", emoji: "🔴", lvl: "C1", note: "The medical term — in everyday QC often 'une rougeur' or 'un rash'" },
+
+// Subcategory: verbs
+{ fr: "avoir mal", article: null, en: "to be in pain / to hurt", ph: "ah-VWAR MAL", category: "health", subcategory: "verbs", type: "verb", emoji: "😣", lvl: "A1", note: "Used as 'j'ai mal à...'" },
+{ fr: "se reposer", article: null, en: "to rest", ph: "suh ruh-poh-ZAY", category: "health", subcategory: "verbs", type: "verb", emoji: "😌", lvl: "A1" },
+{ fr: "tousser", article: null, en: "to cough", ph: "too-SAY", category: "health", subcategory: "verbs", type: "verb", emoji: "😷", lvl: "A2" },
+{ fr: "éternuer", article: null, en: "to sneeze", ph: "ay-tair-nyoo-AY", category: "health", subcategory: "verbs", type: "verb", emoji: "🤧", lvl: "A2" },
+{ fr: "guérir", article: null, en: "to heal / recover", ph: "gay-REER", category: "health", subcategory: "verbs", type: "verb", emoji: "💪", lvl: "B1" },
+{ fr: "masser", article: null, en: "to massage", ph: "mah-SAY", category: "health", subcategory: "verbs", type: "verb", emoji: "💆", lvl: "B1" },
+{ fr: "se blesser", article: null, en: "to hurt oneself / injure", ph: "suh bleh-SAY", category: "health", subcategory: "verbs", type: "verb", emoji: "🩹", lvl: "B1" },
+{ fr: "démanger", article: null, en: "to itch", ph: "day-mahn-ZHAY", category: "health", subcategory: "verbs", type: "verb", emoji: "😣", lvl: "B2" },
+{ fr: "gratter", article: null, en: "to scratch", ph: "grah-TAY", category: "health", subcategory: "verbs", type: "verb", emoji: "✋", lvl: "B2" },
+{ fr: "prendre un médicament", article: null, en: "to take a medication", ph: "prahn-druh un may-dee-kah-MAHN", category: "health", subcategory: "verbs", type: "verb", emoji: "💊", lvl: "A2" },
+
+  // Subcategory: phrases
 { fr: "J'ai mal à...", article: null, en: "My ... hurts. / I have pain in...", ph: "zhay mal ah", category: "health", subcategory: "phrases", type: "phrase", emoji: "😣", lvl: "A1" },
 { fr: "J'ai mal à la tête.", article: null, en: "I have a headache.", ph: "zhay mal ah lah TET", category: "health", subcategory: "phrases", type: "phrase", emoji: "🤕", lvl: "A1" },
 { fr: "J'ai mal au dos.", article: null, en: "My back hurts.", ph: "zhay mal oh DOH", category: "health", subcategory: "phrases", type: "phrase", emoji: "😣", lvl: "A1" },
@@ -1168,34 +1194,6 @@ const vocabData = [
 { fr: "Tu peux me gratter la tête ?", article: null, en: "Can you scratch my head?", ph: "too puh muh grah-TAY lah TET", category: "health", subcategory: "phrases", type: "phrase", emoji: "✋", lvl: "B1" },
 { fr: "Un peu plus fort.", article: null, en: "A little harder.", ph: "un puh ploo FOR", category: "health", subcategory: "phrases", type: "phrase", emoji: null, lvl: "B2" },
 { fr: "Un peu plus doux.", article: null, en: "A little gentler.", ph: "un puh ploo DOO", category: "health", subcategory: "phrases", type: "phrase", emoji: null, lvl: "B2" },
-
-// Subcategory: symptoms
-{ fr: "douleur", article: "une", en: "pain / ache", ph: "doo-LUHR", category: "health", subcategory: "symptoms", type: "noun", emoji: "😣", lvl: "A2" },
-{ fr: "fatigue", article: "une", en: "fatigue / tiredness", ph: "fah-TEEG", category: "health", subcategory: "symptoms", type: "noun", emoji: "😮‍💨", lvl: "A2" },
-{ fr: "fièvre", article: "une", en: "fever", ph: "fyev-ruh", category: "health", subcategory: "symptoms", type: "noun", emoji: "🌡️", lvl: "A2" },
-{ fr: "mal au ventre", article: "un", en: "stomachache", ph: "mal oh VAHN-truh", category: "health", subcategory: "symptoms", type: "noun", emoji: "🤢", lvl: "A2" },
-{ fr: "mal de tête", article: "un", en: "headache", ph: "mal duh TET", category: "health", subcategory: "symptoms", type: "noun", emoji: "🤕", lvl: "A2" },
-{ fr: "toux", article: "une", en: "cough", ph: "too", category: "health", subcategory: "symptoms", type: "noun", emoji: "😷", lvl: "A2" },
-{ fr: "démangeaison", article: "une", en: "itch / itching", ph: "day-mahn-zhay-ZOHN", category: "health", subcategory: "symptoms", type: "noun", emoji: "😣", lvl: "B1" },
-{ fr: "éternuement", article: "un", en: "sneeze", ph: "ay-tair-nyoo-MAHN", category: "health", subcategory: "symptoms", type: "noun", emoji: "🤧", lvl: "B1" },
-{ fr: "frisson", article: "un", en: "chill / shiver", ph: "free-SOHN", category: "health", subcategory: "symptoms", type: "noun", emoji: "🥶", lvl: "B1" },
-{ fr: "insomnie", article: "une", en: "insomnia", ph: "an-som-NEE", category: "health", subcategory: "symptoms", type: "noun", emoji: "😴", lvl: "B1" },
-{ fr: "migraine", article: "une", en: "migraine", ph: "mee-GREN", category: "health", subcategory: "symptoms", type: "noun", emoji: "🤕", lvl: "B1" },
-{ fr: "nausée", article: "une", en: "nausea", ph: "noh-ZAY", category: "health", subcategory: "symptoms", type: "noun", emoji: "🤢", lvl: "B1" },
-{ fr: "rougeur", article: "une", en: "redness / rash", ph: "roo-ZHUHR", category: "health", subcategory: "symptoms", type: "noun", emoji: "🔴", lvl: "B1" },
-{ fr: "éruption cutanée", article: "une", en: "rash", ph: "ay-ryoop-SYOHN kyoo-tah-NAY", category: "health", subcategory: "symptoms", type: "noun", emoji: "🔴", lvl: "C1", note: "The medical term — in everyday QC often 'une rougeur' or 'un rash'" },
-
-// Subcategory: verbs
-{ fr: "avoir mal", article: null, en: "to be in pain / to hurt", ph: "ah-VWAR MAL", category: "health", subcategory: "verbs", type: "verb", emoji: "😣", lvl: "A1", note: "Used as 'j'ai mal à...'" },
-{ fr: "se reposer", article: null, en: "to rest", ph: "suh ruh-poh-ZAY", category: "health", subcategory: "verbs", type: "verb", emoji: "😌", lvl: "A1" },
-{ fr: "tousser", article: null, en: "to cough", ph: "too-SAY", category: "health", subcategory: "verbs", type: "verb", emoji: "😷", lvl: "A2" },
-{ fr: "éternuer", article: null, en: "to sneeze", ph: "ay-tair-nyoo-AY", category: "health", subcategory: "verbs", type: "verb", emoji: "🤧", lvl: "A2" },
-{ fr: "guérir", article: null, en: "to heal / recover", ph: "gay-REER", category: "health", subcategory: "verbs", type: "verb", emoji: "💪", lvl: "B1" },
-{ fr: "masser", article: null, en: "to massage", ph: "mah-SAY", category: "health", subcategory: "verbs", type: "verb", emoji: "💆", lvl: "B1" },
-{ fr: "se blesser", article: null, en: "to hurt oneself / injure", ph: "suh bleh-SAY", category: "health", subcategory: "verbs", type: "verb", emoji: "🩹", lvl: "B1" },
-{ fr: "démanger", article: null, en: "to itch", ph: "day-mahn-ZHAY", category: "health", subcategory: "verbs", type: "verb", emoji: "😣", lvl: "B2" },
-{ fr: "gratter", article: null, en: "to scratch", ph: "grah-TAY", category: "health", subcategory: "verbs", type: "verb", emoji: "✋", lvl: "B2" },
-{ fr: "prendre un médicament", article: null, en: "to take a medication", ph: "prahn-druh un may-dee-kah-MAHN", category: "health", subcategory: "verbs", type: "verb", emoji: "💊", lvl: "A2" },
 
 // ── HOME ──────────────────────────────────────────────────────────────────
   // Nouns — rooms
@@ -1272,6 +1270,17 @@ const vocabData = [
   { fr: "poubelle",          article: "une",  en: "trash can / bin",        ph: "poo-BEL",                category: "home", type: "noun", emoji: "🗑️" },
   { fr: "linge",             article: "un",   en: "laundry / linen",        ph: "lanzh",                  category: "home", type: "noun", emoji: "👕" },
   { fr: "lessive",           article: "une",  en: "laundry / the wash",     ph: "leh-SEEV",               category: "home", type: "noun", emoji: "🫧", note: "Also means laundry detergent in some contexts" },
+ 
+  // Adjectives
+  { fr: "propre",            article: null,   en: "clean",                  ph: "prop-ruh",               category: "home", type: "adjective", emoji: "✨" },
+  { fr: "sale",              article: null,   en: "dirty",                  ph: "sal",                    category: "home", type: "adjective", emoji: "🙁" },
+  { fr: "en désordre",       article: null,   en: "messy / untidy",         ph: "ahn day-ZOR-druh",       category: "home", type: "adjective", emoji: "😬" },
+  { fr: "rangé",             article: null,   en: "tidy / put away",        ph: "rahn-ZHAY",              category: "home", type: "adjective", emoji: "✅" },
+  { fr: "confortable",       article: null,   en: "comfortable",            ph: "kohn-for-TAH-bluh",      category: "home", type: "adjective", emoji: "😌" },
+  { fr: "douillet",          article: null,   en: "cozy / snug",            ph: "doo-YAY",                category: "home", type: "adjective", emoji: "🛋️", note: "A wonderful word — very French, very cozy" },
+  { fr: "grand",             article: null,   en: "big / large",            ph: "grahn",                  category: "home", type: "adjective", emoji: "📏" },
+  { fr: "plein",             article: null,   en: "full",                   ph: "plan",                   category: "home", type: "adjective", emoji: null },
+  { fr: "vide",              article: null,   en: "empty",                  ph: "veed",                   category: "home", type: "adjective", emoji: null },
 
   // Verbs
   { fr: "nettoyer",          article: null,   en: "to clean",               ph: "neh-twah-YAY",           category: "home", type: "verb", emoji: "🧹" },
@@ -1289,16 +1298,6 @@ const vocabData = [
   { fr: "fermer",            article: null,   en: "to close / lock",        ph: "fair-MAY",               category: "home", type: "verb", emoji: "🔒" },
   { fr: "réparer",           article: null,   en: "to fix / repair",        ph: "ray-pah-RAY",            category: "home", type: "verb", emoji: "🔧" },
 
-  // Adjectives
-  { fr: "propre",            article: null,   en: "clean",                  ph: "prop-ruh",               category: "home", type: "adjective", emoji: "✨" },
-  { fr: "sale",              article: null,   en: "dirty",                  ph: "sal",                    category: "home", type: "adjective", emoji: "🙁" },
-  { fr: "en désordre",       article: null,   en: "messy / untidy",         ph: "ahn day-ZOR-druh",       category: "home", type: "adjective", emoji: "😬" },
-  { fr: "rangé",             article: null,   en: "tidy / put away",        ph: "rahn-ZHAY",              category: "home", type: "adjective", emoji: "✅" },
-  { fr: "confortable",       article: null,   en: "comfortable",            ph: "kohn-for-TAH-bluh",      category: "home", type: "adjective", emoji: "😌" },
-  { fr: "douillet",          article: null,   en: "cozy / snug",            ph: "doo-YAY",                category: "home", type: "adjective", emoji: "🛋️", note: "A wonderful word — very French, very cozy" },
-  { fr: "grand",             article: null,   en: "big / large",            ph: "grahn",                  category: "home", type: "adjective", emoji: "📏" },
-  { fr: "plein",             article: null,   en: "full",                   ph: "plan",                   category: "home", type: "adjective", emoji: null },
-  { fr: "vide",              article: null,   en: "empty",                  ph: "veed",                   category: "home", type: "adjective", emoji: null },
 
   // Phrases
   { fr: "C'est le bazar !",              article: null, en: "It's a mess in here!",           ph: "say luh bah-ZAR",              category: "home", type: "phrase", emoji: "😩" },
@@ -1314,31 +1313,6 @@ const vocabData = [
   { fr: "Je suis à la maison.",         article: null, en: "I'm home.",   ph: "zhuh swee ah lah meh-ZOHN",    category: "home", type: "phrase", emoji: "🏠" },
 
 // ── IT SUPPORT ────────────────────────────────────────────────────────────
-
-// Subcategory: actions
-{ fr: "confirmer", article: null, en: "to confirm", ph: "kohn-feer-MAY", category: "it_support", subcategory: "actions", type: "verb", emoji: "✅", lvl: "A2" },
-{ fr: "tester", article: null, en: "to test", ph: "tes-TAY", category: "it_support", subcategory: "actions", type: "verb", emoji: "🧪", lvl: "A2" },
-{ fr: "vérifier", article: null, en: "to verify / to check", ph: "vay-ree-FYAY", category: "it_support", subcategory: "actions", type: "verb", emoji: "✅", lvl: "A2" },
-{ fr: "charger", article: null, en: "to load", ph: "shar-ZHAY", category: "it_support", subcategory: "actions", type: "verb", emoji: "📂", lvl: "B1" },
-{ fr: "déboguer", article: null, en: "to debug", ph: "day-boh-GAY", category: "it_support", subcategory: "actions", type: "verb", emoji: "🐛", lvl: "B1" },
-{ fr: "dépanner", article: null, en: "to troubleshoot", ph: "day-pah-NAY", category: "it_support", subcategory: "actions", type: "verb", emoji: "🔧", lvl: "B1" },
-{ fr: "effacer le cache", article: null, en: "to clear the cache", ph: "eh-fah-SAY luh KASH", category: "it_support", subcategory: "actions", type: "verb", emoji: "🗑️", lvl: "B1" },
-{ fr: "escalader", article: null, en: "to escalate", ph: "es-kah-lah-DAY", category: "it_support", subcategory: "actions", type: "verb", emoji: "⬆️", lvl: "B1" },
-{ fr: "exporter", article: null, en: "to export", ph: "ex-por-TAY", category: "it_support", subcategory: "actions", type: "verb", emoji: "📤", lvl: "B1" },
-{ fr: "filtrer", article: null, en: "to filter", ph: "feel-TRAY", category: "it_support", subcategory: "actions", type: "verb", emoji: "🔍", lvl: "B1" },
-{ fr: "importer", article: null, en: "to import", ph: "am-por-TAY", category: "it_support", subcategory: "actions", type: "verb", emoji: "📥", lvl: "B1" },
-{ fr: "mettre à jour", article: null, en: "to update", ph: "MET-ruh ah ZHOOR", category: "it_support", subcategory: "actions", type: "verb", emoji: "🔄", lvl: "B1" },
-{ fr: "réinitialiser", article: null, en: "to reset", ph: "ray-ee-nee-syah-lee-ZAY", category: "it_support", subcategory: "actions", type: "verb", emoji: "🔄", lvl: "B1" },
-{ fr: "résoudre", article: null, en: "to resolve", ph: "ray-ZOO-druh", category: "it_support", subcategory: "actions", type: "verb", emoji: "✅", lvl: "B1" },
-{ fr: "se déconnecter", article: null, en: "to log out", ph: "suh day-koh-nek-TAY", category: "it_support", subcategory: "actions", type: "verb", emoji: "🚪", lvl: "B1" },
-{ fr: "se reconnecter", article: null, en: "to log back in", ph: "suh ruh-koh-nek-TAY", category: "it_support", subcategory: "actions", type: "verb", emoji: "🔑", lvl: "B1" },
-{ fr: "synchroniser", article: null, en: "to sync", ph: "san-kroh-nee-ZAY", category: "it_support", subcategory: "actions", type: "verb", emoji: "🔄", lvl: "B1" },
-{ fr: "exécuter", article: null, en: "to run / to execute", ph: "eg-zay-kyoo-TAY", category: "it_support", subcategory: "actions", type: "verb", emoji: "▶️", lvl: "B2" },
-{ fr: "interroger", article: null, en: "to query", ph: "an-tay-roh-ZHAY", category: "it_support", subcategory: "actions", type: "verb", emoji: "🔍", lvl: "B2" },
-{ fr: "journaliser", article: null, en: "to log", ph: "zhoor-nah-lee-ZAY", category: "it_support", subcategory: "actions", type: "verb", emoji: "📋", lvl: "B2" },
-{ fr: "provisionner", article: null, en: "to provision", ph: "proh-vee-zyoh-NAY", category: "it_support", subcategory: "actions", type: "verb", emoji: "⚙️", lvl: "B2" },
-{ fr: "reproduire", article: null, en: "to reproduce (a bug)", ph: "ruh-proh-DWEER", category: "it_support", subcategory: "actions", type: "verb", emoji: "🔁", lvl: "B2" },
-{ fr: "trier", article: null, en: "to sort", ph: "tree-AY", category: "it_support", subcategory: "actions", type: "verb", emoji: "↕️", lvl: "B2" },
 
 // Subcategory: channels
 { fr: "téléphone", article: "un", en: "phone", ph: "tay-lay-FON", category: "it_support", subcategory: "channels", type: "noun", emoji: "📞", lvl: "A1" },
@@ -1405,29 +1379,6 @@ const vocabData = [
 { fr: "système de gestion de l'apprentissage", article: "un", en: "learning management system / LMS", ph: "sees-TEM duh zhes-TYOHN duh lah-prahn-tee-SAHZH", category: "it_support", subcategory: "edtech", type: "noun", emoji: "📚", lvl: "B2" },
 { fr: "technologie éducative", article: "la", en: "educational technology / EdTech", ph: "tek-noh-loh-ZHEE ay-dyoo-kah-TEEV", category: "it_support", subcategory: "edtech", type: "noun", emoji: "📚", lvl: "B2" },
 
-// Subcategory: phrases
-{ fr: "Je comprends le problème.", article: null, en: "I understand the issue.", ph: "zhuh kohm-PRAHN luh proh-BLEM", category: "it_support", subcategory: "phrases", type: "phrase", emoji: "👂", lvl: "A2" },
-{ fr: "Merci de nous avoir contactés.", article: null, en: "Thank you for contacting us.", ph: "mair-SEE duh noo zah-VWAHR kohn-tak-TAY", category: "it_support", subcategory: "phrases", type: "phrase", emoji: "🤝", lvl: "B1" },
-{ fr: "Pouvez-vous me décrire le problème ?", article: null, en: "Can you describe the issue for me?", ph: "poo-VAY voo muh day-KREER luh proh-BLEM", category: "it_support", subcategory: "phrases", type: "phrase", emoji: "❓", lvl: "B1" },
-{ fr: "Quel navigateur utilisez-vous ?", article: null, en: "Which browser are you using?", ph: "kel nah-vee-gah-TUR yoo-tee-lee-ZAY voo", category: "it_support", subcategory: "phrases", type: "phrase", emoji: "🌐", lvl: "B1" },
-{ fr: "Le problème a été résolu.", article: null, en: "The issue has been resolved.", ph: "luh proh-BLEM ah ay-TAY ray-zoh-LOO", category: "it_support", subcategory: "phrases", type: "phrase", emoji: "✅", lvl: "B1" },
-{ fr: "Je ferme le billet.", article: null, en: "I'm closing the ticket.", ph: "zhuh FAIRM luh bee-YAY", category: "it_support", subcategory: "phrases", type: "phrase", emoji: "🔒", lvl: "B1" },
-{ fr: "Tu as besoin de quelque chose ?", article: null, en: "Do you need anything?", ph: "too ah buh-ZWAN duh kel-kuh SHOHZ", category: "it_support", subcategory: "phrases", type: "phrase", emoji: "🤗", lvl: "A1" },
-{ fr: "Avez-vous des questions supplémentaires ?", article: null, en: "Do you have any further questions?", ph: "ah-VAY voo day kes-TYOHN syoo-play-mahn-TAIR", category: "it_support", subcategory: "phrases", type: "phrase", emoji: "❓", lvl: "B1" },
-{ fr: "Depuis quand observez-vous ce problème ?", article: null, en: "How long have you been seeing this issue?", ph: "duh-PWEE kahn ob-sair-VAY voo suh proh-BLEM", category: "it_support", subcategory: "phrases", type: "phrase", emoji: "⏱️", lvl: "B1" },
-{ fr: "Je fais des recherches et je reviens vers vous.", article: null, en: "I'm looking into it and will follow up with you.", ph: "zhuh feh day ruh-SHAIRSH ay zhuh ruh-VYAHN vair VOO", category: "it_support", subcategory: "phrases", type: "phrase", emoji: "🔍", lvl: "B2" },
-{ fr: "Pouvez-vous me partager une capture d'écran ?", article: null, en: "Can you share a screenshot with me?", ph: "poo-VAY voo muh par-tah-ZHAY tyoon kap-TYOOR day-KRAHN", category: "it_support", subcategory: "phrases", type: "phrase", emoji: "📸", lvl: "B2" },
-{ fr: "J'escalade ce cas à l'équipe technique.", article: null, en: "I'm escalating this case to the technical team.", ph: "zhes-kah-LAD suh KAH ah lay-KEEP tek-NEEK", category: "it_support", subcategory: "phrases", type: "phrase", emoji: "⬆️", lvl: "B2" },
-{ fr: "Pouvez-vous vider votre cache et réessayer ?", article: null, en: "Can you clear your cache and try again?", ph: "poo-VAY voo vee-DAY voh-truh KASH ay ray-es-say-AY", category: "it_support", subcategory: "phrases", type: "phrase", emoji: "🔄", lvl: "B2" },
-{ fr: "Pouvez-vous vous déconnecter et vous reconnecter ?", article: null, en: "Can you log out and log back in?", ph: "poo-VAY voo voo day-koh-nek-TAY ay voo ruh-koh-nek-TAY", category: "it_support", subcategory: "phrases", type: "phrase", emoji: "🔑", lvl: "B2" },
-{ fr: "Quelle version du logiciel utilisez-vous ?", article: null, en: "Which version of the software are you using?", ph: "kel vair-SYOHN dyoo loh-zhee-SYEL yoo-tee-lee-ZAY voo", category: "it_support", subcategory: "phrases", type: "phrase", emoji: "🏷️", lvl: "B2" },
-{ fr: "Pouvez-vous reproduire le problème ?", article: null, en: "Are you able to reproduce the issue?", ph: "poo-VAY voo ruh-proh-DWEER luh proh-BLEM", category: "it_support", subcategory: "phrases", type: "phrase", emoji: "🔁", lvl: "B2" },
-{ fr: "Il s'agit d'un bogue connu.", article: null, en: "This is a known bug.", ph: "eel sah-ZHEE dun BOG koh-NYOO", category: "it_support", subcategory: "phrases", type: "phrase", emoji: "🐛", lvl: "B2" },
-{ fr: "Un correctif sera déployé prochainement.", article: null, en: "A fix will be deployed soon.", ph: "un koh-rek-TEEF suh-rah day-plwah-YAY proh-shen-MAHN", category: "it_support", subcategory: "phrases", type: "phrase", emoji: "🔧", lvl: "B2" },
-{ fr: "Je vais exécuter une requête pour vérifier.", article: null, en: "I'll run a query to check.", ph: "zhuh vay eg-zay-kyoo-TAY tyoon ruh-KET poor vay-ree-FYAY", category: "it_support", subcategory: "phrases", type: "phrase", emoji: "🔍", lvl: "B2" },
-{ fr: "Les données ne correspondent pas.", article: null, en: "The data doesn't match.", ph: "lay doh-NAY nuh koh-res-pohn PAHN", category: "it_support", subcategory: "phrases", type: "phrase", emoji: "⚠️", lvl: "B2" },
-{ fr: "inspecter l'élément", article: null, en: "inspect element", ph: "an-spek-TAY lay-lay-MAHN", category: "it_support", subcategory: "phrases", type: "phrase", emoji: "🔍", lvl: "B2" },
-
 // Subcategory: software & dev
 { fr: "bouton", article: "un", en: "button", ph: "boo-TOHN", category: "it_support", subcategory: "software", type: "noun", emoji: "🔘", lvl: "A1" },
 { fr: "page web", article: "une", en: "web page", ph: "PAHZH WEB", category: "it_support", subcategory: "software", type: "noun", emoji: "🌐", lvl: "A2" },
@@ -1467,6 +1418,56 @@ const vocabData = [
 { fr: "soutien technique", article: "le", en: "technical support", ph: "soo-TYAN tek-NEEK", category: "it_support", subcategory: "support", type: "noun", emoji: "🖥️", lvl: "B1" },
 { fr: "bogue", article: "un", en: "bug", ph: "BOG", category: "it_support", subcategory: "support", type: "noun", emoji: "🐛", lvl: "B1" },
 { fr: "documentation", article: "une", en: "documentation", ph: "doh-kyoo-mahn-tah-SYOHN", category: "it_support", subcategory: "support", type: "noun", emoji: "📄", lvl: "B1" },
+
+  // Subcategory: actions
+{ fr: "confirmer", article: null, en: "to confirm", ph: "kohn-feer-MAY", category: "it_support", subcategory: "actions", type: "verb", emoji: "✅", lvl: "A2" },
+{ fr: "tester", article: null, en: "to test", ph: "tes-TAY", category: "it_support", subcategory: "actions", type: "verb", emoji: "🧪", lvl: "A2" },
+{ fr: "vérifier", article: null, en: "to verify / to check", ph: "vay-ree-FYAY", category: "it_support", subcategory: "actions", type: "verb", emoji: "✅", lvl: "A2" },
+{ fr: "charger", article: null, en: "to load", ph: "shar-ZHAY", category: "it_support", subcategory: "actions", type: "verb", emoji: "📂", lvl: "B1" },
+{ fr: "déboguer", article: null, en: "to debug", ph: "day-boh-GAY", category: "it_support", subcategory: "actions", type: "verb", emoji: "🐛", lvl: "B1" },
+{ fr: "dépanner", article: null, en: "to troubleshoot", ph: "day-pah-NAY", category: "it_support", subcategory: "actions", type: "verb", emoji: "🔧", lvl: "B1" },
+{ fr: "effacer le cache", article: null, en: "to clear the cache", ph: "eh-fah-SAY luh KASH", category: "it_support", subcategory: "actions", type: "verb", emoji: "🗑️", lvl: "B1" },
+{ fr: "escalader", article: null, en: "to escalate", ph: "es-kah-lah-DAY", category: "it_support", subcategory: "actions", type: "verb", emoji: "⬆️", lvl: "B1" },
+{ fr: "exporter", article: null, en: "to export", ph: "ex-por-TAY", category: "it_support", subcategory: "actions", type: "verb", emoji: "📤", lvl: "B1" },
+{ fr: "filtrer", article: null, en: "to filter", ph: "feel-TRAY", category: "it_support", subcategory: "actions", type: "verb", emoji: "🔍", lvl: "B1" },
+{ fr: "importer", article: null, en: "to import", ph: "am-por-TAY", category: "it_support", subcategory: "actions", type: "verb", emoji: "📥", lvl: "B1" },
+{ fr: "mettre à jour", article: null, en: "to update", ph: "MET-ruh ah ZHOOR", category: "it_support", subcategory: "actions", type: "verb", emoji: "🔄", lvl: "B1" },
+{ fr: "réinitialiser", article: null, en: "to reset", ph: "ray-ee-nee-syah-lee-ZAY", category: "it_support", subcategory: "actions", type: "verb", emoji: "🔄", lvl: "B1" },
+{ fr: "résoudre", article: null, en: "to resolve", ph: "ray-ZOO-druh", category: "it_support", subcategory: "actions", type: "verb", emoji: "✅", lvl: "B1" },
+{ fr: "se déconnecter", article: null, en: "to log out", ph: "suh day-koh-nek-TAY", category: "it_support", subcategory: "actions", type: "verb", emoji: "🚪", lvl: "B1" },
+{ fr: "se reconnecter", article: null, en: "to log back in", ph: "suh ruh-koh-nek-TAY", category: "it_support", subcategory: "actions", type: "verb", emoji: "🔑", lvl: "B1" },
+{ fr: "synchroniser", article: null, en: "to sync", ph: "san-kroh-nee-ZAY", category: "it_support", subcategory: "actions", type: "verb", emoji: "🔄", lvl: "B1" },
+{ fr: "exécuter", article: null, en: "to run / to execute", ph: "eg-zay-kyoo-TAY", category: "it_support", subcategory: "actions", type: "verb", emoji: "▶️", lvl: "B2" },
+{ fr: "interroger", article: null, en: "to query", ph: "an-tay-roh-ZHAY", category: "it_support", subcategory: "actions", type: "verb", emoji: "🔍", lvl: "B2" },
+{ fr: "journaliser", article: null, en: "to log", ph: "zhoor-nah-lee-ZAY", category: "it_support", subcategory: "actions", type: "verb", emoji: "📋", lvl: "B2" },
+{ fr: "provisionner", article: null, en: "to provision", ph: "proh-vee-zyoh-NAY", category: "it_support", subcategory: "actions", type: "verb", emoji: "⚙️", lvl: "B2" },
+{ fr: "reproduire", article: null, en: "to reproduce (a bug)", ph: "ruh-proh-DWEER", category: "it_support", subcategory: "actions", type: "verb", emoji: "🔁", lvl: "B2" },
+{ fr: "trier", article: null, en: "to sort", ph: "tree-AY", category: "it_support", subcategory: "actions", type: "verb", emoji: "↕️", lvl: "B2" },
+
+
+// Subcategory: phrases
+{ fr: "Je comprends le problème.", article: null, en: "I understand the issue.", ph: "zhuh kohm-PRAHN luh proh-BLEM", category: "it_support", subcategory: "phrases", type: "phrase", emoji: "👂", lvl: "A2" },
+{ fr: "Merci de nous avoir contactés.", article: null, en: "Thank you for contacting us.", ph: "mair-SEE duh noo zah-VWAHR kohn-tak-TAY", category: "it_support", subcategory: "phrases", type: "phrase", emoji: "🤝", lvl: "B1" },
+{ fr: "Pouvez-vous me décrire le problème ?", article: null, en: "Can you describe the issue for me?", ph: "poo-VAY voo muh day-KREER luh proh-BLEM", category: "it_support", subcategory: "phrases", type: "phrase", emoji: "❓", lvl: "B1" },
+{ fr: "Quel navigateur utilisez-vous ?", article: null, en: "Which browser are you using?", ph: "kel nah-vee-gah-TUR yoo-tee-lee-ZAY voo", category: "it_support", subcategory: "phrases", type: "phrase", emoji: "🌐", lvl: "B1" },
+{ fr: "Le problème a été résolu.", article: null, en: "The issue has been resolved.", ph: "luh proh-BLEM ah ay-TAY ray-zoh-LOO", category: "it_support", subcategory: "phrases", type: "phrase", emoji: "✅", lvl: "B1" },
+{ fr: "Je ferme le billet.", article: null, en: "I'm closing the ticket.", ph: "zhuh FAIRM luh bee-YAY", category: "it_support", subcategory: "phrases", type: "phrase", emoji: "🔒", lvl: "B1" },
+{ fr: "Tu as besoin de quelque chose ?", article: null, en: "Do you need anything?", ph: "too ah buh-ZWAN duh kel-kuh SHOHZ", category: "it_support", subcategory: "phrases", type: "phrase", emoji: "🤗", lvl: "A1" },
+{ fr: "Avez-vous des questions supplémentaires ?", article: null, en: "Do you have any further questions?", ph: "ah-VAY voo day kes-TYOHN syoo-play-mahn-TAIR", category: "it_support", subcategory: "phrases", type: "phrase", emoji: "❓", lvl: "B1" },
+{ fr: "Depuis quand observez-vous ce problème ?", article: null, en: "How long have you been seeing this issue?", ph: "duh-PWEE kahn ob-sair-VAY voo suh proh-BLEM", category: "it_support", subcategory: "phrases", type: "phrase", emoji: "⏱️", lvl: "B1" },
+{ fr: "Je fais des recherches et je reviens vers vous.", article: null, en: "I'm looking into it and will follow up with you.", ph: "zhuh feh day ruh-SHAIRSH ay zhuh ruh-VYAHN vair VOO", category: "it_support", subcategory: "phrases", type: "phrase", emoji: "🔍", lvl: "B2" },
+{ fr: "Pouvez-vous me partager une capture d'écran ?", article: null, en: "Can you share a screenshot with me?", ph: "poo-VAY voo muh par-tah-ZHAY tyoon kap-TYOOR day-KRAHN", category: "it_support", subcategory: "phrases", type: "phrase", emoji: "📸", lvl: "B2" },
+{ fr: "J'escalade ce cas à l'équipe technique.", article: null, en: "I'm escalating this case to the technical team.", ph: "zhes-kah-LAD suh KAH ah lay-KEEP tek-NEEK", category: "it_support", subcategory: "phrases", type: "phrase", emoji: "⬆️", lvl: "B2" },
+{ fr: "Pouvez-vous vider votre cache et réessayer ?", article: null, en: "Can you clear your cache and try again?", ph: "poo-VAY voo vee-DAY voh-truh KASH ay ray-es-say-AY", category: "it_support", subcategory: "phrases", type: "phrase", emoji: "🔄", lvl: "B2" },
+{ fr: "Pouvez-vous vous déconnecter et vous reconnecter ?", article: null, en: "Can you log out and log back in?", ph: "poo-VAY voo voo day-koh-nek-TAY ay voo ruh-koh-nek-TAY", category: "it_support", subcategory: "phrases", type: "phrase", emoji: "🔑", lvl: "B2" },
+{ fr: "Quelle version du logiciel utilisez-vous ?", article: null, en: "Which version of the software are you using?", ph: "kel vair-SYOHN dyoo loh-zhee-SYEL yoo-tee-lee-ZAY voo", category: "it_support", subcategory: "phrases", type: "phrase", emoji: "🏷️", lvl: "B2" },
+{ fr: "Pouvez-vous reproduire le problème ?", article: null, en: "Are you able to reproduce the issue?", ph: "poo-VAY voo ruh-proh-DWEER luh proh-BLEM", category: "it_support", subcategory: "phrases", type: "phrase", emoji: "🔁", lvl: "B2" },
+{ fr: "Il s'agit d'un bogue connu.", article: null, en: "This is a known bug.", ph: "eel sah-ZHEE dun BOG koh-NYOO", category: "it_support", subcategory: "phrases", type: "phrase", emoji: "🐛", lvl: "B2" },
+{ fr: "Un correctif sera déployé prochainement.", article: null, en: "A fix will be deployed soon.", ph: "un koh-rek-TEEF suh-rah day-plwah-YAY proh-shen-MAHN", category: "it_support", subcategory: "phrases", type: "phrase", emoji: "🔧", lvl: "B2" },
+{ fr: "Je vais exécuter une requête pour vérifier.", article: null, en: "I'll run a query to check.", ph: "zhuh vay eg-zay-kyoo-TAY tyoon ruh-KET poor vay-ree-FYAY", category: "it_support", subcategory: "phrases", type: "phrase", emoji: "🔍", lvl: "B2" },
+{ fr: "Les données ne correspondent pas.", article: null, en: "The data doesn't match.", ph: "lay doh-NAY nuh koh-res-pohn PAHN", category: "it_support", subcategory: "phrases", type: "phrase", emoji: "⚠️", lvl: "B2" },
+{ fr: "inspecter l'élément", article: null, en: "inspect element", ph: "an-spek-TAY lay-lay-MAHN", category: "it_support", subcategory: "phrases", type: "phrase", emoji: "🔍", lvl: "B2" },
+
   
   // ── MEASUREMENTS ──────────────────────────────────────────────────────────
 
@@ -1498,22 +1499,7 @@ const vocabData = [
 { fr: "litre", article: "un", en: "liter", ph: "lee-truh", category: "measurements", subcategory: "metric system", type: "noun", emoji: "🧴", lvl: "A2" },
 { fr: "millilitre", article: "un", en: "milliliter", ph: "mee-lee-LEE-truh", category: "measurements", subcategory: "metric system", type: "noun", emoji: "💧", lvl: "B1" },
 
-  // ── NATURE ────────────────────────────────────────────────────────────────
-
-// Subcategory: adjectives
-{ fr: "tranquille", article: null, en: "peaceful / still", ph: "trahn-KEEL", category: "nature", subcategory: "adjectives", type: "adjective", emoji: "😌", lvl: "A1" },
-{ fr: "magnifique", article: null, en: "magnificent / stunning", ph: "mah-nyee-FEEK", category: "nature", subcategory: "adjectives", type: "adjective", emoji: "🤩", lvl: "A2" },
-{ fr: "profond", article: null, en: "deep", ph: "proh-FOHN", category: "nature", subcategory: "adjectives", type: "adjective", emoji: "🌊", lvl: "A2" },
-{ fr: "sauvage", article: null, en: "wild / untamed", ph: "soh-VAHZH", category: "nature", subcategory: "adjectives", type: "adjective", emoji: "🌿", lvl: "A2" },
-{ fr: "en fleurs", article: null, en: "in bloom", ph: "ahn FLUHR", category: "nature", subcategory: "adjectives", type: "adjective", emoji: "🌸", lvl: "B1" },
-{ fr: "gelé", article: null, en: "frozen (masc.)", ph: "zhuh-LAY", category: "nature", subcategory: "adjectives", type: "adjective", emoji: "🧊", lvl: "B1" },
-{ fr: "gelée", article: null, en: "frozen (fem.)", ph: "zhuh-LAY", category: "nature", subcategory: "adjectives", type: "adjective", emoji: "🧊", lvl: "B1" },
-{ fr: "luxuriant", article: null, en: "lush (masc.)", ph: "lyook-syoo-RYAHN", category: "nature", subcategory: "adjectives", type: "adjective", emoji: "🌿", lvl: "B2" },
-{ fr: "luxuriante", article: null, en: "lush (fem.)", ph: "lyook-syoo-RYAHNT", category: "nature", subcategory: "adjectives", type: "adjective", emoji: "🌿", lvl: "B2" },
-{ fr: "aride", article: null, en: "arid / dry", ph: "ah-REED", category: "nature", subcategory: "adjectives", type: "adjective", emoji: "🏜️", lvl: "B2" },
-{ fr: "dense", article: null, en: "dense / thick", ph: "dahns", category: "nature", subcategory: "adjectives", type: "adjective", emoji: "🌲", lvl: "B2" },
-{ fr: "escarpé", article: null, en: "steep (masc.)", ph: "es-kar-PAY", category: "nature", subcategory: "adjectives", type: "adjective", emoji: "⛰️", lvl: "B2" },
-{ fr: "escarpée", article: null, en: "steep (fem.)", ph: "es-kar-PAY", category: "nature", subcategory: "adjectives", type: "adjective", emoji: "⛰️", lvl: "B2" },
+// ── NATURE ────────────────────────────────────────────────────────────────
 
 // Subcategory: celestial
 { fr: "soleil", article: "un", en: "sun", ph: "soh-LAY", category: "nature", subcategory: "celestial", type: "noun", emoji: "☀️", lvl: "A1" },
@@ -1565,8 +1551,91 @@ const vocabData = [
 { fr: "air", article: "un", en: "air", ph: "air", category: "nature", subcategory: "phenomena", type: "noun", emoji: "💨", lvl: "A1" },
 { fr: "marée", article: "une", en: "tide", ph: "mah-RAY", category: "nature", subcategory: "phenomena", type: "noun", emoji: "🌊", lvl: "B1" },
 { fr: "vague", article: "une", en: "wave", ph: "vahg", category: "nature", subcategory: "phenomena", type: "noun", emoji: "🌊", lvl: "A2" },
-{ fr: "coucher de soleil", article: "un", en: "sunset", ph: "koo-SHAY duh soh-LAY", category: "nature",
+{ fr: "coucher de soleil", article: "un", en: "sunset", ph: "koo-SHAY duh soh-LAY", category: "nature", subcategory: "phenomena", type: "noun", emoji: "🌅", lvl: "A2" },
+{ fr: "lever de soleil", article: "un", en: "sunrise", ph: "luh-VAY duh soh-LAY", category: "nature", subcategory: "phenomena", type: "noun", emoji: "🌄", lvl: "A2" },
+{ fr: "arc-en-ciel", article: "un", en: "rainbow", ph: "ark-ahn-SYEL", category: "nature", subcategory: "phenomena", type: "noun", emoji: "🌈", lvl: "A2" },
+{ fr: "marée haute", article: "une", en: "high tide", ph: "mah-RAY OHT", category: "nature", subcategory: "phenomena", type: "noun", emoji: "🌊", lvl: "B2" },
+{ fr: "marée basse", article: "une", en: "low tide", ph: "mah-RAY BAHSS", category: "nature", subcategory: "phenomena", type: "noun", emoji: "🏖️", lvl: "B2" },
+{ fr: "tremblement de terre", article: "un", en: "earthquake", ph: "trahm-bluh-MAHN duh tair", category: "nature", subcategory: "phenomena", type: "noun", emoji: "🌍", lvl: "B2" },
+{ fr: "inondation", article: "une", en: "flood", ph: "ee-nohn-dah-SYOHN", category: "nature", subcategory: "phenomena", type: "noun", emoji: "🌊", lvl: "B2" },
+{ fr: "sécheresse", article: "une", en: "drought", ph: "say-shuh-RESS", category: "nature", subcategory: "phenomena", type: "noun", emoji: "☀️", lvl: "B2" },
 
+// Subcategory: plants & trees
+{ fr: "fleur", article: "une", en: "flower", ph: "flur", category: "nature", subcategory: "plants", type: "noun", emoji: "🌸", lvl: "A1" },
+{ fr: "arbre", article: "un", en: "tree", ph: "ar-bruh", category: "nature", subcategory: "plants", type: "noun", emoji: "🌳", lvl: "A1" },
+{ fr: "herbe", article: "une", en: "grass", ph: "airb", category: "nature", subcategory: "plants", type: "noun", emoji: "🌿", lvl: "A1" },
+{ fr: "feuille", article: "une", en: "leaf", ph: "fuh-YUH", category: "nature", subcategory: "plants", type: "noun", emoji: "🍃", lvl: "A2" },
+{ fr: "branche", article: "une", en: "branch", ph: "brahnsh", category: "nature", subcategory: "plants", type: "noun", emoji: "🌿", lvl: "B1" },
+{ fr: "racine", article: "une", en: "root", ph: "rah-SEEN", category: "nature", subcategory: "plants", type: "noun", emoji: "🌱", lvl: "B1" },
+{ fr: "tronc", article: "un", en: "trunk (tree)", ph: "trohnk", category: "nature", subcategory: "plants", type: "noun", emoji: "🌳", lvl: "B1" },
+{ fr: "mousse", article: "une", en: "moss", ph: "mooss", category: "nature", subcategory: "plants", type: "noun", emoji: "🌿", lvl: "B2" },
+{ fr: "fougère", article: "une", en: "fern", ph: "foo-ZHAIR", category: "nature", subcategory: "plants", type: "noun", emoji: "🌿", lvl: "B2" },
+{ fr: "champignon", article: "un", en: "mushroom", ph: "shahm-pee-NYOHN", category: "nature", subcategory: "plants", type: "noun", emoji: "🍄", lvl: "A2" },
+{ fr: "baie", article: "une", en: "berry", ph: "bay", category: "nature", subcategory: "plants", type: "noun", emoji: "🫐", lvl: "A2" },
+{ fr: "gland", article: "un", en: "acorn", ph: "glahn", category: "nature", subcategory: "plants", type: "noun", emoji: "🌰", lvl: "B2" },
+{ fr: "cône de pin", article: "un", en: "pine cone", ph: "kohn duh PAN", category: "nature", subcategory: "plants", type: "noun", emoji: "🌲", lvl: "B2" },
+{ fr: "nénuphar", article: "un", en: "water lily", ph: "nay-nyoo-FAR", category: "nature", subcategory: "plants", type: "noun", emoji: "🌸", lvl: "B2" },
+{ fr: "roseau", article: "un", en: "reed", ph: "roh-ZOH", category: "nature", subcategory: "plants", type: "noun", emoji: "🌾", lvl: "B2" },
+{ fr: "lierre", article: "un", en: "ivy", ph: "LYAIR", category: "nature", subcategory: "plants", type: "noun", emoji: "🌿", lvl: "B2" },
+{ fr: "érable", article: "un", en: "maple tree", ph: "ay-RAH-bluh", category: "nature", subcategory: "plants", type: "noun", emoji: "🍁", lvl: "A2", note: "The Maple is the symbol of Quebec culture" },
+{ fr: "bouleau", article: "un", en: "birch tree", ph: "boo-LOH", category: "nature", subcategory: "plants", type: "noun", emoji: "🌳", lvl: "B1" },
+{ fr: "épinette", article: "une", en: "spruce tree", ph: "ay-pee-NET", category: "nature", subcategory: "plants", type: "noun", emoji: "🌲", lvl: "B1", note: "Common Quebec specific word; Europe uses 'épicéa'" },
+{ fr: "sapin", article: "un", en: "fir tree", ph: "sah-PAN", category: "nature", subcategory: "plants", type: "noun", emoji: "🎄", lvl: "B1" },
+{ fr: "pin", article: "un", en: "pine tree", ph: "pan", category: "nature", subcategory: "plants", type: "noun", emoji: "🌲", lvl: "B1" },
+{ fr: "chêne", article: "un", en: "oak tree", ph: "shen", category: "nature", subcategory: "plants", type: "noun", emoji: "🌳", lvl: "B1" },
+{ fr: "sirop d'érable", article: "un", en: "maple syrup", ph: "see-ROH day-RAH-bluh", category: "nature", subcategory: "plants", type: "noun", emoji: "🍁", lvl: "A1" },
+{ fr: "érablière", article: "une", en: "sugar bush / maple grove", ph: "ay-rah-BLYAIR", category: "nature", subcategory: "plants", type: "noun", emoji: "🍁", lvl: "B1" },
+
+// Subcategory: terrain & hiking
+{ fr: "sentier", article: "un", en: "trail / path", ph: "sahn-TYAY", category: "nature", subcategory: "terrain", type: "noun", emoji: "🥾", lvl: "A2" },
+{ fr: "sommet", article: "un", en: "summit / peak", ph: "soh-MEH", category: "nature", subcategory: "terrain", type: "noun", emoji: "🏔️", lvl: "B1" },
+{ fr: "sous-bois", article: "un", en: "undergrowth / forest floor", ph: "soo-BWAH", category: "nature", subcategory: "terrain", type: "noun", emoji: "🌿", lvl: "B2" },
+{ fr: "clairière", article: "une", en: "clearing / glade", ph: "kleh-RYAIR", category: "nature", subcategory: "terrain", type: "noun", emoji: "🌳", lvl: "B2" },
+
+// Subcategory: adjectives
+{ fr: "tranquille", article: null, en: "peaceful / still", ph: "trahn-KEEL", category: "nature", subcategory: "adjectives", type: "adjective", emoji: "😌", lvl: "A1" },
+{ fr: "magnifique", article: null, en: "magnificent / stunning", ph: "mah-nyee-FEEK", category: "nature", subcategory: "adjectives", type: "adjective", emoji: "🤩", lvl: "A2" },
+{ fr: "profond", article: null, en: "deep", ph: "proh-FOHN", category: "nature", subcategory: "adjectives", type: "adjective", emoji: "🌊", lvl: "A2" },
+{ fr: "sauvage", article: null, en: "wild / untamed", ph: "soh-VAHZH", category: "nature", subcategory: "adjectives", type: "adjective", emoji: "🌿", lvl: "A2" },
+{ fr: "en fleurs", article: null, en: "in bloom", ph: "ahn FLUHR", category: "nature", subcategory: "adjectives", type: "adjective", emoji: "🌸", lvl: "B1" },
+{ fr: "gelé", article: null, en: "frozen (masc.)", ph: "zhuh-LAY", category: "nature", subcategory: "adjectives", type: "adjective", emoji: "🧊", lvl: "B1" },
+{ fr: "gelée", article: null, en: "frozen (fem.)", ph: "zhuh-LAY", category: "nature", subcategory: "adjectives", type: "adjective", emoji: "🧊", lvl: "B1" },
+{ fr: "luxuriant", article: null, en: "lush (masc.)", ph: "lyook-syoo-RYAHN", category: "nature", subcategory: "adjectives", type: "adjective", emoji: "🌿", lvl: "B2" },
+{ fr: "luxuriante", article: null, en: "lush (fem.)", ph: "lyook-syoo-RYAHNT", category: "nature", subcategory: "adjectives", type: "adjective", emoji: "🌿", lvl: "B2" },
+{ fr: "aride", article: null, en: "arid / dry", ph: "ah-REED", category: "nature", subcategory: "adjectives", type: "adjective", emoji: "🏜️", lvl: "B2" },
+{ fr: "dense", article: null, en: "dense / thick", ph: "dahns", category: "nature", subcategory: "adjectives", type: "adjective", emoji: "🌲", lvl: "B2" },
+{ fr: "escarpé", article: null, en: "steep (masc.)", ph: "es-kar-PAY", category: "nature", subcategory: "adjectives", type: "adjective", emoji: "⛰️", lvl: "B2" },
+{ fr: "escarpée", article: null, en: "steep (fem.)", ph: "es-kar-PAY", category: "nature", subcategory: "adjectives", type: "adjective", emoji: "⛰️", lvl: "B2" },
+  
+// Subcategory: verbs
+{ fr: "randonner", article: null, en: "to hike", ph: "rahn-doh-NAY", category: "nature", subcategory: "verbs", type: "verb", emoji: "🥾", lvl: "A2" },
+{ fr: "camper", article: null, en: "to camp", ph: "kahm-PAY", category: "nature", subcategory: "verbs", type: "verb", emoji: "⛺", lvl: "A2" },
+{ fr: "grimper", article: null, en: "to climb", ph: "grim-PAY", category: "nature", subcategory: "verbs", type: "verb", emoji: "🧗", lvl: "A2" },
+{ fr: "planter", article: null, en: "to plant", ph: "plahn-TAY", category: "nature", subcategory: "verbs", type: "verb", emoji: "🌱", lvl: "A2" },
+{ fr: "fleurir", article: null, en: "to bloom / to flower", ph: "fluh-REER", category: "nature", subcategory: "verbs", type: "verb", emoji: "🌸", lvl: "B1" },
+{ fr: "pousser", article: null, en: "to grow (plants)", ph: "poo-SAY", category: "nature", subcategory: "verbs", type: "verb", emoji: "🌱", lvl: "B1" },
+{ fr: "tomber", article: null, en: "to fall (leaves)", ph: "tohm-BAY", category: "nature", subcategory: "verbs", type: "verb", emoji: "🍂", lvl: "B1" },
+{ fr: "couler", article: null, en: "to flow", ph: "koo-LAY", category: "nature", subcategory: "verbs", type: "verb", emoji: "💧", lvl: "B1" },
+{ fr: "déborder", article: null, en: "to overflow", ph: "day-bor-DAY", category: "nature", subcategory: "verbs", type: "verb", emoji: "🌊", lvl: "B2" },
+{ fr: "se lever", article: null, en: "to rise (sun/moon)", ph: "suh luh-VAY", category: "nature", subcategory: "verbs", type: "verb", emoji: "🌅", lvl: "A1" },
+{ fr: "se coucher", article: null, en: "to set (sun)", ph: "suh koo-SHAY", category: "nature", subcategory: "verbs", type: "verb", emoji: "🌅", lvl: "A1" },
+{ fr: "observer", article: null, en: "to observe / to watch", ph: "ob-zair-VAY", category: "nature", subcategory: "verbs", type: "verb", emoji: "👁️", lvl: "A2" },
+{ fr: "explorer", article: null, en: "to explore", ph: "ex-ploh-RAY", category: "nature", subcategory: "verbs", type: "verb", emoji: "🗺️", lvl: "B1" },
+{ fr: "se perdre", article: null, en: "to get lost", ph: "suh pair-druh", category: "nature", subcategory: "verbs", type: "verb", emoji: "🗺️", lvl: "B1" },
+
+  // Subcategory: phrases
+{ fr: "Quelle belle vue !", article: null, en: "What a beautiful view!", ph: "kel bel VOO", category: "nature", subcategory: "phrases", type: "phrase", emoji: "😍", lvl: "A1" },
+{ fr: "On va faire une randonnée ?", article: null, en: "Shall we go for a hike?", ph: "ohn vah fair tyoon rahn-doh-NAY", category: "nature", subcategory: "phrases", type: "phrase", emoji: "🥾", lvl: "A2" },
+{ fr: "Ça sent la forêt.", article: null, en: "It smells like the forest.", ph: "sah sahn lah foh-RAY", category: "nature", subcategory: "phrases", type: "phrase", emoji: "🌲", lvl: "A2" },
+{ fr: "Les feuilles changent de couleur.", article: null, en: "The leaves are changing colour.", ph: "lay fuh-YUH shahnjh duh koo-LUHR", category: "nature", subcategory: "phrases", type: "phrase", emoji: "🍂", lvl: "A2" },
+{ fr: "Le lac est gelé.", article: null, en: "The lake is frozen.", ph: "luh LAK ay zhuh-LAY", category: "nature", subcategory: "phrases", type: "phrase", emoji: "🧊", lvl: "A2" },
+{ fr: "On entend les oiseaux.", article: null, en: "You can hear the birds.", ph: "ohn ahn-TAHN lay zwah-ZOH", category: "nature", subcategory: "phrases", type: "phrase", emoji: "🐦", lvl: "A2" },
+{ fr: "Il y a un sentier par ici.", article: null, en: "There's a trail this way.", ph: "eel ee ah un sahn-TYAY par ee-SEE", category: "nature", subcategory: "phrases", type: "phrase", emoji: "🥾", lvl: "A2" },
+{ fr: "Les fleurs sont en train de pousser.", article: null, en: "The flowers are starting to grow.", ph: "lay fluhr sohn ahn tran duh poo-SAY", category: "nature", subcategory: "phrases", type: "phrase", emoji: "🌸", lvl: "B1" },
+{ fr: "C'est la saison des érables.", article: null, en: "It's maple syrup season.", ph: "say lah say-ZOHN day zay-RAH-bluh", category: "nature", subcategory: "phrases", type: "phrase", emoji: "🍁", lvl: "B1" },
+{ fr: "Je veux voir l'aurore boréale un jour.", article: null, en: "I want to see the northern lights someday.", ph: "zhuh vuh vwahr loh-ROR boh-ray-AL un ZHOOR", category: "nature", subcategory: "phrases", type: "phrase", emoji: "🌌", lvl: "B1" },
+
+  
  // ── NEIGHBOURHOOD ──────────────────────────────────────────────────────────
 
 // Subcategory: community & events
@@ -1654,6 +1723,56 @@ const vocabData = [
 { fr: "propriétaire", article: "un", en: "landlord / owner", ph: "proh-pree-ay-TAIR", category: "neighbourhood", subcategory: "people", type: "noun", emoji: "🏠", lvl: "B1" },
 { fr: "bénévole", article: "un", en: "volunteer", ph: "bay-nay-VOL", category: "neighbourhood", subcategory: "people", type: "noun", emoji: "🤝", lvl: "B1" },
 
+
+// Subcategory: transportation
+{ fr: "voiture", article: "une", en: "car", ph: "vwah-TYOOR", category: "neighbourhood", subcategory: "transport", type: "noun", emoji: "🚗", lvl: "A1" },
+{ fr: "autobus", article: "un", en: "bus", ph: "oh-toh-BYOOS", category: "neighbourhood", subcategory: "transport", type: "noun", emoji: "🚌", lvl: "A1", note: "QC term; France uses 'bus'" },
+{ fr: "arrêt d'autobus", article: "un", en: "bus stop", ph: "ah-REH doh-toh-BYOOS", category: "neighbourhood", subcategory: "transport", type: "noun", emoji: "🚌", lvl: "A1" },
+{ fr: "métro", article: "le", en: "subway / metro", ph: "may-TROH", category: "neighbourhood", subcategory: "transport", type: "noun", emoji: "🚇", lvl: "A1" },
+{ fr: "taxi", article: "un", en: "taxi", ph: "tak-SEE", category: "neighbourhood", subcategory: "transport", type: "noun", emoji: "🚕", lvl: "A1" },
+{ fr: "vélo", article: "un", en: "bicycle", ph: "vay-LOH", category: "neighbourhood", subcategory: "transport", type: "noun", emoji: "🚲", lvl: "A1" },
+{ fr: "trottinette", article: "une", en: "scooter", ph: "troh-tee-NET", category: "neighbourhood", subcategory: "transport", type: "noun", emoji: "🛴", lvl: "A1" },
+{ fr: "casque", article: "un", en: "helmet", ph: "KASK", category: "neighbourhood", subcategory: "transport", type: "noun", emoji: "⛑️", lvl: "A2" },
+{ fr: "gare", article: "une", en: "train station", ph: "gar", category: "neighbourhood", subcategory: "transport", type: "noun", emoji: "🚉", lvl: "A2" },
+{ fr: "aéroport", article: "un", en: "airport", ph: "ah-ay-roh-POR", category: "neighbourhood", subcategory: "transport", type: "noun", emoji: "✈️", lvl: "A2" },
+{ fr: "hôtel", article: "un", en: "hotel", ph: "oh-TEL", category: "neighbourhood", subcategory: "transport", type: "noun", emoji: "🏨", lvl: "A1" },
+{ fr: "embouteillage", article: "un", en: "traffic jam", ph: "ahm-boo-tay-YAHZH", category: "neighbourhood", subcategory: "transport", type: "noun", emoji: "🚗", lvl: "B1" },
+{ fr: "trafic", article: "le", en: "traffic", ph: "trah-FEEK", category: "neighbourhood", subcategory: "transport", type: "noun", emoji: "🚦", lvl: "A2" },
+{ fr: "limite de vitesse", article: "une", en: "speed limit", ph: "lee-MEET duh vee-TESS", category: "neighbourhood", subcategory: "transport", type: "noun", emoji: "🚗", lvl: "B1" },
+{ fr: "essence", article: "une", en: "gas / petrol", ph: "es-SAHNS", category: "neighbourhood", subcategory: "transport", type: "noun", emoji: "⛽", lvl: "B1" },
+{ fr: "station-service", article: "une", en: "gas station", ph: "stah-SYOHN sair-VEES", category: "neighbourhood", subcategory: "transport", type: "noun", emoji: "⛽", lvl: "B1" },
+{ fr: "permis de conduire", article: "un", en: "driver's licence", ph: "pair-MEE duh kohn-DWEER", category: "neighbourhood", subcategory: "transport", type: "noun", emoji: "🪪", lvl: "B1" },
+{ fr: "contravention", article: "une", en: "traffic ticket / fine", ph: "kohn-trah-vahn-SYOHN", category: "neighbourhood", subcategory: "transport", type: "noun", emoji: "📄", lvl: "C1", note: "QC term; France uses 'amende'" },
+{ fr: "stationnement", article: "un", en: "parking lot", ph: "stah-syohn-MAHN", category: "neighbourhood", subcategory: "transport", type: "noun", emoji: "🅿️", lvl: "A2", note: "QC term; France uses 'parking'" },
+{ fr: "place de stationnement", article: "une", en: "parking spot", ph: "plass duh stah-syohn-MAHN", category: "neighbourhood", subcategory: "transport", type: "noun", emoji: "🅿️", lvl: "B1" },
+
+
+// Subcategory: winter & nature in context
+{ fr: "neige", article: "une", en: "snow", ph: "nezh", category: "neighbourhood", subcategory: "winter", type: "noun", emoji: "❄️", lvl: "A1" },
+{ fr: "glace", article: "une", en: "ice", ph: "glass", category: "neighbourhood", subcategory: "winter", type: "noun", emoji: "🧊", lvl: "A2" },
+{ fr: "gazon", article: "un", en: "lawn / grass", ph: "gah-ZOHN", category: "neighbourhood", subcategory: "nature", type: "noun", emoji: "🌿", lvl: "A2", note: "QC term; France uses 'pelouse'" },
+{ fr: "pelle", article: "une", en: "shovel", ph: "pel", category: "neighbourhood", subcategory: "winter", type: "noun", emoji: "🪣", lvl: "A2" },
+{ fr: "gratte-glace", article: "un", en: "ice scraper", ph: "grat-GLASS", category: "neighbourhood", subcategory: "winter", type: "noun", emoji: "🚗", lvl: "B1" },
+{ fr: "verglas", article: "un", en: "black ice", ph: "vair-GLAH", category: "neighbourhood", subcategory: "winter", type: "noun", emoji: "⚠️", lvl: "B1", note: "Serious sidewalk hazard in QC winters" },
+{ fr: "déneigement", article: "un", en: "snow removal", ph: "day-nezh-MAHN", category: "neighbourhood", subcategory: "winter", type: "noun", emoji: "🚛", lvl: "B1" },
+{ fr: "tempête de neige", article: "une", en: "snowstorm / blizzard", ph: "tahm-PET duh NEZH", category: "neighbourhood", subcategory: "winter", type: "noun", emoji: "🌨️", lvl: "B1" },
+{ fr: "banc de neige", article: "un", en: "snowbank", ph: "bahn duh NEZH", category: "neighbourhood", subcategory: "winter", type: "noun", emoji: "❄️", lvl: "B1" },
+{ fr: "sirop d'érable", article: "un", en: "maple syrup", ph: "see-ROH day-RAH-bluh", category: "neighbourhood", subcategory: "winter", type: "noun", emoji: "🍁", lvl: "A1" },
+{ fr: "érablière", article: "une", en: "sugar bush / maple grove", ph: "ay-rah-BLYAIR", category: "neighbourhood", subcategory: "winter", type: "noun", emoji: "🍁", lvl: "B1" },
+{ fr: "tourbière", article: "une", en: "bog", ph: "toor-BYAIR", category: "neighbourhood", subcategory: "nature", type: "noun", emoji: "🌿", lvl: "C1" },
+{ fr: "toile d'araignée", article: "une", en: "spider web", ph: "twahl dah-ray-NYAY", category: "neighbourhood", subcategory: "nature", type: "noun", emoji: "🕸️", lvl: "B2" },
+// Subcategory: verbs
+{ fr: "se promener", article: null, en: "to go for a walk", ph: "suh prohm-NAY", category: "neighbourhood", subcategory: "verbs", type: "verb", emoji: "🚶", lvl: "A1" },
+{ fr: "traverser", article: null, en: "to cross (the street)", ph: "trah-vair-SAY", category: "neighbourhood", subcategory: "verbs", type: "verb", emoji: "🚶", lvl: "A2" },
+{ fr: "tourner", article: null, en: "to turn", ph: "toor-NAY", category: "neighbourhood", subcategory: "verbs", type: "verb", emoji: "🔀", lvl: "A1" },
+{ fr: "continuer tout droit", article: null, en: "to continue straight ahead", ph: "kohn-tee-NYOO-ay too DRWAH", category: "neighbourhood", subcategory: "verbs", type: "verb", emoji: "⬆️", lvl: "A2" },
+{ fr: "stationner", article: null, en: "to park", ph: "stah-syoh-NAY", category: "neighbourhood", subcategory: "verbs", type: "verb", emoji: "🅿️", lvl: "A2", note: "QC term; France uses 'se garer'" },
+{ fr: "conduire", article: null, en: "to drive", ph: "kohn-DWEER", category: "neighbourhood", subcategory: "verbs", type: "verb", emoji: "🚗", lvl: "A2" },
+{ fr: "déneiger", article: null, en: "to clear snow", ph: "day-neh-ZHAY", category: "neighbourhood", subcategory: "verbs", type: "verb", emoji: "❄️", lvl: "B1" },
+{ fr: "pelleter", article: null, en: "to shovel (snow)", ph: "pel-TAY", category: "neighbourhood", subcategory: "verbs", type: "verb", emoji: "❄️", lvl: "B1", note: "Essential QC winter verb" },
+{ fr: "faire du bénévolat", article: null, en: "to volunteer", ph: "fair dyoo bay-nay-voh-LAH", category: "neighbourhood", subcategory: "verbs", type: "verb", emoji: "🤝", lvl: "B1" },
+{ fr: "participer", article: null, en: "to participate", ph: "par-tee-see-PAY", category: "neighbourhood", subcategory: "verbs", type: "verb", emoji: "🙋", lvl: "B1" },
+{ fr: "s'impliquer", article: null, en: "to get involved", ph: "sam-plee-KAY", category: "neighbourhood", subcategory: "verbs", type: "verb", emoji: "🤝", lvl: "B2" },
 // Subcategory: phrases
 { fr: "Bonjour, comment ça va ?", article: null, en: "Hello, how are you?", ph: "bon-ZHOOR, koh-MAHN sah VAH", category: "neighbourhood", subcategory: "phrases", type: "phrase", emoji: "👋", lvl: "A0" },
 { fr: "Bonne journée !", article: null, en: "Have a good day!", ph: "bun zhoor-NAY", category: "neighbourhood", subcategory: "phrases", type: "phrase", emoji: "👋", lvl: "A0" },
@@ -1691,56 +1810,6 @@ const vocabData = [
 { fr: "Je fais du bénévolat ce samedi.", article: null, en: "I'm volunteering this Saturday.", ph: "zhuh feh dyoo bay-nay-voh-LAH suh sahm-DEE", category: "neighbourhood", subcategory: "phrases", type: "phrase", emoji: "🤝", lvl: "B1" },
 { fr: "C'est ouvert à tout le monde.", article: null, en: "It's open to everyone.", ph: "say oo-VAIR ah too luh MOHND", category: "neighbourhood", subcategory: "phrases", type: "phrase", emoji: "👥", lvl: "B1" },
 { fr: "Les enfants peuvent venir aussi ?", article: null, en: "Can the kids come too?", ph: "lay zan-FAHN puhv vuh-NEER oh-SEE", category: "neighbourhood", subcategory: "phrases", type: "phrase", emoji: "👧🧒", lvl: "B1" },
-
-// Subcategory: transportation
-{ fr: "voiture", article: "une", en: "car", ph: "vwah-TYOOR", category: "neighbourhood", subcategory: "transport", type: "noun", emoji: "🚗", lvl: "A1" },
-{ fr: "autobus", article: "un", en: "bus", ph: "oh-toh-BYOOS", category: "neighbourhood", subcategory: "transport", type: "noun", emoji: "🚌", lvl: "A1", note: "QC term; France uses 'bus'" },
-{ fr: "arrêt d'autobus", article: "un", en: "bus stop", ph: "ah-REH doh-toh-BYOOS", category: "neighbourhood", subcategory: "transport", type: "noun", emoji: "🚌", lvl: "A1" },
-{ fr: "métro", article: "le", en: "subway / metro", ph: "may-TROH", category: "neighbourhood", subcategory: "transport", type: "noun", emoji: "🚇", lvl: "A1" },
-{ fr: "taxi", article: "un", en: "taxi", ph: "tak-SEE", category: "neighbourhood", subcategory: "transport", type: "noun", emoji: "🚕", lvl: "A1" },
-{ fr: "vélo", article: "un", en: "bicycle", ph: "vay-LOH", category: "neighbourhood", subcategory: "transport", type: "noun", emoji: "🚲", lvl: "A1" },
-{ fr: "trottinette", article: "une", en: "scooter", ph: "troh-tee-NET", category: "neighbourhood", subcategory: "transport", type: "noun", emoji: "🛴", lvl: "A1" },
-{ fr: "casque", article: "un", en: "helmet", ph: "KASK", category: "neighbourhood", subcategory: "transport", type: "noun", emoji: "⛑️", lvl: "A2" },
-{ fr: "gare", article: "une", en: "train station", ph: "gar", category: "neighbourhood", subcategory: "transport", type: "noun", emoji: "🚉", lvl: "A2" },
-{ fr: "aéroport", article: "un", en: "airport", ph: "ah-ay-roh-POR", category: "neighbourhood", subcategory: "transport", type: "noun", emoji: "✈️", lvl: "A2" },
-{ fr: "hôtel", article: "un", en: "hotel", ph: "oh-TEL", category: "neighbourhood", subcategory: "transport", type: "noun", emoji: "🏨", lvl: "A1" },
-{ fr: "embouteillage", article: "un", en: "traffic jam", ph: "ahm-boo-tay-YAHZH", category: "neighbourhood", subcategory: "transport", type: "noun", emoji: "🚗", lvl: "B1" },
-{ fr: "trafic", article: "le", en: "traffic", ph: "trah-FEEK", category: "neighbourhood", subcategory: "transport", type: "noun", emoji: "🚦", lvl: "A2" },
-{ fr: "limite de vitesse", article: "une", en: "speed limit", ph: "lee-MEET duh vee-TESS", category: "neighbourhood", subcategory: "transport", type: "noun", emoji: "🚗", lvl: "B1" },
-{ fr: "essence", article: "une", en: "gas / petrol", ph: "es-SAHNS", category: "neighbourhood", subcategory: "transport", type: "noun", emoji: "⛽", lvl: "B1" },
-{ fr: "station-service", article: "une", en: "gas station", ph: "stah-SYOHN sair-VEES", category: "neighbourhood", subcategory: "transport", type: "noun", emoji: "⛽", lvl: "B1" },
-{ fr: "permis de conduire", article: "un", en: "driver's licence", ph: "pair-MEE duh kohn-DWEER", category: "neighbourhood", subcategory: "transport", type: "noun", emoji: "🪪", lvl: "B1" },
-{ fr: "contravention", article: "une", en: "traffic ticket / fine", ph: "kohn-trah-vahn-SYOHN", category: "neighbourhood", subcategory: "transport", type: "noun", emoji: "📄", lvl: "C1", note: "QC term; France uses 'amende'" },
-{ fr: "stationnement", article: "un", en: "parking lot", ph: "stah-syohn-MAHN", category: "neighbourhood", subcategory: "transport", type: "noun", emoji: "🅿️", lvl: "A2", note: "QC term; France uses 'parking'" },
-{ fr: "place de stationnement", article: "une", en: "parking spot", ph: "plass duh stah-syohn-MAHN", category: "neighbourhood", subcategory: "transport", type: "noun", emoji: "🅿️", lvl: "B1" },
-
-// Subcategory: verbs
-{ fr: "se promener", article: null, en: "to go for a walk", ph: "suh prohm-NAY", category: "neighbourhood", subcategory: "verbs", type: "verb", emoji: "🚶", lvl: "A1" },
-{ fr: "traverser", article: null, en: "to cross (the street)", ph: "trah-vair-SAY", category: "neighbourhood", subcategory: "verbs", type: "verb", emoji: "🚶", lvl: "A2" },
-{ fr: "tourner", article: null, en: "to turn", ph: "toor-NAY", category: "neighbourhood", subcategory: "verbs", type: "verb", emoji: "🔀", lvl: "A1" },
-{ fr: "continuer tout droit", article: null, en: "to continue straight ahead", ph: "kohn-tee-NYOO-ay too DRWAH", category: "neighbourhood", subcategory: "verbs", type: "verb", emoji: "⬆️", lvl: "A2" },
-{ fr: "stationner", article: null, en: "to park", ph: "stah-syoh-NAY", category: "neighbourhood", subcategory: "verbs", type: "verb", emoji: "🅿️", lvl: "A2", note: "QC term; France uses 'se garer'" },
-{ fr: "conduire", article: null, en: "to drive", ph: "kohn-DWEER", category: "neighbourhood", subcategory: "verbs", type: "verb", emoji: "🚗", lvl: "A2" },
-{ fr: "déneiger", article: null, en: "to clear snow", ph: "day-neh-ZHAY", category: "neighbourhood", subcategory: "verbs", type: "verb", emoji: "❄️", lvl: "B1" },
-{ fr: "pelleter", article: null, en: "to shovel (snow)", ph: "pel-TAY", category: "neighbourhood", subcategory: "verbs", type: "verb", emoji: "❄️", lvl: "B1", note: "Essential QC winter verb" },
-{ fr: "faire du bénévolat", article: null, en: "to volunteer", ph: "fair dyoo bay-nay-voh-LAH", category: "neighbourhood", subcategory: "verbs", type: "verb", emoji: "🤝", lvl: "B1" },
-{ fr: "participer", article: null, en: "to participate", ph: "par-tee-see-PAY", category: "neighbourhood", subcategory: "verbs", type: "verb", emoji: "🙋", lvl: "B1" },
-{ fr: "s'impliquer", article: null, en: "to get involved", ph: "sam-plee-KAY", category: "neighbourhood", subcategory: "verbs", type: "verb", emoji: "🤝", lvl: "B2" },
-
-// Subcategory: winter & nature in context
-{ fr: "neige", article: "une", en: "snow", ph: "nezh", category: "neighbourhood", subcategory: "winter", type: "noun", emoji: "❄️", lvl: "A1" },
-{ fr: "glace", article: "une", en: "ice", ph: "glass", category: "neighbourhood", subcategory: "winter", type: "noun", emoji: "🧊", lvl: "A2" },
-{ fr: "gazon", article: "un", en: "lawn / grass", ph: "gah-ZOHN", category: "neighbourhood", subcategory: "nature", type: "noun", emoji: "🌿", lvl: "A2", note: "QC term; France uses 'pelouse'" },
-{ fr: "pelle", article: "une", en: "shovel", ph: "pel", category: "neighbourhood", subcategory: "winter", type: "noun", emoji: "🪣", lvl: "A2" },
-{ fr: "gratte-glace", article: "un", en: "ice scraper", ph: "grat-GLASS", category: "neighbourhood", subcategory: "winter", type: "noun", emoji: "🚗", lvl: "B1" },
-{ fr: "verglas", article: "un", en: "black ice", ph: "vair-GLAH", category: "neighbourhood", subcategory: "winter", type: "noun", emoji: "⚠️", lvl: "B1", note: "Serious sidewalk hazard in QC winters" },
-{ fr: "déneigement", article: "un", en: "snow removal", ph: "day-nezh-MAHN", category: "neighbourhood", subcategory: "winter", type: "noun", emoji: "🚛", lvl: "B1" },
-{ fr: "tempête de neige", article: "une", en: "snowstorm / blizzard", ph: "tahm-PET duh NEZH", category: "neighbourhood", subcategory: "winter", type: "noun", emoji: "🌨️", lvl: "B1" },
-{ fr: "banc de neige", article: "un", en: "snowbank", ph: "bahn duh NEZH", category: "neighbourhood", subcategory: "winter", type: "noun", emoji: "❄️", lvl: "B1" },
-{ fr: "sirop d'érable", article: "un", en: "maple syrup", ph: "see-ROH day-RAH-bluh", category: "neighbourhood", subcategory: "winter", type: "noun", emoji: "🍁", lvl: "A1" },
-{ fr: "érablière", article: "une", en: "sugar bush / maple grove", ph: "ay-rah-BLYAIR", category: "neighbourhood", subcategory: "winter", type: "noun", emoji: "🍁", lvl: "B1" },
-{ fr: "tourbière", article: "une", en: "bog", ph: "toor-BYAIR", category: "neighbourhood", subcategory: "nature", type: "noun", emoji: "🌿", lvl: "C1" },
-{ fr: "toile d'araignée", article: "une", en: "spider web", ph: "twahl dah-ray-NYAY", category: "neighbourhood", subcategory: "nature", type: "noun", emoji: "🕸️", lvl: "B2" },
 
 // ── NONPROFIT / FUNDRAISING ───────────────────────────────────────────────
 
@@ -2130,21 +2199,6 @@ const vocabData = [
 { fr: "travailleuse sociale", article: "une", en: "social worker (fem.)", ph: "trah-vye-YUHZ soh-SYAL", category: "occupations", subcategory: "medical", type: "noun", emoji: "🤝", lvl: "B1" },
 { fr: "psychologue", article: "un", en: "psychologist", ph: "psee-koh-LOG", category: "occupations", subcategory: "medical", type: "noun", emoji: "🧠", lvl: "B2" },
 { fr: "physiothérapeute", article: "un", en: "physiotherapist", ph: "fee-zyoh-tay-rah-PUT", category: "occupations", subcategory: "medical", type: "noun", emoji: "🏥", lvl: "C1" },
-
-// Subcategory: phrases
-{ fr: "Qu'est-ce que tu fais dans la vie ?", article: null, en: "What do you do for work?", ph: "kess-kuh too feh dahn lah VEE", category: "occupations", subcategory: "phrases", type: "phrase", emoji: "💼", lvl: "A1", note: "Literally 'what do you do in life'" },
-{ fr: "Je travaille comme...", article: null, en: "I work as a...", ph: "zhuh trah-VYE kum", category: "occupations", subcategory: "phrases", type: "phrase", emoji: "💼", lvl: "A1" },
-{ fr: "C'est quoi ton horaire cette semaine ?", article: null, en: "What's your schedule this week?", ph: "say kwah tohn oh-RAIR set suh-MEN", category: "occupations", subcategory: "phrases", type: "phrase", emoji: "📅", lvl: "A2" },
-{ fr: "Je cherche un nouveau travail.", article: null, en: "I'm looking for a new job.", ph: "zhuh shairsh un noo-VOH trah-VYE", category: "occupations", subcategory: "phrases", type: "phrase", emoji: "🔍", lvl: "A2" },
-{ fr: "J'ai une réunion ce matin.", article: null, en: "I have a meeting this morning.", ph: "zhay tyoon ray-yoo-NYOHN suh mah-TAN", category: "occupations", subcategory: "phrases", type: "phrase", emoji: "📅", lvl: "A2" },
-{ fr: "Je prends un jour de congé demain.", article: null, en: "I'm taking a day off tomorrow.", ph: "zhuh prahn un zhoor duh kohn-ZHAY duh-MAN", category: "occupations", subcategory: "phrases", type: "phrase", emoji: "🌴", lvl: "B1" },
-{ fr: "Je suis en télétravail aujourd'hui.", article: null, en: "I'm working from home today.", ph: "zhuh swee ahn tay-lay-trah-VYE oh-zhoor-DWEE", category: "occupations", subcategory: "phrases", type: "phrase", emoji: "🏠", lvl: "B1" },
-{ fr: "J'ai eu un entretien aujourd'hui.", article: null, en: "I had a job interview today.", ph: "zhay yoo un ahn-truh-TYAN oh-zhoor-DWEE", category: "occupations", subcategory: "phrases", type: "phrase", emoji: "🤝", lvl: "B1" },
-{ fr: "Il/Elle vient de prendre sa retraite.", article: null, en: "He/She just retired.", ph: "eel / el vyahn duh prahn-druh sah ruh-TRET", category: "occupations", subcategory: "phrases", type: "phrase", emoji: "🎉", lvl: "B1" },
-{ fr: "Je suis débordé(e) au travail.", article: null, en: "I'm swamped at work.", ph: "zhuh swee day-bor-DAY oh trah-VYE", category: "occupations", subcategory: "phrases", type: "phrase", emoji: "😤", lvl: "B2" },
-{ fr: "J'ai eu une longue journée.", article: null, en: "I had a long day.", ph: "zhay yoo oon lohng zhoor-NAY", category: "occupations", subcategory: "phrases", type: "phrase", emoji: "😮‍💨", lvl: "A2" },
-{ fr: "Je travaille à mon compte.", article: null, en: "I'm self-employed.", ph: "zhuh trah-VYE ah mohn KOHNT", category: "occupations", subcategory: "phrases", type: "phrase", emoji: "💼", lvl: "B2" },
-
 // Subcategory: trades & technical
 { fr: "cuisinier", article: "un", en: "cook / chef (masc.)", ph: "kwee-zee-NYAY", category: "occupations", subcategory: "trades", type: "noun", emoji: "👨‍🍳", lvl: "A2" },
 { fr: "cuisinière", article: "une", en: "cook / chef (fem.)", ph: "kwee-zee-NYAIR", category: "occupations", subcategory: "trades", type: "noun", emoji: "👩‍🍳", lvl: "A2" },
@@ -2162,16 +2216,7 @@ const vocabData = [
 { fr: "menuisier", article: "un", en: "carpenter", ph: "muh-nwee-ZYAY", category: "occupations", subcategory: "trades", type: "noun", emoji: "🪵", lvl: "B2" },
 { fr: "développeur", article: "un", en: "developer", ph: "day-vuh-loh-PUR", category: "occupations", subcategory: "trades", type: "noun", emoji: "💻", lvl: "B2" },
 
-// Subcategory: verbs
-{ fr: "travailler", article: null, en: "to work", ph: "trah-vye-YAY", category: "occupations", subcategory: "verbs", type: "verb", emoji: "💼", lvl: "A1" },
-{ fr: "postuler", article: null, en: "to apply (for a job)", ph: "pos-tyoo-LAY", category: "occupations", subcategory: "verbs", type: "verb", emoji: "📝", lvl: "B1" },
-{ fr: "embaucher", article: null, en: "to hire", ph: "ahm-boh-SHAY", category: "occupations", subcategory: "verbs", type: "verb", emoji: "🤝", lvl: "B1" },
-{ fr: "télétravailler", article: null, en: "to work from home", ph: "tay-lay-trah-vye-YAY", category: "occupations", subcategory: "verbs", type: "verb", emoji: "🏠", lvl: "B1" },
-{ fr: "démissionner", article: null, en: "to resign / quit", ph: "day-mee-syoh-NAY", category: "occupations", subcategory: "verbs", type: "verb", emoji: "🚪", lvl: "B2" },
-{ fr: "licencier", article: null, en: "to lay off / fire", ph: "lee-sahn-SYAY", category: "occupations", subcategory: "verbs", type: "verb", emoji: "📄", lvl: "B2" },
-{ fr: "prendre sa retraite", article: null, en: "to retire", ph: "prahn-druh sah ruh-TRET", category: "occupations", subcategory: "verbs", type: "verb", emoji: "🎉", lvl: "B2" },
-{ fr: "être promu", article: null, en: "to be promoted", ph: "et-ruh proh-MYOO", category: "occupations", subcategory: "verbs", type: "verb", emoji: "📈", lvl: "B2" },
-{ fr: "voyager pour le travail", article: null, en: "to travel for work", ph: "vwah-yah-ZHAY poor luh trah-VYE", category: "occupations", subcategory: "verbs", type: "verb", emoji: "✈️", lvl: "B2" },
+
 
 // Subcategory: work life & administration
 { fr: "travail", article: "un", en: "work / job", ph: "trah-VYE", category: "occupations", subcategory: "workplace", type: "noun", emoji: "💼", lvl: "A1" },
@@ -2194,6 +2239,30 @@ const vocabData = [
 { fr: "chômage", article: "un", en: "unemployment", ph: "shoh-MAHZH", category: "occupations", subcategory: "workplace", type: "noun", emoji: "😞", lvl: "B2" },
 { fr: "syndicat", article: "un", en: "union", ph: "san-dee-KAH", category: "occupations", subcategory: "workplace", type: "noun", emoji: "✊", lvl: "B2" },
 { fr: "télétravail", article: "un", en: "remote work", ph: "tay-lay-trah-VYE", category: "occupations", subcategory: "workplace", type: "noun", emoji: "🏠", lvl: "B1" },
+// Subcategory: verbs
+{ fr: "travailler", article: null, en: "to work", ph: "trah-vye-YAY", category: "occupations", subcategory: "verbs", type: "verb", emoji: "💼", lvl: "A1" },
+{ fr: "postuler", article: null, en: "to apply (for a job)", ph: "pos-tyoo-LAY", category: "occupations", subcategory: "verbs", type: "verb", emoji: "📝", lvl: "B1" },
+{ fr: "embaucher", article: null, en: "to hire", ph: "ahm-boh-SHAY", category: "occupations", subcategory: "verbs", type: "verb", emoji: "🤝", lvl: "B1" },
+{ fr: "télétravailler", article: null, en: "to work from home", ph: "tay-lay-trah-vye-YAY", category: "occupations", subcategory: "verbs", type: "verb", emoji: "🏠", lvl: "B1" },
+{ fr: "démissionner", article: null, en: "to resign / quit", ph: "day-mee-syoh-NAY", category: "occupations", subcategory: "verbs", type: "verb", emoji: "🚪", lvl: "B2" },
+{ fr: "licencier", article: null, en: "to lay off / fire", ph: "lee-sahn-SYAY", category: "occupations", subcategory: "verbs", type: "verb", emoji: "📄", lvl: "B2" },
+{ fr: "prendre sa retraite", article: null, en: "to retire", ph: "prahn-druh sah ruh-TRET", category: "occupations", subcategory: "verbs", type: "verb", emoji: "🎉", lvl: "B2" },
+{ fr: "être promu", article: null, en: "to be promoted", ph: "et-ruh proh-MYOO", category: "occupations", subcategory: "verbs", type: "verb", emoji: "📈", lvl: "B2" },
+{ fr: "voyager pour le travail", article: null, en: "to travel for work", ph: "vwah-yah-ZHAY poor luh trah-VYE", category: "occupations", subcategory: "verbs", type: "verb", emoji: "✈️", lvl: "B2" },
+
+// Subcategory: phrases
+{ fr: "Qu'est-ce que tu fais dans la vie ?", article: null, en: "What do you do for work?", ph: "kess-kuh too feh dahn lah VEE", category: "occupations", subcategory: "phrases", type: "phrase", emoji: "💼", lvl: "A1", note: "Literally 'what do you do in life'" },
+{ fr: "Je travaille comme...", article: null, en: "I work as a...", ph: "zhuh trah-VYE kum", category: "occupations", subcategory: "phrases", type: "phrase", emoji: "💼", lvl: "A1" },
+{ fr: "C'est quoi ton horaire cette semaine ?", article: null, en: "What's your schedule this week?", ph: "say kwah tohn oh-RAIR set suh-MEN", category: "occupations", subcategory: "phrases", type: "phrase", emoji: "📅", lvl: "A2" },
+{ fr: "Je cherche un nouveau travail.", article: null, en: "I'm looking for a new job.", ph: "zhuh shairsh un noo-VOH trah-VYE", category: "occupations", subcategory: "phrases", type: "phrase", emoji: "🔍", lvl: "A2" },
+{ fr: "J'ai une réunion ce matin.", article: null, en: "I have a meeting this morning.", ph: "zhay tyoon ray-yoo-NYOHN suh mah-TAN", category: "occupations", subcategory: "phrases", type: "phrase", emoji: "📅", lvl: "A2" },
+{ fr: "Je prends un jour de congé demain.", article: null, en: "I'm taking a day off tomorrow.", ph: "zhuh prahn un zhoor duh kohn-ZHAY duh-MAN", category: "occupations", subcategory: "phrases", type: "phrase", emoji: "🌴", lvl: "B1" },
+{ fr: "Je suis en télétravail aujourd'hui.", article: null, en: "I'm working from home today.", ph: "zhuh swee ahn tay-lay-trah-VYE oh-zhoor-DWEE", category: "occupations", subcategory: "phrases", type: "phrase", emoji: "🏠", lvl: "B1" },
+{ fr: "J'ai eu un entretien aujourd'hui.", article: null, en: "I had a job interview today.", ph: "zhay yoo un ahn-truh-TYAN oh-zhoor-DWEE", category: "occupations", subcategory: "phrases", type: "phrase", emoji: "🤝", lvl: "B1" },
+{ fr: "Il/Elle vient de prendre sa retraite.", article: null, en: "He/She just retired.", ph: "eel / el vyahn duh prahn-druh sah ruh-TRET", category: "occupations", subcategory: "phrases", type: "phrase", emoji: "🎉", lvl: "B1" },
+{ fr: "Je suis débordé(e) au travail.", article: null, en: "I'm swamped at work.", ph: "zhuh swee day-bor-DAY oh trah-VYE", category: "occupations", subcategory: "phrases", type: "phrase", emoji: "😤", lvl: "B2" },
+{ fr: "J'ai eu une longue journée.", article: null, en: "I had a long day.", ph: "zhay yoo oon lohng zhoor-NAY", category: "occupations", subcategory: "phrases", type: "phrase", emoji: "😮‍💨", lvl: "A2" },
+{ fr: "Je travaille à mon compte.", article: null, en: "I'm self-employed.", ph: "zhuh trah-VYE ah mohn KOHNT", category: "occupations", subcategory: "phrases", type: "phrase", emoji: "💼", lvl: "B2" },
 
 // ── PEOPLE ────────────────────────────────────────────────────────────────
 
@@ -2281,17 +2350,6 @@ const vocabData = [
 { fr: "ambitieux", article: null, en: "ambitious (masc.)", ph: "ahm-bee-SYUH", category: "people", subcategory: "personality", type: "adjective", emoji: "🎯", lvl: "B2" },
 { fr: "ambitieuse", article: null, en: "ambitious (fem.)", ph: "ahm-bee-SYUHZ", category: "people", subcategory: "personality", type: "adjective", emoji: "🎯", lvl: "B2" },
 
-// Subcategory: phrases
-{ fr: "Comment tu t'appelles ?", article: null, en: "What's your name?", ph: "koh-MAHN too tah-PEL", category: "people", subcategory: "phrases", type: "phrase", emoji: "🏷️", lvl: "A0" },
-{ fr: "Je te présente...", article: null, en: "I'd like you to meet...", ph: "zhuh tuh pray-ZAHNT", category: "people", subcategory: "phrases", type: "phrase", emoji: "🤝", lvl: "A1" },
-{ fr: "Il est de ma famille.", article: null, en: "He's family.", ph: "eel ay duh mah fah-MEE", category: "people", subcategory: "phrases", type: "phrase", emoji: "👨‍👩‍👧‍👦", lvl: "A2" },
-{ fr: "On s'entend bien.", article: null, en: "We get along well.", ph: "ohn sahn-TAHN bee-AN", category: "people", subcategory: "phrases", type: "phrase", emoji: "😊", lvl: "A2" },
-{ fr: "Tu as des frères et sœurs ?", article: null, en: "Do you have siblings?", ph: "too ah day frair ay SUR", category: "people", subcategory: "phrases", type: "phrase", emoji: "👧🧒", lvl: "A2" },
-{ fr: "Tu ressembles à ta mère.", article: null, en: "You look like your mother.", ph: "too ruh-sahm-BLAY ah tah MAIR", category: "people", subcategory: "phrases", type: "phrase", emoji: null, lvl: "B1" },
-{ fr: "C'est quelqu'un de bien.", article: null, en: "They're a good person.", ph: "say kel-KAN duh BYAN", category: "people", subcategory: "phrases", type: "phrase", emoji: "🌟", lvl: "B1" },
-{ fr: "On se connaît depuis longtemps.", article: null, en: "We've known each other a long time.", ph: "ohn suh koh-NEH duh-PWEE lohn-TAHN", category: "people", subcategory: "phrases", type: "phrase", emoji: null, lvl: "B1" },
-{ fr: "Vous êtes combien dans la famille ?", article: null, en: "How many people are in your family?", ph: "voo zet kohm-BYAN dahn lah fah-MEE", category: "people", subcategory: "phrases", type: "phrase", emoji: "👨‍👩‍👧‍👦", lvl: "B1" },
-
 // Subcategory: professional
 { fr: "collègue", article: "un", en: "colleague", ph: "koh-LEG", category: "people", subcategory: "professional", type: "noun", emoji: "👥", lvl: "A2" },
 { fr: "patron", article: "un", en: "boss", ph: "pah-TROHN", category: "people", subcategory: "professional", type: "noun", emoji: "💼", lvl: "A2" },
@@ -2318,6 +2376,17 @@ const vocabData = [
 { fr: "partenaire", article: "un", en: "partner", ph: "par-tuh-NAIR", category: "people", subcategory: "social", type: "noun", emoji: "🤝", lvl: "B1" },
 { fr: "jumeau", article: "un", en: "twin (masc.)", ph: "zhyoo-MOH", category: "people", subcategory: "social", type: "noun", emoji: "👯", lvl: "B1" },
 { fr: "jumelle", article: "une", en: "twin (fem.)", ph: "zhyoo-MEL", category: "people", subcategory: "social", type: "noun", emoji: "👯", lvl: "B1" },
+
+// Subcategory: phrases
+{ fr: "Comment tu t'appelles ?", article: null, en: "What's your name?", ph: "koh-MAHN too tah-PEL", category: "people", subcategory: "phrases", type: "phrase", emoji: "🏷️", lvl: "A0" },
+{ fr: "Je te présente...", article: null, en: "I'd like you to meet...", ph: "zhuh tuh pray-ZAHNT", category: "people", subcategory: "phrases", type: "phrase", emoji: "🤝", lvl: "A1" },
+{ fr: "Il est de ma famille.", article: null, en: "He's family.", ph: "eel ay duh mah fah-MEE", category: "people", subcategory: "phrases", type: "phrase", emoji: "👨‍👩‍👧‍👦", lvl: "A2" },
+{ fr: "On s'entend bien.", article: null, en: "We get along well.", ph: "ohn sahn-TAHN bee-AN", category: "people", subcategory: "phrases", type: "phrase", emoji: "😊", lvl: "A2" },
+{ fr: "Tu as des frères et sœurs ?", article: null, en: "Do you have siblings?", ph: "too ah day frair ay SUR", category: "people", subcategory: "phrases", type: "phrase", emoji: "👧🧒", lvl: "A2" },
+{ fr: "Tu ressembles à ta mère.", article: null, en: "You look like your mother.", ph: "too ruh-sahm-BLAY ah tah MAIR", category: "people", subcategory: "phrases", type: "phrase", emoji: null, lvl: "B1" },
+{ fr: "C'est quelqu'un de bien.", article: null, en: "They're a good person.", ph: "say kel-KAN duh BYAN", category: "people", subcategory: "phrases", type: "phrase", emoji: "🌟", lvl: "B1" },
+{ fr: "On se connaît depuis longtemps.", article: null, en: "We've known each other a long time.", ph: "ohn suh koh-NEH duh-PWEE lohn-TAHN", category: "people", subcategory: "phrases", type: "phrase", emoji: null, lvl: "B1" },
+{ fr: "Vous êtes combien dans la famille ?", article: null, en: "How many people are in your family?", ph: "voo zet kohm-BYAN dahn lah fah-MEE", category: "people", subcategory: "phrases", type: "phrase", emoji: "👨‍👩‍👧‍👦", lvl: "B1" },
 
   // ── PREPOSITIONS ──────────────────────────────────────────────────────────
 
@@ -2353,19 +2422,6 @@ const vocabData = [
 
   // ── SCHOOL ────────────────────────────────────────────────────────────────
 
-// Subcategory: phrases
-{ fr: "J'apprends le français.", article: null, en: "I'm learning French.", ph: "zhah-PRAHN luh frahn-SAY", category: "school", subcategory: "phrases", type: "phrase", emoji: "🇫🇷", lvl: "A1" },
-{ fr: "Comment s'est passée ta journée ?", article: null, en: "How was your day?", ph: "koh-MAHN say pah-SAY tah zhoor-NAY", category: "school", subcategory: "phrases", type: "phrase", emoji: "💬", lvl: "A1" },
-{ fr: "Tu as fini tes devoirs ?", article: null, en: "Did you finish your homework?", ph: "too ah fee-NEE tay duh-VWAHR", category: "school", subcategory: "phrases", type: "phrase", emoji: "✅", lvl: "A1" },
-{ fr: "N'oublie pas ta boîte à lunch.", article: null, en: "Don't forget your lunchbox.", ph: "noo-BLEE pah tah bwaht ah LUNCH", category: "school", subcategory: "phrases", type: "phrase", emoji: "🥪", lvl: "A1" },
-{ fr: "C'est l'heure de partir.", article: null, en: "It's time to leave.", ph: "say luhr duh par-TEER", category: "school", subcategory: "phrases", type: "phrase", emoji: "🚪", lvl: "A1" },
-{ fr: "Tu as tout dans ton sac ?", article: null, en: "Do you have everything in your bag?", ph: "too ah too dahn tohn SAK", category: "school", subcategory: "phrases", type: "phrase", emoji: "🎒", lvl: "A1" },
-{ fr: "Encore cinq minutes.", article: null, en: "Five more minutes.", ph: "ahn-KOR sank mee-NYOOT", category: "school", subcategory: "phrases", type: "phrase", emoji: "⏰", lvl: "A1" },
-{ fr: "Tu as aimé ta journée ?", article: null, en: "Did you enjoy your day?", ph: "too ah ay-MAY tah zhoor-NAY", category: "school", subcategory: "phrases", type: "phrase", emoji: "😊", lvl: "A1" },
-{ fr: "Comment dit-on ... en français ?", article: null, en: "How do you say ... in French?", ph: "koh-MAHN dee-TOHN ... ahn frahn-SAY", category: "school", subcategory: "phrases", type: "phrase", emoji: "💬", lvl: "A2" },
-{ fr: "Tu peux répéter ?", article: null, en: "Can you repeat that?", ph: "too puh ray-pay-TAY", category: "school", subcategory: "phrases", type: "phrase", emoji: "🔁", lvl: "A1" },
-{ fr: "Mon français s'améliore !", article: null, en: "My French is improving!", ph: "mohn frahn-SAY sah-may-LYOHR", category: "school", subcategory: "phrases", type: "phrase", emoji: "🌟", lvl: "B1" },
-{ fr: "C'était quoi ta période spéciale aujourd'hui ?", article: null, en: "What was your special today?", ph: "say-TAY kwah tah pay-ree-OD spay-SYAL oh-zhoor-DWEE", category: "school", subcategory: "phrases", type: "phrase", emoji: "🎨", lvl: "B1" },
 
 // Subcategory: people
 { fr: "élève", article: "un", en: "student / pupil", ph: "ay-LEV", category: "school", subcategory: "people", type: "noun", emoji: "🧒", lvl: "A1" },
@@ -2448,6 +2504,19 @@ const vocabData = [
 { fr: "réussir", article: null, en: "to succeed / to pass", ph: "ray-yoo-SEER", category: "school", subcategory: "verbs", type: "verb", emoji: "✅", lvl: "A2" },
 { fr: "échouer", article: null, en: "to fail", ph: "ay-shoo-AY", category: "school", subcategory: "verbs", type: "verb", emoji: "❌", lvl: "B1" },
 { fr: "calculer", article: null, en: "to calculate", ph: "kal-kyoo-LAY", category: "school", subcategory: "verbs", type: "verb", emoji: "🔢", lvl: "A2" },
+// Subcategory: phrases
+{ fr: "J'apprends le français.", article: null, en: "I'm learning French.", ph: "zhah-PRAHN luh frahn-SAY", category: "school", subcategory: "phrases", type: "phrase", emoji: "🇫🇷", lvl: "A1" },
+{ fr: "Comment s'est passée ta journée ?", article: null, en: "How was your day?", ph: "koh-MAHN say pah-SAY tah zhoor-NAY", category: "school", subcategory: "phrases", type: "phrase", emoji: "💬", lvl: "A1" },
+{ fr: "Tu as fini tes devoirs ?", article: null, en: "Did you finish your homework?", ph: "too ah fee-NEE tay duh-VWAHR", category: "school", subcategory: "phrases", type: "phrase", emoji: "✅", lvl: "A1" },
+{ fr: "N'oublie pas ta boîte à lunch.", article: null, en: "Don't forget your lunchbox.", ph: "noo-BLEE pah tah bwaht ah LUNCH", category: "school", subcategory: "phrases", type: "phrase", emoji: "🥪", lvl: "A1" },
+{ fr: "C'est l'heure de partir.", article: null, en: "It's time to leave.", ph: "say luhr duh par-TEER", category: "school", subcategory: "phrases", type: "phrase", emoji: "🚪", lvl: "A1" },
+{ fr: "Tu as tout dans ton sac ?", article: null, en: "Do you have everything in your bag?", ph: "too ah too dahn tohn SAK", category: "school", subcategory: "phrases", type: "phrase", emoji: "🎒", lvl: "A1" },
+{ fr: "Encore cinq minutes.", article: null, en: "Five more minutes.", ph: "ahn-KOR sank mee-NYOOT", category: "school", subcategory: "phrases", type: "phrase", emoji: "⏰", lvl: "A1" },
+{ fr: "Tu as aimé ta journée ?", article: null, en: "Did you enjoy your day?", ph: "too ah ay-MAY tah zhoor-NAY", category: "school", subcategory: "phrases", type: "phrase", emoji: "😊", lvl: "A1" },
+{ fr: "Comment dit-on ... en français ?", article: null, en: "How do you say ... in French?", ph: "koh-MAHN dee-TOHN ... ahn frahn-SAY", category: "school", subcategory: "phrases", type: "phrase", emoji: "💬", lvl: "A2" },
+{ fr: "Tu peux répéter ?", article: null, en: "Can you repeat that?", ph: "too puh ray-pay-TAY", category: "school", subcategory: "phrases", type: "phrase", emoji: "🔁", lvl: "A1" },
+{ fr: "Mon français s'améliore !", article: null, en: "My French is improving!", ph: "mohn frahn-SAY sah-may-LYOHR", category: "school", subcategory: "phrases", type: "phrase", emoji: "🌟", lvl: "B1" },
+{ fr: "C'était quoi ta période spéciale aujourd'hui ?", article: null, en: "What was your special today?", ph: "say-TAY kwah tah pay-ree-OD spay-SYAL oh-zhoor-DWEE", category: "school", subcategory: "phrases", type: "phrase", emoji: "🎨", lvl: "B1" },
 
   // ── SLANG & SWEARING ──────────────────────────────────────────────────────
 
@@ -2625,7 +2694,7 @@ const vocabData = [
 { fr: "le jour de l'An", article: "le", en: "New Year's Day", ph: "luh zhoor duh lah", category: "time", subcategory: "dates", type: "noun", emoji: "🎆", lvl: "A2" },
 { fr: "la fête du Travail", article: "la", en: "Labor Day", ph: "lah fet dyoo trah-vaye", category: "time", subcategory: "dates", type: "noun", emoji: "🛠️", lvl: "B1" },
 { fr: "l'Action de grâce", article: "l'", en: "Thanksgiving", ph: "lak-syohn duh grahs", category: "time", subcategory: "dates", type: "noun", emoji: "🍂", lvl: "B1", note: "Celebrated in October in Canada, unlike the US November date." },
-{ fr: "aujourd'hui, c'est samedi le vingt-neuf juin",   article: null,   en: "today is Saturday June 29th",   ph: "oh-zhoor-DWEE say sam-DEE luh vant-NUF zhwan",  category: "time",   subcategory: "dates",   type: "phrase",   emoji: "📅",   lvl: "A2",   note: "In Quebec, it is very common to add 'le' before the number even when the day of the week is included." }, 
+{ fr: "Aujourd'hui, c'est samedi le vingt-neuf juin",   article: null,   en: "Today is Saturday June 29th",   ph: "oh-zhoor-DWEE say sam-DEE luh vant-NUF zhwan",  category: "time",   subcategory: "dates",   type: "phrase",   emoji: "📅",   lvl: "A2",   note: "In Quebec, it is very common to add 'le' before the number even when the day of the week is included." }, 
 
 // ── VERBS (core / universal) ───────────────────────────────────────────────
 
@@ -2717,7 +2786,37 @@ const vocabData = [
   
 // ── WEATHER ────────────────────────────────────────────────────────────────
 
-// Subcategory: adjectives
+
+// Subcategory: forecast & phenomena
+{ fr: "temps", article: "le", en: "weather", ph: "tahn", category: "weather", subcategory: "forecast", type: "noun", emoji: "🌤️", lvl: "A1" },
+{ fr: "météo", article: "la", en: "weather forecast", ph: "may-tay-OH", category: "weather", subcategory: "forecast", type: "noun", emoji: "📱", lvl: "A2" },
+{ fr: "prévisions météo", article: "les", en: "weather forecast", ph: "pray-vee-ZYOHN may-tay-OH", category: "weather", subcategory: "forecast", type: "noun", emoji: "📱", lvl: "B1" },
+{ fr: "orage", article: "un", en: "thunderstorm", ph: "oh-RAHZH", category: "weather", subcategory: "phenomena", type: "noun", emoji: "⛈️", lvl: "A2" },
+{ fr: "tonnerre", article: "un", en: "thunder", ph: "toh-NAIR", category: "weather", subcategory: "phenomena", type: "noun", emoji: "🌩️", lvl: "B1" },
+{ fr: "éclair", article: "un", en: "lightning", ph: "ay-KLAIR", category: "weather", subcategory: "phenomena", type: "noun", emoji: "⚡", lvl: "B1" },
+{ fr: "brouillard", article: "un", en: "fog", ph: "broo-YAR", category: "weather", subcategory: "phenomena", type: "noun", emoji: "🌫️", lvl: "B1" },
+{ fr: "brume", article: "une", en: "mist / haze", ph: "broom", category: "weather", subcategory: "phenomena", type: "noun", emoji: "🌫️", lvl: "B2", note: "Lighter than brouillard" },
+{ fr: "averse", article: "une", en: "shower / downpour", ph: "ah-VAIRS", category: "weather", subcategory: "phenomena", type: "noun", emoji: "🌧️", lvl: "B1" },
+{ fr: "bourrasque", article: "une", en: "gust / squall", ph: "boo-RASK", category: "weather", subcategory: "phenomena", type: "noun", emoji: "💨", lvl: "B2" },
+{ fr: "indice UV", article: "un", en: "UV index", ph: "an-DEES yoo-VAY", category: "weather", subcategory: "phenomena", type: "noun", emoji: "☀️", lvl: "B1" },
+
+// Subcategory: temperature & seasonal phenomena
+{ fr: "température", article: "une", en: "temperature", ph: "tahm-pay-rah-TYOOR", category: "weather", subcategory: "temperature", type: "noun", emoji: "🌡️", lvl: "A2" },
+{ fr: "humidité", article: "une", en: "humidity", ph: "yoo-mee-dee-TAY", category: "weather", subcategory: "temperature", type: "noun", emoji: "💧", lvl: "B1" },
+{ fr: "chaleur", article: "une", en: "heat", ph: "shah-LUR", category: "weather", subcategory: "temperature", type: "noun", emoji: "🔥", lvl: "A2" },
+{ fr: "canicule", article: "une", en: "heat wave", ph: "kah-nee-KYOOL", category: "weather", subcategory: "temperature", type: "noun", emoji: "🌡️", lvl: "B2" },
+{ fr: "fraîcheur", article: "une", en: "coolness / fresh air", ph: "freh-SHUR", category: "weather", subcategory: "temperature", type: "noun", emoji: "🌬️", lvl: "B1" },
+{ fr: "tempête", article: "une", en: "storm", ph: "tahm-PET", category: "weather", subcategory: "phenomena", type: "noun", emoji: "🌪️", lvl: "A2" },
+{ fr: "tempête de neige", article: "une", en: "snowstorm / blizzard", ph: "tahm-PET duh NEZH", category: "weather", subcategory: "phenomena", type: "noun", emoji: "🌨️", lvl: "A2" },
+{ fr: "grêle", article: "une", en: "hail", ph: "grel", category: "weather", subcategory: "phenomena", type: "noun", emoji: "🌨️", lvl: "B2" },
+{ fr: "gel", article: "un", en: "frost / freeze", ph: "zhel", category: "weather", subcategory: "seasonal", type: "noun", emoji: "🧊", lvl: "B1" },
+{ fr: "dégel", article: "un", en: "thaw / spring melt", ph: "day-ZHEL", category: "weather", subcategory: "seasonal", type: "noun", emoji: "💧", lvl: "B1" },
+{ fr: "verglas", article: "un", en: "black ice", ph: "vair-GLAH", category: "weather", subcategory: "seasonal", type: "noun", emoji: "⚠️", lvl: "B1", note: "Critical QC winter safety term" },
+{ fr: "givre", article: "un", en: "frost (on surfaces)", ph: "zhee-vruh", category: "weather", subcategory: "seasonal", type: "noun", emoji: "❄️", lvl: "B2", note: "The decorative frost on windows/trees" },
+{ fr: "redoux", article: "un", en: "warm spell", ph: "ruh-DOO", category: "weather", subcategory: "seasonal", type: "noun", emoji: "🌤️", lvl: "B2", note: "QC term for mid-winter thaws" },
+{ fr: "facteur éolien", article: "un", en: "wind chill", ph: "fak-TUR ay-oh-LYAN", category: "weather", subcategory: "temperature", type: "noun", emoji: "🌬️", lvl: "C1", note: "Everyday QC: 'le refroidissement éolien' or 'le wind chill'" },
+
+  // Subcategory: adjectives
 { fr: "ensoleillé", article: null, en: "sunny (masc.)", ph: "ahn-soh-lay-YAY", category: "weather", subcategory: "adjectives", type: "adjective", emoji: "☀️", lvl: "A1" },
 { fr: "ensoleillée", article: null, en: "sunny (fem.)", ph: "ahn-soh-lay-YAY", category: "weather", subcategory: "adjectives", type: "adjective", emoji: "☀️", lvl: "A1" },
 { fr: "nuageux", article: null, en: "cloudy (masc.)", ph: "nyoo-ah-ZHUH", category: "weather", subcategory: "adjectives", type: "adjective", emoji: "☁️", lvl: "A1" },
@@ -2742,18 +2841,20 @@ const vocabData = [
 { fr: "sèche", article: null, en: "dry (fem.)", ph: "sesh", category: "weather", subcategory: "adjectives", type: "adjective", emoji: "🌵", lvl: "B1" },
 { fr: "variable", article: null, en: "changeable / variable", ph: "vah-ree-AH-bluh", category: "weather", subcategory: "adjectives", type: "adjective", emoji: "🌤️", lvl: "B2" },
 
-// Subcategory: forecast & phenomena
-{ fr: "temps", article: "le", en: "weather", ph: "tahn", category: "weather", subcategory: "forecast", type: "noun", emoji: "🌤️", lvl: "A1" },
-{ fr: "météo", article: "la", en: "weather forecast", ph: "may-tay-OH", category: "weather", subcategory: "forecast", type: "noun", emoji: "📱", lvl: "A2" },
-{ fr: "prévisions météo", article: "les", en: "weather forecast", ph: "pray-vee-ZYOHN may-tay-OH", category: "weather", subcategory: "forecast", type: "noun", emoji: "📱", lvl: "B1" },
-{ fr: "orage", article: "un", en: "thunderstorm", ph: "oh-RAHZH", category: "weather", subcategory: "phenomena", type: "noun", emoji: "⛈️", lvl: "A2" },
-{ fr: "tonnerre", article: "un", en: "thunder", ph: "toh-NAIR", category: "weather", subcategory: "phenomena", type: "noun", emoji: "🌩️", lvl: "B1" },
-{ fr: "éclair", article: "un", en: "lightning", ph: "ay-KLAIR", category: "weather", subcategory: "phenomena", type: "noun", emoji: "⚡", lvl: "B1" },
-{ fr: "brouillard", article: "un", en: "fog", ph: "broo-YAR", category: "weather", subcategory: "phenomena", type: "noun", emoji: "🌫️", lvl: "B1" },
-{ fr: "brume", article: "une", en: "mist / haze", ph: "broom", category: "weather", subcategory: "phenomena", type: "noun", emoji: "🌫️", lvl: "B2", note: "Lighter than brouillard" },
-{ fr: "averse", article: "une", en: "shower / downpour", ph: "ah-VAIRS", category: "weather", subcategory: "phenomena", type: "noun", emoji: "🌧️", lvl: "B1" },
-{ fr: "bourrasque", article: "une", en: "gust / squall", ph: "boo-RASK", category: "weather", subcategory: "phenomena", type: "noun", emoji: "💨", lvl: "B2" },
-{ fr: "indice UV", article: "un", en: "UV index", ph: "an-DEES yoo-VAY", category: "weather", subcategory: "phenomena", type: "noun", emoji: "☀️", lvl: "B1" },
+  
+// Subcategory: verbs
+{ fr: "pleuvoir", article: null, en: "to rain", ph: "pluh-VWAHR", category: "weather", subcategory: "verbs", type: "verb", emoji: "🌧️", lvl: "A1", note: "Used as 'il pleut'" },
+{ fr: "neiger", article: null, en: "to snow", ph: "neh-ZHAY", category: "weather", subcategory: "verbs", type: "verb", emoji: "❄️", lvl: "A1", note: "Used as 'il neige'" },
+{ fr: "briller", article: null, en: "to shine (sun)", ph: "bree-YAY", category: "weather", subcategory: "verbs", type: "verb", emoji: "☀️", lvl: "A2" },
+{ fr: "souffler", article: null, en: "to blow (wind)", ph: "soo-FLAY", category: "weather", subcategory: "verbs", type: "verb", emoji: "💨", lvl: "A2" },
+{ fr: "geler", article: null, en: "to freeze", ph: "zhuh-LAY", category: "weather", subcategory: "verbs", type: "verb", emoji: "🧊", lvl: "B1" },
+{ fr: "dégeler", article: null, en: "to thaw / to defrost", ph: "day-zhuh-LAY", category: "weather", subcategory: "verbs", type: "verb", emoji: "💧", lvl: "B1" },
+{ fr: "grêler", article: null, en: "to hail", ph: "greh-LAY", category: "weather", subcategory: "verbs", type: "verb", emoji: "🌨️", lvl: "B2" },
+{ fr: "se réchauffer", article: null, en: "to warm up", ph: "suh ray-shoh-FAY", category: "weather", subcategory: "verbs", type: "verb", emoji: "🌤️", lvl: "B1" },
+{ fr: "se refroidir", article: null, en: "to cool down", ph: "suh ruh-frwah-DEER", category: "weather", subcategory: "verbs", type: "verb", emoji: "🥶", lvl: "B1" },
+{ fr: "s'améliorer", article: null, en: "to improve / clear up", ph: "sah-may-lyoh-RAY", category: "weather", subcategory: "verbs", type: "verb", emoji: "🌤️", lvl: "B2" },
+{ fr: "se couvrir", article: null, en: "to become overcast", ph: "suh koo-VREER", category: "weather", subcategory: "verbs", type: "verb", emoji: "☁️", lvl: "B2" },
+
 
 // Subcategory: phrases
 { fr: "Il fait beau.", article: null, en: "The weather is nice.", ph: "eel feh BOH", category: "weather", subcategory: "phrases", type: "phrase", emoji: "☀️", lvl: "A0" },
@@ -2775,36 +2876,7 @@ const vocabData = [
 { fr: "On dirait le printemps !", article: null, en: "It feels like spring!", ph: "ohn dee-REH luh pran-TAHN", category: "weather", subcategory: "phrases", type: "phrase", emoji: "🌸", lvl: "A2" },
 { fr: "J'adore quand il neige.", article: null, en: "I love when it snows.", ph: "zhah-DOR kahn eel NEZH", category: "weather", subcategory: "phrases", type: "phrase", emoji: "❄️", lvl: "A1" },
 { fr: "J'en ai assez de l'hiver.", article: null, en: "I've had enough of winter.", ph: "zhahn ay ah-SAY duh lee-VAIR", category: "weather", subcategory: "phrases", type: "phrase", emoji: "😩", lvl: "B2", note: "A quintessential late-season QC mood" },
-
-// Subcategory: temperature & seasonal phenomena
-{ fr: "température", article: "une", en: "temperature", ph: "tahm-pay-rah-TYOOR", category: "weather", subcategory: "temperature", type: "noun", emoji: "🌡️", lvl: "A2" },
-{ fr: "humidité", article: "une", en: "humidity", ph: "yoo-mee-dee-TAY", category: "weather", subcategory: "temperature", type: "noun", emoji: "💧", lvl: "B1" },
-{ fr: "chaleur", article: "une", en: "heat", ph: "shah-LUR", category: "weather", subcategory: "temperature", type: "noun", emoji: "🔥", lvl: "A2" },
-{ fr: "canicule", article: "une", en: "heat wave", ph: "kah-nee-KYOOL", category: "weather", subcategory: "temperature", type: "noun", emoji: "🌡️", lvl: "B2" },
-{ fr: "fraîcheur", article: "une", en: "coolness / fresh air", ph: "freh-SHUR", category: "weather", subcategory: "temperature", type: "noun", emoji: "🌬️", lvl: "B1" },
-{ fr: "tempête", article: "une", en: "storm", ph: "tahm-PET", category: "weather", subcategory: "phenomena", type: "noun", emoji: "🌪️", lvl: "A2" },
-{ fr: "tempête de neige", article: "une", en: "snowstorm / blizzard", ph: "tahm-PET duh NEZH", category: "weather", subcategory: "phenomena", type: "noun", emoji: "🌨️", lvl: "A2" },
-{ fr: "grêle", article: "une", en: "hail", ph: "grel", category: "weather", subcategory: "phenomena", type: "noun", emoji: "🌨️", lvl: "B2" },
-{ fr: "gel", article: "un", en: "frost / freeze", ph: "zhel", category: "weather", subcategory: "seasonal", type: "noun", emoji: "🧊", lvl: "B1" },
-{ fr: "dégel", article: "un", en: "thaw / spring melt", ph: "day-ZHEL", category: "weather", subcategory: "seasonal", type: "noun", emoji: "💧", lvl: "B1" },
-{ fr: "verglas", article: "un", en: "black ice", ph: "vair-GLAH", category: "weather", subcategory: "seasonal", type: "noun", emoji: "⚠️", lvl: "B1", note: "Critical QC winter safety term" },
-{ fr: "givre", article: "un", en: "frost (on surfaces)", ph: "zhee-vruh", category: "weather", subcategory: "seasonal", type: "noun", emoji: "❄️", lvl: "B2", note: "The decorative frost on windows/trees" },
-{ fr: "redoux", article: "un", en: "warm spell", ph: "ruh-DOO", category: "weather", subcategory: "seasonal", type: "noun", emoji: "🌤️", lvl: "B2", note: "QC term for mid-winter thaws" },
-{ fr: "facteur éolien", article: "un", en: "wind chill", ph: "fak-TUR ay-oh-LYAN", category: "weather", subcategory: "temperature", type: "noun", emoji: "🌬️", lvl: "C1", note: "Everyday QC: 'le refroidissement éolien' or 'le wind chill'" },
-
-// Subcategory: verbs
-{ fr: "pleuvoir", article: null, en: "to rain", ph: "pluh-VWAHR", category: "weather", subcategory: "verbs", type: "verb", emoji: "🌧️", lvl: "A1", note: "Used as 'il pleut'" },
-{ fr: "neiger", article: null, en: "to snow", ph: "neh-ZHAY", category: "weather", subcategory: "verbs", type: "verb", emoji: "❄️", lvl: "A1", note: "Used as 'il neige'" },
-{ fr: "briller", article: null, en: "to shine (sun)", ph: "bree-YAY", category: "weather", subcategory: "verbs", type: "verb", emoji: "☀️", lvl: "A2" },
-{ fr: "souffler", article: null, en: "to blow (wind)", ph: "soo-FLAY", category: "weather", subcategory: "verbs", type: "verb", emoji: "💨", lvl: "A2" },
-{ fr: "geler", article: null, en: "to freeze", ph: "zhuh-LAY", category: "weather", subcategory: "verbs", type: "verb", emoji: "🧊", lvl: "B1" },
-{ fr: "dégeler", article: null, en: "to thaw / to defrost", ph: "day-zhuh-LAY", category: "weather", subcategory: "verbs", type: "verb", emoji: "💧", lvl: "B1" },
-{ fr: "grêler", article: null, en: "to hail", ph: "greh-LAY", category: "weather", subcategory: "verbs", type: "verb", emoji: "🌨️", lvl: "B2" },
-{ fr: "se réchauffer", article: null, en: "to warm up", ph: "suh ray-shoh-FAY", category: "weather", subcategory: "verbs", type: "verb", emoji: "🌤️", lvl: "B1" },
-{ fr: "se refroidir", article: null, en: "to cool down", ph: "suh ruh-frwah-DEER", category: "weather", subcategory: "verbs", type: "verb", emoji: "🥶", lvl: "B1" },
-{ fr: "s'améliorer", article: null, en: "to improve / clear up", ph: "sah-may-lyoh-RAY", category: "weather", subcategory: "verbs", type: "verb", emoji: "🌤️", lvl: "B2" },
-{ fr: "se couvrir", article: null, en: "to become overcast", ph: "suh koo-VREER", category: "weather", subcategory: "verbs", type: "verb", emoji: "☁️", lvl: "B2" },
- 
+  
 ];
 
 export default vocabData;
