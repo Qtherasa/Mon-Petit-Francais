@@ -14,192 +14,45 @@
       max-width: 900px;
       margin: 0 auto;
     }
-
-    .page-header {
-      text-align: center;
-      margin-bottom: 44px;
-    }
-    .page-header .eyebrow {
-      font-size: 0.78rem; letter-spacing: 0.22em;
-      text-transform: uppercase; color: var(--accent);
-      font-weight: 300; margin-bottom: 14px;
-    }
-    .page-header h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(2.2rem, 6vw, 3.2rem);
-      font-weight: 400; line-height: 1.15;
-      color: var(--ink); margin-bottom: 14px;
-    }
+    .page-header { text-align: center; margin-bottom: 44px; }
+    .page-header .eyebrow { font-size: 0.78rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--accent); font-weight: 300; margin-bottom: 14px; }
+    .page-header h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.2rem, 6vw, 3.2rem); font-weight: 400; line-height: 1.15; color: var(--ink); margin-bottom: 14px; }
     .page-header h1 em { font-style: italic; color: var(--accent); }
-    .page-header p {
-      font-size: 0.97rem; color: var(--muted); font-weight: 300;
-      max-width: 420px; margin: 0 auto; line-height: 1.75;
-    }
+    .page-header p { font-size: 0.97rem; color: var(--muted); font-weight: 300; max-width: 420px; margin: 0 auto; line-height: 1.75; }
 
-    /* Topic card grid */
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-      gap: 14px;
-    }
-    .card {
-      background: var(--warm-white);
-      border: 1px solid var(--line);
-      border-radius: 6px;
-      padding: 24px 16px 20px;
-      cursor: pointer;
-      transition: all 0.22s ease;
-      text-align: center;
-      position: relative; overflow: hidden;
-      -webkit-tap-highlight-color: transparent;
-      animation: fadeUp 0.4s ease both;
-    }
-    .card::after {
-      content: '';
-      position: absolute;
-      bottom: 0; left: 0; right: 0; height: 2px;
-      background: var(--accent);
-      transform: scaleX(0); transform-origin: left;
-      transition: transform 0.22s ease;
-    }
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 14px; }
+    .card { background: var(--warm-white); border: 1px solid var(--line); border-radius: 6px; padding: 24px 16px 20px; cursor: pointer; transition: all 0.22s ease; text-align: center; position: relative; overflow: hidden; -webkit-tap-highlight-color: transparent; animation: fadeUp 0.4s ease both; }
+    .card::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 2px; background: var(--accent); transform: scaleX(0); transform-origin: left; transition: transform 0.22s ease; }
     .card:hover { border-color: var(--accent-light); box-shadow: 0 4px 24px rgba(196,113,74,0.10); transform: translateY(-2px); }
     .card:hover::after { transform: scaleX(1); }
-    .card:active { transform: translateY(0); }
-    .card-icon  { font-size: 1.7rem; margin-bottom: 10px; display: block; }
-    .card-title { font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 600; color: var(--ink); margin-bottom: 5px; }
-    .card-sub   { font-size: 0.76rem; color: var(--muted); font-weight: 300; }
+    .card.card-all { border-style: dashed; border-color: var(--accent-light); }
 
-    /* "All Vocab" card — slightly distinct */
-    .card.card-all {
-      border-style: dashed;
-      border-color: var(--accent-light);
-    }
-    .card.card-all:hover {
-      border-style: solid;
-    }
+    /* ── OPTIONS DRAWER ──────────────────────── */
+    .options-container { background: var(--warm-white); border-bottom: 1px solid var(--line); position: sticky; top: 0; z-index: 100; transition: all 0.3s ease; }
+    .options-content { max-width: 740px; margin: 0 auto; padding: 0 20px; display: flex; flex-direction: column; gap: 15px; overflow: hidden; max-height: 500px; transition: max-height 0.3s ease, opacity 0.3s ease; }
+    .options-container.collapsed .options-content { max-height: 0; opacity: 0; pointer-events: none; }
+    .options-toggle { display: block; margin: 0 auto; background: none; border: none; color: var(--accent); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.15em; cursor: pointer; padding: 8px 20px; font-family: 'Lato', sans-serif; }
+    
+    .slider-group { padding: 20px 0 10px; display: flex; flex-direction: column; gap: 12px; }
+    .slider-header { display: flex; justify-content: space-between; align-items: baseline; }
+    .slider-header label { font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--ink); }
+    .current-lvl-tag { color: var(--accent); font-weight: 700; font-size: 0.85rem; }
+    input[type="range"] { width: 100%; accent-color: var(--accent); cursor: pointer; }
+    .strict-wrapper { display: flex; align-items: center; gap: 8px; font-size: 0.8rem; color: var(--muted); cursor: pointer; }
 
     /* ── INNER PAGE ───────────────────────────── */
     #page-inner { display: none; }
     #page-inner.active { display: block; }
+    .inner-body { max-width: 740px; width: 100%; margin: 0 auto; padding: 36px 16px 100px; animation: fadeUp 0.35s ease both; }
 
-    .inner-body {
-      max-width: 740px;
-      width: 100%;
-      margin: 0 auto;
-      padding: 36px 16px 100px;
-      animation: fadeUp 0.35s ease both;
-    }
-
-    /* ── MOBILE ───────────────────────────────── */
     @media (max-width: 480px) {
       .grid { grid-template-columns: 1fr 1fr; gap: 10px; }
       .card { padding: 18px 10px 14px; }
-    }
-
-    /* Staggered card animation */
-    .card:nth-child(1)  { animation-delay: 0.04s }
-    .card:nth-child(2)  { animation-delay: 0.08s }
-    .card:nth-child(3)  { animation-delay: 0.12s }
-    .card:nth-child(4)  { animation-delay: 0.16s }
-    .card:nth-child(5)  { animation-delay: 0.20s }
-    .card:nth-child(6)  { animation-delay: 0.24s }
-    .card:nth-child(7)  { animation-delay: 0.28s }
-    .card:nth-child(8)  { animation-delay: 0.32s }
-    .card:nth-child(9)  { animation-delay: 0.36s }
-    .card:nth-child(10) { animation-delay: 0.40s }
-    .card:nth-child(11) { animation-delay: 0.44s }
-    .card:nth-child(12) { animation-delay: 0.48s }
-    .card:nth-child(13) { animation-delay: 0.52s }
-    .card:nth-child(14) { animation-delay: 0.56s }
-    .card:nth-child(15) { animation-delay: 0.60s }
-    /* -- OPTIONS DRAWER & SLIDER -- */
-    .options-container {
-      background: var(--warm-white);
-      border-bottom: 1px solid var(--line);
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      transition: all 0.3s ease;
-    }
-    
-    .options-content {
-      max-width: 740px;
-      margin: 0 auto;
-      padding: 0 20px;
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-      overflow: hidden;
-      max-height: 500px; 
-      transition: max-height 0.3s ease, opacity 0.3s ease;
-    }
-    
-    .options-container.collapsed .options-content {
-      max-height: 0;
-      opacity: 0;
-      pointer-events: none;
-    }
-    
-    .options-toggle {
-      display: block;
-      margin: 0 auto;
-      background: none;
-      border: none;
-      color: var(--accent);
-      font-size: 0.7rem;
-      text-transform: uppercase;
-      letter-spacing: 0.15em;
-      cursor: pointer;
-      padding: 8px 20px;
-      font-family: 'Lato', sans-serif;
-    }
-    
-    .slider-group {
-      padding: 20px 0 10px;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-    
-    .slider-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-    }
-    
-    .slider-header label {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.1rem;
-      color: var(--ink);
-    }
-    
-    .current-lvl-tag {
-      color: var(--accent);
-      font-weight: 700;
-      font-size: 0.85rem;
-      letter-spacing: 0.05em;
-    }
-    
-    input[type="range"] {
-      width: 100%;
-      accent-color: var(--accent);
-      cursor: pointer;
-    }
-    
-    .strict-wrapper {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 0.8rem;
-      color: var(--muted);
-      cursor: pointer;
-      user-select: none;
     }
   </style>
 </head>
 <body>
 
-<!-- GRID PAGE -->
 <div id="page-grid">
   <div class="page-header">
     <div class="eyebrow">Pour ma chère ♡</div>
@@ -210,10 +63,9 @@
   <div class="grid" id="card-grid"></div>
 </div>
 
-<!-- INNER PAGE -->
 <div id="page-inner">
   <nav class="inner-nav">
-    <button class="back-btn" id="back-btn" onclick="goBack()">All categories</button>
+    <button class="back-btn" onclick="goBack()">All categories</button>
   </nav>
 
   <div class="options-container" id="options-container">
@@ -228,7 +80,6 @@
           <input type="checkbox" id="strict-mode"> <span>Show only this level</span>
         </label>
       </div>
-      
       <div id="speed-bar-mount"></div>
     </div>
     <button class="options-toggle" id="toggle-btn" onclick="toggleOptions()">▴ Hide Options ▴</button>
@@ -252,20 +103,19 @@
 </script>
 
 <script>
-  // ── HELPERS ──────────────────────────────────
+  // -- CONFIG & STATE --
+  const lvlLabels = ["New Recruit", "Wayfinder", "Explorer", "Pathfinder", "Vanguard", "Legend"];
+  const lvlValues = ["A0", "A1", "A2", "B1", "B2", "C1+"];
+  let currentContext = { type: 'grid', category: null };
 
-  function capitalize(str) {
-    return str.charAt(0).toUpperCase() + str.slice(1);
-  }
-
-  // Get a representative emoji for a category
+  // -- HELPERS --
+  function capitalize(str) { return str.charAt(0).toUpperCase() + str.slice(1); }
+  
   function categoryEmoji(cat) {
     const sample = window.vocabData.find(v => v.category === cat && v.emoji);
     return sample ? sample.emoji : '📝';
   }
 
-  // Group an array of vocab items by their `type` field
-  // Returns: [ { type, items[] }, ... ]
   function groupByType(items) {
     const map = new Map();
     items.forEach(v => {
@@ -276,230 +126,132 @@
     return [...map.entries()].map(([type, items]) => ({ type, items }));
   }
 
-  // ── INIT ─────────────────────────────────────
-
-  function initVocab() {
-    buildGrid();
+  function toggleOptions() {
+    const container = document.getElementById('options-container');
+    const btn = document.getElementById('toggle-btn');
+    const isCollapsed = container.classList.toggle('collapsed');
+    btn.innerText = isCollapsed ? '▾ Show Options ▾' : '▴ Hide Options ▴';
   }
 
-  // ── GRID ─────────────────────────────────────
+  // -- FILTER LOGIC --
+  function getFilteredData(data) {
+    const selectedIdx = parseInt(document.getElementById('lvl-slider').value);
+    const isStrict = document.getElementById('strict-mode').checked;
+    return data.filter(item => {
+      const itemIdx = lvlValues.indexOf(item.lvl || "A0");
+      return isStrict ? itemIdx === selectedIdx : itemIdx <= selectedIdx;
+    });
+  }
+
+  function refreshView() {
+    if (currentContext.type === 'all') openAll();
+    else if (currentContext.type === 'cat') openCategory(currentContext.category);
+  }
+
+  // -- INIT --
+  function initVocab() { buildGrid(); }
 
   function buildGrid() {
+    currentContext = { type: 'grid', category: null };
     const grid = document.getElementById('card-grid');
     grid.innerHTML = '';
 
-    // "All Vocab" tile first
     const allCard = document.createElement('div');
     allCard.className = 'card card-all';
-    allCard.innerHTML = `
-      <span class="card-icon">📚</span>
-      <div class="card-title">All Vocab</div>
-      <div class="card-sub">${window.vocabData.length} words total</div>
-    `;
+    allCard.innerHTML = `<span class="card-icon">📚</span><div class="card-title">All Vocab</div><div class="card-sub">${window.vocabData.length} words total</div>`;
     allCard.addEventListener('click', () => openAll());
     grid.appendChild(allCard);
 
-    // One tile per category (sorted)
     const cats = [...new Set(window.vocabData.map(v => v.category))].sort();
     cats.forEach(cat => {
       const count = window.vocabData.filter(v => v.category === cat).length;
       const card = document.createElement('div');
       card.className = 'card';
-      card.innerHTML = `
-        <span class="card-icon">${categoryEmoji(cat)}</span>
-        <div class="card-title">${capitalize(cat)}</div>
-        <div class="card-sub">${count} word${count !== 1 ? 's' : ''}</div>
-      `;
+      card.innerHTML = `<span class="card-icon">${categoryEmoji(cat)}</span><div class="card-title">${capitalize(cat)}</div><div class="card-sub">${count} words</div>`;
       card.addEventListener('click', () => openCategory(cat));
       grid.appendChild(card);
     });
   }
 
-  // ── OPEN: single category ─────────────────────
-
+  // -- OPEN VIEWS --
   function openCategory(cat) {
-    const items = window.vocabData.filter(v => v.category === cat);
+    currentContext = { type: 'cat', category: cat };
+    const rawItems = window.vocabData.filter(v => v.category === cat);
+    const items = getFilteredData(rawItems);
     const types = [...new Set(items.map(v => v.type))];
-    const isMixed = types.length > 1;
 
-    let html = `
-      <div class="inner-header">
-        <div class="eyebrow">${categoryEmoji(cat)} &nbsp; Vocabulaire</div>
-        <h2>${capitalize(cat).replace(/(\S+)\s*$/, '<em>$1</em>')}</h2>
-        <p>${items.length} word${items.length !== 1 ? 's' : ''} in this category.</p>
-      </div>
-    `;
+    let html = `<div class="inner-header"><div class="eyebrow">${categoryEmoji(cat)} &nbsp; Vocabulaire</div><h2>${capitalize(cat).replace(/(\S+)\s*$/, '<em>$1</em>')}</h2><p>${items.length} words visible.</p></div>`;
 
-    if (isMixed) {
-      // Group by type within the category
+    if (types.length > 1) {
       groupByType(items).forEach(({ type, items: typeItems }) => {
         html += buildVocabSection(capitalize(cat), typeItems, capitalize(type) + 's');
       });
     } else {
       html += buildVocabSection(capitalize(cat), items);
     }
-
     renderInner(html);
   }
-
-  // ── OPEN: all vocab grouped by category ───────
 
   function openAll() {
-    const cats = [...new Set(window.vocabData.map(v => v.category))].sort();
+    currentContext = { type: 'all', category: null };
+    const items = getFilteredData(window.vocabData);
+    const cats = [...new Set(items.map(v => v.category))].sort();
 
-    let html = `
-      <div class="inner-header">
-        <div class="eyebrow">📚 &nbsp; Vocabulaire</div>
-        <h2>All <em>Vocab</em></h2>
-        <p>${window.vocabData.length} words across ${cats.length} categories.</p>
-      </div>
-    `;
+    let html = `<div class="inner-header"><div class="eyebrow">📚 &nbsp; Vocabulaire</div><h2>All <em>Vocab</em></h2><p>${items.length} words visible.</p></div>`;
 
     cats.forEach(cat => {
-      const items = window.vocabData.filter(v => v.category === cat);
-      const types = [...new Set(items.map(v => v.type))];
-      const isMixed = types.length > 1;
-
-      if (isMixed) {
-        // Category header, then sub-grouped by type
-        groupByType(items).forEach(({ type, items: typeItems }, i) => {
-          // Only show the main section-label on the first type group
-          const label = i === 0
-            ? capitalize(cat)
-            : `${capitalize(cat)} — ${capitalize(type)}s`;
-          html += buildVocabSection(label, typeItems, i > 0 ? capitalize(type) + 's' : null);
-        });
-      } else {
-        html += buildVocabSection(capitalize(cat), items);
-      }
+      const catItems = items.filter(v => v.category === cat);
+      html += buildVocabSection(capitalize(cat), catItems);
     });
-
     renderInner(html);
   }
 
-  // ── BUILD SECTION HTML ────────────────────────
-  // Returns HTML string for one section label + phrase-style rows.
-  // subLabel is optional (used for mixed-type categories).
-
- function buildVocabSection(label, items, subLabel) {
-  let html = `<div class="section-label">${label}${subLabel ? ' <span style="font-size:0.75em;opacity:0.65;font-family:\'Lato\',sans-serif;font-weight:300;">— ${subLabel}</span>' : ''}</div>`;
-  html += `
-    <div class="phrase-header">
-      <span>French</span><span>English</span><span>Sounds like</span>
-    </div>
-    <div class="phrase-list" data-section>
-  `;
-  
-  items.forEach(v => {
-    const frDisplay = v.article ? `<span class="vocab-article">${v.article}</span> ${v.fr}` : v.fr;
-    const spokenText = v.article ? `${v.article} ${v.fr}` : v.fr;
-    
-    html += `
-      <div class="phrase-row" data-spoken="${encodeURIComponent(spokenText)}">
-        <div class="phrase-fr">${frDisplay}</div>
-        <div class="phrase-en">${v.en}</div>
-        <div class="phrase-ph">${v.ph}</div>
-        ${v.note ? `<div class="phrase-note">💡 ${v.note}</div>` : ''}
-      </div>
-    `;
-  });
-  
-  html += `</div>`;
-  return html;
-}
-  // ── RENDER INNER VIEW ─────────────────────────
+  function buildVocabSection(label, items, subLabel) {
+    if (items.length === 0) return '';
+    let html = `<div class="section-label">${label}${subLabel ? ' <span style="font-size:0.75em;opacity:0.65;">— ' + subLabel + '</span>' : ''}</div>`;
+    html += `<div class="phrase-header"><span>French</span><span>English</span><span>Sounds like</span></div><div class="phrase-list">`;
+    items.forEach(v => {
+      const spoken = v.article ? `${v.article} ${v.fr}` : v.fr;
+      html += `
+        <div class="phrase-row" data-spoken="${encodeURIComponent(spoken)}">
+          <div class="phrase-fr">${v.article ? `<span class="vocab-article">${v.article}</span> ` : ''}${v.fr}</div>
+          <div class="phrase-en">${v.en}</div>
+          <div class="phrase-ph">${v.ph}</div>
+          ${v.note ? `<div class="phrase-note">💡 ${v.note}</div>` : ''}
+        </div>`;
+    });
+    html += `</div>`;
+    return html;
+  }
 
   function renderInner(html) {
-    const pageInner = document.getElementById('page-inner');
-    const body      = document.getElementById('inner-body');
-
-    // Build speed bar (remove old if present)
-    const oldBar = pageInner.querySelector('.speed-bar');
-    if (oldBar) oldBar.remove();
-    const nav = pageInner.querySelector('.inner-nav');
-    Audio.buildSpeedBar(nav.parentNode, 'Playback speed');
-    const bar = pageInner.querySelector('.speed-bar');
+    const body = document.getElementById('inner-body');
     const mount = document.getElementById('speed-bar-mount');
-    mount.innerHTML = ''; // Clear previous
+    mount.innerHTML = '';
     Audio.buildSpeedBar(mount, 'Playback speed');
 
     body.innerHTML = html;
-
-    // Attach play buttons to every vocab row
     body.querySelectorAll('.phrase-row').forEach(row => {
-      const text = decodeURIComponent(row.dataset.spoken);
-      const btn  = Audio.buildPlayBtn(text);
+      const btn = Audio.buildPlayBtn(decodeURIComponent(row.dataset.spoken));
       row.insertBefore(btn, row.querySelector('.phrase-fr'));
     });
 
     document.getElementById('page-grid').style.display = 'none';
-    pageInner.classList.add('active');
+    document.getElementById('page-inner').classList.add('active');
     window.scrollTo(0, 0);
   }
-
-  // ── BACK ──────────────────────────────────────
 
   function goBack() {
     window.speechSynthesis && window.speechSynthesis.cancel();
     document.getElementById('page-inner').classList.remove('active');
     document.getElementById('page-grid').style.display = 'block';
-    window.scrollTo(0, 0);
   }
 
-  // -- CONFIG --
-const lvlLabels = ["New Recruit", "Wayfinder", "Explorer", "Pathfinder", "Vanguard", "Legend"];
-const lvlValues = ["A0", "A1", "A2", "B1", "B2", "C1+"];
-let currentContext = { type: 'all', category: null };
-
-// -- UI TOGGLES --
-function toggleOptions() {
-  const container = document.getElementById('options-container');
-  const btn = document.getElementById('toggle-btn');
-  const isCollapsed = container.classList.toggle('collapsed');
-  btn.innerText = isCollapsed ? '▾ Show Options ▾' : '▴ Hide Options ▴';
-}
-
-// -- FILTERING CORE --
-function getFilteredData(data) {
-  const selectedIdx = parseInt(document.getElementById('lvl-slider').value);
-  const isStrict = document.getElementById('strict-mode').checked;
-
-  return data.filter(item => {
-    const itemIdx = lvlValues.indexOf(item.lvl || "A0");
-    return isStrict ? itemIdx === selectedIdx : itemIdx <= selectedIdx;
+  document.getElementById('lvl-slider').addEventListener('input', (e) => {
+    document.getElementById('lvl-display').innerText = lvlLabels[e.target.value];
+    refreshView();
   });
-}
-
-// -- RE-RENDER TRIGGER --
-function refreshView() {
-  if (currentContext.type === 'all') {
-    openAll(true); 
-  } else {
-    openCategory(currentContext.category, true);
-  }
-}
-
-// Update existing openCategory to set context
-const originalOpenCategory = window.openCategory;
-window.openCategory = function(cat, isRefresh = false) {
-  currentContext = { type: 'cat', category: cat };
-  
-  // Filter data before passing to original logic
-  const rawItems = window.vocabData.filter(v => v.category === cat);
-  const filteredItems = getFilteredData(rawItems);
-  
-  // ... (Follow your existing openCategory logic using filteredItems)
-  // Ensure your renderInner() is called at the end
-};
-
-// Update listeners
-document.getElementById('lvl-slider').addEventListener('input', (e) => {
-  document.getElementById('lvl-display').innerText = lvlLabels[e.target.value];
-  refreshView();
-});
-
-document.getElementById('strict-mode').addEventListener('change', refreshView);
+  document.getElementById('strict-mode').addEventListener('change', refreshView);
 </script>
 </body>
 </html>
-
