@@ -1936,9 +1936,15 @@ const vocabData = [
 { fr: "quarante", article: null, en: "forty", ph: "kah-RAHNT", category: "numbers", subcategory: "cardinals", type: "number", emoji: null, lvl: "A1" },
 { fr: "cinquante", article: null, en: "fifty", ph: "san-KAHNT", category: "numbers", subcategory: "cardinals", type: "number", emoji: null, lvl: "A1" },
 { fr: "soixante", article: null, en: "sixty", ph: "swah-SAHNT", category: "numbers", subcategory: "cardinals", type: "number", emoji: null, lvl: "A1" },
-{ fr: "soixante-dix", article: null, en: "seventy", ph: "swah-sahnt-DEES", category: "numbers", subcategory: "cardinals", type: "number", emoji: null, lvl: "A2" },
-{ fr: "quatre-vingts", article: null, en: "eighty", ph: "kat-ruh-VAN", category: "numbers", subcategory: "cardinals", type: "number", emoji: null, lvl: "A2" },
-{ fr: "quatre-vingt-dix", article: null, en: "ninety", ph: "kat-ruh-van-DEES", category: "numbers", subcategory: "cardinals", type: "number", emoji: null, lvl: "A2" },
+{ fr: "soixante-dix", article: null, en: "seventy", ph: "swah-sahnt-DEES", category: "numbers", subcategory: "cardinals", type: "number", emoji: null, lvl: "A2", note: "Sixty-ten" },
+{ fr: "soixante et onze", article: null, en: "seventy-one", ph: "swah-sahnt ay ohnz", category: "numbers", subcategory: "cardinals", type: "number", emoji: null, lvl: "A2",  note: "Sixty and eleven"  },
+{ fr: "soixante-douze", article: null, en: "seventy-two", ph: "swah-sahnt-DOOZ", category: "numbers", subcategory: "cardinals", type: "number", emoji: null, lvl: "A2",  note: "Sixty-twelve"  },
+{ fr: "quatre-vingts", article: null, en: "eighty", ph: "kat-ruh-VAN", category: "numbers", subcategory: "cardinals", type: "number", emoji: null, lvl: "A2",  note: "Four twenties"  },
+{ fr: "quatre-vingt-un", article: null, en: "eighty-one", ph: "kat-ruh-van-an", category: "numbers", subcategory: "cardinals", type: "number", emoji: null, lvl: "A2", note: "Note the lack of 'et' here, unlike 21, 31, 41, 51, 61, and 71." },
+{ fr: "quatre-vingt-deux", article: null, en: "eighty-two", ph: "kat-ruh-van-DUH", category: "numbers", subcategory: "cardinals", type: "number", emoji: null, lvl: "A2",  note: "Four twenties two" },
+{ fr: "quatre-vingt-dix", article: null, en: "ninety", ph: "kat-ruh-van-DEES", category: "numbers", subcategory: "cardinals", type: "number", emoji: null, lvl: "A2",  note: "Four twenties ten"  },
+{ fr: "quatre-vingt-onze", article: null, en: "ninety-one", ph: "kat-ruh-van-ohnz", category: "numbers", subcategory: "cardinals", type: "number", emoji: null, lvl: "A2",  note: "Four twenties eleven"  },
+{ fr: "quatre-vingt-douze", article: null, en: "ninety-two", ph: "kat-ruh-van-DOOZ", category: "numbers", subcategory: "cardinals", type: "number", emoji: null, lvl: "A2",  note: "Four twenties twelve" },
 
 // Subcategory: large numbers
 { fr: "cent", article: null, en: "one hundred", ph: "sahn", category: "numbers", subcategory: "large numbers", type: "number", emoji: null, lvl: "A1" },
@@ -1956,6 +1962,49 @@ const vocabData = [
 { fr: "troisième", article: null, en: "third", ph: "trwah-ZYEM", category: "numbers", subcategory: "ordinals", type: "number", emoji: null, lvl: "A1" },
 { fr: "dixième", article: null, en: "tenth", ph: "dee-ZYEM", category: "numbers", subcategory: "ordinals", type: "number", emoji: null, lvl: "A2" },
 { fr: "centième", article: null, en: "hundredth", ph: "sahn-TYEM", category: "numbers", subcategory: "ordinals", type: "number", emoji: null, lvl: "B2" },
+
+// Subcategory: collective numbers
+{ fr: "une dizaine", article: "une", en: "about ten / a ten-pack", ph: "dee-ZEN", category: "numbers", subcategory: "collectives", type: "noun", emoji: "🔟", lvl: "B1" },
+{ fr: "une douzaine", article: "une", en: "a dozen", ph: "doo-ZEN", category: "numbers", subcategory: "collectives", type: "noun", emoji: "🥚", lvl: "B1" },
+{ fr: "une vingtaine", article: "une", en: "about twenty", ph: "van-TEN", category: "numbers", subcategory: "collectives", type: "noun", emoji: null, lvl: "B1" },
+{ fr: "une centaine", article: "une", en: "about a hundred", ph: "sahn-TEN", category: "numbers", subcategory: "collectives", type: "noun", emoji: null, lvl: "B1" },
+
+// Subcategory: decades
+{ fr: "les années soixante-dix", article: null, en: "the seventies", ph: "lay-zah-nay swah-sahnt-DEES", category: "numbers", subcategory: "decades", type: "phrase", emoji: "🕺", lvl: "B1" },
+{ fr: "les années quatre-vingts", article: null, en: "the eighties", ph: "lay-zah-nay kat-ruh-VAN", category: "numbers", subcategory: "decades", type: "phrase", emoji: "🎸", lvl: "B1" },
+{ fr: "les années deux mille", article: null, en: "the two-thousands (00s)", ph: "lay-zah-nay duh MEEL", category: "numbers", subcategory: "decades", type: "phrase", emoji: "🌐", lvl: "B1", note: "Commonly used to refer to the turn of the century." },
+{ fr: "les années deux mille dix", article: null, en: "the twenty-tens (10s)", ph: "lay-zah-nay duh meel DEES", category: "numbers", subcategory: "decades", type: "phrase", emoji: "📱", lvl: "B1" },
+{ fr: "le millénaire", article: "le", en: "the millennium", ph: "le mee-lay-NER", category: "numbers", subcategory: "eras", type: "noun", emoji: "🎆", lvl: "B2" },
+{ fr: "un siècle", article: "un", en: "a century", ph: "an SYEH-kluh", category: "numbers", subcategory: "eras", type: "noun", emoji: "📜", lvl: "B1" },
+  
+// Subcategory: money & currency
+{ fr: "argent", article: "l'", en: "money", ph: "ar-ZHAHN", category: "numbers", subcategory: "money", type: "noun", emoji: "💰", lvl: "A0" },
+{ fr: "dollar", article: "un", en: "dollar", ph: "doh-LAR", category: "numbers", subcategory: "money", type: "noun", emoji: "💵", lvl: "A0", note: "In casual Quebec speech, often called 'une piastre' (pronounced 'pyass')." },
+{ fr: "cent", article: "un", en: "cent", ph: "sahnt", category: "numbers", subcategory: "money", type: "noun", emoji: "🪙", lvl: "A1", note: "In Quebec, usually called 'un sou'. 25 cents is 'trente sous'." },
+{ fr: "euro", article: "un", en: "euro", ph: "uh-ROH", category: "numbers", subcategory: "money", type: "noun", emoji: "💶", lvl: "A1" },
+{ fr: "pièce", article: "une", en: "coin", ph: "PYESS", category: "numbers", subcategory: "money", type: "noun", emoji: "🪙", lvl: "A1" },
+{ fr: "billet", article: "un", en: "bill / banknote", ph: "bee-YAY", category: "numbers", subcategory: "money", type: "noun", emoji: "💵", lvl: "A1" },
+{ fr: "monnaie", article: "la", en: "change / currency", ph: "muh-NEH", category: "numbers", subcategory: "money", type: "noun", emoji: "👛", lvl: "A2", note: "Used for the loose coins in your pocket." },
+{ fr: "dollar canadien", article: "le", en: "Canadian dollar (CAD)", ph: "doh-lar kah-nah-DYAN", category: "numbers", subcategory: "money", type: "noun", emoji: "🇨🇦", lvl: "A1", note: "In Quebec, often symbolized by '$' or '$ CAN'." },
+{ fr: "dollar américain", article: "le", en: "US dollar (USD)", ph: "doh-lar ah-may-ree-KAN", category: "numbers", subcategory: "money", type: "noun", emoji: "🇺🇸", lvl: "A1", note: "Commonly referred to as 'argent US' (pronounced 'oo-ess')." },
+
+
+  // Subcategory: adjectives & math verbs
+{ fr: "unique", article: null, en: "single / unique", ph: "yoo-NEEK", category: "numbers", subcategory: "adjectives", type: "adjective", emoji: "1️⃣", lvl: "A2" },
+{ fr: "double", article: null, en: "double", ph: "DOO-bluh", category: "numbers", subcategory: "adjectives", type: "adjective", emoji: "♊", lvl: "A2" },
+{ fr: "nombreux", article: null, en: "numerous (masc.)", ph: "nohm-BRUH", category: "numbers", subcategory: "adjectives", type: "adjective", emoji: "🔢", lvl: "B1" },
+{ fr: "compter", article: null, en: "to count", ph: "kohn-TAY", category: "numbers", subcategory: "verbs", type: "verb", emoji: "🔢", lvl: "A1" },
+{ fr: "calculer", article: null, en: "to calculate", ph: "kal-kyoo-LAY", category: "numbers", subcategory: "verbs", type: "verb", emoji: "🧮", lvl: "A2" },
+{ fr: "estimer", article: null, en: "to estimate", ph: "es-tee-MAY", category: "numbers", subcategory: "verbs", type: "verb", emoji: "🧐", lvl: "B1" },
+
+// Subcategory: phrases
+{ fr: "une fois", article: null, en: "once / one time", ph: "oon fwah", category: "numbers", subcategory: "phrases", type: "phrase", emoji: "☝️", lvl: "A1" },
+{ fr: "deux fois", article: null, en: "twice / two times", ph: "duh fwah", category: "numbers", subcategory: "phrases", type: "phrase", emoji: "✌️", lvl: "A1" },
+{ fr: "en même temps", article: null, en: "at the same time", ph: "ahn mem TAHN", category: "numbers", subcategory: "phrases", type: "phrase", emoji: "⏳", lvl: "A2" },
+{ fr: "la moitié", article: "la", en: "half / the half", ph: "lah mwah-TYAY", category: "numbers", subcategory: "phrases", type: "noun", emoji: "🍕", lvl: "A2" },
+{ fr: "tous les deux jours", article: null, en: "every two days", ph: "too lay duh zhoor", category: "numbers", subcategory: "phrases", type: "phrase", emoji: "📅", lvl: "B1" },
+{ fr: "ça coûte combien ?", article: null, en: "how much does it cost?", ph: "sah koot kohm-BYAN", category: "numbers", subcategory: "phrases", type: "phrase", emoji: "🏷️", lvl: "A1" },
+{ fr: "tu as du change ?", article: null, en: "do you have change?", ph: "too ah dyoo SHAHNZH", category: "numbers", subcategory: "phrases", type: "phrase", emoji: "🪙", lvl: "A2", note: "In Quebec, 'change' is often used just like in English." },
 
   // ── OBJECTS ───────────────────────────────────────────────────────────────
 
@@ -2477,6 +2526,22 @@ const vocabData = [
 { fr: "samedi", article: null, en: "Saturday", ph: "sam-DEE", category: "time", subcategory: "days", type: "noun", emoji: "📅", lvl: "A1" },
 { fr: "dimanche", article: null, en: "Sunday", ph: "dee-MAHNSH", category: "time", subcategory: "days", type: "noun", emoji: "📅", lvl: "A1" },
 
+// Subcategory: Era
+{ fr: "une décennie", article: "une", en: "a decade", ph: "day-say-NEE", category: "time", subcategory: "eras", type: "noun", emoji: "📅", lvl: "B1" },
+{ fr: "un siècle", article: "un", en: "a century", ph: "an SYEH-kluh", category: "time", subcategory: "eras", type: "noun", emoji: "📜", lvl: "B1" },
+  
+  // Subcategory: frequency
+{ fr: "souvent", article: null, en: "often", ph: "soo-VAHN", category: "time", subcategory: "frequency", type: "adverb", emoji: "🔄", lvl: "A1" },
+{ fr: "parfois", article: null, en: "sometimes", ph: "par-FWAH", category: "time", subcategory: "frequency", type: "adverb", emoji: "⏯️", lvl: "A1" },
+{ fr: "jamais", article: null, en: "never", ph: "zhah-MAY", category: "time", subcategory: "frequency", type: "adverb", emoji: "❌", lvl: "A1" },
+{ fr: "toujours", article: null, en: "always / still", ph: "too-ZHOOR", category: "time", subcategory: "frequency", type: "adverb", emoji: "♾️", lvl: "A1" },
+{ fr: "tous les jours", article: null, en: "every day", ph: "too lay zhoor", category: "time", subcategory: "frequency", type: "phrase", emoji: "📅", lvl: "A1" },
+  
+  // Subcategory: meal-based time (Crucial Quebecois Distinction)
+{ fr: "déjeuner", article: "le", en: "breakfast", ph: "day-zhuh-NAY", category: "time", subcategory: "meals", type: "noun", emoji: "🍳", lvl: "A1", note: "In Europe, this is lunch. In Quebec, it's breakfast." },
+{ fr: "dîner", article: "le", en: "lunch", ph: "dee-NAY", category: "time", subcategory: "meals", type: "noun", emoji: "🥪", lvl: "A1", note: "In Europe, this is dinner. In Quebec, it's lunch." },
+{ fr: "souper", article: "le", en: "dinner", ph: "soo-PAY", category: "time", subcategory: "meals", type: "noun", emoji: "🍲", lvl: "A1", note: "This is the standard term for the evening meal in Quebec." },
+  
 // Subcategory: months
 { fr: "janvier", article: null, en: "January", ph: "zhahn-VYAY", category: "time", subcategory: "months", type: "noun", emoji: "❄️", lvl: "A1" },
 { fr: "février", article: null, en: "February", ph: "fay-VRYAY", category: "time", subcategory: "months", type: "noun", emoji: "❄️", lvl: "A1" },
@@ -2497,7 +2562,23 @@ const vocabData = [
 { fr: "demain", article: null, en: "tomorrow", ph: "duh-MAN", category: "time", subcategory: "relative", type: "adverb", emoji: "➡️", lvl: "A1" },
 { fr: "hier", article: null, en: "yesterday", ph: "yair", category: "time", subcategory: "relative", type: "adverb", emoji: "⬅️", lvl: "A1" },
 { fr: "moment", article: "un", en: "moment", ph: "moh-MAHN", category: "time", subcategory: "relative", type: "noun", emoji: "⏳", lvl: "A2" },
+{ fr: "avant", article: null, en: "before", ph: "ah-VAHN", category: "time", subcategory: "relative", type: "preposition", emoji: "⬅️", lvl: "A1" },
+{ fr: "après", article: null, en: "after", ph: "ah-PRAY", category: "time", subcategory: "relative", type: "preposition", emoji: "➡️", lvl: "A1" },
+{ fr: "pendant", article: null, en: "during", ph: "pahn-DAHN", category: "time", subcategory: "relative", type: "preposition", emoji: "⏳", lvl: "A2" },
+{ fr: "bientôt", article: null, en: "soon", ph: "byan-TOH", category: "time", subcategory: "relative", type: "adverb", emoji: "🔜", lvl: "A1" },
+{ fr: "déjà", article: null, en: "already", ph: "day-ZHA", category: "time", subcategory: "relative", type: "adverb", emoji: "🏁", lvl: "A2" },
+{ fr: "en retard", article: null, en: "late", ph: "ahn ruh-TAR", category: "time", subcategory: "relative", type: "phrase", emoji: "🏃", lvl: "A1" },
+{ fr: "à l'heure", article: null, en: "on time", ph: "ah LUR", category: "time", subcategory: "relative", type: "phrase", emoji: "✅", lvl: "A1" },
+{ fr: "tantôt", article: null, en: "sooner or later / in a bit", ph: "tan-TOH", category: "time", subcategory: "relative", type: "adverb", emoji: "🕓", lvl: "B1", note: "Classic Quebecois! Can mean 'a little while ago' or 'in a little while' depending on context." },
+{ fr: "à matin", article: null, en: "this morning", ph: "ah mah-TAN", category: "time", subcategory: "relative", type: "phrase", emoji: "🌅", lvl: "A2", note: "In Quebec, 'ce matin' is often shortened to 'à matin' in speech." } ,
 
+
+// Subcategory: seasons
+{ fr: "printemps", article: "le", en: "spring", ph: "prahn-TAHN", category: "time", subcategory: "seasons", type: "noun", emoji: "🌱", lvl: "A1" },
+{ fr: "été", article: "l'", en: "summer", ph: "ay-TAY", category: "time", subcategory: "seasons", type: "noun", emoji: "☀️", lvl: "A1" },
+{ fr: "automne", article: "l'", en: "autumn / fall", ph: "oh-TUN", category: "time", subcategory: "seasons", type: "noun", emoji: "🍂", lvl: "A1" },
+{ fr: "hiver", article: "l'", en: "winter", ph: "ee-VAIR", category: "time", subcategory: "seasons", type: "noun", emoji: "❄️", lvl: "A1" },
+  
 // Subcategory: units & periods
 { fr: "temps", article: "un", en: "time / weather", ph: "tahn", category: "time", subcategory: "units", type: "noun", emoji: "⏱️", lvl: "A1" },
 { fr: "heure", article: "une", en: "hour / time", ph: "ur", category: "time", subcategory: "units", type: "noun", emoji: "🕐", lvl: "A1" },
@@ -2511,7 +2592,41 @@ const vocabData = [
 { fr: "semaine", article: "une", en: "week", ph: "suh-MEN", category: "time", subcategory: "units", type: "noun", emoji: "📆", lvl: "A1" },
 { fr: "mois", article: "un", en: "month", ph: "mwah", category: "time", subcategory: "units", type: "noun", emoji: "📆", lvl: "A1" },
 { fr: "année", article: "une", en: "year", ph: "ah-NAY", category: "time", subcategory: "units", type: "noun", emoji: "📆", lvl: "A1" },
-  
+
+// Subcategory: interrogatives
+{ fr: "quelle heure est-il ?", article: null, en: "what time is it?", ph: "kel ur ay-TEEL", category: "time", subcategory: "interrogative", type: "phrase", emoji: "⌚", lvl: "A0" },
+{ fr: "à quelle heure ?", article: null, en: "at what time?", ph: "ah kel UR", category: "time", subcategory: "interrogative", type: "phrase", emoji: "❓", lvl: "A1" },
+
+// Subcategory: sequencing (Fluency Builders)
+{ fr: "d'abord", article: null, en: "first / at first", ph: "dah-BOR", category: "time", subcategory: "sequencing", type: "adverb", emoji: "1️⃣", lvl: "A2" },
+{ fr: "ensuite", article: null, en: "then / next", ph: "ahn-SWEET", category: "time", subcategory: "sequencing", type: "adverb", emoji: "2️⃣", lvl: "A2" },
+{ fr: "enfin", article: null, en: "finally", ph: "ahn-FAN", category: "time", subcategory: "sequencing", type: "adverb", emoji: "🏁", lvl: "B1" },
+{ fr: "pendant ce temps", article: null, en: "meanwhile", ph: "pahn-dahn suh TAHN", category: "time", subcategory: "sequencing", type: "phrase", emoji: "⏳", lvl: "B2" },
+
+
+// Subcategory: telling time
+{ fr: "il est une heure", article: null, en: "it is one o'clock", ph: "eel ay oon ur", category: "time", subcategory: "telling time", type: "phrase", emoji: "🕐", lvl: "A0" },
+{ fr: "il est huit heures", article: null, en: "it is eight o'clock", ph: "eel ay weet ur", category: "time", subcategory: "telling time", type: "phrase", emoji: "🕗", lvl: "A0" },
+{ fr: "et quart", article: null, en: "quarter past", ph: "ay kar", category: "time", subcategory: "telling time", type: "phrase", emoji: null, lvl: "A1", note: "Used after the hour, e.g., 'dix heures et quart'." },
+{ fr: "et demie", article: null, en: "half past", ph: "ay duh-mee", category: "time", subcategory: "telling time", type: "phrase", emoji: null, lvl: "A1" },
+{ fr: "moins le quart", article: null, en: "quarter to", ph: "mwan luh kar", category: "time", subcategory: "telling time", type: "phrase", emoji: null, lvl: "A2" },
+{ fr: "midi", article: null, en: "noon / midday", ph: "mee-dee", category: "time", subcategory: "telling time", type: "noun", emoji: "☀️", lvl: "A0" },
+{ fr: "minuit", article: null, en: "midnight", ph: "meen-wee", category: "time", subcategory: "telling time", type: "noun", emoji: "🕛", lvl: "A0" },
+{ fr: "du matin", article: null, en: "in the morning (AM)", ph: "dyoo mah-tan", category: "time", subcategory: "telling time", type: "phrase", emoji: "🌅", lvl: "A1", note: "Used to specify time in the 12-hour clock." },
+{ fr: "du soir", article: null, en: "in the evening (PM)", ph: "dyoo swar", category: "time", subcategory: "telling time", type: "phrase", emoji: "🌃", lvl: "A1" },
+{ fr: "il est seulement quatre heures trente-sept du matin",  article: null,   en: "it is only 4:37 am",   ph: "eel ay suhl-MAHN kat-ruh ur trahnt-SET dyoo mah-TAN",   category: "time",   subcategory: "telling time", type: "phrase",   emoji: "😴",   lvl: "B1",   note: "Uses 'seulement' (only) to emphasize how early it is." },
+{ fr: "il est déjà dix-sept heures treize !",   article: null,   en: "it is already 5:13 pm!",   ph: "eel ay day-ZHA dee-SET ur TREZ",   category: "time",   subcategory: "telling time",   type: "phrase",  emoji: "🌆",  lvl: "B1",   note: "Uses the 24-hour clock (17h13) which is common for digital displays and schedules." },
+
+// Subcategory: date examples & milestones
+{ fr: "le premier", article: null, en: "the first (of the month)", ph: "luh pruh-myay", category: "time", subcategory: "dates", type: "phrase", emoji: "1️⃣", lvl: "A1", note: "The only day of the month that uses an ordinal number." },
+{ fr: "le deux", article: null, en: "the second (of the month)", ph: "luh duh", category: "time", subcategory: "dates", type: "phrase", emoji: "2️⃣", lvl: "A1" },
+{ fr: "le premier juillet", article: null, en: "July 1st", ph: "luh pruh-myay zhwee-yay", category: "time", subcategory: "dates", type: "phrase", emoji: "📦", lvl: "A2", note: "Moving Day in Quebec (le jour du déménagement)." },
+{ fr: "le vingt-quatre juin", article: null, en: "June 24th", ph: "luh vant-kat zhwan", category: "time", subcategory: "dates", type: "phrase", emoji: "⚜️", lvl: "A2", note: "La Fête nationale du Québec (St-Jean-Baptiste)." },
+{ fr: "le jour de l'An", article: "le", en: "New Year's Day", ph: "luh zhoor duh lah", category: "time", subcategory: "dates", type: "noun", emoji: "🎆", lvl: "A2" },
+{ fr: "la fête du Travail", article: "la", en: "Labor Day", ph: "lah fet dyoo trah-vaye", category: "time", subcategory: "dates", type: "noun", emoji: "🛠️", lvl: "B1" },
+{ fr: "l'Action de grâce", article: "l'", en: "Thanksgiving", ph: "lak-syohn duh grahs", category: "time", subcategory: "dates", type: "noun", emoji: "🍂", lvl: "B1", note: "Celebrated in October in Canada, unlike the US November date." },
+{ fr: "aujourd'hui, c'est samedi le vingt-neuf juin",   article: null,   en: "today is Saturday June 29th",   ph: "oh-zhoor-DWEE say sam-DEE luh vant-NUF zhwan",  category: "time",   subcategory: "dates",   type: "phrase",   emoji: "📅",   lvl: "A2",   note: "In Quebec, it is very common to add 'le' before the number even when the day of the week is included." }, 
+
   // ── VERBS (core / universal) ───────────────────────────────────────────────
 
 // Subcategory: action - universal
