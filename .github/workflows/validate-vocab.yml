@@ -11,14 +11,14 @@ jobs:
       - name: Syntax Check
         run: |
           # This checks for missing commas or brackets
-          node -c js/vocab-data.js
+          node -c shared/vocab-data.js
         
       - name: Structure Check
         run: |
           # This checks if all entries have the required keys
           node -e "
           const fs = require('fs');
-          const content = fs.readFileSync('./js/vocab-data.js', 'utf8');
+          const content = fs.readFileSync('./shared/vocab-data.js', 'utf8');
           // Clean up the file content to extract just the array
           const arrayStr = content.substring(content.indexOf('['), content.lastIndexOf(']') + 1);
           const data = eval(arrayStr); 
