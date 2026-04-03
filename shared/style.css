@@ -58,6 +58,9 @@ a { color: inherit; }
   margin-right: 2px;
 }
 
+/* shared/style.css */
+
+/* Container for Hamburger and Options buttons */
 .nav-controls {
   position: fixed;
   top: 20px;
@@ -65,19 +68,29 @@ a { color: inherit; }
   display: flex;
   align-items: center;
   gap: 12px;
-  z-index: 1100;
+  z-index: 2100; /* Must be higher than the modal overlay */
 }
 
+/* Styled specifically for the Mon Petit Français aesthetic */
 .options-btn {
   background: var(--warm-white);
   border: 1px solid var(--line);
-  padding: 8px 12px;
+  padding: 8px 16px;
   border-radius: 20px;
   font-size: 0.75rem;
   font-family: 'Lato', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
   color: var(--ink);
   cursor: pointer;
   box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  transition: all 0.2s ease;
+}
+
+.options-btn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  transform: translateY(-1px);
 }
 
 /* ── HAMBURGER BUTTON ───────────────────────── */
