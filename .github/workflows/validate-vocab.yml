@@ -1,0 +1,40 @@
+name: Vocab Data Validator
+on: [push, pull_request]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Syntax Check
+        run: |
+          # This checks for missing commas or brackets
+          node -c js/vocab-data.js
+        
+      - name: Structure Check
+        run: |
+          # This checks if all entries have the required keys
+          node -e "
+          const fs = require('fs');
+          const content = fs.readFileSync('./js/vocab-data.js', 'utf8');
+          // Clean up the file content to extract just the array
+          const arrayStr = content.substring(content.indexOf('['), content.lastIndexOf(']') + 1);
+          const data = eval(arrayStr); 
+          
+          if (!Array.isArray(data)) {
+            console.error('Error: vocabData is not an array!');
+            process.exit(1);
+          }
+          data.forEach((entry, index) => {
+            const required = ['fr', 'en', 'category', 'lvl'];
+            required.forEach(key => {
+              if (entry[key] === undefined) {
+                console.error('Entry ' + index + ' (' + (entry.fr || 'unknown') + ') is missing key: ' + key);
+                process.exit(1);
+              }
+            });
+          });
+          console.log('Vocab data is structured correctly!');
+          "
