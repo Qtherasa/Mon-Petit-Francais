@@ -27,38 +27,7 @@
     .card:hover::after { transform: scaleX(1); }
     .card.card-all { border-style: dashed; border-color: var(--accent-light); }
 
-    /* ── OPTIONS DRAWER ──────────────────────── */
-    .options-container { 
-        background: var(--warm-white); 
-        border-bottom: 1px solid var(--line); 
-        position: sticky; 
-        top: 0; 
-        z-index: 100; 
-        transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
-        transform-origin: top;
-      }
-    .options-content { max-width: 740px; margin: 0 auto; padding: 0 20px; display: flex; flex-direction: column; gap: 15px; overflow: hidden; max-height: 500px; transition: max-height 0.3s ease, opacity 0.3s ease; }
-     .options-container.collapsed {
-        transform: scaleY(0); /* Shrink upward instead of just snapping height */
-        opacity: 0;
-        pointer-events: none;
-        position: absolute; /* Take it out of flow so it doesn't leave a gap */
-      }
-      .options-toggle {
-        position: sticky;
-        top: 0;
-        z-index: 101;
-        background: var(--warm-white);
-        width: 100%;
-        border-bottom: 1px solid var(--line);
-      }
-    
-    .slider-group { padding: 20px 0 10px; display: flex; flex-direction: column; gap: 12px; }
-    .slider-header { display: flex; justify-content: space-between; align-items: baseline; }
-    .slider-header label { font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--ink); }
-    .current-lvl-tag { color: var(--accent); font-weight: 700; font-size: 0.85rem; }
-    input[type="range"] { width: 100%; accent-color: var(--accent); cursor: pointer; }
-    .strict-wrapper { display: flex; align-items: center; gap: 8px; font-size: 0.8rem; color: var(--muted); cursor: pointer; }
+   
 
     /* ── INNER PAGE ───────────────────────────── */
     #page-inner { display: none; }
@@ -89,36 +58,7 @@
     <button class="back-btn" onclick="goBack()">All categories</button>
   </nav>
 
-  <div class="options-container" id="options-container">
-    <div class="options-content">
-      <div class="slider-group">
-        <div class="slider-header">
-          <label>Experience Level</label>
-          <span id="lvl-display" class="current-lvl-tag">Legend</span>
-        </div>
-        <input type="range" id="lvl-slider" min="0" max="5" value="5" step="1">
-        <label class="strict-wrapper">
-          <input type="checkbox" id="strict-mode"> <span>Show only this level</span>
-        </label>
-      </div>
-      <div class="slider-group">
-        <div class="slider-header">
-          <label>Navigation</label>
-          <button onclick="toggleJumpGrid()" class="back-btn" style="font-size: 0.7rem; padding: 4px 8px;">Jump to Category ▾</button>
-        </div>
-        <div id="jump-grid-overlay" style="display:none; grid-template-columns: repeat(3, 1fr); gap: 8px; padding-top: 10px;">
-          </div>
-      </div>
-      
-      <div class="slider-group" id="subcategory-jump-zone" style="display:none;">
-        <label style="font-family:'Playfair Display', serif; font-size:0.9rem; color: var(--muted);">Jump to Sub-Topic</label>
-        <div id="sub-jump-links" style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 5px;"></div>
-      </div>
-      
-      <div id="speed-bar-mount"></div>
-    </div>
-    <button class="options-toggle" id="toggle-btn" onclick="toggleOptions()">▴ Hide Options ▴</button>
-  </div>
+
 
   <div class="inner-body" id="inner-body"></div>
 </div>
@@ -167,19 +107,7 @@
     const isCollapsed = container.classList.toggle('collapsed');
     btn.innerText = isCollapsed ? '▾ Show Options ▾' : '▴ Hide Options ▴';
   }
-// Add to your scroll listener or a new one
-  window.addEventListener('scroll', () => {
-    const container = document.getElementById('options-container');
-    const innerHeader = document.querySelector('.inner-header');
-    
-    if (container && innerHeader && !container.classList.contains('collapsed')) {
-      // Collapse once user scrolls past the header height
-      if (window.scrollY > innerHeader.offsetHeight) {
-        container.classList.add('collapsed');
-        document.getElementById('toggle-btn').innerText = '▾ Show Options ▾';
-      }
-    }
-  })
+
   
   // -- FILTER LOGIC --
   function getFilteredData(data) {
