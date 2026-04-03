@@ -8,129 +8,92 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="../shared/style.css"/>
   <style>
-    /* ── GRID PAGE ───────────────────────────── */
-    #page-grid {
-      padding: 60px 20px 100px;
-      max-width: 900px;
-      margin: 0 auto;
-    }
-    .page-header { text-align: center; margin-bottom: 44px; }
-    .page-header .eyebrow { font-size: 0.78rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--accent); font-weight: 300; margin-bottom: 14px; }
-    .page-header h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.2rem, 6vw, 3.2rem); font-weight: 400; line-height: 1.15; color: var(--ink); margin-bottom: 14px; }
-    .page-header h1 em { font-style: italic; color: var(--accent); }
-    .page-header p { font-size: 0.97rem; color: var(--muted); font-weight: 300; max-width: 420px; margin: 0 auto; line-height: 1.75; }
-
-    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 14px; }
-    .card { background: var(--warm-white); border: 1px solid var(--line); border-radius: 6px; padding: 24px 16px 20px; cursor: pointer; transition: all 0.22s ease; text-align: center; position: relative; overflow: hidden; -webkit-tap-highlight-color: transparent; animation: fadeUp 0.4s ease both; }
-    .card::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 2px; background: var(--accent); transform: scaleX(0); transform-origin: left; transition: transform 0.22s ease; }
-    .card:hover { border-color: var(--accent-light); box-shadow: 0 4px 24px rgba(196,113,74,0.10); transform: translateY(-2px); }
-    .card:hover::after { transform: scaleX(1); }
-    .card.card-all { border-style: dashed; border-color: var(--accent-light); }
-
-    /* ── OPTIONS DRAWER ──────────────────────── */
-    .options-container { 
-        background: var(--warm-white); 
-        border-bottom: 1px solid var(--line); 
-        position: sticky; 
-        top: 0; 
-        z-index: 100; 
-        transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
-        transform-origin: top;
-      }
-    .options-content { max-width: 740px; margin: 0 auto; padding: 0 20px; display: flex; flex-direction: column; gap: 15px; overflow: hidden; max-height: 500px; transition: max-height 0.3s ease, opacity 0.3s ease; }
-     .options-container.collapsed {
-        transform: scaleY(0); /* Shrink upward instead of just snapping height */
-        opacity: 0;
-        pointer-events: none;
-        position: absolute; /* Take it out of flow so it doesn't leave a gap */
-      }
-      .options-toggle {
-        position: sticky;
-        top: 0;
-        z-index: 101;
-        background: var(--warm-white);
-        width: 100%;
-        border-bottom: 1px solid var(--line);
-      }
-    
-    .slider-group { padding: 20px 0 10px; display: flex; flex-direction: column; gap: 12px; }
-    .slider-header { display: flex; justify-content: space-between; align-items: baseline; }
-    .slider-header label { font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--ink); }
-    .current-lvl-tag { color: var(--accent); font-weight: 700; font-size: 0.85rem; }
-    input[type="range"] { width: 100%; accent-color: var(--accent); cursor: pointer; }
-    .strict-wrapper { display: flex; align-items: center; gap: 8px; font-size: 0.8rem; color: var(--muted); cursor: pointer; }
-
-    /* ── INNER PAGE ───────────────────────────── */
-    #page-inner { display: none; }
+    /* ── PAGE LAYOUT ──────────────────────────── */
+    #page-grid { padding: 80px 20px 100px; max-width: 900px; margin: 0 auto; }
+    #page-inner { display: none; padding-top: 40px; }
     #page-inner.active { display: block; }
-    .inner-body { max-width: 740px; width: 100%; margin: 0 auto; padding: 36px 16px 100px; animation: fadeUp 0.35s ease both; }
-    .inner-nav { background: var(--warm-white);}
-    
-    @media (max-width: 480px) {
-      .grid { grid-template-columns: 1fr 1fr; gap: 10px; }
-      .card { padding: 18px 10px 14px; }
+    .inner-body { max-width: 740px; margin: 0 auto; padding: 0 16px 100px; }
+
+    /* ── MODAL STYLING ────────────────────────── */
+    .modal-overlay {
+      display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(28, 25, 23, 0.6); z-index: 2500; backdrop-filter: blur(4px);
     }
+    .modal-content {
+      background: var(--warm-white); width: 90%; max-width: 480px;
+      margin: 10vh auto; padding: 32px; border-radius: 12px;
+      position: relative; box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+    }
+    .modal-close {
+      position: absolute; top: 16px; right: 16px; background: none;
+      border: none; font-size: 1.4rem; cursor: pointer; color: var(--muted);
+    }
+    
+    .opt-group { margin-bottom: 24px; border-bottom: 1px solid var(--line); padding-bottom: 20px; }
+    .opt-group:last-child { border: none; }
+    .opt-label { font-family: 'Playfair Display', serif; font-size: 1.1rem; margin-bottom: 12px; display: block; }
+    
+    .lvl-header { display: flex; justify-content: space-between; align-items: baseline; }
+    .lvl-tag { color: var(--accent); font-weight: 700; font-size: 0.85rem; }
+    input[type="range"] { width: 100%; accent-color: var(--accent); cursor: pointer; }
+    
+    .jump-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 10px; }
+    .jump-grid button { 
+      font-size: 0.7rem; padding: 10px 4px; border: 1px solid var(--line); 
+      border-radius: 4px; background: white; cursor: pointer;
+    }
+    .sub-links { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+    .sub-tag { 
+      text-decoration: none; color: var(--accent); font-size: 0.75rem; 
+      padding: 4px 8px; border: 1px dashed var(--accent-light); border-radius: 4px;
+    }
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 14px; }
+    .card { background: var(--warm-white); border: 1px solid var(--line); border-radius: 6px; padding: 24px 16px 20px; cursor: pointer; transition: all 0.22s ease; text-align: center; animation: fadeUp 0.4s ease both; }
   </style>
 </head>
 <body>
+
+<div id="options-modal" class="modal-overlay" onclick="handleOutsideClick(event)">
+  <div class="modal-content">
+    <button class="modal-close" onclick="toggleVocabOptions()">✕</button>
+    <div class="opt-group">
+      <div class="lvl-header">
+        <span class="opt-label">Experience Level</span>
+        <span id="lvl-display" class="lvl-tag">Legend</span>
+      </div>
+      <input type="range" id="lvl-slider" min="0" max="5" value="5" step="1">
+      <label style="display:flex; align-items:center; gap:8px; margin-top:12px; font-size:0.8rem; color:var(--muted); cursor:pointer;">
+        <input type="checkbox" id="strict-mode"> Show only this level
+      </label>
+    </div>
+    <div class="opt-group">
+      <span class="opt-label">Jump to Category</span>
+      <div id="jump-grid" class="jump-grid"></div>
+    </div>
+    <div class="opt-group" id="sub-jump-zone" style="display:none;">
+      <span class="opt-label" style="font-size:0.9rem; color:var(--muted);">Jump to Sub-Topic</span>
+      <div id="sub-links" class="sub-links"></div>
+    </div>
+    <div id="speed-mount"></div>
+  </div>
+</div>
 
 <div id="page-grid">
   <div class="page-header">
     <div class="eyebrow">Pour ma chère ♡</div>
     <h1>Le<br/><em>Vocabulaire</em></h1>
-    <p>Browse words by category, or open the full list to see everything at once.</p>
+    <p>Browse words by category, or use the Options menu to filter by difficulty.</p>
   </div>
   <div class="divider"></div>
   <div class="grid" id="card-grid"></div>
 </div>
 
 <div id="page-inner">
-  <nav class="inner-nav">
-    <button class="back-btn" onclick="goBack()">All categories</button>
-  </nav>
-
-  <div class="options-container" id="options-container">
-    <div class="options-content">
-      <div class="slider-group">
-        <div class="slider-header">
-          <label>Experience Level</label>
-          <span id="lvl-display" class="current-lvl-tag">Legend</span>
-        </div>
-        <input type="range" id="lvl-slider" min="0" max="5" value="5" step="1">
-        <label class="strict-wrapper">
-          <input type="checkbox" id="strict-mode"> <span>Show only this level</span>
-        </label>
-      </div>
-      <div class="slider-group">
-        <div class="slider-header">
-          <label>Navigation</label>
-          <button onclick="toggleJumpGrid()" class="back-btn" style="font-size: 0.7rem; padding: 4px 8px;">Jump to Category ▾</button>
-        </div>
-        <div id="jump-grid-overlay" style="display:none; grid-template-columns: repeat(3, 1fr); gap: 8px; padding-top: 10px;">
-          </div>
-      </div>
-      
-      <div class="slider-group" id="subcategory-jump-zone" style="display:none;">
-        <label style="font-family:'Playfair Display', serif; font-size:0.9rem; color: var(--muted);">Jump to Sub-Topic</label>
-        <div id="sub-jump-links" style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 5px;"></div>
-      </div>
-      
-      <div id="speed-bar-mount"></div>
-    </div>
-    <button class="options-toggle" id="toggle-btn" onclick="toggleOptions()">▴ Hide Options ▴</button>
-  </div>
-
   <div class="inner-body" id="inner-body"></div>
 </div>
 
-<footer class="site-footer">
-  <span>Need a word?</span>
-  <a href="https://translate.google.com/?sl=en&tl=fr&op=translate" target="_blank" rel="noopener">Open Google Translate ↗</a>
-</footer>
-
 <script src="../shared/nav.js"></script>
 <script src="../shared/audio.js"></script>
-
 <script type="module">
   import vocabData from '../shared/vocab-data.js';
   window.vocabData = vocabData;
@@ -138,50 +101,21 @@
 </script>
 
 <script>
-  // -- CONFIG & STATE --
   const lvlLabels = ["New Recruit", "Wayfinder", "Explorer", "Pathfinder", "Vanguard", "Legend"];
   const lvlValues = ["A0", "A1", "A2", "B1", "B2", "C1+"];
   let currentContext = { type: 'grid', category: null };
 
-  // -- HELPERS --
-  function capitalize(str) { return str.charAt(0).toUpperCase() + str.slice(1); }
-  
-  function categoryEmoji(cat) {
-    const sample = window.vocabData.find(v => v.category === cat && v.emoji);
-    return sample ? sample.emoji : '📝';
+  window.toggleVocabOptions = function() {
+    const modal = document.getElementById('options-modal');
+    const isOpening = modal.style.display !== 'block';
+    modal.style.display = isOpening ? 'block' : 'none';
+    if (isOpening) populateJumpMenu();
+  };
+
+  function handleOutsideClick(e) {
+    if (e.target.id === 'options-modal') toggleVocabOptions();
   }
 
-  function groupByType(items) {
-    const map = new Map();
-    items.forEach(v => {
-      const t = v.type || 'other';
-      if (!map.has(t)) map.set(t, []);
-      map.get(t).push(v);
-    });
-    return [...map.entries()].map(([type, items]) => ({ type, items }));
-  }
-
-  function toggleOptions() {
-    const container = document.getElementById('options-container');
-    const btn = document.getElementById('toggle-btn');
-    const isCollapsed = container.classList.toggle('collapsed');
-    btn.innerText = isCollapsed ? '▾ Show Options ▾' : '▴ Hide Options ▴';
-  }
-// Add to your scroll listener or a new one
-  window.addEventListener('scroll', () => {
-    const container = document.getElementById('options-container');
-    const innerHeader = document.querySelector('.inner-header');
-    
-    if (container && innerHeader && !container.classList.contains('collapsed')) {
-      // Collapse once user scrolls past the header height
-      if (window.scrollY > innerHeader.offsetHeight) {
-        container.classList.add('collapsed');
-        document.getElementById('toggle-btn').innerText = '▾ Show Options ▾';
-      }
-    }
-  })
-  
-  // -- FILTER LOGIC --
   function getFilteredData(data) {
     const selectedIdx = parseInt(document.getElementById('lvl-slider').value);
     const isStrict = document.getElementById('strict-mode').checked;
@@ -191,192 +125,116 @@
     });
   }
 
-  function refreshView() {
-    if (currentContext.type === 'all') openAll();
-    else if (currentContext.type === 'cat') openCategory(currentContext.category);
+  function populateJumpMenu() {
+    const grid = document.getElementById('jump-grid');
+    const cats = [...new Set(window.vocabData.map(v => v.category))].sort();
+    let html = `<button onclick="handleJump('grid')">← Grid</button>`;
+    html += `<button onclick="handleJump('all')">Full List</button>`;
+    cats.forEach(c => html += `<button onclick="handleJump('${c}')">${c.charAt(0).toUpperCase() + c.slice(1)}</button>`);
+    grid.innerHTML = html;
+
+    const subZone = document.getElementById('sub-jump-zone');
+    if (currentContext.type === 'cat') {
+      subZone.style.display = 'block';
+      const items = window.vocabData.filter(v => v.category === currentContext.category);
+      const subcats = [...new Set(items.map(v => v.subcategory || 'General'))];
+      document.getElementById('sub-links').innerHTML = subcats.map(s => 
+        `<a href="#section-${s.toLowerCase().replace(/\s+/g,'-')}" class="sub-tag" onclick="toggleVocabOptions()"># ${s}</a>`
+      ).join('');
+    } else { subZone.style.display = 'none'; }
   }
 
-  // -- INIT --
+  function handleJump(target) {
+    toggleVocabOptions();
+    if (target === 'grid') goBack();
+    else if (target === 'all') openAll();
+    else openCategory(target);
+  }
+
   function initVocab() { buildGrid(); }
 
   function buildGrid() {
     currentContext = { type: 'grid', category: null };
     const grid = document.getElementById('card-grid');
     grid.innerHTML = '';
-
-    const allCard = document.createElement('div');
-    allCard.className = 'card card-all';
-    allCard.innerHTML = `<span class="card-icon">📚</span><div class="card-title">All Vocab</div><div class="card-sub">${window.vocabData.length} words total</div>`;
-    allCard.addEventListener('click', () => openAll());
-    grid.appendChild(allCard);
-
     const cats = [...new Set(window.vocabData.map(v => v.category))].sort();
     cats.forEach(cat => {
       const count = window.vocabData.filter(v => v.category === cat).length;
       const card = document.createElement('div');
       card.className = 'card';
-      card.innerHTML = `<span class="card-icon">${categoryEmoji(cat)}</span><div class="card-title">${capitalize(cat)}</div><div class="card-sub">${count} words</div>`;
+      const sample = window.vocabData.find(v => v.category === cat && v.emoji);
+      card.innerHTML = `<span class="card-icon">${sample ? sample.emoji : '📝'}</span><div class="card-title">${cat}</div><div class="card-sub">${count} words</div>`;
       card.addEventListener('click', () => openCategory(cat));
       grid.appendChild(card);
     });
   }
 
-  // -- OPEN VIEWS --
   function openCategory(cat) {
     currentContext = { type: 'cat', category: cat };
-    const rawItems = window.vocabData.filter(v => v.category === cat);
-    const items = getFilteredData(rawItems);
-    const subcats = [...new Set(items.map(v => v.subcategory || 'General'))];
-    const isMixed = subcats.length > 1;
-    
-    let html = `<div class="inner-header"><div class="eyebrow">${categoryEmoji(cat)} &nbsp; Vocabulaire</div><h2>${capitalize(cat).replace(/(\S+)\s*$/, '<em>$1</em>')}</h2><p>${items.length} words visible.</p></div>`;
-
-    if (isMixed) {
-      groupBySubcategory(items).forEach(({ subcat, items: subItems }) => {
-      html += buildVocabSection(capitalize(subcat), subItems);
-      });
-    } else {
-      html += buildVocabSection(capitalize(cat), items);
-    }
+    const filtered = getFilteredData(window.vocabData.filter(v => v.category === cat));
+    let html = `<div class="inner-header"><h2>${cat}</h2><p>${filtered.length} words visible.</p></div>`;
+    const groups = new Map();
+    filtered.forEach(v => {
+      const s = v.subcategory || 'General';
+      if(!groups.has(s)) groups.set(s, []);
+      groups.get(s).push(v);
+    });
+    groups.forEach((items, sub) => html += buildVocabSection(sub, items));
     renderInner(html);
   }
 
-  function groupBySubcategory(items) {
-    const map = new Map();
-    items.forEach(v => {
-      const s = v.subcategory || 'General'; // Use subcategory instead of type
-      if (!map.has(s)) map.set(s, []);
-      map.get(s).push(v);
-    });
-    return [...map.entries()].map(([sub, items]) => ({ subcat: sub, items }));
-  }
-  
-  function handleJump(val) {
-    if (val === "all") openAll();
-    else if (val === "grid") goBack();
-    else openCategory(val);
-  }
-  
-  function populateJumpMenu() {
-    const select = document.getElementById('category-jump');
-    const cats = [...new Set(window.vocabData.map(v => v.category))].sort();
-    
-    let html = `<option value="grid">← All Categories</option>`;
-    html += `<option value="all" ${currentContext.type === 'all' ? 'selected' : ''}>Full List (All Vocab)</option>`;
-    
-    cats.forEach(cat => {
-      const isSel = currentContext.type === 'cat' && currentContext.category === cat;
-      html += `<option value="${cat}" ${isSel ? 'selected' : ''}>${capitalize(cat)}</option>`;
-    });
-    select.innerHTML = html;
-  }
-
-  function toggleJumpGrid() {
-    const grid = document.getElementById('jump-grid-overlay');
-    grid.style.display = grid.style.display === 'none' ? 'grid' : 'none';
-  }
-  
-  function populateJumpMenu() {
-    const grid = document.getElementById('jump-grid-overlay');
-    const cats = [...new Set(window.vocabData.map(v => v.category))].sort();
-    
-    // 1. Categories Grid
-    let html = `<button onclick="goBack()" style="font-size:0.7rem; padding:5px; border:1px solid var(--line); border-radius:4px; background:white;">← Grid</button>`;
-    html += `<button onclick="openAll()" style="font-size:0.7rem; padding:5px; border:1px solid var(--line); border-radius:4px; background:white;">Full List</button>`;
-    
-    cats.forEach(cat => {
-      html += `<button onclick="openCategory('${cat}')" style="font-size:0.7rem; padding:5px; border:1px solid var(--line); border-radius:4px; background:white;">${capitalize(cat)}</button>`;
-    });
-    grid.innerHTML = html;
-  
-    // 2. Subcategory (Topic) Jump - Only shows if in a category
-    const subZone = document.getElementById('subcategory-jump-zone');
-    const subContainer = document.getElementById('sub-jump-links');
-    
-    if (currentContext.type === 'cat') {
-      subZone.style.display = 'block';
-      const items = window.vocabData.filter(v => v.category === currentContext.category);
-      const subcats = [...new Set(items.map(v => v.subcategory || 'General'))];
-      
-      subContainer.innerHTML = subcats.map(s => 
-        `<a href="#section-${s.replace(/\s+/g, '-')}" style="text-decoration:none; color:var(--accent); font-size:0.75rem; border-bottom: 1px dashed var(--accent);"># ${capitalize(s)}</a>`
-      ).join('');
-    } else {
-      subZone.style.display = 'none';
-    }
-  }
-  
   function openAll() {
     currentContext = { type: 'all', category: null };
-    const items = getFilteredData(window.vocabData);
-    const cats = [...new Set(items.map(v => v.category))].sort();
-
-    let html = `<div class="inner-header"><div class="eyebrow">📚 &nbsp; Vocabulaire</div><h2>All <em>Vocab</em></h2><p>${items.length} words visible.</p></div>`;
-
-   cats.forEach(cat => {
-      const catItems = items.filter(v => v.category === cat);
-      const subcats = [...new Set(catItems.map(v => v.subcategory || 'General'))];
-      
-      if (subcats.length > 1) {
-        groupBySubcategory(catItems).forEach(({ subcat, items: subItems }) => {
-          // Label it as "Category — Subcategory" for clarity in the long list
-          html += buildVocabSection(`${capitalize(cat)} — ${capitalize(subcat)}`, subItems);
-        });
-      } else {
-        html += buildVocabSection(capitalize(cat), catItems);
-      }
+    const filtered = getFilteredData(window.vocabData);
+    const cats = [...new Set(filtered.map(v => v.category))].sort();
+    let html = `<div class="inner-header"><h2>All Vocab</h2></div>`;
+    cats.forEach(cat => {
+      const items = filtered.filter(v => v.category === cat);
+      html += buildVocabSection(cat, items);
     });
     renderInner(html);
   }
 
-  function buildVocabSection(label, items, subLabel) {
+  function buildVocabSection(label, items) {
     if (items.length === 0) return '';
-    // Create a URL-friendly ID from the label
-    const sectionId = `section-${label.toLowerCase().replace(/\s+/g, '-')}`;
-    
-    let html = `<div class="section-label" id="${sectionId}">${label}${subLabel ? ' <span style="font-size:0.75em;opacity:0.65;">— ' + subLabel + '</span>' : ''}</div>`;
-    html += `<div class="phrase-header"><span>French</span><span>English</span><span>Sounds like</span></div><div class="phrase-list">`;
+    const id = `section-${label.toLowerCase().replace(/\s+/g,'-')}`;
+    let html = `<div class="section-label" id="${id}">${label}</div><div class="phrase-list">`;
     items.forEach(v => {
       const spoken = v.article ? `${v.article} ${v.fr}` : v.fr;
-      html += `
-        <div class="phrase-row" data-spoken="${encodeURIComponent(spoken)}">
-          <div class="phrase-fr">${v.article ? `<span class="vocab-article">${v.article}</span> ` : ''}${v.fr}</div>
-          <div class="phrase-en">${v.en}</div>
-          <div class="phrase-ph">${v.ph}</div>
-          ${v.note ? `<div class="phrase-note">💡 ${v.note}</div>` : ''}
-        </div>`;
+      html += `<div class="phrase-row" data-spoken="${encodeURIComponent(spoken)}">
+        <div class="phrase-fr">${v.article ? `<span class="vocab-article">${v.article}</span> ` : ''}${v.fr}</div>
+        <div class="phrase-en">${v.en}</div>
+        <div class="phrase-ph">${v.ph}</div>
+        ${v.note ? `<div class="phrase-note">💡 ${v.note}</div>` : ''}
+      </div>`;
     });
-    html += `</div>`;
-    return html;
+    return html + `</div>`;
   }
 
   function renderInner(html) {
     const body = document.getElementById('inner-body');
-    const mount = document.getElementById('speed-bar-mount');
+    const mount = document.getElementById('speed-mount');
     mount.innerHTML = '';
     Audio.buildSpeedBar(mount, 'Playback speed');
-    populateJumpMenu();
-
     body.innerHTML = html;
     body.querySelectorAll('.phrase-row').forEach(row => {
       const btn = Audio.buildPlayBtn(decodeURIComponent(row.dataset.spoken));
       row.insertBefore(btn, row.querySelector('.phrase-fr'));
     });
-
     document.getElementById('page-grid').style.display = 'none';
     document.getElementById('page-inner').classList.add('active');
     window.scrollTo(0, 0);
   }
 
   function goBack() {
-    window.speechSynthesis && window.speechSynthesis.cancel();
     document.getElementById('page-inner').classList.remove('active');
     document.getElementById('page-grid').style.display = 'block';
+    currentContext = { type: 'grid', category: null };
   }
 
   document.getElementById('lvl-slider').addEventListener('input', (e) => {
     document.getElementById('lvl-display').innerText = lvlLabels[e.target.value];
-    refreshView();
+    if (currentContext.type !== 'grid') refreshView();
   });
   document.getElementById('strict-mode').addEventListener('change', refreshView);
 </script>
