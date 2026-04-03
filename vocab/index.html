@@ -44,7 +44,8 @@
     #page-inner { display: none; }
     #page-inner.active { display: block; }
     .inner-body { max-width: 740px; width: 100%; margin: 0 auto; padding: 36px 16px 100px; animation: fadeUp 0.35s ease both; }
-
+    .inner-nav { background: var(--warm-white);}
+    
     @media (max-width: 480px) {
       .grid { grid-template-columns: 1fr 1fr; gap: 10px; }
       .card { padding: 18px 10px 14px; }
@@ -79,6 +80,11 @@
         <label class="strict-wrapper">
           <input type="checkbox" id="strict-mode"> <span>Show only this level</span>
         </label>
+      </div>
+      <div class="slider-group">
+        <label style="font-family:'Playfair Display', serif; font-size:1.1rem;">Jump to Topic</label>
+        <select id="category-jump" onchange="handleJump(this.value)" style="width:100%; padding:8px; border-radius:4px; border:1px solid var(--line); background:var(--warm-white); color:var(--ink);">
+          </select>
       </div>
       <div id="speed-bar-mount"></div>
     </div>
@@ -132,7 +138,20 @@
     const isCollapsed = container.classList.toggle('collapsed');
     btn.innerText = isCollapsed ? '▾ Show Options ▾' : '▴ Hide Options ▴';
   }
-
+// Add to your scroll listener or a new one
+  window.addEventListener('scroll', () => {
+    const container = document.getElementById('options-container');
+    const innerHeader = document.querySelector('.inner-header');
+    
+    if (container && innerHeader && !container.classList.contains('collapsed')) {
+      // Collapse once user scrolls past the header height
+      if (window.scrollY > innerHeader.offsetHeight) {
+        container.classList.add('collapsed');
+        document.getElementById('toggle-btn').innerText = '▾ Show Options ▾';
+      }
+    }
+  })
+  
   // -- FILTER LOGIC --
   function getFilteredData(data) {
     const selectedIdx = parseInt(document.getElementById('lvl-slider').value);
@@ -178,13 +197,14 @@
     currentContext = { type: 'cat', category: cat };
     const rawItems = window.vocabData.filter(v => v.category === cat);
     const items = getFilteredData(rawItems);
-    const types = [...new Set(items.map(v => v.type))];
-
+    const subcats = [...new Set(items.map(v => v.subcategory || 'General'))];
+    const isMixed = subcats.length > 1;
+    
     let html = `<div class="inner-header"><div class="eyebrow">${categoryEmoji(cat)} &nbsp; Vocabulaire</div><h2>${capitalize(cat).replace(/(\S+)\s*$/, '<em>$1</em>')}</h2><p>${items.length} words visible.</p></div>`;
 
-    if (types.length > 1) {
-      groupByType(items).forEach(({ type, items: typeItems }) => {
-        html += buildVocabSection(capitalize(cat), typeItems, capitalize(type) + 's');
+    if (isMixed) {
+      groupBySubcategory(items).forEach(({ subcat, items: subItems }) => {
+      html += buildVocabSection(capitalize(subcat), subItems);
       });
     } else {
       html += buildVocabSection(capitalize(cat), items);
@@ -192,6 +212,36 @@
     renderInner(html);
   }
 
+  function groupBySubcategory(items) {
+    const map = new Map();
+    items.forEach(v => {
+      const s = v.subcategory || 'General'; // Use subcategory instead of type
+      if (!map.has(s)) map.set(s, []);
+      map.get(s).push(v);
+    });
+    return [...map.entries()].map(([sub, items]) => ({ subcat: sub, items }));
+  }
+  
+  function handleJump(val) {
+    if (val === "all") openAll();
+    else if (val === "grid") goBack();
+    else openCategory(val);
+  }
+  
+  function populateJumpMenu() {
+    const select = document.getElementById('category-jump');
+    const cats = [...new Set(window.vocabData.map(v => v.category))].sort();
+    
+    let html = `<option value="grid">← All Categories</option>`;
+    html += `<option value="all" ${currentContext.type === 'all' ? 'selected' : ''}>Full List (All Vocab)</option>`;
+    
+    cats.forEach(cat => {
+      const isSel = currentContext.type === 'cat' && currentContext.category === cat;
+      html += `<option value="${cat}" ${isSel ? 'selected' : ''}>${capitalize(cat)}</option>`;
+    });
+    select.innerHTML = html;
+  }
+  
   function openAll() {
     currentContext = { type: 'all', category: null };
     const items = getFilteredData(window.vocabData);
@@ -199,9 +249,18 @@
 
     let html = `<div class="inner-header"><div class="eyebrow">📚 &nbsp; Vocabulaire</div><h2>All <em>Vocab</em></h2><p>${items.length} words visible.</p></div>`;
 
-    cats.forEach(cat => {
+   cats.forEach(cat => {
       const catItems = items.filter(v => v.category === cat);
-      html += buildVocabSection(capitalize(cat), catItems);
+      const subcats = [...new Set(catItems.map(v => v.subcategory || 'General'))];
+      
+      if (subcats.length > 1) {
+        groupBySubcategory(catItems).forEach(({ subcat, items: subItems }) => {
+          // Label it as "Category — Subcategory" for clarity in the long list
+          html += buildVocabSection(`${capitalize(cat)} — ${capitalize(subcat)}`, subItems);
+        });
+      } else {
+        html += buildVocabSection(capitalize(cat), catItems);
+      }
     });
     renderInner(html);
   }
@@ -229,6 +288,7 @@
     const mount = document.getElementById('speed-bar-mount');
     mount.innerHTML = '';
     Audio.buildSpeedBar(mount, 'Playback speed');
+    populateJumpMenu();
 
     body.innerHTML = html;
     body.querySelectorAll('.phrase-row').forEach(row => {
