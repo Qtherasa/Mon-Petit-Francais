@@ -60,73 +60,74 @@ a { color: inherit; }
 
 /* shared/style.css */
 
-/* Container for Hamburger and Options buttons */
-.nav-controls {
+/* Container for both top buttons */
+.nav-container {
   position: fixed;
   top: 20px;
   left: 20px;
   display: flex;
-  align-items: center;
-  gap: 12px;
-  z-index: 2100; /* Must be higher than the modal overlay */
+  gap: 10px;
+  z-index: 2100;
 }
 
-/* Styled specifically for the Mon Petit Français aesthetic */
-.options-btn {
+/* Base style for both buttons to ensure they match (Rounded Squares) */
+.nav-btn {
   background: var(--warm-white);
   border: 1px solid var(--line);
-  padding: 8px 16px;
-  border-radius: 20px;
-  font-size: 0.75rem;
+  height: 44px; /* Standard touch target */
+  padding: 0 15px;
+  border-radius: 8px; /* Matching rounded squares */
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  transition: all 0.2s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.nav-btn:hover { 
+  border-color: var(--accent); 
+  box-shadow: 0 2px 12px rgba(196,113,74,0.18);
+}
+
+.nav-btn .btn-text {
   font-family: 'Lato', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.05em;
   color: var(--ink);
-  cursor: pointer;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-  transition: all 0.2s ease;
 }
 
-.options-btn:hover {
-  border-color: var(--accent);
-  color: var(--accent);
-  transform: translateY(-1px);
-}
-
-/* ── HAMBURGER BUTTON ───────────────────────── */
-
-.hamburger-btn {
-  position: fixed;
-  top: 14px;
-  left: 14px;
-  z-index: 200;
-  background: var(--warm-white);
-  border: 1px solid var(--line);
-  border-radius: 6px;
-  width: 44px;
-  height: 44px;          /* 44px min tap target */
+/* ── HAMBURGER ICON DRAWING ───────────────── */
+.hamburger-icon {
+  width: 20px;
+  height: 14px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 5px;
-  cursor: pointer;
-  transition: box-shadow 0.2s;
-  -webkit-tap-highlight-color: transparent;
+  justify-content: space-between;
 }
-.hamburger-btn:hover  { box-shadow: 0 2px 12px rgba(196,113,74,0.18); }
-.hamburger-btn:active { background: var(--accent-light); }
-.hamburger-btn span {
-  display: block;
-  width: 18px; height: 1.5px;
-  background: var(--ink);
-  transition: all 0.22s ease;
-  transform-origin: center;
-}
-.hamburger-btn.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
-.hamburger-btn.open span:nth-child(2) { opacity: 0; }
-.hamburger-btn.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
 
+.hamburger-icon span {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: var(--ink);
+  border-radius: 2px;
+  transition: all 0.22s ease;
+}
+
+/* Animation when menu is open */
+.menu-trigger.open .hamburger-icon span:nth-child(1) { 
+  transform: translateY(6px) rotate(45deg); 
+}
+.menu-trigger.open .hamburger-icon span:nth-child(2) { 
+  opacity: 0; 
+}
+.menu-trigger.open .hamburger-icon span:nth-child(3) { 
+  transform: translateY(-6px) rotate(-45deg); 
+}
 /* ── MENU OVERLAY ───────────────────────────── */
 .menu-overlay {
   position: fixed; inset: 0;
