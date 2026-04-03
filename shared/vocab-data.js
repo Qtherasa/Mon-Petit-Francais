@@ -1528,7 +1528,7 @@ const vocabData = [
 { fr: "étang", article: "un", en: "pond", ph: "ay-TAHN", category: "nature", subcategory: "landscape", type: "noun", emoji: "🐸", lvl: "B1" },
 { fr: "côte", article: "une", en: "coast / coastline", ph: "koht", category: "nature", subcategory: "landscape", type: "noun", emoji: "🏖️", lvl: "B1" },
 { fr: "désert", article: "un", en: "desert", ph: "day-ZAIR", category: "nature", subcategory: "landscape", type: "noun", emoji: "🏜️", lvl: "B1" },
-{ fr: "jungle", article: "une", en: "jungle", ph: "zhun-GLUH", category: "nature", subcategory: "landscape", type: "noun", emoji: "🌴" },
+{ fr: "jungle", article: "une", en: "jungle", ph: "zhun-GLUH", category: "nature", subcategory: "landscape", type: "noun", emoji: "🌴", lvl: "B1" },
 { fr: "grotte", article: "une", en: "cave / grotto", ph: "grot", category: "nature", subcategory: "landscape", type: "noun", emoji: "🪨", lvl: "B2" },
 { fr: "falaise", article: "une", en: "cliff", ph: "fah-LEZ", category: "nature", subcategory: "landscape", type: "noun", emoji: "⛵", lvl: "B2" },
 { fr: "marais", article: "un", en: "swamp / marsh", ph: "mah-REH", category: "nature", subcategory: "landscape", type: "noun", emoji: "🌿", lvl: "B2" },
