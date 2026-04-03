@@ -77,16 +77,20 @@ function injectNav() {
     </a>
   `).join('');
 
-  const navHTML = `
-    <!-- HAMBURGER -->
-    <button class="hamburger-btn" id="hamburger-btn" onclick="toggleMenu()" aria-label="Open menu">
-      <span></span><span></span><span></span>
-    </button>
+  // Check if we are on the vocab page to show the options button
+  const isVocabPage = window.location.pathname.includes('/vocab/');
 
-    <!-- OVERLAY -->
+  const navHTML = `
+    <div class="nav-controls">
+      <button class="hamburger-btn" id="hamburger-btn" onclick="toggleMenu()" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+
+      ${isVocabPage ? `<button class="options-btn" onclick="toggleOptionsModal()" id="opts-btn">Options ⚙️</button>` : ''}
+    </div>
+
     <div class="menu-overlay" id="menu-overlay" onclick="closeMenu()"></div>
 
-    <!-- DRAWER -->
     <nav class="menu-drawer" id="menu-drawer">
       <div class="menu-header">
         <div class="menu-eyebrow">Navigation</div>
@@ -98,7 +102,6 @@ function injectNav() {
     </nav>
   `;
 
-  // Insert at the very start of <body> so z-index stacking is predictable
   document.body.insertAdjacentHTML('afterbegin', navHTML);
 }
 
@@ -117,6 +120,11 @@ function closeMenu() {
   document.getElementById('menu-overlay')?.classList.remove('open');
   document.getElementById('hamburger-btn')?.classList.remove('open');
 }
-
+/* ── Options Modal Toggle (Calls function in vocab/index.html) ── */
+function toggleOptionsModal() {
+  if (typeof window.toggleVocabOptions === 'function') {
+    window.toggleVocabOptions();
+  }
+}
 /* ── Run on DOM ready ───────────────────────────────────── */
 document.addEventListener('DOMContentLoaded', injectNav);
