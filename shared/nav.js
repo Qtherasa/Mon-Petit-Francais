@@ -28,33 +28,54 @@ function injectNav() {
     </a>
   `).join('');
 
-  const isVocabPage = window.location.pathname.includes('/vocab/');
-
   const navHTML = `
     <div class="nav-container">
-      <button class="nav-btn menu-trigger" id="hamburger-btn" onclick="toggleMenu()" aria-label="Menu">
-        <div class="hamburger-icon"><span></span><span></span><span></span></div>
-        <span class="btn-text">Menu</span>
-      </button>
-      
-      ${isVocabPage ? `
-      <button class="nav-btn options-trigger" onclick="toggleOptionsModal()" id="opts-btn">
-        <span class="btn-icon">⚙️</span>
-        <span class="btn-text">Options</span>
-      </button>` : ''}
+      <button class="nav-btn" id="btn-nav" onclick="toggleDrawer('nav')" title="Navigation">🧭</button>
+      <button class="nav-btn" id="btn-opt" onclick="toggleDrawer('opt')" title="Options">⚙️</button>
     </div>
 
-    <div class="menu-overlay" id="menu-overlay" onclick="closeMenu()"></div>
-    <nav class="menu-drawer" id="menu-drawer">
-      <div class="menu-header">
-        <div class="menu-eyebrow">Navigation</div>
-        <h3>Mon Petit Français</h3>
+    <div class="menu-overlay" id="menu-overlay" onclick="closeAllDrawers()"></div>
+
+    <nav class="drawer-panel" id="drawer-nav">
+      <div class="drawer-content">
+        <div class="drawer-header">
+          <div class="drawer-eyebrow">Navigation</div>
+          <h3>Mon Petit Français</h3>
+        </div>
+        <div class="menu-items">${itemsHTML}</div>
       </div>
-      <div class="menu-items">${itemsHTML}</div>
+    </nav>
+
+    <nav class="drawer-panel" id="drawer-opt">
+      <div class="drawer-content">
+        <div class="drawer-header">
+          <div class="drawer-eyebrow">Settings</div>
+          <h3>Options</h3>
+        </div>
+        <div id="opt-list-container">
+           </div>
+      </div>
     </nav>
   `;
-
   document.body.insertAdjacentHTML('afterbegin', navHTML);
+}
+
+function toggleDrawer(type) {
+  const isNav = type === 'nav';
+  const target = document.getElementById(isNav ? 'drawer-nav' : 'drawer-opt');
+  const other = document.getElementById(isNav ? 'drawer-opt' : 'drawer-nav');
+  const btnTgt = document.getElementById(isNav ? 'btn-nav' : 'btn-opt');
+  const btnOth = document.getElementById(isNav ? 'btn-opt' : 'btn-nav');
+
+  const isOpen = target.classList.toggle('open');
+  other.classList.remove('open');
+  btnOth.classList.remove('active');
+  btnTgt.classList.toggle('active', isOpen);
+  document.getElementById('menu-overlay').classList.toggle('open', isOpen);
+}
+
+function closeAllDrawers() {
+  document.querySelectorAll('.drawer-panel, .nav-btn, .menu-overlay').forEach(el => el.classList.remove('open', 'active'));
 }
 
 function toggleMenu() {
