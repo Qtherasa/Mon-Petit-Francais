@@ -301,6 +301,13 @@
     currentContext = { type: 'grid', category: null };
   }
 
+  function refreshView() {
+    if (currentContext.type === 'cat') {
+      openCategory(currentContext.category);
+    } else if (currentContext.type === 'all') {
+      openAll();
+    }
+  }
   document.getElementById('lvl-slider').addEventListener('input', (e) => {
     document.getElementById('lvl-display').innerText = lvlLabels[e.target.value];
     if (currentContext.type !== 'grid') refreshView();
