@@ -8,8 +8,66 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="../shared/style.css"/>
   <style>
-    /* ── PAGE LAYOUT ──────────────────────────── */
-    #page-grid { padding: 80px 20px 100px; max-width: 900px; margin: 0 auto; }
+
+    /* ── GRID PAGE ───────────────────────────── */
+    #page-grid {
+      padding: 40px 20px 80px; /* Reduced top/bottom padding */
+      max-width: 1200px;        /* Increased from 900px to use 2/3 screen */
+      margin: 0 auto;
+    }
+    
+    /* Topic card grid */
+    .grid {
+      display: grid;
+      /* Reduced min-width from 180px to 145px to fit 6-8 cards per row on desktop */
+      grid-template-columns: repeat(auto-fill, minmax(145px, 1fr)); 
+      gap: 12px; /* Slightly tighter gap */
+    }
+    
+    .card {
+      background: var(--warm-white);
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      padding: 16px 12px 14px; /* Reduced from 24px/16px to shrink height */
+      cursor: pointer;
+      transition: all 0.22s ease;
+      text-align: center;
+      position: relative; 
+      overflow: hidden;
+      -webkit-tap-highlight-color: transparent;
+      animation: fadeUp 0.4s ease both;
+    }
+    
+    .card-icon  { 
+      font-size: 1.4rem; /* Slightly smaller icon */
+      margin-bottom: 6px; 
+      display: block; 
+    }
+    
+    .card-title { 
+      font-family: 'Playfair Display', serif; 
+      font-size: 0.95rem; /* Slightly smaller text */
+      font-weight: 600; 
+      color: var(--ink); 
+      margin-bottom: 3px; 
+    }
+    
+    .card-sub { 
+      font-size: 0.72rem; 
+      color: var(--muted); 
+      font-weight: 300; 
+    }
+    @media (max-width: 480px) {
+      .grid { 
+        grid-template-columns: 1fr 1fr; 
+        gap: 10px; 
+      }
+      .card { 
+        padding: 14px 8px 12px; 
+      }
+      .card-icon { font-size: 1.2rem; }
+    }
+    
     #page-inner { display: none; padding-top: 40px; }
     #page-inner.active { display: block; }
     .inner-body { max-width: 740px; margin: 0 auto; padding: 0 16px 100px; }
@@ -151,23 +209,34 @@
     else openCategory(target);
   }
 
-  function initVocab() { buildGrid(); }
+  // ── INIT ─────────────────────────────────────
+  function initVocab() {
+  const grid = document.getElementById('card-grid');
+  const categories = [...new Set(window.vocabData.map(v => v.category))].sort();
 
-  function buildGrid() {
-    currentContext = { type: 'grid', category: null };
-    const grid = document.getElementById('card-grid');
-    grid.innerHTML = '';
-    const cats = [...new Set(window.vocabData.map(v => v.category))].sort();
-    cats.forEach(cat => {
-      const count = window.vocabData.filter(v => v.category === cat).length;
-      const card = document.createElement('div');
-      card.className = 'card';
-      const sample = window.vocabData.find(v => v.category === cat && v.emoji);
-      card.innerHTML = `<span class="card-icon">${sample ? sample.emoji : '📝'}</span><div class="card-title">${cat}</div><div class="card-sub">${count} words</div>`;
-      card.addEventListener('click', () => openCategory(cat));
-      grid.appendChild(card);
-    });
-  }
+  // 1. Create the "All Vocab" card first
+  let html = `
+    <div class="card card-all" onclick="openAll()">
+      <span class="card-icon">📚</span>
+      <div class="card-title">Tout le <em>Vocabulaire</em></div>
+      <div class="card-sub">${window.vocabData.length} words total</div>
+    </div>
+  `;
+
+  // 2. Add the rest of the category cards
+  categories.forEach(cat => {
+    const items = window.vocabData.filter(v => v.category === cat);
+    html += `
+      <div class="card" onclick="openCategory('${cat}')">
+        <span class="card-icon">${categoryEmoji(cat)}</span>
+        <div class="card-title">${capitalize(cat)}</div>
+        <div class="card-sub">${items.length} words</div>
+      </div>
+    `;
+  });
+
+  grid.innerHTML = html;
+}
 
   function openCategory(cat) {
     currentContext = { type: 'cat', category: cat };
