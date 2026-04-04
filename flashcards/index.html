@@ -6,7 +6,6 @@
   <title>Cartes Mémoire — Mon Petit Français</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="../shared/style.css"/>
-  <script src="../shared/categories.js"></script>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -611,35 +610,32 @@
     updateCardCountNote();
   }
 
-
   // ── CATEGORY UI ──
   function buildCategoryUI() {
     const cats = [...new Set(window.vocabData.map(v => v.category))].sort();
     const grid = document.getElementById('cat-grid');
     grid.innerHTML = '';
 
-    // "All" master toggle (Remain unchanged)
+    // "All" master toggle
     const allLabel = document.createElement('label');
     allLabel.className = 'cat-check-label all-toggle checked';
-    allLabel.innerHTML = '<input type="checkbox" checked/> 📚 All';
+    allLabel.innerHTML = `<input type="checkbox" checked/> All`;
     allLabel.addEventListener('click', e => {
       e.preventDefault();
       toggleAllCats(allLabel, cats);
     });
     grid.appendChild(allLabel);
 
-    // One checkbox per category using shared metadata
+    // One checkbox per category
     cats.forEach(cat => {
       const label = document.createElement('label');
       label.className = 'cat-check-label';
       label.dataset.cat = cat;
-      
-      // CALL: Pull metadata from your new shared Proxy
-      const meta = window.CATEGORIES[cat]; 
-      
-      // Uses meta.icon (defaulting to 📖) and meta.title (auto-capitalized)
-      label.innerHTML = `<input type="checkbox"/> ${meta.icon} ${meta.title}`;
-      
+      const displayName = cat.charAt(0).toUpperCase() + cat.slice(1);
+      // Find a representative emoji from this category
+      const sample = window.vocabData.find(v => v.category === cat && v.emoji);
+      const icon = sample ? sample.emoji + ' ' : '';
+      label.innerHTML = `<input type="checkbox"/> ${icon}${displayName}`;
       label.addEventListener('click', e => {
         e.preventDefault();
         toggleCat(cat, label, allLabel);
