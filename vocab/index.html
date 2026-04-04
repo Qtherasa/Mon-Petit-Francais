@@ -7,6 +7,7 @@
   <title>Vocabulaire — Mon Petit Français</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="../shared/style.css"/>
+  <script src="../shared/categories.js"></script>
   <style>
 
     /* ── GRID PAGE ───────────────────────────── */
@@ -211,32 +212,25 @@
 
   // ── INIT ─────────────────────────────────────
   function initVocab() {
-  const grid = document.getElementById('card-grid');
-  const categories = [...new Set(window.vocabData.map(v => v.category))].sort();
-
-  // 1. Create the "All Vocab" card first
-  let html = `
-    <div class="card card-all" onclick="openAll()">
-      <span class="card-icon">📚</span>
-      <div class="card-title">Tout le <em>Vocabulaire</em></div>
-      <div class="card-sub">${window.vocabData.length} words total</div>
-    </div>
-  `;
-
-  // 2. Add the rest of the category cards
-  categories.forEach(cat => {
-    const items = window.vocabData.filter(v => v.category === cat);
-    html += `
-      <div class="card" onclick="openCategory('${cat}')">
-        <span class="card-icon">${categoryEmoji(cat)}</span>
-        <div class="card-title">${capitalize(cat)}</div>
-        <div class="card-sub">${items.length} words</div>
-      </div>
-    `;
-  });
-
-  grid.innerHTML = html;
-}
+      const grid = document.getElementById('card-grid');
+      const categories = [...new Set(window.vocabData.map(v => v.category))].sort();
+  
+      // 1. Create the "All Vocab" card first (Special case)
+      let html = `
+        <div class="card" onclick="openAll()">
+          <span class="card-icon">📚</span>
+          <div class="card-title">Tout le <em>Vocabulaire</em></div>
+          <div class="card-sub">${window.vocabData.length} words total</div>
+        </div>
+      `;
+  
+      // 2. Add the rest using your new shared CATEGORIES logic
+      categories.forEach(cat => {
+        html += renderCategoryCard(cat);
+      });
+  
+      grid.innerHTML = html;
+    }
 
   function openCategory(cat) {
     currentContext = { type: 'cat', category: cat };
@@ -307,6 +301,18 @@
     } else if (currentContext.type === 'all') {
       openAll();
     }
+  }
+  function renderCategoryCard(catName) {
+      const meta = window.CATEGORIES[catName]; // Uses the Proxy from shared/categories.js
+      const items = window.vocabData.filter(v => v.category === catName);
+      
+      return `
+          <div class="card" onclick="openCategory('${catName}')">
+              <span class="card-icon">${meta.icon}</span>
+              <div class="card-title">${meta.title}</div>
+              <div class="card-sub">${items.length} words</div>
+          </div>
+      `;
   }
   document.getElementById('lvl-slider').addEventListener('input', (e) => {
     document.getElementById('lvl-display').innerText = lvlLabels[e.target.value];
