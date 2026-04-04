@@ -1,6 +1,6 @@
 const topics = [
  {
-    id: "common",
+    id: "abstract",
     icon: "✨",
     title: "Common Phrases",
     sub: "The essentials",
@@ -34,7 +34,7 @@ const topics = [
     ]
   },
   {
-    id: "greetings",
+    id: "people",
     icon: "👋",
     title: "Greetings",
     sub: "Say hello & goodbye",
@@ -66,7 +66,7 @@ const topics = [
     ]
   },
   {
-    id: "day",
+    id: "occupations",
     icon: "☀️",
     title: "Talk About Your Day",
     sub: "Share & listen",
@@ -132,7 +132,7 @@ const topics = [
     ]
   },
   {
-    id: "flirt",
+    id: "romance",
     icon: "💕",
     title: "Flirt",
     sub: "Sweet nothings",
@@ -195,7 +195,7 @@ const topics = [
     ]
   },
   {
-    id: "feelings",
+    id: "emotions",
     icon: "💬",
     title: "Express Feelings",
     sub: "Share what's inside",
@@ -226,7 +226,7 @@ const topics = [
     ]
   },
   {
-    id: "plans",
+    id: "verbs",
     icon: "📅",
     title: "Make Plans",
     sub: "What shall we do?",
@@ -290,7 +290,7 @@ const topics = [
     ]
   },
   {
-    id: "compliments",
+    id: "conversational",
     icon: "🌸",
     title: "Give Compliments",
     sub: "Make someone's day",
@@ -319,7 +319,7 @@ const topics = [
     ]
   },
    {
-    id: "kids-pets",
+    id: "home",
     icon: "🐾",
     title: "Kids & Pets",
     sub: "Family chaos & cuddles",
@@ -415,7 +415,7 @@ const topics = [
     ]
   },
   {
-    id: "wow",
+    id: "gaming",
     icon: "⚔️",
     title: "World of Warcraft",
     sub: "Pour la Horde (ou l'Alliance)",
@@ -460,7 +460,7 @@ const topics = [
     ]
   },
   {
-    id: "chores",
+    id: "home",
     icon: "🧹",
     title: "Household Chores",
     sub: "Keep the house running",
@@ -660,7 +660,7 @@ const topics = [
   ]
 },
  {
-  id: "kids",
+  id: "people",
   icon: "👧🧒",
   title: "Les Enfants",
   sub: "The kids",
@@ -719,7 +719,7 @@ const topics = [
   ]
 },
  {
-  id: "pets",
+  id: "animals",
   icon: "🐾",
   title: "Les Animaux",
   sub: "Cats & guinea pigs",
