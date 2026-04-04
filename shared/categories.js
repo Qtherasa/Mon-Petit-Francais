@@ -45,7 +45,7 @@ window.CATEGORIES = new Proxy(CATEGORIES_DATA, {
       id: prop,
       icon: "📖",
       title: prop.charAt(0).toUpperCase() + prop.slice(1),
-      sub: "Vocabulaire ${prop}",
+      sub: `Vocabulaire ${prop}`,
       desc: `Explore words related to : ${prop}.`
     };
   }
