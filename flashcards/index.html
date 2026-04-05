@@ -732,7 +732,7 @@
     : window.vocabData.filter(v => selectedCats.has(v.category));
 
   // 2. Second, filter by Global Level 
-  const levelIds = ["A0", "A1", "A2", "B1", "B2", "C1"];
+  const levelIds = LEVELS.map(l => l.id);
   const selectedIdx = levelIds.indexOf(userSettings.level);
   const isStrict = userSettings.strictLevel;
 
