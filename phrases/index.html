@@ -248,13 +248,25 @@ function openCategory(catName) {
   document.getElementById('page-grid').style.display = 'none';
   pageInner.classList.add('active');
   window.scrollTo(0, 0);
+  // Use the global nav link to go back
+  if (window.setNavContextLink) {
+    window.setNavContextLink(goBack, "All Categories");
+  }
+
+  document.getElementById('page-grid').style.display = 'none';
+  pageInner.classList.add('active');
+  window.scrollTo(0, 0);
 }
 
 function goBack() {
-  _activeCategory = null;
+ _activeCategory = null;
   window.speechSynthesis && window.speechSynthesis.cancel();
   document.getElementById('page-inner').classList.remove('active');
   document.getElementById('page-grid').style.display = 'block';
+  
+  // Ensure the link is hidden when returning to grid
+  if (window.setNavContextLink) {
+    window.setNavContextLink(null);
   window.scrollTo(0, 0);
 }
   buildGrid();
