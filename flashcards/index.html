@@ -577,6 +577,22 @@
   // ── Expose to the non-module functions below via window ──
   window.vocabData = vocabData;
   init();
+
+  document.addEventListener('DOMContentLoaded', () => {
+  if (window.enableOptions) {
+    window.enableOptions(['SPEED', 'LEVEL']);
+  }
+
+  // When user changes rank or strict mode in the sidebar
+  window.addEventListener('mpfSettingsChanged', () => {
+    // 1. Update the UI to show how many cards now fit this level
+    updateCardCountNote();
+    
+    // 2. If a session is NOT active, we're done. 
+    // 3. If a session IS active, you might choose to let them finish 
+    // or reset. Usually, updating the count note for the NEXT session is best.
+  });
+});
 </script>
 
 <script>
@@ -710,8 +726,27 @@
   
   function getFilteredPool() {
     if (!window.vocabData) return [];
-    if (selectedCats.has('__all__')) return [...window.vocabData];
-    return window.vocabData.filter(v => selectedCats.has(v.category));
+  
+  // 1. First, filter by Category 
+  let pool = selectedCats.has('__all__') 
+    ? [...window.vocabData] 
+    : window.vocabData.filter(v => selectedCats.has(v.category));
+
+  // 2. Second, filter by Global Level 
+  const levelIds = ["A0", "A1", "A2", "B1", "B2", "C1"];
+  const selectedIdx = levelIds.indexOf(userSettings.level);
+  const isStrict = userSettings.strictLevel;
+
+  return pool.filter(v => {
+    const itemLvl = v.lvl || "A0"; // Fallback to A0 if missing
+    const itemIdx = levelIds.indexOf(itemLvl);
+
+    if (isStrict) {
+      return itemIdx === selectedIdx;
+    } else {
+      return itemIdx <= selectedIdx;
+    }
+  });
   }
 
   // ── CONTROLS ──
@@ -780,6 +815,8 @@
       document.getElementById('card-front-text').innerHTML = `<em>${display}</em>`;
     } else {
       document.getElementById('card-front-text').innerHTML = '';
+
+    
     }
 
     // ── BACK ──
@@ -804,19 +841,22 @@
     playBtn.addEventListener('click', e => {
       e.stopPropagation();
       if (playBtn.classList.contains('playing')) {
-        window.speechSynthesis.cancel();
-        playBtn.classList.remove('playing');
-        return;
+          window.speechSynthesis.cancel();
+          playBtn.classList.remove('playing');
+          return;
       }
       window.speechSynthesis.cancel();
       const utt = new SpeechSynthesisUtterance(spokenText);
       utt.lang = 'fr-FR';
-      utt.rate = 0.75;
+      
+      // USE GLOBAL SPEED
+      utt.rate = userSettings.speed; 
+      
       utt.pitch = 1.05;
       utt.onend = utt.onerror = () => playBtn.classList.remove('playing');
       playBtn.classList.add('playing');
       setTimeout(() => window.speechSynthesis.speak(utt), 50);
-    });
+  });
     audioRow.appendChild(playBtn);
     audioRow.style.display = 'none'; // hidden until flipped
   }
