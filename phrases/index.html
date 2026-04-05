@@ -134,6 +134,29 @@
 <script src="../shared/audio.js"></script>
 <script src="topics.js"></script>
 <script>
+// ── GLOBAL INIT ─────────────────────────────
+document.addEventListener('DOMContentLoaded', () => {
+  if (window.enableOptions) {
+    window.enableOptions(['SPEED', 'LEVEL']);
+  }
+
+  // When user changes rank in the sidebar, refresh the current view
+  window.addEventListener('mpfSettingsChanged', () => {
+    const pageInner = document.getElementById('page-inner');
+    if (pageInner.classList.contains('active')) {
+      // If we are looking at a specific topic, re-render it
+      // We'll need to store the 'activeTopic' to make this easy
+      if (window._activeTopic) openTopic(window._activeTopic);
+    } else {
+      // If we are on the main grid, refresh the cards
+      buildGrid();
+    }
+  });
+});
+
+
+
+  
  // ── GRID ─────────────────────────────────────
   function buildGrid() {
     const grid = document.getElementById('card-grid');
@@ -156,14 +179,12 @@
   }
 
 // ── OPEN TOPIC ────────────────────────────────
-  function openTopic(topic) {
+ function openTopic(topic) {
+    window._activeTopic = topic; // Store for refresh logic
     const pageInner = document.getElementById('page-inner');
     const body      = document.getElementById('inner-body');
-    
-    // Retrieve shared metadata for the header
     const meta = window.CATEGORIES[topic.id];
 
-    // Build header using shared values instead of topic.js values
     let html = `
       <div class="inner-header">
         <div class="eyebrow">${meta.icon} &nbsp; Phrases</div>
@@ -173,25 +194,30 @@
     `;
     
     topic.sections.forEach(section => {
-      html += `<div class="section-label">${section.label}</div>`;
-      html += `
-        <div class="phrase-header">
-          <span>French</span><span>English</span><span>Sounds like</span>
-        </div>
-        <div class="phrase-list" data-section>
-      `;
-      section.phrases.forEach(p => {
-        // Use data attributes so JS can attach buttons after render
+      // FILTER THE PHRASES HERE
+      const filtered = getFilteredPhrases(section.phrases);
+      
+      // Only show the section if it has visible phrases
+      if (filtered.length > 0) {
+        html += `<div class="section-label">${section.label}</div>`;
         html += `
-          <div class="phrase-row" data-fr="${encodeURIComponent(p.fr)}">
-            <div class="phrase-fr">${p.fr}</div>
-            <div class="phrase-en">${p.en}</div>
-            <div class="phrase-ph">${p.ph}</div>
-            ${p.note ? `<div class="phrase-note">💡 ${p.note}</div>` : ''}
+          <div class="phrase-header">
+            <span>French</span><span>English</span><span>Sounds like</span>
           </div>
+          <div class="phrase-list">
         `;
-      });
-      html += `</div>`;
+        filtered.forEach(p => {
+          html += `
+            <div class="phrase-row" data-fr="${encodeURIComponent(p.fr)}">
+              <div class="phrase-fr">${p.fr}</div>
+              <div class="phrase-en">${p.en}</div>
+              <div class="phrase-ph">${p.ph}</div>
+              ${p.note ? `<div class="phrase-note">💡 ${p.note}</div>` : ''}
+            </div>
+          `;
+        });
+        html += `</div>`;
+      }
     });
 
     body.innerHTML = html;
@@ -214,12 +240,33 @@
 
   // ── BACK ──────────────────────────────────────
   function goBack() {
+    window._activeTopic = null;
     window.speechSynthesis && window.speechSynthesis.cancel();
     document.getElementById('page-inner').classList.remove('active');
     document.getElementById('page-grid').style.display = 'block';
     window.scrollTo(0, 0);
   }
+  // ── FILTER LEVELS ──────────────────────────────────────
+  function getFilteredPhrases(phrases) {
+  // matches the uppercase IDs in your updated nav.js
+  const levelIds = ["A0", "A1", "A2", "B1", "B2", "C1"]; 
+  
+  // userSettings.level is now "A0", "A1", etc.
+  const selectedIdx = levelIds.indexOf(userSettings.level);
+  const isStrict = userSettings.strictLevel;
 
+  return phrases.filter(p => {
+    const itemLvl = p.lvl || "A0"; 
+    const itemIdx = levelIds.indexOf(itemLvl);
+
+    if (isStrict) {
+      return itemIdx === selectedIdx;
+    } else {
+      // Show everything up to and including the selected rank
+      return itemIdx <= selectedIdx;
+    }
+  });
+}
   buildGrid();
 </script>
 </body>
