@@ -184,7 +184,7 @@
     const isStrict = userSettings.strictLevel;
 
     // Map the IDs to indices for comparison (a0=0, a1=1, etc.)
-    const levelIds = ["A0", "A1", "A2", "B1", "B2", "C1"];
+    const levelIds = LEVELS.map(l => l.id);
     const selectedIdx = levelIds.indexOf(selectedLevelId);
 
     return data.filter(item => {
