@@ -781,6 +781,11 @@
     answeredCount = 0;
     correctSinceLastCelebration = 0;
 
+    // Register a "Quit" link in the nav
+    if (window.setNavContextLink) {
+      window.setNavContextLink(showSetup, "Quit Session");
+    }
+
     document.getElementById('setup').style.display      = 'none';
     document.getElementById('end-screen').style.display = 'none';
     document.getElementById('session').style.display    = 'block';
@@ -794,6 +799,10 @@
     document.getElementById('session').style.display    = 'none';
     document.getElementById('end-screen').style.display = 'none';
     document.getElementById('setup').style.display      = 'block';
+    // Clear the nav link
+    if (window.setNavContextLink) {
+      window.setNavContextLink(null);
+    }    
     updateCardCountNote();
   }
 
