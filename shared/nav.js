@@ -19,7 +19,7 @@ const LEVELS = [
   { id: 'B1', label: 'Le Citadin', sub: 'Daily fluency' },
   { id: 'B2', label: 'L’Ambassadeur', sub: 'Complex discussions' },
   { id: 'C1', label: 'Le Sage', sub: 'Fluent and nuanced' }
-];
+
 ];
 
 // Sticky Settings Retrieval
