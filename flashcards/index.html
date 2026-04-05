@@ -574,14 +574,13 @@
 <script type="module">
   import vocabData from '../shared/vocab-data.js';
 
-  // ── Expose to the non-module functions below via window ──
-  window.vocabData = vocabData;
-  init();
-
   document.addEventListener('DOMContentLoaded', () => {
   if (window.enableOptions) {
     window.enableOptions(['SPEED', 'LEVEL']);
   }
+  // ── Expose to the non-module functions below via window ──
+  window.vocabData = vocabData;
+  init(); 
 
   // When user changes rank or strict mode in the sidebar
   window.addEventListener('mpfSettingsChanged', () => {
