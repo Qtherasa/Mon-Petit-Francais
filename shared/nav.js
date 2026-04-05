@@ -55,7 +55,14 @@ function injectNav() {
     <div class="menu-overlay" id="menu-overlay" onclick="closeAllDrawers()"></div>
 
     <nav class="drawer-panel" id="drawer-nav">
-      </nav>
+      <div class="drawer-content">
+        <div class="drawer-header">
+          <div class="drawer-eyebrow">Navigation</div>
+          <h3>Mon Petit Français</h3>
+        </div>
+        <div class="menu-items">${itemsHTML}</div>
+      </div>
+    </nav>
 
     <nav class="drawer-panel" id="drawer-opt">
       <div class="drawer-content">
