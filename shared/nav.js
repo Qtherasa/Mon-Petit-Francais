@@ -48,8 +48,12 @@ function injectNav() {
 
     const navHTML = `
     <div class="nav-container">
-      <button class="nav-btn" id="btn-nav" onclick="toggleDrawer('nav')" title="Navigation">🧭</button>
-      <button class="nav-btn" id="btn-opt" onclick="toggleDrawer('opt')" title="Options">⚙️</button>
+      <div class="nav-left">
+        <button class="nav-btn" id="btn-nav" onclick="toggleDrawer('nav')" title="Navigation">🧭</button>
+        <button class="nav-btn" id="btn-opt" onclick="toggleDrawer('opt')" title="Options">⚙️</button>
+      </div>
+      <div class="nav-right" id="nav-context-actions">
+        </div>
     </div>
 
     <div class="menu-overlay" id="menu-overlay" onclick="closeAllDrawers()"></div>
@@ -173,5 +177,25 @@ window.enableOptions = function(optionsList) {
     if (el) el.style.display = 'block';
   });
 };
+/**
+ * Globally available function to show/hide the back link
+ * @param {Function} backAction - The function to call when clicked (e.g., goBack)
+ * @param {string} label - The text to display
+ */
+window.setNavContextLink = function(backAction, label = "All Categories") {
+  const container = document.getElementById('nav-context-actions');
+  if (!container) return;
 
+  if (backAction) {
+    container.innerHTML = `<button class="nav-text-link" id="nav-back-link">${label}</button>`;
+    container.querySelector('#nav-back-link').onclick = () => {
+      backAction();
+      window.setNavContextLink(null); // Hide itself after clicking
+    };
+    container.classList.add('visible');
+  } else {
+    container.innerHTML = '';
+    container.classList.remove('visible');
+  }
+};
 document.addEventListener('DOMContentLoaded', injectNav);

@@ -11,13 +11,13 @@
   --cream:       #faf7f2;
   --warm-white:  #fff9f2;
   --muted:       #8a7f74;
-  --accent:      #c4714a;
-  --accent-light:#f0ddd3;
+  --accent:      #1f3280;
+  --accent-light:#5f6fad;
   --line:        #e8e0d5;
 
   /* Conversation speakers */
-  --p1:          #3b5ea6;
-  --p1-light:    #dde4f5;
+  --p1:          #1f3280;
+  --p1-light:    #5f6fad;
   --p2:          #c4714a;
   --p2-light:    #f0ddd3;
 
@@ -62,14 +62,40 @@ h1, h2, h3, .menu-item-label, .card-title {
 }
 /* shared/style.css */
 
-/* Container for both top buttons */
+/* Container for both top buttons and back link*/
 .nav-container {
-  position: fixed;
-  top: 20px;
-  left: 20px;
   display: flex;
-  gap: 10px;
-  z-index: 2100;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 16px;
+}
+
+.nav-left { display: flex; gap: 8px; }
+
+.nav-text-link {
+  background: none;
+  border: none;
+  color: var(--accent);
+  font-family: 'Lato', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 700;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 8px;
+  transition: opacity 0.2s;
+}
+
+.nav-text-link:hover {
+  opacity: 0.7;
+}
+
+#nav-context-actions {
+  display: none;
+}
+
+#nav-context-actions.visible {
+  display: block;
 }
 
 /* Base style for both buttons to ensure they match (Rounded Squares) */

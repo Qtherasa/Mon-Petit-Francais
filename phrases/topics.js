@@ -1,3 +1,4 @@
+// DEPRECIATED. Kept for reference, will be deleted in upcoming update
 const topics = [
  {
     id: "abstract",
