@@ -125,9 +125,6 @@
 </div>
 
 <div id="page-detail">
-  <nav class="inner-nav">
-    <button class="back-btn" onclick="goBack()">All sounds</button>
-  </nav>
   <div class="detail-body" id="detail-body"></div>
 </div>
 
@@ -176,7 +173,10 @@
   function openSound(id) {
     const sound = sounds.find(s => s.id === id);
     if (!sound) return;
-
+    // Register the global back link
+    if (window.setNavContextLink) {
+      window.setNavContextLink(goBack, "All Sounds");
+    }
     const pageDetail = document.getElementById('page-detail');
     const body = document.getElementById('detail-body');
 
@@ -243,6 +243,11 @@
     window.speechSynthesis && window.speechSynthesis.cancel();
     document.getElementById('page-detail').style.display = 'none';
     document.getElementById('page-grid').style.display = 'block';
+    // Hide the global back link
+    if (window.setNavContextLink) {
+      window.setNavContextLink(null);
+    }
+    window.scrollTo(0, 0);
     window.scrollTo(0, 0);
   }
 
