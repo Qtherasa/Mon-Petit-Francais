@@ -250,6 +250,10 @@
 
   function openCategory(cat) {
     currentContext = { type: 'cat', category: cat };
+      // Register the global back link
+    if (window.setNavContextLink) {
+      window.setNavContextLink(goBack, "All Categories");
+    }
     const filtered = getFilteredData(window.vocabData.filter(v => v.category === cat));
     let html = `<div class="inner-header"><h2>${cat}</h2><p>${filtered.length} words visible.</p></div>`;
     const groups = new Map();
@@ -264,6 +268,10 @@
 
   function openAll() {
     currentContext = { type: 'all', category: null };
+      // Register for the "Full List" view
+    if (window.setNavContextLink) {
+      window.setNavContextLink(goBack, "All Categories");
+    }
     const filtered = getFilteredData(window.vocabData);
     const cats = [...new Set(filtered.map(v => v.category))].sort();
     let html = `<div class="inner-header"><h2>All Vocab</h2></div>`;
@@ -309,6 +317,11 @@
     document.getElementById('page-inner').classList.remove('active');
     document.getElementById('page-grid').style.display = 'block';
     currentContext = { type: 'grid', category: null };
+  
+    // Hide the global link when back at the grid
+    if (window.setNavContextLink) {
+      window.setNavContextLink(null);
+    }
   }
 
   function refreshView() {
