@@ -115,16 +115,7 @@
 <div id="options-modal" class="modal-overlay" onclick="handleOutsideClick(event)">
   <div class="modal-content">
     <button class="modal-close" onclick="toggleVocabOptions()">✕</button>
-    <div class="opt-group">
-      <div class="lvl-header">
-        <span class="opt-label">Experience Level</span>
-        <span id="lvl-display" class="lvl-tag">Legend</span>
-      </div>
-      <input type="range" id="lvl-slider" min="0" max="5" value="5" step="1">
-      <label style="display:flex; align-items:center; gap:8px; margin-top:12px; font-size:0.8rem; color:var(--muted); cursor:pointer;">
-        <input type="checkbox" id="strict-mode"> Show only this level
-      </label>
-    </div>
+    
     <div class="opt-group">
       <span class="opt-label">Jump to Category</span>
       <div id="jump-grid" class="jump-grid"></div>
@@ -154,14 +145,26 @@
 <script src="../shared/nav.js"></script>
 <script src="../shared/audio.js"></script>
 <script type="module">
+  document.addEventListener('DOMContentLoaded', () => {
+      if (window.enableOptions) {
+          // Request the Speed and Level controls in the global drawer
+          window.enableOptions(['SPEED', 'LEVEL']);
+      }
+  
+      // IMPORTANT: Listen for changes made in the global options drawer
+      window.addEventListener('mpfSettingsChanged', () => {
+          refreshView(); // Re-render the current category/list with new filters
+      });
+  });
   import vocabData from '../shared/vocab-data.js';
   window.vocabData = vocabData;
   initVocab();
 </script>
 
 <script>
+ 
   const lvlLabels = ["New Recruit", "Wayfinder", "Explorer", "Pathfinder", "Vanguard", "Legend"];
-  const lvlValues = ["A0", "A1", "A2", "B1", "B2", "C1+"];
+  const lvlValues = ["A0", "A1", "A2", "B1", "B2", "C1"];
   let currentContext = { type: 'grid', category: null };
 
   window.toggleVocabOptions = function() {
@@ -176,11 +179,24 @@
   }
 
   function getFilteredData(data) {
-    const selectedIdx = parseInt(document.getElementById('lvl-slider').value);
-    const isStrict = document.getElementById('strict-mode').checked;
+    // Access the global settings from nav.js
+    const selectedLevelId = userSettings.level; // e.g., 'a1'
+    const isStrict = userSettings.strictLevel;
+
+    // Map the IDs to indices for comparison (a0=0, a1=1, etc.)
+    const levelIds = LEVELS.map(l => l.id);
+    const selectedIdx = levelIds.indexOf(selectedLevelId);
+
     return data.filter(item => {
-      const itemIdx = lvlValues.indexOf(item.lvl || "A0");
-      return isStrict ? itemIdx === selectedIdx : itemIdx <= selectedIdx;
+        // Normalize item level (default to A0 if missing)
+        const itemLvl = (item.lvl || "A0")
+        const itemIdx = levelIds.indexOf(itemLvl);
+
+        if (isStrict) {
+            return itemIdx === selectedIdx;
+        } else {
+            return itemIdx <= selectedIdx;
+        }
     });
   }
 

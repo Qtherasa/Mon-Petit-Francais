@@ -132,94 +132,131 @@
 
 <script src="../shared/nav.js"></script>
 <script src="../shared/audio.js"></script>
-<script src="topics.js"></script>
+<script type="module">
+  import phrasesData from '../shared/phrases-data.js';
+  window.phrasesData = phrasesData;
+  buildGrid();
+</script>
 <script>
- // ── GRID ─────────────────────────────────────
-  function buildGrid() {
-    const grid = document.getElementById('card-grid');
-    grid.innerHTML = '';
-    
-    topics.forEach((topic) => {
-      // Use the topic.id as the key to look up all UI metadata from the shared Proxy
-      const meta = window.CATEGORIES[topic.id];
-      
-      const card = document.createElement('div');
-      card.className = 'card';
-      card.innerHTML = `
-        <span class="card-icon">${meta.icon}</span>
-        <div class="card-title">${meta.title}</div>
-        <div class="card-sub">${meta.sub}</div>
-      `;
-      card.addEventListener('click', () => openTopic(topic));
-      grid.appendChild(card);
-    });
+/* ── GLOBAL STATE & INIT ── */
+let _activeCategory = null;
+
+document.addEventListener('DOMContentLoaded', () => {
+  if (window.enableOptions) {
+    window.enableOptions(['SPEED', 'LEVEL']);
   }
 
-// ── OPEN TOPIC ────────────────────────────────
-  function openTopic(topic) {
-    const pageInner = document.getElementById('page-inner');
-    const body      = document.getElementById('inner-body');
-    
-    // Retrieve shared metadata for the header
-    const meta = window.CATEGORIES[topic.id];
+  window.addEventListener('mpfSettingsChanged', () => {
+    if (_activeCategory) {
+      openCategory(_activeCategory);
+    } else {
+      buildGrid();
+    }
+  });
+});
 
-    // Build header using shared values instead of topic.js values
-    let html = `
-      <div class="inner-header">
-        <div class="eyebrow">${meta.icon} &nbsp; Phrases</div>
-        <h2>${meta.title.replace(/(\S+)\s*$/, '<em>$1</em>')}</h2>
-        <p>${meta.desc}</p>
+/* ── GRID: SHOW CATEGORIES ── */
+function buildGrid() {
+  const grid = document.getElementById('card-grid');
+  grid.innerHTML = '';
+  
+  // Get unique categories from the flat phrasesData
+  const categories = [...new Set(window.phrasesData.map(p => p.category))].sort();
+
+  categories.forEach(cat => {
+    const meta = window.CATEGORIES[cat];
+    const count = window.phrasesData.filter(p => p.category === cat).length;
+    
+    const card = document.createElement('div');
+    card.className = 'card';
+    card.innerHTML = `
+      <span class="card-icon">${meta.icon}</span>
+      <div class="card-title">${meta.title}</div>
+      <div class="card-sub">${count} phrases</div>
+    `;
+    card.addEventListener('click', () => openCategory(cat));
+    grid.appendChild(card);
+  });
+}
+
+/* ── DETAIL: RENDER FILTERED PHRASES ── */
+function openCategory(catName) {
+  _activeCategory = catName;
+  const pageInner = document.getElementById('page-inner');
+  const body = document.getElementById('inner-body');
+  const meta = window.CATEGORIES[catName];
+
+  // 1. Filter data by Category AND Global Level
+  const levelIds = ["A0", "A1", "A2", "B1", "B2", "C1"];
+  const selectedIdx = levelIds.indexOf(userSettings.level);
+  const isStrict = userSettings.strictLevel;
+
+  const filtered = window.phrasesData.filter(p => {
+    if (p.category !== catName) return false;
+    const itemIdx = levelIds.indexOf(p.lvl || "A0");
+    return isStrict ? itemIdx === selectedIdx : itemIdx <= selectedIdx;
+  });
+
+  // 2. Group by Subcategory
+  const groups = {};
+  filtered.forEach(p => {
+    const sub = p.subcategory || "General";
+    if (!groups[sub]) groups[sub] = [];
+    groups[sub].push(p);
+  });
+
+  // 3. Build HTML
+  let html = `
+    <div class="inner-header">
+      <div class="eyebrow">${meta.icon} &nbsp; Phrases</div>
+      <h2>${meta.title.replace(/(\S+)\s*$/, '<em>$1</em>')}</h2>
+      <p>${meta.desc}</p>
+    </div>
+  `;
+
+  Object.keys(groups).forEach(sub => {
+    html += `<div class="section-label">${sub}</div>`;
+    html += `
+      <div class="phrase-header">
+        <span>French</span><span>English</span><span>Sounds like</span>
       </div>
+      <div class="phrase-list">
     `;
     
-    topic.sections.forEach(section => {
-      html += `<div class="section-label">${section.label}</div>`;
+    groups[sub].forEach(p => {
       html += `
-        <div class="phrase-header">
-          <span>French</span><span>English</span><span>Sounds like</span>
+        <div class="phrase-row" data-fr="${encodeURIComponent(p.fr)}">
+          <div class="phrase-fr">${p.fr}</div>
+          <div class="phrase-en">${p.en}</div>
+          <div class="phrase-ph">${p.ph}</div>
+          ${p.note ? `<div class="phrase-note">💡 ${p.note}</div>` : ''}
         </div>
-        <div class="phrase-list" data-section>
       `;
-      section.phrases.forEach(p => {
-        // Use data attributes so JS can attach buttons after render
-        html += `
-          <div class="phrase-row" data-fr="${encodeURIComponent(p.fr)}">
-            <div class="phrase-fr">${p.fr}</div>
-            <div class="phrase-en">${p.en}</div>
-            <div class="phrase-ph">${p.ph}</div>
-            ${p.note ? `<div class="phrase-note">💡 ${p.note}</div>` : ''}
-          </div>
-        `;
-      });
-      html += `</div>`;
     });
+    html += `</div>`;
+  });
 
-    body.innerHTML = html;
+  body.innerHTML = filtered.length > 0 ? html : `<p class="muted">No phrases found for this rank.</p>`;
 
-    // Attach play buttons to every phrase row
-    body.querySelectorAll('.phrase-row').forEach(row => {
-      const text = decodeURIComponent(row.dataset.fr);
-      const btn  = Audio.buildPlayBtn(text);
-      // Insert before first cell
-      row.insertBefore(btn, row.querySelector('.phrase-fr'));
-      // On desktop, btn is absolutely positioned — works fine
-      // On mobile (@hover:none) btn is in flow after phrase-fr per CSS
-    });
+  // 4. Attach Play Buttons
+  body.querySelectorAll('.phrase-row').forEach(row => {
+    const text = decodeURIComponent(row.dataset.fr);
+    const btn = Audio.buildPlayBtn(text);
+    row.insertBefore(btn, row.querySelector('.phrase-fr'));
+  });
 
-    document.getElementById('page-grid').style.display = 'none';
-    pageInner.classList.add('active');
-    window.scrollTo(0, 0);
-  }
+  document.getElementById('page-grid').style.display = 'none';
+  pageInner.classList.add('active');
+  window.scrollTo(0, 0);
+}
 
-
-  // ── BACK ──────────────────────────────────────
-  function goBack() {
-    window.speechSynthesis && window.speechSynthesis.cancel();
-    document.getElementById('page-inner').classList.remove('active');
-    document.getElementById('page-grid').style.display = 'block';
-    window.scrollTo(0, 0);
-  }
-
+function goBack() {
+  _activeCategory = null;
+  window.speechSynthesis && window.speechSynthesis.cancel();
+  document.getElementById('page-inner').classList.remove('active');
+  document.getElementById('page-grid').style.display = 'block';
+  window.scrollTo(0, 0);
+}
   buildGrid();
 </script>
 </body>
