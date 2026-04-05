@@ -180,13 +180,6 @@
     const pageDetail = document.getElementById('page-detail');
     const body = document.getElementById('detail-body');
 
-    // Speed bar
-    const oldBar = pageDetail.querySelector('.speed-bar');
-    if (oldBar) oldBar.remove();
-    const nav = pageDetail.querySelector('.inner-nav');
-    Audio.buildSpeedBar(nav.parentNode, 'Playback speed');
-    nav.insertAdjacentElement('afterend', pageDetail.querySelector('.speed-bar'));
-
     const chips = sound.englishExamples.map(ex => `<div class="example-chip">${ex}</div>`).join('');
     const wordRows = sound.frenchWords.map(w =>
       `<div class="french-word-row" data-fr="${encodeURIComponent(w.fr)}"><div class="word-play"></div><div class="word-fr">${w.fr}</div><div class="word-en">${w.en}</div><div class="word-ph">${w.ph}</div></div>`

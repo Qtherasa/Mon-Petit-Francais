@@ -273,8 +273,9 @@ function goBack() {
   // Ensure the link is hidden when returning to grid
   if (window.setNavContextLink) {
     window.setNavContextLink(null);
+  }
   window.scrollTo(0, 0);
-}
+  }
   buildGrid();
 </script>
 </body>
