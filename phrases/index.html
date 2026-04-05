@@ -162,16 +162,22 @@ function buildGrid() {
   
   // Get unique categories from the flat phrasesData
   const categories = [...new Set(window.phrasesData.map(p => p.category))].sort();
-
+  // Define levels for filtering logic
+    const levelIds = ["A0", "A1", "A2", "B1", "B2", "C1"];
+    const selectedIdx = levelIds.indexOf(userSettings.level);
+    const isStrict = userSettings.strictLevel;
   categories.forEach(cat => {
     const meta = window.CATEGORIES[cat];
-    const count = window.phrasesData.filter(p => p.category === cat).length;
-    
+    const count = window.phrasesData.filter(p => {
+      if (p.category !== cat) return false;
+      const itemIdx = levelIds.indexOf(p.lvl || "A0");
+      return isStrict ? itemIdx === selectedIdx : itemIdx <= selectedIdx;
+    }).length;   
     const card = document.createElement('div');
     card.className = 'card';
     card.innerHTML = `
       <span class="card-icon">${meta.icon}</span>
-      <div class="card-title">${meta.title}</div>
+      <div class="card-title">${meta.sub}</div>
       <div class="card-sub">${count} phrases</div>
     `;
     card.addEventListener('click', () => openCategory(cat));
