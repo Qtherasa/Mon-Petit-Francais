@@ -13,17 +13,17 @@ const NAV_ITEMS = [
 
 // Adventurous Rank Definitions
 const LEVELS = [
-  { id: 'a0', label: 'Le Débutant', sub: 'Starting from zero' },
-  { id: 'a1', label: 'L’Explorateur', sub: 'Basic interactions' },
-  { id: 'a2', label: 'Le Voyageur', sub: 'Routine exchanges' },
-  { id: 'b1', label: 'Le Citadin', sub: 'Daily fluency' },
-  { id: 'b2', label: 'L’Ambassadeur', sub: 'Complex discussions' },
-  { id: 'c1', label: 'Le Sage', sub: 'Fluent and nuanced' }
+  { id: 'A0', label: 'Le Débutant', sub: 'Starting from zero' },
+  { id: 'A1', label: 'L’Explorateur', sub: 'Basic interactions' },
+  { id: 'A2', label: 'Le Voyageur', sub: 'Routine exchanges' },
+  { id: 'A1', label: 'Le Citadin', sub: 'Daily fluency' },
+  { id: 'A2', label: 'L’Ambassadeur', sub: 'Complex discussions' },
+  { id: 'A1', label: 'Le Sage', sub: 'Fluent and nuanced' }
 ];
 
 // Sticky Settings Retrieval
 let userSettings = {
-  level: localStorage.getItem('mpf-level') || 'a0',
+  level: localStorage.getItem('mpf-level') || 'A0',
   strictLevel: localStorage.getItem('mpf-strict-level') === 'true',
   speed: parseFloat(localStorage.getItem('mpf-speed')) || 0.75
 };
