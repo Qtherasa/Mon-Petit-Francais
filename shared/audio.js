@@ -6,7 +6,7 @@
 
 const Audio = (() => {
   let _voice     = null;
-  let _rate      = 0.75;   // default: gentle pace for learners
+  let _rate      = parseFloat(localStorage.getItem('mpf-speed')) || 0.75;   // default: gentle pace for learners
   let _ready     = false;
   let _pending    = null;   // text queued before voices loaded
   let _activeBtn  = null;
@@ -21,28 +21,11 @@ const Audio = (() => {
   function _pickVoice(voices) {
     const fr = voices.filter(v => v.lang.startsWith('fr'));
     if (!fr.length) return voices[0] || null;
-
-    // Prefer explicitly female-named voices
-    const femaleKeywords = [
-      'amélie', 'audrey', 'aurelie', 'aurélie',
-      'céline', 'celine', 'virginie', 'juliette',
-      'camille', 'elsa', 'emma', 'alice', 'marie',
-      'ines', 'inès', 'nathalie', 'sophie',
-      'female', 'femme', 'woman', 'fille',
-      // Android / Google TTS labels
-      'fr-fr-x-fra', 'fr-fr-x-frb'
-    ];
-
-    const female = fr.find(v =>
-      femaleKeywords.some(k => v.name.toLowerCase().includes(k))
-    );
+    const femaleKeywords = ['amélie', 'audrey', 'aurélie', 'céline', 'virginie', 'juliette', 'female', 'fr-fr-x-fra'];
+    const female = fr.find(v => femaleKeywords.some(k => v.name.toLowerCase().includes(k)));
     if (female) return female;
-
-    // fr-FR over fr-CA / fr-BE etc
-    const frFR = fr.find(v => v.lang === 'fr-FR');
-    if (frFR) return frFR;
-
-    return fr[0];
+    const frFR = fr.find(v => v.lang === 'fr-FR');  
+    return frFR || fr[0];
   }
 
   function _loadVoices() {
@@ -119,8 +102,8 @@ const Audio = (() => {
 
   /* ── PUBLIC: SET RATE ───────────────────────── */
   function setRate(rate) {
-    _rate = rate;
-    // Update UI for all speed buttons on page
+   _rate = rate;
+    localStorage.setItem('mpf-speed', rate); // Sticky save
     document.querySelectorAll('.speed-btn').forEach(b => {
       b.classList.toggle('active', parseFloat(b.dataset.rate) === rate);
     });
@@ -146,6 +129,7 @@ const Audio = (() => {
       btn.addEventListener('click', () => setRate(parseFloat(btn.dataset.rate)));
     });
     el.appendChild(bar);
+    setRate(_rate); // Initialize UI state
   }
 
   /* ── PUBLIC: BUILD PLAY BUTTON ──────────────── */
