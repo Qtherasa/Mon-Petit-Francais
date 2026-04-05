@@ -16,9 +16,10 @@ const LEVELS = [
   { id: 'A0', label: 'Le Débutant', sub: 'Starting from zero' },
   { id: 'A1', label: 'L’Explorateur', sub: 'Basic interactions' },
   { id: 'A2', label: 'Le Voyageur', sub: 'Routine exchanges' },
-  { id: 'A1', label: 'Le Citadin', sub: 'Daily fluency' },
-  { id: 'A2', label: 'L’Ambassadeur', sub: 'Complex discussions' },
-  { id: 'A1', label: 'Le Sage', sub: 'Fluent and nuanced' }
+  { id: 'B1', label: 'Le Citadin', sub: 'Daily fluency' },
+  { id: 'B2', label: 'L’Ambassadeur', sub: 'Complex discussions' },
+  { id: 'C1', label: 'Le Sage', sub: 'Fluent and nuanced' }
+];
 ];
 
 // Sticky Settings Retrieval
