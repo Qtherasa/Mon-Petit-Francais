@@ -333,13 +333,15 @@
   }
   function renderCategoryCard(catName) {
       const meta = window.CATEGORIES[catName]; // Uses the Proxy from shared/categories.js
-      const items = window.vocabData.filter(v => v.category === catName);
+      // NEW: Filter the data based on global rank/strict settings before counting
+      const allItemsInCategory = window.vocabData.filter(v => v.category === catName);
+      const filteredItems = getFilteredData(allItemsInCategory);
       
       return `
           <div class="card" onclick="openCategory('${catName}')">
               <span class="card-icon">${meta.icon}</span>
-              <div class="card-title">${meta.title}</div>
-              <div class="card-sub">${items.length} words</div>
+              <div class="card-title">${meta.sub}</div>
+              <div class="card-sub">${filteredItems.length} words</div>
           </div>
       `;
   }
