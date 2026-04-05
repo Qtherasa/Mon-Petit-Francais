@@ -360,14 +360,10 @@
     const pageConvo = document.getElementById('page-convo');
     const body      = document.getElementById('convo-body');
 
-    // Speed bar
-    const oldBar = pageConvo.querySelector('.speed-bar');
-    if (oldBar) oldBar.remove();
-    const nav = pageConvo.querySelector('.inner-nav');
-    Audio.buildSpeedBar(nav.parentNode, 'Playback speed');
-    const bar = pageConvo.querySelector('.speed-bar');
-    nav.insertAdjacentElement('afterend', bar);
-
+   //Set the Global Back Link
+    if (window.setNavContextLink) {
+      window.setNavContextLink(goBack, "Toutes les conversations");
+    }
     body.innerHTML = '';
 
     // Intro
@@ -529,6 +525,11 @@
     _playAllActive = false;
     if (_playAllTimeout) clearTimeout(_playAllTimeout);
     window.speechSynthesis && window.speechSynthesis.cancel();
+    // Hide the global back link when returning to the grid
+    if (window.setNavContextLink) {
+      window.setNavContextLink(null);
+    }
+    
     document.querySelectorAll('.script-line').forEach(el => el.style.opacity = '');
     document.getElementById('page-convo').classList.remove('active');
     document.getElementById('page-grid').style.display = 'block';
